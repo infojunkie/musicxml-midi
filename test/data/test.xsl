@@ -4,8 +4,7 @@
   exclude-result-prefixes="xs"
   version="2.0"
 >
-
-<xsl:output method="text"/>
+<xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
 <xsl:template match="/">
   <xsl:value-of select="/score-partwise/work/work-title"/>
