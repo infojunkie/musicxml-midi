@@ -6,10 +6,15 @@
 >
 <xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
-<xsl:template match="/">
-// <xsl:value-of select="//work/work-title"/>
-  <xsl:apply-templates select="//identification/creator[@type='lyricist']"/>
-  <xsl:apply-templates select="//part/measure"/>
+<variable name="divisions" select="score-partwise/part/measure/attributes/divisions" />
+
+<xsl:template match="score-partwise">
+  <!--
+    Check out https://github.com/k8bushlover/XSLT-MusicXmlToSessionBand
+  -->
+// <xsl:value-of select="work/work-title"/>
+  <xsl:apply-templates select="identification/creator[@type='lyricist']"/>
+  <xsl:apply-templates select="part/measure"/>
 </xsl:template>
 
 <xsl:template match="creator">
@@ -27,10 +32,13 @@ Groove <xsl:value-of select="if (contains(., '(')) then translate(replace(., '.*
   <xsl:apply-templates select="direction/sound[@tempo]" mode="tempo"/>
   <xsl:text>&#xa;</xsl:text>
   <xsl:value-of select="@number"/>
-  <xsl:apply-templates select="harmony"/>
+  <xsl:apply-templates select="harmony[1]">
+    <xsl:with-param name="start" select="1"/>
+  </xsl:apply-templates>
 </xsl:template>
 
 <xsl:template match="harmony">
+  <xsl:param name="start"/>
   <xsl:text> </xsl:text>
   <xsl:choose>
     <!--
@@ -42,8 +50,12 @@ Groove <xsl:value-of select="if (contains(., '(')) then translate(replace(., '.*
       <xsl:variable name="rootAlter"><xsl:value-of select="root/root-alter"/></xsl:variable>
       <xsl:value-of select="if ($rootAlter = '1') then '#' else if ($rootAlter = '-1') then 'b' else ''"/>
       <xsl:value-of select="kind/@text"/>
+      <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
     </xsl:otherwise>
   </xsl:choose>
+  <xsl:apply-templates select="following-sibling::harmony[1]">
+    <xsl:with-param name="start" select="$start + (following-sibling::note[1]/duration / $divisions)"/>
+  </xsl:apply-templates>
 </xsl:template>
 
 <xsl:template match="sound" mode="tempo">
