@@ -6,7 +6,7 @@
 >
 <xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
-<variable name="divisions" select="score-partwise/part/measure/attributes/divisions" />
+<xsl:variable name="divisions" select="score-partwise/part/measure/attributes/divisions" />
 
 <xsl:template match="score-partwise">
   <!--
