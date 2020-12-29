@@ -29,6 +29,8 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
     - run: make install
+      env:
+        MMA_HOME: mma/
     - run: make test
       env:
         CI: true
