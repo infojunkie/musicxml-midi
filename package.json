@@ -11,7 +11,7 @@
     "build:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
     "build:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "build": "run() { npm run build:mma \"$1\" && npm run build:midi \"${1/.musicxml/.mma}\"; }; run",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./test/libs/bats/bin/bats test/*.bats"
   },
   "repository": {
     "type": "git",
