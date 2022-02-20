@@ -6,6 +6,6 @@ A MusicXML converter to [Musical MIDI Accompaniment (MMA)](https://github.com/in
 
 ## Usage
 
-- `git clone https://github.com/infojunkie/mma` and set env var `MMA_HOME=/path/to/mma`
-- `make test`
-- `FILE=/path/to/file.musicxml make convert`
+- `git clone git@github.com:infojunkie/mma.git` and set env var `MMA_HOME=/path/to/mma`
+- `npm i && npm run grooves`
+- `npm run build:mma song.musicxml && npm run build:midi song.mma`

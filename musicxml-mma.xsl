@@ -24,7 +24,9 @@
 <!--
   Extract playback style from //identification/creator[@type='lyricist'] as exported by iReal Pro (and emulated by infojunkie/ireal-musicxml).
   See discussion at https://github.com/w3c/musicxml/issues/347
-  For now, we manually map between iReal Pro styles and MMA grooves here.
+
+  TODO Map iReal Pro grooves to MMA grooves
+  TODO Add default groove if none found
 -->
   <xsl:variable name="groove" select="if (contains(., '(')) then translate(replace(., '.*?\((.*?)\)', '$1'), ' ', '') else translate(., ' ', '')" />
 Groove <xsl:choose>
@@ -54,6 +56,7 @@ Groove <xsl:choose>
       <xsl:with-param name="start" select="1" />
     </xsl:apply-templates>
   </xsl:if>
+  <!-- TODO Handle repeats and jumps -->
 </xsl:template>
 
 <xsl:template match="harmony">
@@ -107,9 +110,11 @@ Groove <xsl:choose>
         <xsl:when test="kind = 'suspended-second'">sus2</xsl:when>
         <xsl:when test="kind = 'Tristan'"><!-- TODO --></xsl:when>
       </xsl:choose>
+      <!-- TODO Handle modified degrees -->
       <xsl:text>@</xsl:text><xsl:value-of select="$start" />
     </xsl:otherwise>
   </xsl:choose>
+  <!-- TODO Handle melody notes -->
   <xsl:apply-templates select="following-sibling::harmony[1]">
     <!--
       Get the next chord in this measure.
