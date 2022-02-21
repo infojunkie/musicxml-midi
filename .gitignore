@@ -1,2 +1,4 @@
 mmarc
 node_modules
+test/data/*.mid
+test/data/*.mma
