@@ -7,9 +7,7 @@
 >
 <xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
-<!--
-  Inspired by https://github.com/k8bushlover/XSLT-MusicXmlToSessionBand
--->
+<!-- Inspired by https://github.com/k8bushlover/XSLT-MusicXmlToSessionBand -->
 
 <xsl:param name="chordVolume" select="50"/>
 
@@ -51,19 +49,44 @@ Groove <xsl:choose>
   </xsl:choose>
 </xsl:template>
 
+<xsl:template match="barline" mode="start">
+  <xsl:text>&#xa;</xsl:text>
+  <xsl:choose>
+    <!-- Start a Repeat block. -->
+    <xsl:when test="repeat/@direction = 'forward'">Repeat</xsl:when>
+    <!-- Start a RepeatEnding block unless it's the last repeat section (of this Repeat block or of the entire score). -->
+    <xsl:when test="
+      ending/@type = 'start'
+      and ../following-sibling::measure/barline[ending/@type='start']
+      and not(../following-sibling::measure/barline[ending/@type='start']/ending/@number < ending/@number)
+    ">RepeatEnding</xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="barline" mode="end">
+  <xsl:text>&#xa;</xsl:text>
+  <xsl:choose>
+    <!--
+      Close the Repeat block.
+
+      TODO Don't close it if there's a RepeatEnding coming next.
+    -->
+    <xsl:when test="repeat/@direction = 'backward'">RepeatEnd</xsl:when>
+  </xsl:choose>
+</xsl:template>
+
 <xsl:template match="measure">
   <xsl:apply-templates select="attributes/time"/>
   <xsl:apply-templates select="direction/sound[@tempo]" mode="tempo"/>
   <xsl:text>&#xa;</xsl:text>
+  <xsl:apply-templates select="barline" mode="start"/>
   <xsl:if test="not($style)">
     <xsl:text>&#xa;</xsl:text>
     <xsl:apply-templates select="harmony[1]" mode="sequence">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
     <xsl:if test="count(harmony) = 0">
-      <!--
-        In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord.
-      -->
+      <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
       <xsl:apply-templates select="preceding-sibling::measure[harmony][1]/harmony[last()]" mode="sequence">
         <xsl:with-param name="start" select="1"/>
       </xsl:apply-templates>
@@ -75,14 +98,12 @@ Groove <xsl:choose>
     <xsl:with-param name="start" select="1"/>
   </xsl:apply-templates>
   <xsl:if test="count(harmony) = 0">
-    <!--
-      In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord.
-    -->
+    <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
     <xsl:apply-templates select="preceding-sibling::measure[harmony][1]/harmony[last()]" mode="chords">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
   </xsl:if>
-  <!-- TODO Handle repeats and jumps -->
+  <xsl:apply-templates select="barline" mode="end"/>
 </xsl:template>
 
 <xsl:template match="harmony" mode="sequence">
@@ -93,18 +114,10 @@ Groove <xsl:choose>
   </xsl:if>
   <xsl:value-of select="$start"/><xsl:text> </xsl:text>
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
+  <!-- Express the duration in MIDI ticks = 192 * quarter note -->
   <xsl:value-of select="$duration * 192"/><xsl:text>t </xsl:text>
   <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
-    <!--
-      Get the next chord in this measure.
-
-      The following sum() function accumulates the durations of all notes following the current harmony element
-      until the next harmony element. It skips chord notes which don't contribute additional duration.
-      The sum is divided by $divisions which is the global time resolution of the whole score.
-
-      TODO Handle multiple tied notes for duration.
-    -->
     <xsl:with-param name="start" select="$start + $duration"/>
   </xsl:apply-templates>
   <xsl:if test="count(following-sibling::harmony[1]) = 0">
@@ -117,18 +130,13 @@ Groove <xsl:choose>
   <xsl:variable name="id" select="generate-id(.)"/>
   <xsl:text> </xsl:text>
   <xsl:choose>
-    <!--
-      N.C. is expressed as "z" in MMA.
-    -->
+    <!-- N.C. is expressed as "z" in MMA. -->
     <xsl:when test="kind = 'none'">z</xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="root/root-step"/>
       <xsl:variable name="rootAlter"><xsl:value-of select="root/root-alter"/></xsl:variable>
       <xsl:value-of select="if ($rootAlter = '1') then '#' else if ($rootAlter = '-1') then 'b' else ''"/>
-      <!--
-        Handle all kind values
-        https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/kind-value/
-      -->
+      <!-- https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/kind-value/ -->
       <xsl:choose>
         <xsl:when test="kind = 'augmented'">aug</xsl:when>
         <xsl:when test="kind = 'augmented-seventh'">aug7</xsl:when>
@@ -189,9 +197,7 @@ Tempo <xsl:value-of select="@tempo"/>
 </xsl:template>
 
 <xsl:template match="time">
-<!--
-  Time signature in MMA is expressed as "number of quarter notes in a measure".
--->
+<!-- Time signature in MMA is expressed as "number of quarter notes in a measure". -->
 Time <xsl:value-of select="beats * 4 div beat-type"/>
 TimeSig <xsl:value-of select="beats"/>/<xsl:value-of select="beat-type"/>
 </xsl:template>
