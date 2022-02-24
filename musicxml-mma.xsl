@@ -14,74 +14,54 @@
 <xsl:variable name="divisions" select="score-partwise/part/measure/attributes/divisions"/>
 <xsl:variable name="beats" select="score-partwise/part/measure/attributes/time/beats"/>
 <xsl:variable name="beatType" select="score-partwise/part/measure/attributes/time/beat-type"/>
-<xsl:variable name="style" select="score-partwise/identification/creator[@type='lyricist']"/>
+<xsl:variable name="groove" select="score-partwise/identification/creator[@type='lyricist']"/>
 
 <xsl:template match="score-partwise">
 // <xsl:value-of select="translate(work/work-title, '&#xa;', ' ')"/>
-  <xsl:apply-templates select="identification/creator[@type='lyricist']" mode="style"/>
-  <xsl:if test="not($style)">
+  <xsl:apply-templates select="identification/creator[@type='lyricist']" mode="groove"/>
+  <xsl:if test="not($groove)">
 Begin Chord
   Voice Piano1
   Octave 5
   Articulate 80
   Volume m
-End
-  </xsl:if>
+End</xsl:if>
   <xsl:apply-templates select="part/measure"/>
 </xsl:template>
 
-<xsl:template match="creator" mode="style">
+<xsl:template match="creator" mode="groove">
 <!--
   Extract playback style from //identification/creator[@type='lyricist'] as exported by iReal Pro (and emulated by infojunkie/ireal-musicxml).
   See discussion at https://github.com/w3c/musicxml/issues/347
 
   TODO Map iReal Pro grooves to MMA grooves
 -->
-  <xsl:variable name="groove" select="if (contains(., '(')) then translate(replace(., '.*?\((.*?)\)', '$1'), ' ', '') else translate(., ' ', '')"/>
+  <xsl:variable name="playback" select="if (contains(., '(')) then translate(replace(., '.*?\((.*?)\)', '$1'), ' ', '') else translate(., ' ', '')"/>
 Groove <xsl:choose>
-    <xsl:when test="contains(lower-case($groove), 'swing')">
+    <xsl:when test="contains(lower-case($playback), 'swing')">
       <xsl:choose>
         <xsl:when test="$beats = 5 and $beatType = 4">Jazz54</xsl:when>
         <xsl:otherwise>Swing</xsl:otherwise>
       </xsl:choose>
     </xsl:when>
-    <xsl:otherwise><xsl:value-of select="$groove"/></xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-<xsl:template match="barline" mode="start">
-  <xsl:text>&#xa;</xsl:text>
-  <xsl:choose>
-    <!-- Start a Repeat block. -->
-    <xsl:when test="repeat/@direction = 'forward'">Repeat</xsl:when>
-    <!-- Start a RepeatEnding block unless it's the last repeat section (of this Repeat block or of the entire score). -->
-    <xsl:when test="
-      ending/@type = 'start'
-      and ../following-sibling::measure/barline[ending/@type='start']
-      and not(../following-sibling::measure/barline[ending/@type='start']/ending/@number < ending/@number)
-    ">RepeatEnding</xsl:when>
-  </xsl:choose>
-</xsl:template>
-
-<xsl:template match="barline" mode="end">
-  <xsl:text>&#xa;</xsl:text>
-  <xsl:choose>
-    <!--
-      Close the Repeat block.
-
-      TODO Don't close it if there's a RepeatEnding coming next.
-    -->
-    <xsl:when test="repeat/@direction = 'backward'">RepeatEnd</xsl:when>
+    <xsl:otherwise><xsl:value-of select="$playback"/></xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
 <xsl:template match="measure">
   <xsl:apply-templates select="attributes/time"/>
   <xsl:apply-templates select="direction/sound[@tempo]" mode="tempo"/>
-  <xsl:text>&#xa;</xsl:text>
   <xsl:apply-templates select="barline" mode="start"/>
-  <xsl:if test="not($style)">
-    <xsl:text>&#xa;</xsl:text>
+  <!-- Start a repeat block if this is the first measure and the very next repeat is backward-facing. -->
+  <xsl:if test="
+    @number = '1' and (
+      barline/repeat/@direction = 'backward' or
+      following-sibling::measure[barline/repeat][1]/barline/repeat/@direction = 'backward'
+    )
+  ">
+Repeat</xsl:if>
+  <!-- If we don't have a groove, add our hand-made chord sequence. -->
+  <xsl:if test="not($groove)">
     <xsl:apply-templates select="harmony[1]" mode="sequence">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
@@ -106,12 +86,38 @@ Groove <xsl:choose>
   <xsl:apply-templates select="barline" mode="end"/>
 </xsl:template>
 
+<xsl:template match="barline" mode="start">
+  <xsl:choose>
+    <!-- Start a Repeat block. -->
+    <xsl:when test="repeat/@direction = 'forward'">
+Repeat</xsl:when>
+    <!-- Start a RepeatEnding block unless it's the exit section of this Repeat block. -->
+    <!-- TODO Handle cases with @number like [1, 2, 3, 5, 6, 9] or even [1, 2] followed by [2, 3, 4] -->
+    <xsl:when test="
+      ending/@type = 'start' and (
+        following-sibling::barline[ending/@number = ending/@number and repeat/@direction = 'backward'] or
+        ../following-sibling::measure/barline[ending/@number = ending/@number and repeat/@direction = 'backward']
+      )
+    ">
+RepeatEnding <xsl:value-of select="count(tokenize(ending/@number, ','))"/>
+    </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="barline" mode="end">
+  <!-- Close the Repeat block unless there's a RepeatEnding coming next. -->
+  <xsl:if test="repeat/@direction = 'backward' and not(../following-sibling::measure[1]/barline[ending/@type = 'start'])">
+RepeatEnd <xsl:if test="repeat/@times and not(ending)">
+      <xsl:value-of select="repeat/@times"/>
+    </xsl:if>
+  </xsl:if>
+</xsl:template>
+
 <xsl:template match="harmony" mode="sequence">
   <xsl:param name="start"/>
   <xsl:variable name="id" select="generate-id(.)"/>
   <xsl:if test="$start = 1">
-    <xsl:text>Chord Sequence { </xsl:text>
-  </xsl:if>
+Chord Sequence { </xsl:if>
   <xsl:value-of select="$start"/><xsl:text> </xsl:text>
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <!-- Express the duration in MIDI ticks = 192 * quarter note -->
@@ -120,9 +126,7 @@ Groove <xsl:choose>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
     <xsl:with-param name="start" select="$start + $duration"/>
   </xsl:apply-templates>
-  <xsl:if test="count(following-sibling::harmony[1]) = 0">
-    <xsl:text>}</xsl:text>
-  </xsl:if>
+  <xsl:if test="count(following-sibling::harmony[1]) = 0">}</xsl:if>
 </xsl:template>
 
 <xsl:template match="harmony" mode="chords">
