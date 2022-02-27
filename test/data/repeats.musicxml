@@ -7,7 +7,7 @@
   <identification>
     <encoding>
       <software>MuseScore 3.6.2</software>
-      <encoding-date>2022-02-23</encoding-date>
+      <encoding-date>2022-02-27</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -101,6 +101,12 @@
         <duration>4</duration>
         <voice>1</voice>
         </note>
+      <direction placement="above">
+        <direction-type>
+          <words relative-y="20.00">Fine</words>
+          </direction-type>
+        <sound fine="yes"/>
+        </direction>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         <repeat direction="backward" times="3"/>
@@ -152,6 +158,92 @@
         <bar-style>light-heavy</bar-style>
         <ending number="3, 4, 5, 6" type="stop"/>
         <repeat direction="backward" times="4"/>
+        </barline>
+      </measure>
+    <measure number="7" width="196.42">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>150.00</system-distance>
+          </system-layout>
+        </print>
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      </measure>
+    <measure number="8" width="171.48">
+      <barline location="left">
+        <bar-style>heavy-light</bar-style>
+        <repeat direction="forward"/>
+        </barline>
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      </measure>
+    <measure number="9" width="169.68">
+      <barline location="left">
+        <ending number="1, 3, 5, 7" type="start" default-y="36.98"/>
+        </barline>
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        <ending number="1, 3, 5, 7" type="stop"/>
+        <repeat direction="backward"/>
+        </barline>
+      </measure>
+    <measure number="10" width="169.68">
+      <barline location="left">
+        <ending number="2, 4, 6" type="start" default-y="36.98"/>
+        </barline>
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        <ending number="2, 4, 6" type="stop"/>
+        <repeat direction="backward"/>
+        </barline>
+      </measure>
+    <measure number="11" width="159.83">
+      <barline location="left">
+        <ending number="8" type="start" default-y="36.98"/>
+        </barline>
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      <barline location="right">
+        <ending number="8" type="discontinue"/>
+        </barline>
+      </measure>
+    <measure number="12" width="161.48">
+      <note>
+        <rest measure="yes"/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      <direction placement="above">
+        <direction-type>
+          <words relative-y="20.00">D.C. al Fine</words>
+          </direction-type>
+        <sound dacapo="yes"/>
+        </direction>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
         </barline>
       </measure>
     </part>
