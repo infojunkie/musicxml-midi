@@ -101,12 +101,6 @@
         <duration>4</duration>
         <voice>1</voice>
         </note>
-      <direction placement="above">
-        <direction-type>
-          <words relative-y="20.00">Fine</words>
-          </direction-type>
-        <sound fine="yes"/>
-        </direction>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         <repeat direction="backward" times="3"/>
@@ -125,13 +119,19 @@
       </measure>
     <measure number="4" width="158.07">
       <barline location="left">
-        <ending number="1, 2" type="start" default-y="36.98"/>
+        <ending number="1, 2" type="start" default-y="67.47"/>
         </barline>
       <note>
         <rest measure="yes"/>
         <duration>4</duration>
         <voice>1</voice>
         </note>
+      <direction placement="above">
+        <direction-type>
+          <words relative-y="20.00">Fine</words>
+          </direction-type>
+        <sound fine="yes"/>
+        </direction>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         <ending number="1, 2" type="stop"/>
@@ -140,7 +140,7 @@
       </measure>
     <measure number="5" width="148.23">
       <barline location="left">
-        <ending number="3, 4, 5, 6" type="start" default-y="36.98"/>
+        <ending number="3, 4, 5, 6" type="start" default-y="67.47"/>
         </barline>
       <note>
         <rest measure="yes"/>
