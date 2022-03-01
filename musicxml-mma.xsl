@@ -116,6 +116,18 @@ Groove <xsl:choose>
     -->
     <xsl:when test="./*/sound/@fine = 'yes' and not($jump = '')">
     </xsl:when>
+    <!-- To Coda: Jump forward to labeled coda
+         TODO Handle ./*/sound/@time-only for alternate endings.
+    -->
+    <xsl:when test="./*/sound[@tocoda] and not($jump = '')">
+      <xsl:variable name="coda" select="./*/sound/@tocoda"/>
+      <xsl:apply-templates select="following-sibling::measure[./*/sound/@coda = $coda]">
+        <xsl:with-param name="lastHarmony"/>
+        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="jump" select="$coda"/>
+      </xsl:apply-templates>
+    </xsl:when>
     <!-- Opening repeat: Save this measure as the loop start. Reset loop counter to 1 unless we're already looping.
          TODO Handle sound/@forward-repeat attribute for the same effect.
     -->

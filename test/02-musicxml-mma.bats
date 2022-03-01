@@ -23,5 +23,5 @@ set -euo pipefail
 @test "musicxml-mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/repeats.musicxml)
   run echo ${mma}
-  assert_output --partial '1 2 1 2 1 2 3 4 3 4 3 5 6 3 5 6 3 5 6 3 5 6 7 8 9 8 10 8 9 8 10 8 9 8 10 8 9 8 11 12 1 2 3 4'
+  assert_output --partial '1 2 1 2 1 2 3 4 3 4 3 5 6 3 5 6 3 5 6 3 5 6 7 8 9 8 10 8 9 8 10 8 9 8 10 8 9 8 11 12 1 2 3 4 13 14'
 }
