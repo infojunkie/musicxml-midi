@@ -222,7 +222,7 @@ Chord Sequence { </xsl:if>
     <xsl:when test="kind = 'none'">z</xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="root/root-step"/>
-      <xsl:variable name="rootAlter"><xsl:value-of select="root/root-alter"/></xsl:variable>
+      <xsl:variable name="rootAlter" select="root/root-alter"/>
       <xsl:value-of select="if ($rootAlter = '1') then '#' else if ($rootAlter = '-1') then 'b' else ''"/>
       <!-- https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/kind-value/ -->
       <xsl:choose>
