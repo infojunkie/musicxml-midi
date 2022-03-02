@@ -9,7 +9,7 @@
     <creator type="composer">J. Barnel arr. Hesham Galal</creator>
     <encoding>
       <software>MuseScore 3.6.2</software>
-      <encoding-date>2021-12-16</encoding-date>
+      <encoding-date>2022-03-01</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -78,7 +78,7 @@
             <left-margin>50.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <top-system-distance>189.97</top-system-distance>
+          <top-system-distance>190.38</top-system-distance>
           </system-layout>
         </print>
       <barline location="left">
@@ -116,7 +116,7 @@
         </direction>
       <direction placement="above">
         <direction-type>
-          <rehearsal default-x="-43.85" default-y="32.41" relative-y="30.00" font-weight="bold" font-size="14">Intro</rehearsal>
+          <rehearsal default-x="-43.85" default-y="32.82" relative-y="30.00" font-weight="bold" font-size="14">Intro</rehearsal>
           </direction-type>
         </direction>
       <note default-x="109.57" default-y="-5.00">
@@ -397,7 +397,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <barline location="left">
@@ -812,7 +812,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <harmony print-frame="no">
@@ -1426,7 +1426,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <barline location="left">
@@ -1554,7 +1554,7 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind>major</kind>
+        <kind text="7">dominant</kind>
         <bass>
           <bass-step>G</bass-step>
           </bass>
@@ -1615,7 +1615,7 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind>major</kind>
+        <kind text="7">dominant</kind>
         <bass>
           <bass-step>G</bass-step>
           </bass>
@@ -1754,7 +1754,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <harmony print-frame="no">
@@ -2125,7 +2125,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <barline location="left">
@@ -2411,7 +2411,7 @@
             <left-margin>0.00</left-margin>
             <right-margin>0.00</right-margin>
             </system-margins>
-          <system-distance>158.97</system-distance>
+          <system-distance>158.90</system-distance>
           </system-layout>
         </print>
       <barline location="left">
@@ -2718,7 +2718,7 @@
         </note>
       <direction placement="above">
         <direction-type>
-          <words default-y="24.92" relative-y="20.00">D.S. al Fine</words>
+          <words default-y="25.32" relative-y="20.00">D.S. al Fine</words>
           </direction-type>
         <sound dalsegno="segno"/>
         </direction>

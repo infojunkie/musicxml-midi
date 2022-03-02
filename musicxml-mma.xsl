@@ -112,12 +112,12 @@ Groove <xsl:choose>
   <!-- Advance to next measure with our unrolling algorithm. -->
   <xsl:choose>
     <!-- Fine: Stop everything
-         TODO Handle */sound/@time-only for alternate endings.
+         TODO Handle sound/@time-only for alternate endings.
     -->
     <xsl:when test="*/sound/@fine = 'yes' and not($jump = '')">
     </xsl:when>
     <!-- To Coda: Jump forward to labeled coda
-         TODO Handle */sound/@time-only for alternate endings.
+         TODO Handle sound/@time-only for alternate endings.
     -->
     <xsl:when test="*/sound[@tocoda] and not($jump = '')">
       <xsl:variable name="coda" select="*/sound/@tocoda"/>
@@ -232,8 +232,7 @@ Chord Sequence { </xsl:if>
     <xsl:when test="kind = 'none'">z</xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="root/root-step"/>
-      <xsl:variable name="rootAlter" select="root/root-alter"/>
-      <xsl:value-of select="if ($rootAlter = '1') then '#' else if ($rootAlter = '-1') then 'b' else ''"/>
+      <xsl:value-of select="if (root/root-alter = '1') then '#' else if (root/root-alter = '-1') then 'b' else ''"/>
       <!-- https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/kind-value/ -->
       <xsl:choose>
         <xsl:when test="kind = 'augmented'">aug</xsl:when>
@@ -270,7 +269,12 @@ Chord Sequence { </xsl:if>
         <xsl:when test="kind = 'Tristan'"><!-- TODO --></xsl:when>
       </xsl:choose>
       <!-- TODO Handle modified degrees -->
-      <!-- TODO Handle bass note -->
+      <!-- Handle bass note -->
+      <xsl:if test="bass">
+        <xsl:text>/</xsl:text>
+        <xsl:value-of select="bass/bass-step"/>
+        <xsl:value-of select="if (bass/bass-alter = '1') then '#' else if (bass/bass-alter = '-1') then 'b' else ''"/>
+      </xsl:if>
     </xsl:otherwise>
   </xsl:choose>
   <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
