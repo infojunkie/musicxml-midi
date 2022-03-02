@@ -7,7 +7,7 @@
   <identification>
     <encoding>
       <software>MuseScore 3.6.2</software>
-      <encoding-date>2022-02-28</encoding-date>
+      <encoding-date>2022-03-01</encoding-date>
       <supports element="accidental" type="yes"/>
       <supports element="beam" type="yes"/>
       <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -161,6 +161,12 @@
         </barline>
       </measure>
     <measure number="7" width="127.05">
+      <direction placement="above">
+        <direction-type>
+          <segno default-x="-4.64" relative-y="20.00"/>
+          </direction-type>
+        <sound segno="segno"/>
+        </direction>
       <note>
         <rest measure="yes"/>
         <duration>4</duration>
@@ -186,10 +192,16 @@
         <duration>4</duration>
         <voice>1</voice>
         </note>
+      <direction placement="above">
+        <direction-type>
+          <words relative-y="20.00">Fine</words>
+          </direction-type>
+        <sound fine="yes"/>
+        </direction>
       </measure>
     <measure number="9" width="144.84">
       <barline location="left">
-        <ending number="1, 3, 5, 7" type="start" default-y="36.98"/>
+        <ending number="1, 3, 5, 7" type="start" default-y="45.47"/>
         </barline>
       <note>
         <rest measure="yes"/>
@@ -204,7 +216,7 @@
       </measure>
     <measure number="10" width="144.84">
       <barline location="left">
-        <ending number="2, 4, 6" type="start" default-y="36.98"/>
+        <ending number="2, 4, 6" type="start" default-y="45.47"/>
         </barline>
       <note>
         <rest measure="yes"/>
@@ -219,7 +231,7 @@
       </measure>
     <measure number="11" width="135.00">
       <barline location="left">
-        <ending number="8" type="start" default-y="36.98"/>
+        <ending number="8" type="start" default-y="45.47"/>
         </barline>
       <note>
         <rest measure="yes"/>
@@ -265,6 +277,12 @@
         <duration>4</duration>
         <voice>1</voice>
         </note>
+      <direction placement="above">
+        <direction-type>
+          <words relative-y="20.00">D.S. al Fine</words>
+          </direction-type>
+        <sound dalsegno="segno"/>
+        </direction>
       <barline location="right">
         <bar-style>light-heavy</bar-style>
         </barline>

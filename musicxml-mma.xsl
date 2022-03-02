@@ -112,16 +112,16 @@ Groove <xsl:choose>
   <!-- Advance to next measure with our unrolling algorithm. -->
   <xsl:choose>
     <!-- Fine: Stop everything
-         TODO Handle ./*/sound/@time-only for alternate endings.
+         TODO Handle */sound/@time-only for alternate endings.
     -->
-    <xsl:when test="./*/sound/@fine = 'yes' and not($jump = '')">
+    <xsl:when test="*/sound/@fine = 'yes' and not($jump = '')">
     </xsl:when>
     <!-- To Coda: Jump forward to labeled coda
-         TODO Handle ./*/sound/@time-only for alternate endings.
+         TODO Handle */sound/@time-only for alternate endings.
     -->
-    <xsl:when test="./*/sound[@tocoda] and not($jump = '')">
-      <xsl:variable name="coda" select="./*/sound/@tocoda"/>
-      <xsl:apply-templates select="following-sibling::measure[./*/sound/@coda = $coda]">
+    <xsl:when test="*/sound[@tocoda] and not($jump = '')">
+      <xsl:variable name="coda" select="*/sound/@tocoda"/>
+      <xsl:apply-templates select="following-sibling::measure[*/sound/@coda = $coda]">
         <xsl:with-param name="lastHarmony"/>
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
@@ -166,12 +166,22 @@ Groove <xsl:choose>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Da capo: Go back to start. -->
-    <xsl:when test="./*/sound/@dacapo = 'yes' and $jump = ''">
+    <xsl:when test="*/sound/@dacapo = 'yes' and not($jump = 'capo')">
       <xsl:apply-templates select="//measure[1]">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="capo"/>
+      </xsl:apply-templates>
+    </xsl:when>
+    <!-- Dal segno: Go back to labeled sign. -->
+    <xsl:when test="*/sound[@dalsegno] and not($jump = */sound/@dalsegno)">
+      <xsl:variable name="segno" select="*/sound/@dalsegno"/>
+      <xsl:apply-templates select="preceding-sibling::measure[*/sound/@segno = $segno]">
+        <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
+        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="jump" select="@segno"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Closing repeat without alternate ending: Go straight and reset state if the loop counter has reached the requested times. -->
