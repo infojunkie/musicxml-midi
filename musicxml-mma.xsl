@@ -17,15 +17,30 @@
 <xsl:variable name="groove" select="score-partwise/identification/creator[@type='lyricist']"/>
 
 <xsl:template match="score-partwise">
-// <xsl:value-of select="translate(work/work-title, '&#xa;', ' ')"/>
   <xsl:apply-templates select="identification/creator[@type='lyricist']" mode="groove"/>
   <xsl:if test="not($groove)">
+// Custom chord voice
 Begin Chord
   Voice Piano1
   Octave 5
   Articulate 80
   Volume m
-End</xsl:if>
+End
+  </xsl:if>
+// Custom chord definitions
+DefChord 7(add6) (0, 4, 7, 9, 10) (0, 2, 4, 5, 7, 9, 10)
+DefChord +(addM7)(add9) (0, 4, 8, 11, 14) (0, 2, 4, 5, 8, 9, 11)
+DefChord 7+#9 (0, 4, 8, 10, 15) (0, 3, 4, 5, 8, 9, 10)
+DefChord M7+ (0, 4, 8, 11) (0, 2, 4, 5, 8, 9, 11)
+DefChord dimb13 (0, 3, 6, 9, 8) (0, 2, 3, 5, 6, 8, 9)
+DefChord m7+#9 (0, 3, 8, 10, 15) (0, 3, 3, 5, 8, 8, 10)
+DefChord m7+b9 (0, 3, 8, 10, 13) (0, 1, 3, 5, 8, 8, 10)
+DefChord m7+b9#11 (0, 3, 8, 10, 13, 18) (0, 1, 3, 6, 8, 9, 10)
+DefChord m7+ (0, 3, 7, 11) (0, 2, 3, 5, 7, 8, 11)
+DefChord (omit3)(add9) (0, 0, 7, 14) (0, 2, 4, 5, 7, 9, 10)
+DefChord sus#9 (0, 5, 7, 15) (0, 2, 5, 5, 7, 9, 11)
+DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
+DefChord 7sus(add9) (0, 5, 7, 10, 14) (0, 2, 5, 5, 7, 9, 10)
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
     <xsl:with-param name="repeatMeasure"/>
@@ -213,6 +228,14 @@ Groove <xsl:choose>
   <xsl:if test="$start = 1">
 Chord Sequence { </xsl:if>
   <xsl:value-of select="$start"/><xsl:text> </xsl:text>
+  <!--
+    Calculate this chord's duration.
+
+    The following sum() function accumulates the durations of all notes following the current harmony element
+    until the next harmony element. It skips chord notes which don't contribute additional duration.
+    The sum is divided by $divisions which is the global time resolution of the whole score.
+    The final duration is expressed in "beats" == quarter note time.
+  -->
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <!-- Express the duration in MIDI ticks = 192 * quarter note -->
   <xsl:value-of select="$duration * 192"/><xsl:text>t </xsl:text>
@@ -235,8 +258,8 @@ Chord Sequence { </xsl:if>
       <xsl:value-of select="if (root/root-alter = '1') then '#' else if (root/root-alter = '-1') then 'b' else ''"/>
       <!-- https://www.w3.org/2021/06/musicxml40/musicxml-reference/data-types/kind-value/ -->
       <xsl:choose>
-        <xsl:when test="kind = 'augmented'">aug</xsl:when>
-        <xsl:when test="kind = 'augmented-seventh'">aug7</xsl:when>
+        <xsl:when test="kind = 'augmented'">+</xsl:when>
+        <xsl:when test="kind = 'augmented-seventh'">+7</xsl:when>
         <xsl:when test="kind = 'diminished'">dim</xsl:when>
         <xsl:when test="kind = 'diminished-seventh'">dim7</xsl:when>
         <xsl:when test="kind = 'dominant'">7</xsl:when>
@@ -248,11 +271,11 @@ Chord Sequence { </xsl:if>
         <xsl:when test="kind = 'half-diminished'">7b5</xsl:when>
         <xsl:when test="kind = 'Italian'"><!-- TODO --></xsl:when>
         <xsl:when test="kind = 'major'"></xsl:when>
-        <xsl:when test="kind = 'major-11th'">maj11</xsl:when>
-        <xsl:when test="kind = 'major-13th'">maj13</xsl:when>
-        <xsl:when test="kind = 'major-minor'">m(maj7)</xsl:when>
-        <xsl:when test="kind = 'major-ninth'">maj9</xsl:when>
-        <xsl:when test="kind = 'major-seventh'">maj7</xsl:when>
+        <xsl:when test="kind = 'major-11th'">M11</xsl:when>
+        <xsl:when test="kind = 'major-13th'">M13</xsl:when>
+        <xsl:when test="kind = 'major-minor'">mM7</xsl:when>
+        <xsl:when test="kind = 'major-ninth'">M9</xsl:when>
+        <xsl:when test="kind = 'major-seventh'">M7</xsl:when>
         <xsl:when test="kind = 'major-sixth'">6</xsl:when>
         <xsl:when test="kind = 'minor'">m</xsl:when>
         <xsl:when test="kind = 'minor-11th'">m11</xsl:when>
@@ -264,12 +287,49 @@ Chord Sequence { </xsl:if>
         <xsl:when test="kind = 'other'"><!-- TODO --></xsl:when>
         <xsl:when test="kind = 'pedal'"><!-- TODO --></xsl:when>
         <xsl:when test="kind = 'power'">5</xsl:when>
-        <xsl:when test="kind = 'suspended-fourth'">sus4</xsl:when>
+        <xsl:when test="kind = 'suspended-fourth'">sus</xsl:when>
         <xsl:when test="kind = 'suspended-second'">sus2</xsl:when>
         <xsl:when test="kind = 'Tristan'"><!-- TODO --></xsl:when>
       </xsl:choose>
-      <!-- TODO Handle modified degrees -->
-      <!-- Handle bass note -->
+      <!--
+        Handle modified degrees.
+
+        We try our best to have a rational naming algorithm, and we resort to DefChord when MMA does not recognize our chords:
+        - Detect add 4, omit 3 => sus
+        - Detect add 2, omit 3 => sus2
+        - Detect alter #5 => +
+        - Altered degrees: expecting either sharp or flat alterations
+        - Added degrees except for sus/sus2: emit (addX) if no alteration. Special case for 7 => M7 when adding this degree.
+        - Omitted degrees except for sus/sus2: alterations are not expected
+
+        This algorithm misses some cases. We could try to detect them but it's easier to use MMA's DefChord
+        to define our output as synonyms to existing chords. Use `npm run print:chord "sus(addb9)"` to print the syntax for an existing
+        code definition that needs to be cloned.
+      -->
+      <xsl:variable name="sus">
+        <xsl:choose>
+          <xsl:when test="degree[degree-type = 'add' and degree-value = '4'] and degree[degree-type = 'subtract' and degree-value = '3']">sus</xsl:when>
+          <xsl:when test="degree[degree-type = 'add' and degree-value = '2'] and degree[degree-type = 'subtract' and degree-value = '3']">sus2</xsl:when>
+          <xsl:when test="degree[degree-type = 'alter' and degree-value = '5' and degree-alter = '1']">+</xsl:when>
+          <xsl:otherwise></xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:value-of select="$sus"/>
+      <xsl:for-each select="degree[degree-type = 'subtract' and not(degree-value = '3' and not($sus = ''))]">
+        <xsl:text>(omit</xsl:text>
+        <xsl:value-of select="degree-value"/>
+        <xsl:text>)</xsl:text>
+      </xsl:for-each>
+      <xsl:for-each select="degree[degree-type = 'alter' and not(degree-value = '5' and not($sus = ''))]">
+        <xsl:value-of select="if (degree-alter = '1') then '#' else if (degree-alter = '-1') then 'b' else ''"/>
+        <xsl:value-of select="degree-value"/>
+      </xsl:for-each>
+      <xsl:for-each select="degree[degree-type = 'add' and not((degree-value = '4' or degree-value = '2') and not($sus = ''))]">
+        <xsl:value-of select="if (degree-alter = '1') then '#' else if (degree-alter = '-1') then 'b' else '(add'"/>
+        <xsl:value-of select="if (degree-value = '7' and degree-alter = '0') then 'M7' else degree-value"/>
+        <xsl:value-of select="if (degree-alter = '1') then '' else if (degree-alter = '-1') then '' else ')'"/>
+      </xsl:for-each>
+      <!-- Handle bass note. -->
       <xsl:if test="bass">
         <xsl:text>/</xsl:text>
         <xsl:value-of select="bass/bass-step"/>
@@ -279,17 +339,9 @@ Chord Sequence { </xsl:if>
   </xsl:choose>
   <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
   <!-- TODO Handle melody notes -->
+  <!-- Advance to next chord. -->
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="chords">
-    <!--
-      Get the next chord in this measure.
-
-      The following sum() function accumulates the durations of all notes following the current harmony element
-      until the next harmony element. It skips chord notes which don't contribute additional duration.
-      The sum is divided by $divisions which is the global time resolution of the whole score.
-
-      TODO Handle multiple tied notes for duration.
-    -->
     <xsl:with-param name="start" select="$start + $duration"/>
   </xsl:apply-templates>
 </xsl:template>

@@ -8,7 +8,6 @@ set -euo pipefail
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/take-five.musicxml)
   echo ${mma} | ${MMA_HOME:-../mma}/mma.py -n -
   run echo ${mma}
-  assert_output --partial '// Take Five'
   assert_output --partial 'Groove Jazz54'
 }
 
@@ -17,11 +16,16 @@ set -euo pipefail
   echo ${mma} | ${MMA_HOME:-../mma}/mma.py -n -
   run echo ${mma}
   assert_output --partial 'Chord Sequence { 1 384t 50; 3 384t 50; }'
-  assert_output --partial '12 Eaug@1 E7@3'
+  assert_output --partial '12 E+@1 E7@3'
 }
 
 @test "musicxml-mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/repeats.musicxml)
   run echo ${mma}
   assert_output --partial '1 2 1 2 1 2 3 4 3 4 3 5 6 3 5 6 3 5 6 3 5 6 7 8 9 8 10 8 9 8 10 8 9 8 10 8 9 8 11 12 1 2 3 4 13 14 7 8'
+}
+
+@test "musicxml-mma produces a valid file for chords" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/chords.musicxml)
+  echo ${mma} | ${MMA_HOME:-../mma}/mma.py -n -
 }
