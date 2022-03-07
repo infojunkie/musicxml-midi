@@ -40,7 +40,6 @@ DefChord m7+ (0, 3, 7, 11) (0, 2, 3, 5, 7, 8, 11)
 DefChord (omit3)(add9) (0, 0, 7, 14) (0, 2, 4, 5, 7, 9, 10)
 DefChord sus#9 (0, 5, 7, 15) (0, 2, 5, 5, 7, 9, 11)
 DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
-DefChord 7sus(add9) (0, 5, 7, 10, 14) (0, 2, 5, 5, 7, 9, 10)
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
     <xsl:with-param name="repeatMeasure"/>
