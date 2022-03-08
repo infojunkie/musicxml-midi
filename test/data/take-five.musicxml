@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise>
   <work>
     <work-title>Take Five</work-title>
@@ -8,7 +8,7 @@
     <creator type="composer">Paul Desmond</creator>
     <encoding>
       <software>@infojunkie/ireal-musicxml</software>
-      <encoding-date>2020-12-20</encoding-date>
+      <encoding-date>2022-03-07</encoding-date>
       <supports element="accidental" type="no"/>
       <supports element="transpose" type="no"/>
       <supports attribute="new-page" element="print" type="yes" value="yes"/>
@@ -30,7 +30,7 @@
     <measure number="1">
       <direction placement="above">
         <direction-type>
-          <rehearsal>A</rehearsal>
+          <words>Medium Up Swing</words>
         </direction-type>
         <sound>
           <play>
@@ -41,6 +41,11 @@
       <barline location="left">
         <bar-style>light-light</bar-style>
       </barline>
+      <direction placement="above">
+        <direction-type>
+          <rehearsal>A</rehearsal>
+        </direction-type>
+      </direction>
       <attributes>
         <divisions>768</divisions>
         <key>
@@ -768,7 +773,7 @@
         <degree print-object="no">
           <degree-value>9</degree-value>
           <degree-alter>-1</degree-alter>
-          <degree-type>alter</degree-type>
+          <degree-type>add</degree-type>
         </degree>
       </harmony>
       <note>
