@@ -6,7 +6,6 @@
   </work>
   <identification>
     <creator type="composer">Paul Desmond</creator>
-    <creator type="lyricist">Medium Up Swing</creator>
     <encoding>
       <software>@infojunkie/ireal-musicxml</software>
       <encoding-date>2020-12-20</encoding-date>
@@ -33,6 +32,11 @@
         <direction-type>
           <rehearsal>A</rehearsal>
         </direction-type>
+        <sound>
+          <play>
+            <other-play type="groove">Medium Up Swing</other-play>
+          </play>
+        </sound>
       </direction>
       <barline location="left">
         <bar-style>light-light</bar-style>
@@ -739,11 +743,6 @@
           <root-step>F</root-step>
         </root>
         <kind text="m7b5" use-symbols="no">half-diminished</kind>
-        <degree print-object="no">
-          <degree-value>5</degree-value>
-          <degree-alter>-1</degree-alter>
-          <degree-type>alter</degree-type>
-        </degree>
       </harmony>
       <barline location="left">
         <bar-style>none</bar-style>

@@ -10,3 +10,11 @@ A MusicXML converter to [Musical MIDI Accompaniment (MMA)](http://www.mellowood.
 - `git clone git@github.com:infojunkie/mma.git` and set env var `MMA_HOME=/path/to/mma`
 - `npm install && npm run grooves`
 - `npm run build:mma song.musicxml && npm run build:midi song.mma`
+
+## Theory of operation
+
+This converter aims to create a valid MMA accompaniment script out of a MusicXML lead sheet. To accomplish this, it expects to find the following information in the sheet:
+
+- Chord information, expressed as valid [`harmony` elements](https://w3c.github.io/musicxml/musicxml-reference/elements/harmony/). MMA recognizes a large number of chords, but MusicXML's harmony representation is more general and can lead to invalid chord names. Refer to [chords.musicxml](test/data/chords.musicxml) for a reference on how to express all MMA-supported chords.
+
+- Optional playback style information, expressed as [`sound/play/other-play` elements](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/other-play/) with attribute `@type = 'groove'`. The content of this element represents the "groove" that is passed to MMA to generate an accompaniment. In case no such playback style information is found, the chords are played back as per the lead sheet without further accompaniment. Note that several styles can be specified in a single sheet, since the `sound` element is associated with `measure` or `measure/direction` elements.

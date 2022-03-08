@@ -15,7 +15,7 @@ set -euo pipefail
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/salma-ya-salama.musicxml)
   echo ${mma} | ${MMA_HOME:-../mma}/mma.py -n -
   run echo ${mma}
-  assert_output --partial 'Chord Sequence { 1 384t 50; 3 384t 50; }'
+  assert_output --partial 'Chord-Custom Sequence { 1 384t 50; 3 384t 50; }'
   assert_output --partial '12 E+@1 E7@3'
 }
 

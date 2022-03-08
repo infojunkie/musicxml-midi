@@ -1761,11 +1761,16 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind text="7sus">suspended-fourth</kind>
+        <kind text="7sus">dominant</kind>
         <degree>
-          <degree-value text="">7</degree-value>
+          <degree-value>3</degree-value>
           <degree-alter>0</degree-alter>
-          <degree-type text="">add</degree-type>
+          <degree-type>subtract</degree-type>
+          </degree>
+        <degree>
+          <degree-value>4</degree-value>
+          <degree-alter>0</degree-alter>
+          <degree-type>add</degree-type>
           </degree>
         </harmony>
       <note default-x="58.59" default-y="-5.00">
@@ -1854,11 +1859,16 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind text="7sus">suspended-fourth</kind>
+        <kind text="7sus">dominant</kind>
         <degree>
-          <degree-value text="">7</degree-value>
+          <degree-value>3</degree-value>
           <degree-alter>0</degree-alter>
-          <degree-type text="">add</degree-type>
+          <degree-type>subtract</degree-type>
+          </degree>
+        <degree>
+          <degree-value>4</degree-value>
+          <degree-alter>0</degree-alter>
+          <degree-type>add</degree-type>
           </degree>
         </harmony>
       <note default-x="15.50" default-y="-10.00">
@@ -1946,11 +1956,16 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind text="7sus">suspended-fourth</kind>
+        <kind text="7sus">dominant</kind>
         <degree>
-          <degree-value text="">7</degree-value>
+          <degree-value>3</degree-value>
           <degree-alter>0</degree-alter>
-          <degree-type text="">add</degree-type>
+          <degree-type>subtract</degree-type>
+          </degree>
+        <degree>
+          <degree-value>4</degree-value>
+          <degree-alter>0</degree-alter>
+          <degree-type>add</degree-type>
           </degree>
         </harmony>
       <note default-x="20.96" default-y="-15.00">
@@ -2051,11 +2066,16 @@
         <root>
           <root-step>A</root-step>
           </root>
-        <kind text="7sus">suspended-fourth</kind>
+        <kind text="7sus">dominant</kind>
         <degree>
-          <degree-value text="">7</degree-value>
+          <degree-value>3</degree-value>
           <degree-alter>0</degree-alter>
-          <degree-type text="">add</degree-type>
+          <degree-type>subtract</degree-type>
+          </degree>
+        <degree>
+          <degree-value>4</degree-value>
+          <degree-alter>0</degree-alter>
+          <degree-type>add</degree-type>
           </degree>
         </harmony>
       <note default-x="20.96" default-y="-35.00">
