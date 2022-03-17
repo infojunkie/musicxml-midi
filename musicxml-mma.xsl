@@ -350,6 +350,11 @@ Chord-Custom Sequence { </xsl:if>
 </xsl:template>
 
 <xsl:template match="note">
+  <!-- TODO Handle the following:
+    - Ties
+    - Articulations
+    - Sound directives
+  -->
   <xsl:if test="count(preceding-sibling::note) = 0"> {</xsl:if>
   <xsl:text> </xsl:text>
   <xsl:if test="not(chord)">
@@ -358,11 +363,17 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:if>
   <xsl:choose>
     <xsl:when test="pitch">
-      <!-- TODO Handle octave. -->
       <xsl:value-of select="lower-case(pitch/step)"/>
       <xsl:value-of select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
+      <xsl:if test="pitch/octave &gt; 4">
+        <xsl:for-each select="1 to xs:integer(pitch/octave - 4)">+</xsl:for-each>
+      </xsl:if>
+      <xsl:if test="pitch/octave &lt; 4">
+        <xsl:for-each select="1 to xs:integer(4 - pitch/octave)">-</xsl:for-each>
+      </xsl:if>
     </xsl:when>
     <xsl:when test="rest">r</xsl:when>
+    <xsl:when test="cue">r</xsl:when>
   </xsl:choose>
   <xsl:if test="following-sibling::note[1][not(chord)]">;</xsl:if>
   <xsl:if test="count(following-sibling::note) = 0">; }</xsl:if>
