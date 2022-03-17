@@ -26,6 +26,8 @@ Begin Chord-Custom
   Volume f
 End
 
+Solo Voice TenorSax
+
 // Custom chord definitions
 DefChord 7(add6) (0, 4, 7, 9, 10) (0, 2, 4, 5, 7, 9, 10)
 DefChord +(addM7)(add9) (0, 4, 8, 11, 14) (0, 2, 4, 5, 8, 9, 11)
@@ -112,6 +114,10 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
   </xsl:if>
+
+  <!-- Notes information. -->
+  <xsl:apply-templates select="note[1]">
+  </xsl:apply-templates>
 
   <!-- Advance to next measure with our unrolling algorithm. -->
   <xsl:choose>
@@ -240,7 +246,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
     <xsl:with-param name="start" select="$start + $duration"/>
   </xsl:apply-templates>
-  <xsl:if test="count(following-sibling::harmony[1]) = 0">}</xsl:if>
+  <xsl:if test="count(following-sibling::harmony) = 0">}</xsl:if>
 </xsl:template>
 
 <xsl:template match="harmony" mode="chords">
@@ -336,12 +342,31 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:choose>
   <!-- Chord onset. -->
   <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
-  <!-- TODO Handle melody notes. -->
   <!-- Advance to next chord. -->
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="chords">
     <xsl:with-param name="start" select="$start + $duration"/>
   </xsl:apply-templates>
+</xsl:template>
+
+<xsl:template match="note">
+  <xsl:if test="count(preceding-sibling::note) = 0"> {</xsl:if>
+  <xsl:text> </xsl:text>
+  <xsl:if test="not(chord)">
+    <xsl:value-of select="192 * (duration div $divisions)"/>
+    <xsl:text>t</xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="pitch">
+      <!-- TODO Handle octave. -->
+      <xsl:value-of select="lower-case(pitch/step)"/>
+      <xsl:value-of select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
+    </xsl:when>
+    <xsl:when test="rest">r</xsl:when>
+  </xsl:choose>
+  <xsl:if test="following-sibling::note[1][not(chord)]">;</xsl:if>
+  <xsl:if test="count(following-sibling::note) = 0">; }</xsl:if>
+  <xsl:apply-templates select="following-sibling::note[1]"/>
 </xsl:template>
 
 <xsl:template match="other-play" mode="groove">
