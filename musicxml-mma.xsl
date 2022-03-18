@@ -116,8 +116,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
   </xsl:if>
 
   <!-- Notes information. -->
-  <xsl:apply-templates select="note[1]">
-  </xsl:apply-templates>
+  <xsl:apply-templates select="note[1]"/>
 
   <!-- Advance to next measure with our unrolling algorithm. -->
   <xsl:choose>
@@ -349,20 +348,55 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:apply-templates>
 </xsl:template>
 
+<xsl:template match="note" mode="duration">
+  <xsl:param name="duration"/>
+  <xsl:choose>
+    <xsl:when test="tie[@type = 'stop'] and not(tie[@type = 'start'])"><xsl:value-of select="$duration + duration"/></xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="recursiveDuration">
+        <xsl:apply-templates select="if (following-sibling::note[not(chord)]) then following-sibling::note[not(chord)][1] else ../following-sibling::measure[1]/note[not(chord)][1]" mode="duration">
+          <xsl:with-param name="duration" select="duration + $duration"/>
+        </xsl:apply-templates>
+      </xsl:variable>
+      <xsl:value-of select="$recursiveDuration"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 <xsl:template match="note">
-  <!-- TODO Handle the following:
+  <!--
+    TODO Handle the following:
     - Ties
     - Articulations
     - Sound directives
   -->
   <xsl:if test="count(preceding-sibling::note) = 0"> {</xsl:if>
-  <xsl:text> </xsl:text>
   <xsl:if test="not(chord)">
-    <xsl:value-of select="192 * (duration div $divisions)"/>
-    <xsl:text>t</xsl:text>
+    <xsl:variable name="duration">
+      <xsl:choose>
+        <xsl:when test="tie[@type = 'start'] and tie[@type = 'stop']">
+        </xsl:when>
+        <xsl:when test="tie[@type = 'start']">
+          <xsl:apply-templates select="." mode="duration">
+            <xsl:with-param name="duration" select="0"/>
+          </xsl:apply-templates>
+        </xsl:when>
+        <xsl:when test="tie[@type = 'stop']">
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="duration"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:if test="$duration != ''">
+      <xsl:text> </xsl:text>
+      <xsl:value-of select="192 * $duration div $divisions"/>
+      <xsl:text>t</xsl:text>
+    </xsl:if>
   </xsl:if>
   <xsl:choose>
-    <xsl:when test="pitch">
+    <xsl:when test="pitch and not(tie[@type = 'stop'])">
+      <xsl:if test="chord"><xsl:text>,</xsl:text></xsl:if>
       <xsl:value-of select="lower-case(pitch/step)"/>
       <xsl:value-of select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
       <xsl:if test="pitch/octave &gt; 4">
@@ -372,11 +406,14 @@ Chord-Custom Sequence { </xsl:if>
         <xsl:for-each select="1 to xs:integer(4 - pitch/octave)">-</xsl:for-each>
       </xsl:if>
     </xsl:when>
-    <xsl:when test="rest">r</xsl:when>
-    <xsl:when test="cue">r</xsl:when>
+    <xsl:when test="rest or cue">r</xsl:when>
   </xsl:choose>
-  <xsl:if test="following-sibling::note[1][not(chord)]">;</xsl:if>
-  <xsl:if test="count(following-sibling::note) = 0">; }</xsl:if>
+  <xsl:if test="count(following-sibling::note) = 0 and tie[@type = 'start']">~</xsl:if>
+  <xsl:choose>
+    <xsl:when test="count(following-sibling::note) = 0">;</xsl:when>
+    <xsl:when test="following-sibling::note[1][not(chord)] and not(tie[@type = 'start'])">;</xsl:when>
+  </xsl:choose>
+  <xsl:if test="count(following-sibling::note) = 0"> }</xsl:if>
   <xsl:apply-templates select="following-sibling::note[1]"/>
 </xsl:template>
 
