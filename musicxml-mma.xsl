@@ -110,6 +110,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
   </xsl:apply-templates>
   <xsl:if test="count(harmony) = 0">
     <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
+    <xsl:if test="not($lastHarmony)"> z</xsl:if>
     <xsl:apply-templates select="//harmony[generate-id(.) = $lastHarmony]" mode="chords">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
@@ -365,10 +366,21 @@ Chord-Custom Sequence { </xsl:if>
 
 <xsl:template match="note">
   <!--
+    A note sequence (SOLO track in MMA glossary) is made of several pieces:
+    - Opening bracket "{" to start measure
+    - For non-chord notes and non-stopping ties, a duration expressed in MIDI ticks. The duration is computed recursively in the case of ties.
+    - For pitched notes, the lower-case note + accidental + octave (4 is the base octave)
+    - For rests and cue notes, "r"
+    - A tilde "~" in case a tie carries over from previous or to next measure
+    - A comma "," for next chord note
+    - A semicolon for next non-chord note
+    - Closing bracket "}" to end measure
+
     TODO Handle the following:
-    - Ties
     - Articulations
     - Sound directives
+    - Chords with unequal ties
+    - Unpitched notes
   -->
   <xsl:if test="count(preceding-sibling::note) = 0"> {</xsl:if>
   <xsl:if test="not(chord)">
@@ -389,7 +401,6 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:choose>
     </xsl:variable>
     <xsl:if test="$duration != ''">
-      <xsl:text> </xsl:text>
       <xsl:value-of select="192 * $duration div $divisions"/>
       <xsl:text>t</xsl:text>
     </xsl:if>
@@ -399,21 +410,29 @@ Chord-Custom Sequence { </xsl:if>
       <xsl:if test="chord"><xsl:text>,</xsl:text></xsl:if>
       <xsl:value-of select="lower-case(pitch/step)"/>
       <xsl:value-of select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
-      <xsl:if test="pitch/octave &gt; 4">
-        <xsl:for-each select="1 to xs:integer(pitch/octave - 4)">+</xsl:for-each>
-      </xsl:if>
-      <xsl:if test="pitch/octave &lt; 4">
-        <xsl:for-each select="1 to xs:integer(4 - pitch/octave)">-</xsl:for-each>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="pitch/octave &gt; 4">
+          <xsl:for-each select="1 to xs:integer(pitch/octave - 4)">+</xsl:for-each>
+        </xsl:when>
+        <xsl:when test="pitch/octave &lt; 4">
+          <xsl:for-each select="1 to xs:integer(4 - pitch/octave)">-</xsl:for-each>
+        </xsl:when>
+      </xsl:choose>
     </xsl:when>
     <xsl:when test="rest or cue">r</xsl:when>
   </xsl:choose>
-  <xsl:if test="count(following-sibling::note) = 0 and tie[@type = 'start']">~</xsl:if>
+  <xsl:if test="count(following-sibling::note) = 0 and tie[@type = 'start']">
+    <xsl:if test="not(preceding-sibling::note[not(tie/@type = 'start') and not(tie/@type = 'end')])">
+      <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
+    </xsl:if>
+    <xsl:text>~</xsl:text>
+  </xsl:if>
   <xsl:choose>
+    <xsl:when test="count(preceding-sibling::note) = 0 and tie[@type = 'stop']">~</xsl:when>
     <xsl:when test="count(following-sibling::note) = 0">;</xsl:when>
-    <xsl:when test="following-sibling::note[1][not(chord)] and not(tie[@type = 'start'])">;</xsl:when>
+    <xsl:when test="following-sibling::note[1][not(chord)] and not(chord) and not(tie[@type = 'start'])">;</xsl:when>
   </xsl:choose>
-  <xsl:if test="count(following-sibling::note) = 0"> }</xsl:if>
+  <xsl:if test="count(following-sibling::note) = 0">}</xsl:if>
   <xsl:apply-templates select="following-sibling::note[1]"/>
 </xsl:template>
 
