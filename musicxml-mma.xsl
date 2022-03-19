@@ -430,7 +430,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:choose>
     <xsl:when test="count(preceding-sibling::note) = 0 and tie[@type = 'stop']">~</xsl:when>
     <xsl:when test="count(following-sibling::note) = 0">;</xsl:when>
-    <xsl:when test="following-sibling::note[1][not(chord)] and not(chord) and not(tie[@type = 'start'])">;</xsl:when>
+    <xsl:when test="following-sibling::note[1][not(chord)] and not(tie[@type = 'start']) and (count(preceding-sibling::note) = 0 or preceding-sibling::note[not(tie/@type = 'stop')])">;</xsl:when>
   </xsl:choose>
   <xsl:if test="count(following-sibling::note) = 0">}</xsl:if>
   <xsl:apply-templates select="following-sibling::note[1]"/>

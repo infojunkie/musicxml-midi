@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "MusicXML to MMA converter",
   "main": "index.js",
   "directories": {
