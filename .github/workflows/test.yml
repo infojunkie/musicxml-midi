@@ -28,7 +28,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - run: npm install && npm run grooves
+    - run: npm install && npm run build:grooves
       env:
         MMA_HOME: mma/
     - run: npm test
