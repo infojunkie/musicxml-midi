@@ -102,6 +102,8 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
 
   <!-- Measure number. -->
   <xsl:text>&#xa;</xsl:text>
+  <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="@number"/>
+  <xsl:text>&#xa;</xsl:text>
   <xsl:value-of select="@number"/>
 
   <!-- Chord information. -->
