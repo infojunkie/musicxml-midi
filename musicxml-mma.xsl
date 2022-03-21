@@ -411,7 +411,7 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:when test="pitch and not(tie[@type = 'stop'])">
       <xsl:if test="chord"><xsl:text>,</xsl:text></xsl:if>
       <xsl:value-of select="lower-case(pitch/step)"/>
-      <xsl:value-of select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
+      <xsl:value-of disable-output-escaping="yes" select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
       <xsl:choose>
         <xsl:when test="pitch/octave &gt; 4">
           <xsl:for-each select="1 to xs:integer(pitch/octave - 4)">+</xsl:for-each>
