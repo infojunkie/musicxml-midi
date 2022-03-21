@@ -50,11 +50,11 @@ app.post('/convert', async (req, res, next) => {
     return res.status(400).send(ERROR_BAD_PARAM)
   }
 
-  const tempFile = await temp.open()
+  const tempFile = temp.path({ suffix: '.mid' })
   let execResult = null
   try {
     execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
-      env: { ...process.env, 'mma': saxonResult.principalResult, 'temp': tempFile.path }
+      env: { ...process.env, 'mma': saxonResult.principalResult, 'temp': tempFile }
     })
   }
   catch (error) {
@@ -63,7 +63,7 @@ app.post('/convert', async (req, res, next) => {
   }
 
   console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
-  return res.status(200).contentType('audio/midi').sendFile(tempFile.path)
+  return res.status(200).sendFile(tempFile)
 })
 
 const port = process.env.PORT || 3000
