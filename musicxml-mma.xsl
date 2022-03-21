@@ -308,7 +308,7 @@ Chord-Custom Sequence { </xsl:if>
         - Omitted degrees except for sus/sus2: alterations are not expected
 
         This algorithm misses some cases. We could try to detect them but it's easier to use MMA's DefChord
-        to define our output as synonyms to existing chords. Use `npm run print:chord "sus(addb9)"` to print the syntax for an existing
+        to define our output as synonyms to existing chords. Use `npm run debug:chord "sus(addb9)"` to print the syntax for an existing
         code definition that needs to be cloned.
       -->
       <xsl:variable name="sus">

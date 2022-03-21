@@ -10,9 +10,9 @@
   "scripts": {
     "build:grooves": "${MMA_HOME:-../mma}/mma.py -g",
     "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -t -ns:##html5",
-    "build:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
-    "build:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
-    "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
+    "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
+    "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
+    "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
     "develop": "nodemon server.js",
     "test": "./test/libs/bats/bin/bats test/*.bats"
   },
