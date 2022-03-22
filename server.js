@@ -19,7 +19,6 @@ const exec = util.promisify(require('child_process').exec);
 class AbortChainError extends Error {
   static chain(handler) {
     return function(error) {
-      if (error instanceof AbortChainError) throw error
       handler(error)
       throw new AbortChainError()
     }
@@ -47,32 +46,30 @@ app.post('/convert', async (req, res, next) => {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
 
-  const tempFile = temp.path({ suffix: '.mid' })
-  SaxonJS.transform({
-    stylesheetFileName: 'musicxml-mma.sef.json',
-    sourceFileName: req.files.musicxml.tempFilePath,
-    destination: 'serialized'
-  }, 'async')
-  .catch(AbortChainError.chain(error => {
-    console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-    res.status(400).send(ERROR_BAD_PARAM)
-  }))
-  .then(saxonResult => {
-    return exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
+  try {
+    const tempFile = temp.path({ suffix: '.mid' })
+    const saxonResult = await SaxonJS.transform({
+      stylesheetFileName: 'musicxml-mma.sef.json',
+      sourceFileName: req.files.musicxml.tempFilePath,
+      destination: 'serialized'
+    }, 'async')
+    .catch(AbortChainError.chain(error => {
+      console.error(`[SaxonJS] ${error.code}: ${error.message}`)
+      res.status(400).send(ERROR_BAD_PARAM)
+    }))
+    const execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
       env: { ...process.env, 'mma': saxonResult.principalResult, 'temp': tempFile }
     })
-  })
-  .catch(AbortChainError.chain(error => {
-    console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
-    res.status(500).send(ERROR_MMA_CRASH)
-  }))
-  .then(execResult => {
+    .catch(AbortChainError.chain(error => {
+      console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
+      res.status(500).send(ERROR_MMA_CRASH)
+    }))
     console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
     return res.status(200).sendFile(tempFile)
-  })
-  .catch(error => {
+  }
+  catch (error) {
     // Do nothing
-  })
+  }
 })
 
 const port = process.env.PORT || 3000
