@@ -16,6 +16,16 @@ const { name, description, version, author } = require('./package.json')
 // https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
 const exec = util.promisify(require('child_process').exec);
 
+class AbortChainError extends Error {
+  static chain(handler) {
+    return function(error) {
+      if (error instanceof AbortChainError) throw error
+      handler(error)
+      throw new AbortChainError()
+    }
+  }
+}
+
 const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicxml` field containing a valid MusicXML file upload.'
 const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
 
@@ -37,33 +47,32 @@ app.post('/convert', async (req, res, next) => {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
 
-  let saxonResult = null;
-  try {
-    saxonResult = await SaxonJS.transform({
-      stylesheetFileName: 'musicxml-mma.sef.json',
-      sourceFileName: req.files.musicxml.tempFilePath,
-      destination: 'serialized'
-    }, 'async')
-  }
-  catch (error) {
-    console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-    return res.status(400).send(ERROR_BAD_PARAM)
-  }
-
   const tempFile = temp.path({ suffix: '.mid' })
-  let execResult = null
-  try {
-    execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
+  SaxonJS.transform({
+    stylesheetFileName: 'musicxml-mma.sef.json',
+    sourceFileName: req.files.musicxml.tempFilePath,
+    destination: 'serialized'
+  }, 'async')
+  .catch(AbortChainError.chain(error => {
+    console.error(`[SaxonJS] ${error.code}: ${error.message}`)
+    res.status(400).send(ERROR_BAD_PARAM)
+  }))
+  .then(saxonResult => {
+    return exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
       env: { ...process.env, 'mma': saxonResult.principalResult, 'temp': tempFile }
     })
-  }
-  catch (error) {
+  })
+  .catch(AbortChainError.chain(error => {
     console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
-    return res.status(500).send(ERROR_MMA_CRASH)
-  }
-
-  console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
-  return res.status(200).sendFile(tempFile)
+    res.status(500).send(ERROR_MMA_CRASH)
+  }))
+  .then(execResult => {
+    console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
+    return res.status(200).sendFile(tempFile)
+  })
+  .catch(error => {
+    // Do nothing
+  })
 })
 
 const port = process.env.PORT || 3000
