@@ -7,11 +7,10 @@ A MusicXML converter to [Musical MIDI Accompaniment (MMA)](http://www.mellowood.
 ## Converting a MusicXML file to MIDI
 - `git submodule update --init --recursive`
 - `git clone git@github.com:infojunkie/mma.git` and set env var `MMA_HOME=/path/to/mma`
-- `npm install && npm run build:grooves`
+- `npm install && npm run build:grooves && npm run build:sef`
 - `npm run convert:mma song.musicxml && npm run convert:midi song.mma`
 
 ## Serving a conversion API endpoint
-- `npm run build:sef`
 - `PORT=3001 npm run develop` for development (including hot-reload)
 - `PORT=3001 npm run start` for production
 - `curl -sSf -F "musicxml=@test/data/salma-ya-salama.musicxml" http://localhost:3001/convert -o "salma-ya-salama.mid"`
