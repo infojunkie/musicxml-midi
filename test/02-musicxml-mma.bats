@@ -9,6 +9,7 @@ set -euo pipefail
   echo ${mma} | ${MMA_HOME:-../mma}/mma.py -n -
   run echo ${mma}
   assert_output --partial 'Groove Jazz54'
+  assert_output --partial '1 Ebm@1 Bbm7@4 {576tr;384tr;}'
 }
 
 @test "musicxml-mma produces a valid file for salma-ya-salama" {
