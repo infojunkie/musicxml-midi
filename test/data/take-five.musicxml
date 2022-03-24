@@ -8,7 +8,7 @@
     <creator type="composer">Paul Desmond</creator>
     <encoding>
       <software>@infojunkie/ireal-musicxml</software>
-      <encoding-date>2022-03-07</encoding-date>
+      <encoding-date>2022-03-23</encoding-date>
       <supports element="accidental" type="no"/>
       <supports element="transpose" type="no"/>
       <supports attribute="new-page" element="print" type="yes" value="yes"/>
@@ -72,6 +72,7 @@
         <kind text="m" use-symbols="no">minor</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -79,7 +80,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -91,6 +92,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -98,7 +100,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -117,6 +119,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -124,7 +127,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -136,6 +139,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -143,7 +147,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -162,6 +166,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -169,7 +174,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -181,6 +186,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -188,7 +194,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -207,6 +213,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -214,7 +221,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -226,6 +233,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -233,7 +241,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -253,6 +261,7 @@
         <kind text="m" use-symbols="no">minor</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -260,7 +269,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -272,6 +281,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -279,7 +289,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -298,6 +308,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -305,7 +316,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -317,6 +328,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -324,7 +336,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -343,6 +355,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -350,7 +363,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -362,6 +375,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -369,7 +383,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -388,6 +402,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -395,7 +410,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -407,6 +422,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -414,7 +430,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -438,6 +454,7 @@
         <kind text="M7" use-symbols="no">major-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -445,7 +462,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -457,6 +474,7 @@
         <kind text="m6" use-symbols="no">minor-sixth</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -464,7 +482,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -483,6 +501,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -490,7 +509,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -502,6 +521,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -509,7 +529,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -528,6 +548,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -535,7 +556,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -547,6 +568,7 @@
         <kind text="7" use-symbols="no">dominant</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -554,7 +576,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -573,15 +595,15 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
           <octave>4</octave>
         </pitch>
         <duration>2304</duration>
-        <tie type="start"/>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
         <notations>
@@ -589,15 +611,15 @@
         </notations>
       </note>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
           <octave>4</octave>
         </pitch>
         <duration>1536</duration>
-        <tie type="stop"/>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
         <notations>
           <tied type="stop"/>
@@ -619,6 +641,7 @@
         <kind text="M7" use-symbols="no">major-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -626,7 +649,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -638,6 +661,7 @@
         <kind text="m6" use-symbols="no">minor-sixth</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -645,7 +669,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -664,6 +688,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -671,7 +696,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -683,6 +708,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -690,7 +716,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -709,6 +735,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -716,7 +743,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -728,6 +755,7 @@
         <kind text="7" use-symbols="no">dominant</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -735,7 +763,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -753,6 +781,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -760,7 +789,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -777,6 +806,7 @@
         </degree>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -784,7 +814,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -809,6 +839,7 @@
         <kind text="m" use-symbols="no">minor</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -816,7 +847,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -828,6 +859,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -835,7 +867,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -854,6 +886,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -861,7 +894,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -873,6 +906,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -880,7 +914,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -899,6 +933,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -906,7 +941,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -918,6 +953,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -925,7 +961,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -944,6 +980,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -951,7 +988,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -963,6 +1000,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -970,7 +1008,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -990,6 +1028,7 @@
         <kind text="m" use-symbols="no">minor</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -997,7 +1036,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -1009,6 +1048,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1016,7 +1056,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -1035,6 +1075,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1042,7 +1083,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -1054,6 +1095,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1061,7 +1103,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -1080,6 +1122,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1087,7 +1130,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -1099,6 +1142,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1106,7 +1150,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
@@ -1125,6 +1169,7 @@
         <bar-style>none</bar-style>
       </barline>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1132,7 +1177,7 @@
         </pitch>
         <duration>2304</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <dot/>
         <notehead>slash</notehead>
       </note>
@@ -1144,6 +1189,7 @@
         <kind text="m7" use-symbols="no">minor-seventh</kind>
       </harmony>
       <note>
+        <cue/>
         <pitch>
           <step>B</step>
           <alter>-1</alter>
@@ -1151,7 +1197,7 @@
         </pitch>
         <duration>1536</duration>
         <voice>1</voice>
-        <type>half</type>
+        <type size="full">half</type>
         <notehead>slash</notehead>
       </note>
       <barline location="right">
