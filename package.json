@@ -1,17 +1,17 @@
 {
   "name": "musicxml-mma",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "MusicXML to MMA converter",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "grooves": "${MMA_HOME:-../mma}/mma.py -g",
     "build:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
     "build:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "build": "run() { npm run build:mma \"$1\" && npm run build:midi \"${1/.musicxml/.mma}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
+    "print:grooves": "find ${MMA_HOME:-../mma}/lib -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "test": "./test/libs/bats/bin/bats test/*.bats"
   },
   "repository": {

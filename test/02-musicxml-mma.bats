@@ -4,11 +4,19 @@ load 'libs/bats-assert/load'
 
 set -euo pipefail
 
-@test "musicxml-mma produces a valid file for take-five" {
+@test "musicxml-mma produces a valid file for take-five with swing groove" {
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/take-five.musicxml)
   echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
   run echo ${mma}
   assert_output --partial 'Groove Jazz54'
+  assert_output --partial '1 Ebm@1 Bbm7@4 {576tr;384tr;}'
+}
+
+@test "musicxml-mma produces a valid file for take-five with unknown groove" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/take-five-unknown.musicxml)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
+  run echo ${mma}
+  assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; }'
   assert_output --partial '1 Ebm@1 Bbm7@4 {576tr;384tr;}'
 }
 
@@ -23,7 +31,7 @@ set -euo pipefail
 @test "musicxml-mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/repeats.musicxml)
   run echo ${mma}
-  assert_output --partial 'MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:7 7 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:11 11 z {768tr;} MidiMark Measure:12 12 z {768tr;} MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:13 13 z {768tr;} MidiMark Measure:14 14 z {768tr;} MidiMark Measure:7 7 z {768tr;} MidiMark Measure:8 8 z {768tr;}'
+  assert_output --partial 'MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:5 5 z {768tr;} MidiMark Measure:6 6 z {768tr;} MidiMark Measure:7 7 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:10 10 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:9 9 z {768tr;} MidiMark Measure:8 8 z {768tr;} MidiMark Measure:11 11 z {768tr;} MidiMark Measure:12 12 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:1 1 z {768tr;} MidiMark Measure:2 2 z {768tr;} MidiMark Measure:3 3 z {768tr;} MidiMark Measure:4 4 z {768tr;} MidiMark Measure:13 13 z {768tr;} MidiMark Measure:14 14 z {768tr;} MidiMark Measure:7 7 z {768tr;} MidiMark Measure:8 8 z {768tr;}'
 }
 
 @test "musicxml-mma produces a valid file for chords" {
