@@ -410,7 +410,7 @@ Chord-Custom Sequence { </xsl:if>
     </xsl:if>
   </xsl:if>
   <xsl:choose>
-    <xsl:when test="rest or cue">r</xsl:when>
+    <xsl:when test="(rest or cue) and not($tie[@type = 'stop'])">r</xsl:when>
     <xsl:when test="pitch and not($tie[@type = 'stop'])">
       <xsl:if test="chord"><xsl:text>,</xsl:text></xsl:if>
       <xsl:value-of select="lower-case(pitch/step)"/>
