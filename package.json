@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -15,7 +15,9 @@
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
     "print:grooves": "find ${MMA_HOME:-../mma}/lib -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "develop": "nodemon -e js,json server.js",
-    "test": "./test/libs/bats/bin/bats test/*.bats"
+    "test:xsl": "./test/libs/bats/bin/bats test/*.bats",
+    "test:server": "cross-env NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
+    "test": "npm run test:xsl && npm run test:server"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,16 @@
     "xslt3": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {},
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

@@ -31,7 +31,7 @@ const LIMIT_FILE_SIZE = process.env.LIMIT_FILE_SIZE || 1 * 1024 * 1024
 const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicxml` field containing a valid MusicXML file.'
 const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
 
-const app = express()
+export const app = express()
 app.use(compression())
 app.use(fileUpload({
   useTempFiles : true,
@@ -94,4 +94,4 @@ app.post('/convert', async (req, res, next) => {
 })
 
 const port = process.env.PORT || 3000
-app.listen(port, () => console.log(`${name} v${version} listening at http://localhost:${port}`))
+export const server = app.listen(port, () => console.log(`${name} v${version} listening at http://localhost:${port}`))
