@@ -27,7 +27,8 @@ class AbortChainError extends Error {
   }
 }
 
-const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicxml` field containing a valid MusicXML file upload.'
+const LIMIT_FILE_SIZE = process.env.LIMIT_FILE_SIZE || 1 * 1024 * 1024
+const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicxml` field containing a valid MusicXML file.'
 const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
 
 const app = express()
@@ -36,6 +37,10 @@ app.use(fileUpload({
   useTempFiles : true,
   tempFileDir : '/tmp/',
   preserveExtension: true,
+  limits: {
+    fileSize: LIMIT_FILE_SIZE,
+  },
+  abortOnLimit: true
 }))
 app.use(morgan('combined'))
 
