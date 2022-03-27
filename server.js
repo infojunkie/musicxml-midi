@@ -3,8 +3,10 @@ import express from 'express'
 import SaxonJS from 'saxon-js'
 import fileUpload from 'express-fileupload'
 import util from 'util'
-import temp from 'temp'
 import morgan from 'morgan'
+import crypto from 'crypto'
+import { promises as fs, constants } from 'fs'
+import path from 'path'
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
@@ -46,8 +48,22 @@ app.post('/convert', async (req, res, next) => {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
 
+  // Check first in cache.
+  const buffer = await fs.readFile(req.files.musicxml.tempFilePath)
+  const hash = crypto.createHash('sha256')
+  hash.update(buffer)
+  const sig = hash.digest('hex')
+  const cacheFile = path.resolve(path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
   try {
-    const tempFile = temp.path({ suffix: '.mid' })
+    await fs.access(cacheFile, constants.R_OK)
+    res.status(200).sendFile(cacheFile)
+    return
+  }
+  catch {
+    // Keep going below to generate the file.
+  }
+
+  try {
     const saxonResult = await SaxonJS.transform({
       stylesheetFileName: 'musicxml-mma.sef.json',
       sourceFileName: req.files.musicxml.tempFilePath,
@@ -57,15 +73,15 @@ app.post('/convert', async (req, res, next) => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
       res.status(400).send(ERROR_BAD_PARAM)
     }))
-    const execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$temp" -', {
-      env: { ...process.env, 'mma': saxonResult.principalResult, 'temp': tempFile }
+    const execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$out" -', {
+      env: { ...process.env, 'mma': saxonResult.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
       res.status(500).send(ERROR_MMA_CRASH)
     }))
     console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
-    return res.status(200).sendFile(tempFile)
+    return res.status(200).sendFile(cacheFile)
   }
   catch (error) {
     // Do nothing
