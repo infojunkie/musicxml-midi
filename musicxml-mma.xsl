@@ -68,9 +68,10 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
   <xsl:param name="groove"/>
   <xsl:variable name="nextHarmony" select="if (count(harmony) = 0) then generate-id(//harmony[generate-id(.) = $lastHarmony]) else generate-id(harmony[last()])"/>
   <xsl:variable name="repeatMeasureReal" select="if ($repeatMeasure) then $repeatMeasure else generate-id(//measure[1])"/>
-  <xsl:variable name="nextGroove">
+  <xsl:variable name="thisGroove">
     <xsl:apply-templates select="*/sound/play/other-play[@type = 'groove']" mode="groove"/>
   </xsl:variable>
+  <xsl:variable name="nextGroove" select="if ($thisGroove) then $thisGroove else $groove"/>
 
   <!-- Alternate ending start: Skip to the matching following alternate ending if the loop counter isn't mentioned in the current ending. -->
   <xsl:choose><xsl:when test="barline[ending/@type = 'start'] and not(index-of(tokenize(barline/ending[@type = 'start']/@number, '\s*,\s*'), format-number($repeatCount, '0')))">
@@ -79,7 +80,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
       <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
       <xsl:with-param name="repeatCount" select="$repeatCount"/>
       <xsl:with-param name="jump" select="$jump"/>
-      <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+      <xsl:with-param name="groove" select="$nextGroove"/>
     </xsl:apply-templates>
   </xsl:when>
   <xsl:otherwise>
@@ -89,7 +90,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
 
   <!-- If we don't have a groove, add our hand-made chord sequence that replicates the rhythm notation of the chords. -->
   <xsl:choose>
-    <xsl:when test="$nextGroove != ''"><xsl:value-of select="$nextGroove"/></xsl:when>
+    <xsl:when test="$thisGroove != ''"><xsl:value-of select="$thisGroove"/></xsl:when>
     <xsl:when test="$groove != ''"></xsl:when>
     <xsl:otherwise>
       <xsl:apply-templates select="harmony[1]" mode="sequence">
@@ -142,7 +143,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="$coda"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Opening repeat: Save this measure as the loop start. Reset loop counter to 1 unless we're already looping.
@@ -154,7 +155,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure" select="generate-id(.)"/>
         <xsl:with-param name="repeatCount" select="if (generate-id(.) = $repeatMeasure) then $repeatCount else 1"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Closing repeat without alternate ending: Loop back if the loop counter hasn't reached the requested times and after-jump repeats are ok. -->
@@ -168,7 +169,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure" select="$repeatMeasureReal"/>
         <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Alternate ending end: Jump back to loop start if next loop counter is mentioned in any alternate ending for the current repeat block. -->
@@ -182,7 +183,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure" select="$repeatMeasureReal"/>
         <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Da capo: Go back to start. -->
@@ -191,8 +192,8 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
-        <xsl:with-param name="jump" select="capo"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="jump" select="'capo'"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Dal segno: Go back to labeled sign. -->
@@ -202,8 +203,8 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
-        <xsl:with-param name="jump" select="@segno"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="jump" select="$segno"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Closing repeat without alternate ending: Go straight and reset state if the loop counter has reached the requested times. -->
@@ -213,7 +214,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- General case: Keep going straight, remembering current state. -->
@@ -223,7 +224,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
         <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="$repeatCount"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="groove" select="if ($nextGroove) then $nextGroove else $groove"/>
+        <xsl:with-param name="groove" select="$nextGroove"/>
       </xsl:apply-templates>
     </xsl:otherwise>
   </xsl:choose>

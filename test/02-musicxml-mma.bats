@@ -45,3 +45,8 @@ set -euo pipefail
   run echo ${mma}
   assert_output --partial 'MidiMark Measure:1 1 z {192tc+;192td+;384te+;} MidiMark Measure:2 2 z {336tc+;48tr;384td+;} MidiMark Measure:3 3 z {192tc+;192td+;192te+;576tf+~;} MidiMark Measure:4 4 z {~1344tc+~;} MidiMark Measure:5 5 z {~<>~;} MidiMark Measure:6 6 z {~768tc+,e+,g+~;} MidiMark Measure:7 7 z {~576tc+,e+,g+;} MidiMark Measure:8 8 z {192tf,a,d+;192ta,d+,f+;192ta,c+,e+;192tf,a,d+;}'
 }
+
+@test "musicxml-mma produces a valid file for aquele-um" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/aquele-um.musicxml)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
+}

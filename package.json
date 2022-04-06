@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -10,7 +10,7 @@
   "scripts": {
     "build:grooves": "${MMA_HOME:-../mma}/mma.py -g",
     "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -t -ns:##html5",
-    "convert:mma": "run() { xslt3 -xsl:musicxml-mma.sef.json -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
+    "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
     "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
     "print:grooves": "find ${MMA_HOME:-../mma}/lib -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
