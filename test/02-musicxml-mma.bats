@@ -28,6 +28,14 @@ set -euo pipefail
   assert_output --partial '12 E+@1 E7@3 {96tf+;96te+;96te+;96td+;96te+;96tg#+;96tc++;96tb+;}'
 }
 
+@test "musicxml-mma produces a valid file for salma-ya-salama with overridden groove" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/salma-ya-salama.musicxml globalGroove=Maqsum)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
+  run echo ${mma}
+  assert_output --partial 'Groove Maqsum MidiMark Groove:Maqsum'
+  assert_output --partial '12 E+@1 E7@3 {96tf+;96te+;96te+;96td+;96te+;96tg#+;96tc++;96tb+;}'
+}
+
 @test "musicxml-mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/repeats.musicxml)
   run echo ${mma}

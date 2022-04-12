@@ -46,6 +46,8 @@ app.use(morgan('combined'))
 
 app.get('/', (req, res) => res.json({ name, version, description, author }))
 
+app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('grooves.txt')))
+
 app.get('/convert', (req, res) => res.status(400).send(ERROR_BAD_PARAM))
 
 app.post('/convert', async (req, res, next) => {
@@ -53,10 +55,18 @@ app.post('/convert', async (req, res, next) => {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
 
+  // Assemble parameters.
+  const params = {}
+  if (req.body) {
+    ['globalGroove'].forEach(param => {
+      if (param in req.body) params[param] = req.body[param]
+    })
+  }
+
   // Check first in cache.
   const buffer = await fs.readFile(req.files.musicxml.tempFilePath)
   const hash = crypto.createHash('sha256')
-  hash.update(buffer)
+  hash.update(buffer + JSON.stringify(params))
   const sig = hash.digest('hex')
   const cacheFile = path.resolve(path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
   try {
@@ -65,14 +75,15 @@ app.post('/convert', async (req, res, next) => {
     return
   }
   catch {
-    // Keep going below to generate the file.
+    // Could not access cache file: Keep going below to generate it.
   }
 
   try {
     const saxonResult = await SaxonJS.transform({
       stylesheetFileName: 'musicxml-mma.sef.json',
       sourceFileName: req.files.musicxml.tempFilePath,
-      destination: 'serialized'
+      destination: 'serialized',
+      stylesheetParams: params,
     }, 'async')
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)

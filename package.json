@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -8,16 +8,18 @@
     "test": "test"
   },
   "scripts": {
-    "build:grooves": "${MMA_HOME:-../mma}/mma.py -g",
-    "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -t -ns:##html5",
+    "build:grooves": "${MMA_HOME:-../mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
+    "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
     "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
+    "convert:mma:groove": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" globalGroove=$2; }; run",
     "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
     "print:grooves": "find ${MMA_HOME:-../mma}/lib -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "develop": "nodemon -e js,json server.js",
     "test:xsl": "./test/libs/bats/bin/bats test/*.bats",
-    "test:server": "cross-env NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
-    "test": "npm run test:xsl && npm run test:server"
+    "test:server": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
+    "test": "npm run test:xsl && npm run test:server",
+    "server": "PORT=8085 npm run start"
   },
   "repository": {
     "type": "git",
@@ -40,7 +42,9 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "jest": "^27.5.1",
+    "midi-file": "^1.2.2",
     "nodemon": "^2.0.15",
+    "sinon": "^13.0.1",
     "supertest": "^6.2.2"
   },
   "jest": {
