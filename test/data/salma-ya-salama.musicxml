@@ -2,11 +2,11 @@
 <!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
 <score-partwise version="3.1">
   <work>
-    <work-title>Salma ya salama
-سالمة يا سلامة</work-title>
+    <work-title>Salma ya salama سالمة يا سلامة</work-title>
     </work>
   <identification>
-    <creator type="composer">J. Barnel arr. Hesham Galal</creator>
+    <creator type="composer">J. Barnel</creator>
+    <creator type="arranger">Hesham Galal</creator>
     <encoding>
       <software>MuseScore 3.6.2</software>
       <encoding-date>2022-03-01</encoding-date>

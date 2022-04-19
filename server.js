@@ -79,9 +79,20 @@ app.post('/convert', async (req, res, next) => {
   }
 
   try {
+    const doc = await SaxonJS.getResource({
+      type: 'xml',
+      encoding: 'utf8',
+      file: req.files.musicxml.tempFilePath
+    })
+    .catch(AbortChainError.chain(error => {
+      console.error(`[SaxonJS] ${error.code}: ${error.message}`)
+      res.status(400).send(ERROR_BAD_PARAM)
+    }))
+    const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc).nodeValue || '(unknown)'
+    console.info(`[SaxonJS] Converting document '${title}' to MMA...`)
     const saxonResult = await SaxonJS.transform({
       stylesheetFileName: 'musicxml-mma.sef.json',
-      sourceFileName: req.files.musicxml.tempFilePath,
+      sourceNode: doc,
       destination: 'serialized',
       stylesheetParams: params,
     }, 'async')
@@ -96,7 +107,7 @@ app.post('/convert', async (req, res, next) => {
       console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
       res.status(500).send(ERROR_MMA_CRASH)
     }))
-    console.log(execResult.stdout.replace(/^\s+|\s+$/g, ''))
+    console.info('[MMA] ' + execResult.stdout.replace(/^\s+|\s+$/g, ''))
     return res.status(200).sendFile(cacheFile)
   }
   catch (error) {

@@ -66,6 +66,15 @@ describe('MusicXML to MIDI conversion server', () => {
     expect(res.statusCode).toEqual(200)
     expect(res.text).toEqual(fs.readFileSync('grooves.txt').toString())
   })
+
+  test('should use SaxonJS to perform XPath queries', async () => {
+    const doc = await SaxonJS.getResource({
+      'file': 'test/data/salma-ya-salama.musicxml',
+      'type': 'xml',
+      'encoding': 'utf8'
+    })
+    expect(SaxonJS.XPath.evaluate('//work/work-title/text()', doc).nodeValue).toEqual('Salma ya salama سالمة يا سلامة')
+  })
 })
 
 afterAll(() => {
