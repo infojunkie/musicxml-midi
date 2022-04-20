@@ -44,8 +44,10 @@ DefChord m7+b9#11 (0, 3, 8, 10, 13, 18) (0, 1, 3, 6, 8, 9, 10)
 DefChord m7+ (0, 3, 7, 11) (0, 2, 3, 5, 7, 8, 11)
 DefChord (omit3)(add9) (0, 0, 7, 14) (0, 2, 4, 5, 7, 9, 10)
 DefChord sus#9 (0, 5, 7, 15) (0, 2, 5, 5, 7, 9, 11)
-DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
-</xsl:text>
+DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)</xsl:text>
+  <xsl:apply-templates select="//harmony[bass]" mode="slash"/>
+  <xsl:text>&#xa;</xsl:text>
+
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
     <xsl:with-param name="repeatMeasure" select="part/measure[1]"/>
@@ -293,10 +295,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:if test="count(following-sibling::harmony) = 0">}</xsl:if>
 </xsl:template>
 
-<xsl:template match="harmony" mode="chords">
-  <xsl:param name="start"/>
-  <xsl:variable name="id" select="generate-id(.)"/>
-  <xsl:text> </xsl:text>
+<xsl:template match="harmony" mode="name">
   <xsl:choose>
     <!-- N.C. is expressed as "z" in MMA. -->
     <xsl:when test="kind = 'none'">z</xsl:when>
@@ -384,6 +383,14 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:if>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+<xsl:template match="harmony" mode="chords">
+  <xsl:param name="start"/>
+  <xsl:variable name="id" select="generate-id(.)"/>
+  <xsl:text> </xsl:text>
+  <!-- Chord name. -->
+  <xsl:apply-templates select="." mode="name"/>
   <!-- Chord onset. -->
   <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
   <!-- Advance to next chord. -->
@@ -515,6 +522,10 @@ Tempo <xsl:value-of select="@tempo"/>
 <xsl:template match="time">
 Time <xsl:value-of select="beats * 4 div beat-type"/>
 TimeSig <xsl:value-of select="beats"/>/<xsl:value-of select="beat-type"/>
+</xsl:template>
+
+<xsl:template match="harmony" mode="slash">
+@Slash <xsl:apply-templates select="." mode="name"/>
 </xsl:template>
 
 </xsl:stylesheet>
