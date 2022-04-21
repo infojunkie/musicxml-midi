@@ -13,7 +13,7 @@ A MusicXML converter to [Musical MIDI Accompaniment (MMA)](http://www.mellowood.
 ## Serving a conversion API endpoint
 - `PORT=3001 npm run develop` for development (including hot-reload)
 - `PORT=3001 npm run start` for production
-- `curl -sSf -F "musicxml=@test/data/salma-ya-salama.musicxml" -F "globalGroove=Maqsum" http://localhost:3001/convert -o "salma-ya-salama.mid"`
+- `curl -sSf -F "musicXml=@test/data/salma-ya-salama.musicxml" -F "globalGroove=Maqsum" http://localhost:3001/convert -o "salma-ya-salama.mid"`
 
 ## Theory of operation
 

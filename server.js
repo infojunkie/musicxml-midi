@@ -6,7 +6,9 @@ import util from 'util'
 import morgan from 'morgan'
 import crypto from 'crypto'
 import { promises as fs, constants } from 'fs'
+import { TextDecoder } from 'util'
 import path from 'path'
+import unzip from 'unzipit'
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
@@ -28,15 +30,12 @@ class AbortChainError extends Error {
 }
 
 const LIMIT_FILE_SIZE = process.env.LIMIT_FILE_SIZE || 1 * 1024 * 1024
-const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicxml` field containing a valid MusicXML file.'
+const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicXml` field containing a valid MusicXML file.'
 const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
 
 export const app = express()
 app.use(compression())
 app.use(fileUpload({
-  useTempFiles : true,
-  tempFileDir : '/tmp/',
-  preserveExtension: true,
   limits: {
     fileSize: LIMIT_FILE_SIZE,
   },
@@ -50,8 +49,29 @@ app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('grooves
 
 app.get('/convert', (req, res) => res.status(400).send(ERROR_BAD_PARAM))
 
+async function tryCompressedMusicXml(buffer) {
+  try {
+    const decoder = new TextDecoder()
+    const { entries } = await unzip.unzip(new Uint8Array(buffer))
+
+    // Extract rootfile from META-INF/container.xml.
+    const containerBuffer = await entries['META-INF/container.xml'].arrayBuffer()
+    const doc = await SaxonJS.getResource({
+      type: 'xml',
+      encoding: 'utf8',
+      text: decoder.decode(containerBuffer)
+    })
+    const rootFile = SaxonJS.XPath.evaluate('string(//rootfile[1]/@full-path)', doc)
+    const rootBuffer = await entries[rootFile].arrayBuffer()
+    return decoder.decode(rootBuffer)
+  }
+  catch {
+    return buffer.toString('utf8')
+  }
+}
+
 app.post('/convert', async (req, res, next) => {
-  if (!req.files || !('musicxml' in req.files) ) {
+  if (!req.files || !('musicXml' in req.files) ) {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
 
@@ -64,9 +84,8 @@ app.post('/convert', async (req, res, next) => {
   }
 
   // Check first in cache.
-  const buffer = await fs.readFile(req.files.musicxml.tempFilePath)
   const hash = crypto.createHash('sha256')
-  hash.update(buffer + JSON.stringify(params))
+  hash.update(req.files.musicXml.data.toString('utf8') + JSON.stringify(params))
   const sig = hash.digest('hex')
   const cacheFile = path.resolve(path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
   try {
@@ -79,10 +98,11 @@ app.post('/convert', async (req, res, next) => {
   }
 
   try {
+    const xml = await tryCompressedMusicXml(req.files.musicXml.data)
     const doc = await SaxonJS.getResource({
       type: 'xml',
       encoding: 'utf8',
-      file: req.files.musicxml.tempFilePath
+      text: xml
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
@@ -110,8 +130,8 @@ app.post('/convert', async (req, res, next) => {
     console.info('[MMA] ' + execResult.stdout.replace(/^\s+|\s+$/g, ''))
     return res.status(200).sendFile(cacheFile)
   }
-  catch (error) {
-    // Do nothing
+  catch {
+    // Do nothing.
   }
 })
 
