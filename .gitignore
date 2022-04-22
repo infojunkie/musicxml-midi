@@ -4,3 +4,4 @@ test/data/*.mid
 test/data/*.mma
 cache/*
 !cache/.gitkeep
+__pycache__

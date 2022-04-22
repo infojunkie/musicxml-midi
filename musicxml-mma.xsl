@@ -44,8 +44,12 @@ DefChord m7+b9#11 (0, 3, 8, 10, 13, 18) (0, 1, 3, 6, 8, 9, 10)
 DefChord m7+ (0, 3, 7, 11) (0, 2, 3, 5, 7, 8, 11)
 DefChord (omit3)(add9) (0, 0, 7, 14) (0, 2, 4, 5, 7, 9, 10)
 DefChord sus#9 (0, 5, 7, 15) (0, 2, 5, 5, 7, 9, 11)
-DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)</xsl:text>
-  <xsl:apply-templates select="//harmony[bass]" mode="slash"/>
+DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
+
+Plugin Slash</xsl:text>
+  <xsl:apply-templates select="//harmony[bass]" mode="slash">
+    <xsl:with-param name="definition" select="true()"/>
+  </xsl:apply-templates>
   <xsl:text>&#xa;</xsl:text>
 
   <xsl:apply-templates select="part/measure[1]">
@@ -295,7 +299,32 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:if test="count(following-sibling::harmony) = 0">}</xsl:if>
 </xsl:template>
 
+<xsl:function name="mma:noteValue" as="xs:integer">
+  <xsl:param name="step"/>
+  <xsl:param name="alter"/>
+  <xsl:choose>
+    <xsl:when test="($step = 'G' and $alter = '1') or ($step = 'A' and $alter = '-1')"><xsl:sequence select="-4"/></xsl:when>
+    <xsl:when test="($step = 'A' and $alter = '1') or ($step = 'B' and $alter = '-1')"><xsl:sequence select="-2"/></xsl:when>
+    <xsl:when test="($step = 'C' and $alter = '1') or ($step = 'D' and $alter = '-1')"><xsl:sequence select="1"/></xsl:when>
+    <xsl:when test="($step = 'D' and $alter = '1') or ($step = 'E' and $alter = '-1')"><xsl:sequence select="3"/></xsl:when>
+    <xsl:when test="($step = 'G' and $alter = '-1')"><xsl:sequence select="-6"/></xsl:when>
+    <xsl:when test="($step = 'C' and $alter = '-1')"><xsl:sequence select="-1"/></xsl:when>
+    <xsl:when test="($step = 'B' and $alter = '1')"><xsl:sequence select="0"/></xsl:when>
+    <xsl:when test="($step = 'F' and $alter = '-1')"><xsl:sequence select="4"/></xsl:when>
+    <xsl:when test="($step = 'E' and $alter = '1')"><xsl:sequence select="5"/></xsl:when>
+    <xsl:when test="($step = 'F' and $alter = '1')"><xsl:sequence select="6"/></xsl:when>
+    <xsl:when test="$step = 'G'"><xsl:sequence select="-5"/></xsl:when>
+    <xsl:when test="$step = 'A'"><xsl:sequence select="-3"/></xsl:when>
+    <xsl:when test="$step = 'D'"><xsl:sequence select="2"/></xsl:when>
+    <xsl:when test="$step = 'B'"><xsl:sequence select="-1"/></xsl:when>
+    <xsl:when test="$step = 'C'"><xsl:sequence select="0"/></xsl:when>
+    <xsl:when test="$step = 'E'"><xsl:sequence select="4"/></xsl:when>
+    <xsl:when test="$step = 'F'"><xsl:sequence select="5"/></xsl:when>
+  </xsl:choose>
+</xsl:function>
+
 <xsl:template match="harmony" mode="name">
+  <xsl:param name="definition"/>
   <xsl:choose>
     <!-- N.C. is expressed as "z" in MMA. -->
     <xsl:when test="kind = 'none'">z</xsl:when>
@@ -377,9 +406,17 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:for-each>
       <!-- Handle bass note. -->
       <xsl:if test="bass">
-        <xsl:text>/</xsl:text>
-        <xsl:value-of select="bass/bass-step"/>
-        <xsl:value-of select="if (bass/bass-alter = '1') then '#' else if (bass/bass-alter = '-1') then 'b' else ''"/>
+        <xsl:choose>
+          <xsl:when test="$definition">
+            <xsl:text>/</xsl:text>
+            <xsl:value-of select="bass/bass-step"/>
+            <xsl:value-of select="if (bass/bass-alter = '1') then '#' else if (bass/bass-alter = '-1') then 'b' else ''"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>\</xsl:text>
+            <xsl:value-of select="(((mma:noteValue(bass/bass-step, bass/bass-alter) - mma:noteValue(root/root-step, root/root-alter)) mod 12) + 12) mod 12"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:if>
     </xsl:otherwise>
   </xsl:choose>
@@ -525,7 +562,9 @@ TimeSig <xsl:value-of select="beats"/>/<xsl:value-of select="beat-type"/>
 </xsl:template>
 
 <xsl:template match="harmony" mode="slash">
-@Slash <xsl:apply-templates select="." mode="name"/>
+@Slash <xsl:apply-templates select="." mode="name">
+  <xsl:with-param name="definition" select="true()"/>
+</xsl:apply-templates>
 </xsl:template>
 
 </xsl:stylesheet>
