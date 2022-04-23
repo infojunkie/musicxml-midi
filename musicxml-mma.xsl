@@ -48,7 +48,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
 </xsl:text>
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
-    <xsl:with-param name="repeatMeasure"/>
+    <xsl:with-param name="repeatMeasure" select="part/measure[1]"/>
     <xsl:with-param name="repeatCount" select="1"/>
     <xsl:with-param name="jump"/>
     <xsl:with-param name="lastGroove"/>
@@ -75,7 +75,6 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
   <xsl:param name="jump"/>
 
   <xsl:variable name="nextHarmony" select="if (count(harmony) = 0) then $lastHarmony else harmony[last()]"/>
-  <xsl:variable name="repeatMeasureReal" select="if ($repeatMeasure) then $repeatMeasure else generate-id(//measure[1])"/>
 
   <!--
     Calculate this measure's groove.
@@ -170,7 +169,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:variable name="coda" select="*/sound/@tocoda"/>
       <xsl:apply-templates select="following-sibling::measure[*/sound/@coda = $coda]">
         <xsl:with-param name="lastHarmony"/>
-        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="$coda"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
@@ -180,11 +179,11 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <!-- Opening repeat: Save this measure as the loop start. Reset loop counter to 1 unless we're already looping.
          TODO Handle sound/@forward-repeat attribute for the same effect.
     -->
-    <xsl:when test="barline/repeat/@direction = 'forward' or generate-id(.) = $repeatMeasure">
+    <xsl:when test="barline/repeat/@direction = 'forward' or generate-id(.) = generate-id($repeatMeasure)">
       <xsl:apply-templates select="following-sibling::measure[1]">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="generate-id(.)"/>
-        <xsl:with-param name="repeatCount" select="if (generate-id(.) = $repeatMeasure) then $repeatCount else 1"/>
+        <xsl:with-param name="repeatMeasure" select="."/>
+        <xsl:with-param name="repeatCount" select="if (generate-id(.) = generate-id($repeatMeasure)) then $repeatCount else 1"/>
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
         <xsl:with-param name="lastMeasure" select="."/>
@@ -196,9 +195,9 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       ($jump = '' or barline[not(ending)]/repeat/@after-jump = 'yes') and
       (if (barline[not(ending)]/repeat/@times) then number(barline[not(ending)]/repeat/@times) else 2) &gt; $repeatCount
     ">
-      <xsl:apply-templates select="//measure[generate-id(.) = $repeatMeasureReal]">
+      <xsl:apply-templates select="$repeatMeasure">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="$repeatMeasureReal"/>
+        <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
@@ -206,14 +205,14 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       </xsl:apply-templates>
     </xsl:when>
     <!-- Alternate ending end: Jump back to loop start if next loop counter is mentioned in any alternate ending for the current repeat block. -->
-    <xsl:when test="barline[ending/@type = 'stop']/repeat/@direction = 'backward' and //measure[generate-id(.) = $repeatMeasureReal]/following-sibling::measure[
-      preceding-sibling::measure[barline/repeat/@direction = 'forward'][1][generate-id(.) = $repeatMeasureReal] and
+    <xsl:when test="barline[ending/@type = 'stop']/repeat/@direction = 'backward' and $repeatMeasure/following-sibling::measure[
+      preceding-sibling::measure[barline/repeat/@direction = 'forward'][1][generate-id(.) = generate-id($repeatMeasure)] and
       barline/ending/@type = 'start'
       and index-of(tokenize(barline/ending[@type = 'start']/@number, '\s*,\s*'), format-number($repeatCount + 1, '0'))
     ]">
-      <xsl:apply-templates select="//measure[generate-id(.) = $repeatMeasureReal]">
+      <xsl:apply-templates select="$repeatMeasure">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="$repeatMeasureReal"/>
+        <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
@@ -224,7 +223,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <xsl:when test="*/sound/@dacapo = 'yes' and not($jump = 'capo')">
       <xsl:apply-templates select="//measure[1]">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="'capo'"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
@@ -236,7 +235,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:variable name="segno" select="*/sound/@dalsegno"/>
       <xsl:apply-templates select="preceding-sibling::measure[*/sound/@segno = $segno]">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="$segno"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
@@ -247,7 +246,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <xsl:when test="barline[not(ending)]/repeat/@direction = 'backward' and number(barline/repeat/@times) &lt;= $repeatCount">
       <xsl:apply-templates select="following-sibling::measure[1]">
         <xsl:with-param name="lastHarmony" select="$nextHarmony"/>
-        <xsl:with-param name="repeatMeasure"/>
+        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
