@@ -74,7 +74,7 @@ DefChord susb9 (0, 5, 7, 13) (0, 2, 5, 5, 7, 9, 11)
   <xsl:param name="repeatCount" as="xs:integer"/>
   <xsl:param name="jump"/>
 
-  <xsl:variable name="nextHarmony" select="if (count(harmony) = 0) then generate-id(//harmony[generate-id(.) = $lastHarmony]) else generate-id(harmony[last()])"/>
+  <xsl:variable name="nextHarmony" select="if (count(harmony) = 0) then $lastHarmony else harmony[last()]"/>
   <xsl:variable name="repeatMeasureReal" select="if ($repeatMeasure) then $repeatMeasure else generate-id(//measure[1])"/>
 
   <!--
@@ -125,7 +125,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       </xsl:apply-templates>
       <xsl:if test="count(harmony) = 0">
         <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
-        <xsl:apply-templates select="//harmony[generate-id(.) = $lastHarmony]" mode="sequence">
+        <xsl:apply-templates select="$lastHarmony" mode="sequence">
           <xsl:with-param name="start" select="1"/>
         </xsl:apply-templates>
       </xsl:if>
@@ -145,7 +145,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
   <xsl:if test="count(harmony) = 0">
     <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
     <xsl:if test="not($lastHarmony)"> z</xsl:if>
-    <xsl:apply-templates select="//harmony[generate-id(.) = $lastHarmony]" mode="chords">
+    <xsl:apply-templates select="$lastHarmony" mode="chords">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
   </xsl:if>
