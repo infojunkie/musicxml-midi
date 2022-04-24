@@ -58,3 +58,8 @@ set -euo pipefail
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/aquele-um.musicxml)
   echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
 }
+
+@test "musicxml-mma produces a valid file for batwanness-beek" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/batwanness-beek.musicxml)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -n -
+}
