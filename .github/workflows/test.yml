@@ -13,6 +13,8 @@ jobs:
         python-version: [3.8]
 
     steps:
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install libxml2-utils
     - uses: actions/checkout@v2
       with:
         submodules: true

@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -38,6 +38,7 @@
     "morgan": "^1.10.0",
     "saxon-js": "^2.3.0",
     "unzipit": "^1.4.0",
+    "validate-with-xmllint": "^1.2.0",
     "xslt3": "^2.3.0"
   },
   "devDependencies": {

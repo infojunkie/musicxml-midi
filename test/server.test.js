@@ -31,6 +31,8 @@ describe('MusicXML to MIDI conversion server', () => {
     expect(res3.statusCode).toEqual(400)
     const res4 = await request(app).post('/convert').attach('musicXml', 'test/data/large-file.png')
     expect(res4.statusCode).toEqual(413)
+    const res5 = await request(app).post('/convert').attach('musicXml', 'test/data/take-five-invalid.musicxml')
+    expect(res5.statusCode).toEqual(400)
   })
 
   test('should convert valid MusicXML files', async () => {

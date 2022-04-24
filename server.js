@@ -9,6 +9,7 @@ import { promises as fs, constants } from 'fs'
 import { TextDecoder } from 'util'
 import path from 'path'
 import unzip from 'unzipit'
+import { validateXMLWithXSD } from 'validate-with-xmllint';
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
@@ -99,6 +100,11 @@ app.post('/convert', async (req, res, next) => {
 
   try {
     const xml = await tryCompressedMusicXml(req.files.musicXml.data)
+    await validateXMLWithXSD(xml, 'musicxml.xsd')
+    .catch(AbortChainError.chain(error => {
+      console.error(`[xmllint] ${error.message}`)
+      res.status(400).send(ERROR_BAD_PARAM)
+    }))
     const doc = await SaxonJS.getResource({
       type: 'xml',
       encoding: 'utf8',
