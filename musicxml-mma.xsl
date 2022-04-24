@@ -478,7 +478,7 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:if>
 
   <xsl:if test="count(following-sibling::note) = 0">
-    <xsl:if test="count(../note[not(chord or tie or notations/tied)]) = 0">
+    <xsl:if test="not($isAnyNotePrinted or not(chord or $tieStop))">
       <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
     </xsl:if>
     <xsl:if test="$tieStart">~</xsl:if>
