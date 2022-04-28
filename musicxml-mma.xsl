@@ -414,7 +414,7 @@ Chord-Custom Sequence { </xsl:if>
           </xsl:when>
           <xsl:otherwise>
             <xsl:text>\</xsl:text>
-            <xsl:value-of select="(((mma:noteValue(bass/bass-step, bass/bass-alter) - mma:noteValue(root/root-step, root/root-alter)) mod 12) + 12) mod 12"/>
+            <xsl:value-of select="((((mma:noteValue(bass/bass-step, bass/bass-alter) - mma:noteValue(root/root-step, root/root-alter)) mod 12) - 12) mod 12)"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:if>

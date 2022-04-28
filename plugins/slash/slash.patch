@@ -1,0 +1,186 @@
+diff --git a/MMA/chords.py b/MMA/chords.py
+index ca8b7ce..9ba93f6 100644
+--- a/MMA/chords.py
++++ b/MMA/chords.py
+@@ -68,8 +68,8 @@ def defChord(ln):
+ 
+     for i, v in enumerate(notes):
+         v = stoi(v, "Note offsets in chord must be integers, not '%s'" % v)
+-        if v < 0 or v > 24:
+-            error("Note offsets in chord must be 0..24, not '%s'" % v)
++        if v < -12 or v > 24:
++            error("Note offsets in chord must be -12..24, not '%s'" % v)
+         notes[i] = v
+ 
+     scale = ln[1][1].split(',')
+@@ -78,8 +78,8 @@ def defChord(ln):
+ 
+     for i, v in enumerate(scale):
+         v = stoi(v, "Scale offsets in chord must be integers, not '%s'" % v)
+-        if v < 0 or v > 24:
+-            error("Scale offsets in chord must be 0..24, not '%s'" % v)
++        if v < -12 or v > 24:
++            error("Scale offsets in chord must be -12..24, not '%s'" % v)
+         scale[i] = v
+ 
+     chordlist[name] = (notes, scale, "User Defined")
+@@ -93,7 +93,7 @@ def printChord(ln):
+ 
+     for c in ln:
+         try:
+-            print("%s: %s %s  %s" % 
++            print("%s: %s %s  %s" %
+                   (c, tuple(chordlist[c][0]),
+                    tuple(chordlist[c][1]), chordlist[c][2]))
+         except KeyError:
+@@ -137,7 +137,7 @@ def chordAdjust(ln):
+     for a in args:
+         if a.upper() == 'RESET':
+             cdAdjust = copy.copy(cdAdjustOrig)
+-        
++
+         else:
+             error("ChordAdjust: %s is not a valid argument." % a)
+ 
+@@ -154,7 +154,7 @@ def chordAdjust(ln):
+                 cdAdjust[pitch] = cdAdjustOrig[pitch]
+             else:
+                 cdAdjust[pitch] = cdAdjustOrig[pitch] + (octave * 12)
+-       
++
+ 
+ 
+ ###############################
+@@ -220,7 +220,7 @@ class ChordNotes:
+                   ch.noteList == [0, 4, 7, 11, 15, 18]
+                   ch.limit(4)
+                   ch.noteList ==    [0, 4, 7, 11]
+-                  
++
+                   DROP option deletes specific itervals first:
+                       chord  [0, 4, 7, 11, 15, 18]
+                       limit(5, Drop=1) - [4, 7, 11, 15, 18]
+@@ -359,7 +359,7 @@ class ChordNotes:
+         if slash:   # convert Roman or Arabic to name of note from chord scale
+             if slash[0] in ('I', 'i', 'V', 'v') or slash[0].isdigit():
+                 n = MMA.roman.rvalue(slash)
+-                n = self.scaleList[n] % 12   # midi value 
++                n = self.scaleList[n] % 12   # midi value
+ 
+                 slash = ('C', 'C#', 'D', 'D#', 'E', 'F',
+                          'F#', 'G', 'G#', 'A', 'A#', 'B')[n]
+@@ -392,7 +392,7 @@ class ChordNotes:
+ 
+             # Check against the scale notes. If the note is in
+             # the scale we rotate the scale to force the slash note
+-            # to the root position. 
++            # to the root position.
+             s_roted = 0
+             s = list(self.scaleList)
+             for octave in [0, 12, 24]:
+@@ -452,7 +452,7 @@ class ChordNotes:
+             if wmessage:
+                 a += '   ' + wmessage
+             dPrint(" %03s] %-09s -> %s%s" % (gbl.lineno, startingName, name, a))
+-        
++
+     def reset(self):
+         """ Restores notes array to original, undoes mangling. """
+ 
+@@ -507,7 +507,7 @@ class ChordNotes:
+         """ Limit the number of notes in a chord. """
+ 
+         #z = self.noteList[:] # orig notes
+-        
++
+         # Look for a matching note from the scale in the chord
+         # By using remove() we only remove the 1st instance (a good thing)
+         # Note: on a 3 note chord this could make it into 2 note chord.
+@@ -524,7 +524,7 @@ class ChordNotes:
+             self.noteListLen = len(self.noteList)
+ 
+         #print (f"Dropmode={mode} Force={force} Transform{z}->{self.noteList}")
+-        
++
+         return None
+ 
+     def keycenter(self):
+@@ -548,7 +548,7 @@ class ChordNotes:
+                 notes[a] += 12
+ 
+         elif nbelow<nabove:
+-            for a in range(1,nabove-nbelow):   # this should give 1,2 
++            for a in range(1,nabove-nbelow):   # this should give 1,2
+                 notes[-a] -= 12                # and the - means end of list
+ 
+         return None
+@@ -558,13 +558,13 @@ class ChordNotes:
+             We do this by changing the note list so that 9th, etc. are deleted,
+             the 'key' function is called and the deleted notes are restored.
+         """
+-        
++
+         orig = self.noteList[:]
+ 
+         saved=[]
+         self.noteList = []
+         root = orig[0]
+-        for n in orig: 
++        for n in orig:
+             if n >= root+12:
+                 saved.append(n)
+             else:
+@@ -575,14 +575,14 @@ class ChordNotes:
+         return None
+ 
+     def rootkey(self):
+-        """ Modify the chord so that the notes are all close to, but above, the 
++        """ Modify the chord so that the notes are all close to, but above, the
+             root note (from the key sig).
+         """
+-        
++
+         key = keySig.keyNoteValue
+         new = []
+ 
+-        for n in self.noteList: 
++        for n in self.noteList:
+             while n<0:
+                 n+=12
+             while n>12:
+@@ -660,11 +660,11 @@ class ChordNotes:
+ 
+     def drop2key(self):
+         """ Drop2 plus key rotate. """
+-        
++
+         self.drop2()
+         self.keycenter()
+         return None
+-        
++
+     def drop3(self):
+         """ Take the 3rd note of the chord from the top
+             and lower it by one octave.
+@@ -682,10 +682,10 @@ class ChordNotes:
+         self.drop3()
+         self.keycenter()
+         return None
+-    
++
+     def drop23(self):
+         """ Combined Drop2 and Drop3. """
+-        
++
+         self.drop2()
+         self.drop3()
+         return None
+@@ -696,7 +696,7 @@ class ChordNotes:
+         self.drop23()
+         self.keycenter()
+         return None
+-    
++
+ ######## End of Chord class #####
+ 
+ 

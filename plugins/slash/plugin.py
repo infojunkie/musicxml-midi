@@ -51,7 +51,7 @@ def run(args):
         'E#':  5, 'F' :  5,
         'F#':  6
     }
-    interval = (noteValues[bass] - noteValues[chord.tonic]) % 12
+    interval = (noteValues[bass] - noteValues[chord.tonic]) % 12 - 12
 
     # Define a new chord with syntax "type\bass" to denote the slash chord.
     newName = chord.chordType + "\\" + str(interval)
