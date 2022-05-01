@@ -12,7 +12,7 @@
     "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
     "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\"; }; run",
     "convert:mma:groove": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" globalGroove=$2; }; run",
-    "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py \"$1\" -f \"${1/.mma/.mid}\"; }; run",
+    "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
     "print:grooves": "find ${MMA_HOME:-../mma}/lib -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "develop": "nodemon -e js,json server.js",

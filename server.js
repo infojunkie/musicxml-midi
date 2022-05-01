@@ -126,7 +126,7 @@ app.post('/convert', async (req, res, next) => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
       res.status(400).send(ERROR_BAD_PARAM)
     }))
-    const execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -f "$out" -', {
+    const execResult = await exec('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -II -f "$out" -', {
       env: { ...process.env, 'mma': saxonResult.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {

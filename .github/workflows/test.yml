@@ -22,6 +22,7 @@ jobs:
       with:
         repository: infojunkie/mma
         path: mma
+        ref: infojunkie
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
