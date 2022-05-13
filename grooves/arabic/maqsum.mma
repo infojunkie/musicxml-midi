@@ -1,0 +1,46 @@
+Begin Doc
+  Maqsum 4/4 rhythm family.
+End
+
+SeqClear
+SeqSize 1
+Time 4
+Timesig 4 4
+
+// D = dum, T = tak
+Begin Drum Define
+  D 1 8 90 ; 3 4 90
+  T 1.5 8 90 ; 2.5 8 90 ; 4 4 90
+End
+
+Begin Drum-Dum
+  Tone LowBongo
+  Sequence D
+End
+
+Begin Drum-Tak
+  Tone HighBongo
+  Sequence T
+End
+
+Begin Bass
+    Voice AcousticBass
+    Volume m
+    Octave 3
+    Articulate 90
+    Rtime 5
+    Rvolume 5
+    Sequence { 1 8 1 90; 1.5 4 5 90; 2.5 8 5 90; 3 4 1 90; 4 4 5 90 }
+End
+
+Begin Chord
+    Voice Piano1
+    Articulate 90
+    Voicing Mode=Key
+    Octave 5
+    Volume p
+    Sequence { 2 4 90; 3 2 90 }
+    Rskip 20
+End
+
+DefGroove Maqsum Basic Maqsum 4/4 rhythm

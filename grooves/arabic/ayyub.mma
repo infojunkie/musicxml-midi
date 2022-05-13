@@ -1,0 +1,46 @@
+Begin Doc
+  Ayyub (aka Ayoub aka Zar) 2/4 rhythm family.
+End
+
+SeqClear
+SeqSize 1
+Time 2
+Timesig 2 4
+
+// D = dum, T = tak, S = sak
+Begin Drum Define
+  D 1 16 90 ; 2 16 90
+  T 1+8+16 16 90 ; 2+8 16 90
+End
+
+Begin Drum-Dum
+  Tone LowBongo
+  Sequence D
+End
+
+Begin Drum-Tak
+  Tone HighBongo
+  Sequence T
+End
+
+Begin Bass
+    Voice AcousticBass
+    Volume m
+    Octave 3
+    Articulate 90
+    Rtime 5
+    Rvolume 5
+    Sequence { 1 4 1 90 ; 2 4 5- 90 }
+End
+
+Begin Chord
+    Voice Piano1
+    Articulate 90
+    Voicing Mode=Key
+    Octave 5
+    Volume p
+    Sequence { 1+8+16 16 90 ; 2+8 16 90 }
+    Rskip 20
+End
+
+DefGroove Ayyub Basic Ayyub 2/4 rhythm

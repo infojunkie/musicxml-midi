@@ -1,0 +1,52 @@
+Begin Doc
+  Sama'i 10/8 rhythm family.
+End
+
+SeqClear
+SeqSize 1
+Time 5
+Timesig 10/8
+
+// D = dum, T = tak, S = sak
+Begin Drum Define
+  D 1 8 90 ; 3+8 8 90 ; 4 4 90
+  T 2+8 8 90 ; 4+8 8 90
+  S 1+8 16 50 ; 1+8+16 16 50 ; 2 16 50 ; 2+16 16 50 ; 3 16 50 ; 3+16 16 50 ; 5 16 50 ; 5+16 16 50 ; 5+8 16 50 ; 5+8+16 16 50
+End
+
+Begin Drum-Dum
+  Tone LowBongo
+  Sequence D
+End
+
+Begin Drum-Tak
+  Tone HighBongo
+  Sequence T
+End
+
+Begin Drum-Sak
+  Tone Cabasa
+  Sequence S
+End
+
+Begin Bass
+    Voice AcousticBass
+    Volume m
+    Octave 3
+    Articulate 90
+    Rtime 5
+    Rvolume 5
+    Sequence { 1 8 1 90; 2 8 5- 90; 2+8 8 1 90; 3+8 8 5- 90; 4 8 5- 90; 4+8 8 1 90; 5+8 8 5- 90 }
+End
+
+Begin Chord
+    Voice Piano1
+    Articulate 90
+    Voicing Mode=Key
+    Octave 5
+    Volume p
+    Sequence { 1 4+8 90; 2+8 4 90; 3+8 4 90; 4+8 4+8 90 }
+    Rskip 20
+End
+
+DefGroove Samai Basic Sama'i 10/8 rhythm

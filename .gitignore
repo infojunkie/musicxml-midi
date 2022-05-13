@@ -5,3 +5,4 @@ test/data/*.mma
 cache/*
 !cache/.gitkeep
 __pycache__
+.mmaDB

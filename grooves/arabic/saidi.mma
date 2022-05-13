@@ -1,0 +1,52 @@
+Begin Doc
+  Sa'idi 4/4 rhythm family.
+End
+
+SeqClear
+SeqSize 1
+Time 4
+Timesig 4 4
+
+// D = dum, T = tak, S = sak
+Begin Drum Define
+  D 1 8 90 ; 2.5 8 90 ; 3 4 90
+  T 1.5 8 90 ; 4 4 90
+  S 2 16 60 ; 2+16 16 60 ; 3 16 60 ; 3+16 16 60 ; 4 16 60 ; 4+16 16 60
+End
+
+Begin Drum-Dum
+  Tone LowBongo
+  Sequence D
+End
+
+Begin Drum-Tak
+  Tone HighBongo
+  Sequence T
+End
+
+Begin Drum-Sak
+  Tone Cabasa
+  Sequence S
+End
+
+Begin Bass
+    Voice AcousticBass
+    Volume m
+    Octave 3
+    Articulate 90
+    Rtime 5
+    Rvolume 5
+    Sequence { 1 8 5- 90; 1.5 4 1 90; 2.5 8 1 90; 3 4 1 90; 4 4 1 90 }
+End
+
+Begin Chord
+    Voice Piano1
+    Articulate 90
+    Voicing Mode=Key
+    Octave 5
+    Volume p
+    Sequence { 1.5 8+4 90; 3 4 90; 4 4 90 }
+    Rskip 20
+End
+
+DefGroove Saidi Basic Sa'idi 4/4 rhythm

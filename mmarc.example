@@ -1,1 +1,3 @@
-SetMIDIplayer aplaymidi --port=128:0
+// Debug Debug=On
+SetMIDIplayer audacious
+SetLibPath /full/path/to/musicxml-mma/grooves $_LibPath

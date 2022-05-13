@@ -3298,14 +3298,6 @@ March1Intro
  A 4 bar introduction.
 March1End
  A 2 bar ending.
-Ayyub
- Basic ayyub rhythm.
-Saidi
- Basic sa'idi rhythm.
-Maqsum
- Basic maqsum rhythm.
-Samai
- Basic sama'i rhythm.
 metal2A
  Metal 2, Section A.
 metal2B
@@ -3934,3 +3926,11 @@ DnB05
  Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 DnB06
  Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, MutHiConga, OpenHiConga.
+Ayyub
+ Basic Ayyub 2/4 rhythm.
+Saidi
+ Basic Sa'idi 4/4 rhythm.
+Maqsum
+ Basic Maqsum 4/4 rhythm.
+Samai
+ Basic Sama'i 10/8 rhythm.
