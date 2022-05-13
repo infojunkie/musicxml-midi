@@ -31,7 +31,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - run: npm install && npm run build:grooves
+    - run: echo "SetLibPath $(pwd)/grooves \$_LibPath" > mmarc && npm install && npm run build:grooves
       env:
         MMA_HOME: mma/
     - run: npm test
