@@ -1,3 +1,12 @@
+// MMA configuration file
+// Copy this to ./mmarc and edit the options below as needed.
+
+// Turn on debug mode if needed.
 // Debug Debug=On
+
+// Set the MIDI player that is invoked for MMA audio functions.
 SetMIDIplayer audacious
+
+// Set the path to additional groove libraries.
+// MMA needs full paths, so edit yours here.
 SetLibPath /full/path/to/musicxml-mma/grooves $_LibPath
