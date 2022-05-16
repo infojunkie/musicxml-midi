@@ -80,16 +80,6 @@ Drum-Zabumba-Maceta-Open Sequence { 2 0 90 ; 2.5 0 90 }
 
 Drum-Zabumba-Bacalhau Sequence { 1.5 0 90 ; 2.5 0 90 }
 
-Begin Drum-Triangle-Mute
-  Tone MuteTriangle
-  Sequence { 1 0 90 ; 1+8+16 0 90 ; 2 0 90 ; 2+8+16 0 90 }
-End
-
-Begin Drum-Triangle-Open
-  Tone OpenTriangle
-  Sequence { 1+16 0 90 ; 1+8 0 90 ; 2+16 0 90 ; 2+8 0 90 }
-End
-
 DefGroove Xote    Basic Xote 2/4 rhythm
 
 ///////////////////////////////
