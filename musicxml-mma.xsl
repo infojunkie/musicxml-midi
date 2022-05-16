@@ -7,13 +7,23 @@
 >
 <xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
-<!-- Inspired by https://github.com/k8bushlover/XSLT-MusicXmlToSessionBand - I love k8bush too! -->
+<!--
+  Inspired by https://github.com/k8bushlover/XSLT-MusicXmlToSessionBand - I love k8bush too!
+-->
 
+<!--
+  User-defined arguments
+-->
 <xsl:param name="chordVolume" select="50"/>
 <xsl:param name="soloVoice" select="'TenorSax'"/>
 <xsl:param name="chordVoice" select="'Piano1'"/>
 <xsl:param name="globalGroove"/>
 
+<!--
+  Globals
+  TODO Most of these can change over the course of the score, so better to pass them
+  as arguments to the measure generator and detect new ones as we go.
+-->
 <xsl:variable name="divisions" select="score-partwise/part/measure/attributes/divisions"/>
 <xsl:variable name="beats" select="score-partwise/part/measure/attributes/time/beats"/>
 <xsl:variable name="beatType" select="score-partwise/part/measure/attributes/time/beat-type"/>
@@ -81,16 +91,18 @@ Plugin Slash</xsl:text>
   <xsl:param name="jump"/>
 
   <xsl:variable name="nextHarmony" select="if (count(harmony) = 0) then $lastHarmony else harmony[last()]"/>
+  <xsl:variable name="durationDifference" select="(sum(note[not(chord)]/duration) div $divisions) - ($beats * 4 div $beatType)"/>
 
   <!--
     Calculate this measure's groove.
     If we have a global groove override, set it the first time around. It will override any groove command in the file.
     Otherwise, detect a sound/play/other-play[@type = groove] element and derive the groove from it.
     Remember the last seen groove to avoid redeclaring at each measure.
+    In case the measure number is 0 (pickup measure), then ignore the global groove if any (but a locally declared groove will still apply).
   -->
   <xsl:variable name="thisGroove">
     <xsl:choose>
-      <xsl:when test="$globalGroove != '' and $lastGroove != $globalGroove and lower-case($globalGroove) != 'none'">
+      <xsl:when test="@number != 0 and $globalGroove != '' and $lastGroove != $globalGroove and lower-case($globalGroove) != 'none'">
         <xsl:value-of select="$globalGroove"/>
       </xsl:when>
       <xsl:when test="$globalGroove != ''"></xsl:when>
@@ -160,6 +172,11 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <xsl:with-param name="shouldIgnoreTieStop" select="if (not($lastMeasure)) then false() else not($lastMeasure/note[not(chord)][last()]/tie[@type = 'start'])"/>
     <xsl:with-param name="isAnyNotePrinted" select="false()"/>
   </xsl:apply-templates>
+
+  <xsl:if test="$durationDifference != 0">
+    <xsl:text>&#xa;</xsl:text>
+    <xsl:text>BeatAdjust </xsl:text><xsl:value-of select="$durationDifference"/>
+  </xsl:if>
 
   <!-- Advance to next measure with our unrolling algorithm. -->
   <xsl:choose>

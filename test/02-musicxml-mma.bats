@@ -63,3 +63,10 @@ set -euo pipefail
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/batwanness-beek.musicxml)
   echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -II -n -
 }
+
+@test "musicxml-mma produces a valid file for asa-branca" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/asa-branca.musicxml)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -II -n -
+  run echo ${mma}
+  assert_output --partial 'BeatAdjust -1'
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { parseMidi } from "midi-file"
+import { parseMidi } from 'midi-file'
 import process from 'process'
 import fs from 'fs'
 

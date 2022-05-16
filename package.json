@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -14,7 +14,7 @@
     "convert:mma:groove": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" globalGroove=$2; }; run",
     "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
-    "print:grooves": "find ${MMA_HOME:-../mma}/lib grooves -name '*.mma' | while read f; do ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
+    "print:grooves": "find ${MMA_HOME:-../mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "develop": "nodemon -e js,json server.js",
     "test:xsl": "./test/libs/bats/bin/bats test/*.bats",
     "test:server": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
