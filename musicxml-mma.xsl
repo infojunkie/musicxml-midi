@@ -360,7 +360,7 @@ Chord-Custom Sequence { </xsl:if>
         <xsl:when test="kind = 'dominant-ninth'">9</xsl:when>
         <xsl:when test="kind = 'French'"><!-- TODO --></xsl:when>
         <xsl:when test="kind = 'German'"><!-- TODO --></xsl:when>
-        <xsl:when test="kind = 'half-diminished'">7b5</xsl:when>
+        <xsl:when test="kind = 'half-diminished'">m7b5</xsl:when>
         <xsl:when test="kind = 'Italian'"><!-- TODO --></xsl:when>
         <xsl:when test="kind = 'major'"></xsl:when>
         <xsl:when test="kind = 'major-11th'">M11</xsl:when>
