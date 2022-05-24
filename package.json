@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.9.3",
+  "version": "0.10.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -43,9 +43,12 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "glob": "^8.0.3",
+    "ireal-musicxml": "^1.7.2",
     "jest": "^27.5.1",
     "midi-file": "^1.2.2",
     "nodemon": "^2.0.15",
+    "sanitize-filename": "^1.6.3",
     "sinon": "^13.0.1",
     "supertest": "^6.2.2"
   },

@@ -1,8 +1,9 @@
 mmarc
 node_modules
-test/data/*.mid
-test/data/*.mma
+test/data/**/*.mid
+test/data/**/*.mma
+test/data/output/*
 cache/*
-!cache/.gitkeep
+!.gitkeep
 __pycache__
 .mmaDB

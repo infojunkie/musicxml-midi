@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+// Convert a MIDI file into its JSON representation.
+
 import { parseMidi } from 'midi-file'
 import process from 'process'
 import fs from 'fs'
