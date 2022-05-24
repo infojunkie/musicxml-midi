@@ -155,11 +155,13 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <xsl:otherwise>
       <xsl:apply-templates select="harmony[1]" mode="sequence">
         <xsl:with-param name="start" select="1"/>
+        <xsl:with-param name="divisions" select="$thisDivisions"/>
       </xsl:apply-templates>
       <xsl:if test="count(harmony) = 0">
         <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
         <xsl:apply-templates select="$lastHarmony" mode="sequence">
           <xsl:with-param name="start" select="1"/>
+          <xsl:with-param name="divisions" select="$thisDivisions"/>
         </xsl:apply-templates>
       </xsl:if>
     </xsl:otherwise>
@@ -174,12 +176,14 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
   <!-- Chord information. -->
   <xsl:apply-templates select="harmony[1]" mode="chords">
     <xsl:with-param name="start" select="1"/>
+    <xsl:with-param name="divisions" select="$thisDivisions"/>
   </xsl:apply-templates>
   <xsl:if test="count(harmony) = 0">
     <!-- In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord. -->
     <xsl:if test="not($lastHarmony)"> z</xsl:if>
     <xsl:apply-templates select="$lastHarmony" mode="chords">
       <xsl:with-param name="start" select="1"/>
+      <xsl:with-param name="divisions" select="$thisDivisions"/>
     </xsl:apply-templates>
   </xsl:if>
 
@@ -335,6 +339,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
 
 <xsl:template match="harmony" mode="sequence">
   <xsl:param name="start"/>
+  <xsl:param name="divisions"/>
   <xsl:variable name="id" select="generate-id(.)"/>
   <xsl:if test="$start = 1">
 Chord-Custom Sequence { </xsl:if>
@@ -344,7 +349,7 @@ Chord-Custom Sequence { </xsl:if>
 
     The following sum() function accumulates the durations of all notes following the current harmony element
     until the next harmony element. It skips chord notes which don't contribute additional duration.
-    The sum is divided by $divisions which is the global time resolution of the whole score.
+    The sum is divided by $divisions which is the current time resolution of the score.
     The final duration is expressed in "beats" == quarter note time.
   -->
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
@@ -353,6 +358,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
     <xsl:with-param name="start" select="$start + $duration"/>
+    <xsl:with-param name="divisions" select="$divisions"/>
   </xsl:apply-templates>
   <xsl:if test="count(following-sibling::harmony) = 0">}</xsl:if>
 </xsl:template>
@@ -492,6 +498,8 @@ Chord-Custom Sequence { </xsl:if>
 
 <xsl:template match="harmony" mode="chords">
   <xsl:param name="start"/>
+  <xsl:param name="divisions"/>
+
   <xsl:variable name="id" select="generate-id(.)"/>
   <xsl:text> </xsl:text>
   <!-- Chord name. -->
@@ -502,6 +510,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="chords">
     <xsl:with-param name="start" select="$start + $duration"/>
+    <xsl:with-param name="divisions" select="$divisions"/>
   </xsl:apply-templates>
 </xsl:template>
 
@@ -601,6 +610,7 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:apply-templates select="following-sibling::note[1]">
     <xsl:with-param name="shouldIgnoreTieStop" select="false()"/>
     <xsl:with-param name="isAnyNotePrinted" select="$isAnyNotePrinted or not(chord or $tieStop)"/>
+    <xsl:with-param name="divisions" select="$divisions"/>
   </xsl:apply-templates>
 </xsl:template>
 

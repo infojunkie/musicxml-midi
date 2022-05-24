@@ -44,7 +44,7 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "glob": "^8.0.3",
-    "ireal-musicxml": "^1.7.2",
+    "ireal-musicxml": "^1.7.3",
     "jest": "^27.5.1",
     "midi-file": "^1.2.2",
     "nodemon": "^2.0.15",
