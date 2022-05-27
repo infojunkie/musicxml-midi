@@ -29,9 +29,9 @@ const output = process.argv[3] || 'test/data/output'
 
 const files = await globp(input, null)
 for await (const file of files) {
-  const playlist = await ireal.convert(fs.readFileSync(file))
+  const playlist = await ireal.convert(fs.readFileSync(file), { logLevel: ireal.LogLevel.Error })
   .catch(AbortChainError.chain(error => {
-    console.error(`[iReal-MusicXML] [${file}] ${error.message}`)
+    console.error(`[ireal-musicxml] [${file}] ${error.message}`)
   }))
   for await (const song of playlist.songs) {
     try {
