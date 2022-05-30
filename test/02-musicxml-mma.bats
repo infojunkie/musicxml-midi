@@ -75,3 +75,8 @@ set -euo pipefail
   mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/that-s-what-friends-are-for.musicxml)
   echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -II -n -
 }
+
+@test "musicxml-mma produces a valid file for capim" {
+  mma=$(xslt3 -xsl:musicxml-mma.xsl -s:test/data/capim.musicxml)
+  echo "${mma}" | ${MMA_HOME:-../mma}/mma.py -II -n -
+}

@@ -65,7 +65,7 @@ Plugin Slash</xsl:text>
 
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
-    <xsl:with-param name="repeatMeasure" select="part/measure[1]"/>
+    <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
     <xsl:with-param name="repeatCount" select="1"/>
     <xsl:with-param name="jump"/>
     <xsl:with-param name="lastGroove"/>
@@ -216,7 +216,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:apply-templates select="$nextMeasure">
         <xsl:with-param name="lastHarmony"/>
         <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="repeatCount" select="10000"/>
         <xsl:with-param name="jump" select="$coda"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
         <xsl:with-param name="lastMeasure" select="."/>
@@ -278,7 +278,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:apply-templates select="//measure[1]">
         <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
         <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="repeatCount" select="10000"/>
         <xsl:with-param name="jump" select="'capo'"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
         <xsl:with-param name="lastMeasure" select="."/>
@@ -293,7 +293,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:apply-templates select="$nextMeasure">
         <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
         <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="repeatCount" select="10000"/>
         <xsl:with-param name="jump" select="$segno"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
         <xsl:with-param name="lastMeasure" select="."/>
@@ -306,7 +306,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
       <xsl:apply-templates select="following-sibling::measure[1]">
         <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
         <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="1"/>
+        <xsl:with-param name="repeatCount" select="10000"/>
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="lastGroove" select="$nextGroove"/>
         <xsl:with-param name="lastMeasure" select="."/>
