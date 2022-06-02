@@ -98,7 +98,7 @@ Plugin Slash</xsl:text>
   <xsl:variable name="thisHarmony" select="if (harmony) then harmony[last()] else $lastHarmony"/>
   <xsl:variable name="thisTime" select="if (attributes/time) then attributes/time else preceding-sibling::measure[attributes/time][1]/attributes/time"/>
   <xsl:variable name="thisDivisions" select="if (attributes/divisions) then attributes/divisions else preceding-sibling::measure[attributes/divisions][1]/attributes/divisions"/>
-  <xsl:variable name="durationDifference" select="(sum(note[not(chord)]/duration) div $thisDivisions) - ($thisTime/beats * 4 div $thisTime/beat-type)"/>
+  <xsl:variable name="durationDifference" select="round((sum(note[not(chord)]/duration) div $thisDivisions) - ($thisTime/beats * 4 div $thisTime/beat-type))"/>
 
   <!--
     Calculate this measure's groove.
@@ -349,7 +349,7 @@ Chord-Custom Sequence { </xsl:if>
   -->
   <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <!-- Express the duration in MIDI ticks = 192 * quarter note -->
-  <xsl:value-of select="$duration * 192"/><xsl:text>t </xsl:text>
+  <xsl:value-of select="round($duration * 192)"/><xsl:text>t </xsl:text>
   <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
     <xsl:with-param name="start" select="$start + $duration"/>
@@ -570,7 +570,7 @@ Chord-Custom Sequence { </xsl:if>
     </xsl:variable>
     <xsl:if test="$duration != ''">
       <xsl:if test="$isAnyNotePrinted">;</xsl:if>
-      <xsl:value-of select="192 * $duration div $divisions"/>
+      <xsl:value-of select="round(192 * $duration div $divisions)"/>
       <xsl:text>t</xsl:text>
     </xsl:if>
   </xsl:if>
@@ -581,7 +581,7 @@ Chord-Custom Sequence { </xsl:if>
       <xsl:when test="pitch">
         <xsl:if test="chord"><xsl:text>,</xsl:text></xsl:if>
         <xsl:value-of select="lower-case(pitch/step)"/>
-        <xsl:value-of disable-output-escaping="yes" select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else ''"/>
+        <xsl:value-of disable-output-escaping="yes" select="if (pitch/alter = '1') then '#' else if (pitch/alter = '-1') then '&amp;' else 'n'"/>
         <xsl:choose>
           <xsl:when test="pitch/octave &gt; 4">
             <xsl:for-each select="1 to xs:integer(pitch/octave - 4)">+</xsl:for-each>
