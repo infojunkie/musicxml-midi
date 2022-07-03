@@ -14,7 +14,7 @@ SeqSize 1
 // Baião pattern
 
 Begin Drum-Zabumba-Maceta-Mute
-  Tone MuteSurdo
+  Tone KickDrum1
   Sequence { 1 0 90 }
 End
 
@@ -24,7 +24,7 @@ Begin Drum-Zabumba-Maceta-Open
 End
 
 Begin Drum-Zabumba-Bacalhau
-  Tone Sticks
+  Tone MuteSurdo
   Sequence { 1.5 0 90 ; 2.5 0 90 }
 End
 
@@ -38,27 +38,7 @@ Begin Drum-Triangle-Open
   Sequence { 1+16 0 90 ; 1+8 0 90 ; 2+16 0 90 ; 2+8 0 90 }
 End
 
-Begin Bass
-    Voice AcousticBass
-    Volume f
-    Octave 3
-    Articulate 90
-    RTime 5
-    RVolume 5
-    Sequence { 1+8+16 16+8 5- 90 ; 2+8 8+8+16 1 90 }
-End
-
-Begin Chord
-    Voice Piano1
-    Articulate 90
-    Voicing Mode=Key
-    Octave 5
-    Volume p
-    Sequence { 1 8 90 ; 2 8 90 }
-    Rskip 20
-End
-
-DefGroove Baiao    Basic Baião 2/4 rhythm
+DefGroove Baiao-Miranda    Basic Baião 2/4 (Michael de Miranda & Matthias Haffner)
 
 ///////////////////////////////
 // Forró pattern
@@ -69,7 +49,7 @@ Drum-Zabumba-Maceta-Open Sequence { 1 0 90 ; 2+8+16 0 90 }
 
 Drum-Zabumba-Bacalhau Sequence { 1.5 0 90 ; 2 0 90 ; 2.5 0 90 }
 
-DefGroove Forro    Basic Forró 2/4 rhythm
+DefGroove Forro-Miranda    Basic Forró 2/4 (Michael de Miranda & Matthias Haffner)
 
 ///////////////////////////////
 // Xote pattern
@@ -80,7 +60,7 @@ Drum-Zabumba-Maceta-Open Sequence { 2 0 90 ; 2.5 0 90 }
 
 Drum-Zabumba-Bacalhau Sequence { 1.5 0 90 ; 2.5 0 90 }
 
-DefGroove Xote    Basic Xote 2/4 rhythm
+DefGroove Xote-Miranda    Basic Xote 2/4 (Michael de Miranda & Matthias Haffner)
 
 ///////////////////////////////
 // Xaxado pattern
@@ -91,10 +71,10 @@ Drum-Zabumba-Maceta-Open Sequence { 2+8 0 90 }
 
 Drum-Zabumba-Bacalhau Sequence { 1+16 0 90 ; 2 0 90 }
 
-DefGroove Xaxado    Basic Xaxado 2/4 rhythm
+DefGroove Xaxado-Miranda    Basic Xaxado 2/4 (Michael de Miranda & Matthias Haffner)
 
 ///////////////////////////////
-// Basic pattern
+// Arrasta-pé pattern
 
 Drum-Zabumba-Maceta-Mute Sequence { 1 0 90 }
 
@@ -102,4 +82,4 @@ Drum-Zabumba-Maceta-Open Sequence { 2 0 90 ; 2.5 0 90 }
 
 Drum-Zabumba-Bacalhau Sequence { 1+8 0 90 ; 1+8+16 0 90 ; 2+8 0 90 ; 2+8+16 0 90 }
 
-DefGroove Arrasta-pe    Basic Arrasta-pé 2/4 rhythm
+DefGroove Arrastape-Miranda    Basic Arrasta-pé 2/4 (Michael de Miranda & Matthias Haffner)

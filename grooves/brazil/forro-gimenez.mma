@@ -1,0 +1,61 @@
+Begin Doc
+
+  Forró 2/4 rhythm family.
+  Source: Caio Gimenez https://musescore.com/user/36192766
+
+End
+
+SeqClear
+Time 2
+TimeSig 2/4
+SeqSize 1
+
+///////////////////////////////
+// Baião pattern
+
+Begin Drum-Bombo-2
+    Tone KickDrum2
+    Sequence { 1 0 80 }
+End
+
+Begin Drum-Bombo-1
+    Tone KickDrum1
+    Sequence { 1+8+16 0 100 }
+End
+
+Begin Drum-Bombo-Rim
+    Tone SideKick
+    Sequence { 1+8 0 100 ; 2+8 0 100 }
+End
+
+Begin Drum-Pandeiro
+    Tone Tambourine
+    Sequence { 1 0 100 ; 1+16 0 80 ; 1+8 0 80 ; 1+8+16 0 100 ; 2 0 100 ; 2+16 0 80 ; 2+8 0 80 ; 2+8+16 0 100 }
+End
+
+Begin Drum-Triangulo-Mute
+    Tone MuteTriangle
+    Sequence { 1 0 100 ; 1+16 0 80 ; 1+8+16 0 80 ; 2 0 80 ; 2+16 0 80 ; 2+8+16 0 80 }
+End
+
+Begin Drum-Triangulo-Open
+    Tone OpenTriangle
+    Sequence { 1+8 0 100 ; 2+8 0 100 }
+End
+
+Begin Drum-Blocos-High
+    Tone HighWoodBlock
+    Sequence { 1+8 0 80 }
+End
+
+Begin Drum-Blocos-Low
+    Tone LowWoodBlock
+    Sequence { 2+8 0 80 }
+End
+
+Begin Drum-Afoxe
+    Tone Cabasa
+    Sequence { 1 0 80 ; 1+16 0 80 ; 1+8 0 100 ; 1+8+16 0 80 ; 2 0 80 ; 2+16 0 80 ; 2+8 0 100 ; 2+8+16 0 80 }
+End
+
+DefGroove Baiao-Gimenez    Basic Baião 2/4 (Caio Gimenez)
