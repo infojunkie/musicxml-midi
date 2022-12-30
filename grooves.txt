@@ -1038,6 +1038,18 @@ FastJazzWaltzEnd
  Simple ending.
 FastJazzWaltz1End
  Ending with arpeggio eights and quarters.
+EEWaltz
+ A basic waltz for Slavic love tunes.
+EEWaltzPlus
+ Lighten up on the chords and add in some random improve.
+EEWaltzWalkPlus
+ Exchange regular bass for walking.
+EEWaltzSus
+ Not quite a sustain since the accordion notes start just before beat 2.
+EEWaltzWalkSus
+ Same sustain with a walking bass.
+EEWaltzEnd
+ A 2 bar ending.
 Metronome6
  A two bar 6/8 ballad introduction.
 BubbleRock
@@ -1530,6 +1542,8 @@ BluesIntro
  Simple, 4 bar, introduction.
 BluesEnd
  A 4 bar ending. First 2 bars have 4 "hits", the last 2 have 2.
+Click
+ A simple click track.
 ShowTune
  Basic track with strings.
 ShowTune1
@@ -2062,6 +2076,22 @@ Rock128IntroSus
  Same 4 bar intro with strings.
 Rock128End
  Simple ending.
+DooWop
+ Basic DooWop.
+DooWopSus
+ Add in sustained strings and voices.
+DooWopPlus
+ Add some piano notes for interest.
+DooWopSusPlus
+ Plus version with strings.
+DooWopIntro
+ A 4 bar introduction.
+DooWopIntroSus
+ Same 4 bar intro with strings.
+DooWopFill
+ One bar fill.
+DooWopEnd
+ Simple ending.
 Dixie
  Complete with arpeggiating banjo.
 Dixie1
@@ -2106,6 +2136,8 @@ EasySwingWalkSus
  The EasySwing with a walking bass line and a sustained string.
 EasySwingWalkFill
  Walking bass fill.
+EasySwingSusFill
+ Sustained strings and fill.
 EasySwing1
  One strum per bar. Okay if the tempo is quite fast, or as an introduction.
 EasySwing1Sus
@@ -2310,6 +2342,20 @@ StringBalladIntro
  A 4 bar introduction.
 StringBalladEnd
  A 2 bar ending.
+SlowDesert
+ Pretty funky beat for the desert.
+SlowDesertSus
+ Add sustained strings.
+SlowDesertPlus
+ Desert theme with a jazz guitar overlay.
+SlowDesertSusPlus
+ Desert with strings and guitar.
+SlowDesertFill
+ A bit of a drum torrent over the basic beat.
+SlowDesertFillSus
+ Fill groove with sustained strings.
+SlowDesertEnd
+ Desert Ending.
 ChaCha
  Our basic, non-American, pattern.
 ChaCha1
@@ -3934,6 +3980,8 @@ Maqsum
  Basic Maqsum 4/4 rhythm.
 Samai
  Basic Sama'i 10/8 rhythm.
+Jurjina
+ Basic Jurjine 10/8 rhythm.
 Baiao-Miranda
  Basic Baião 2/4 (Michael de Miranda & Matthias Haffner).
 Forro-Miranda
