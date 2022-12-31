@@ -3980,8 +3980,6 @@ Maqsum
  Basic Maqsum 4/4 rhythm.
 Samai
  Basic Sama'i 10/8 rhythm.
-Jurjina
- Basic Jurjine 10/8 rhythm.
 Baiao-Miranda
  Basic Baião 2/4 (Michael de Miranda & Matthias Haffner).
 Forro-Miranda

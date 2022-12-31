@@ -48,9 +48,8 @@ DefChord 7b5b9#9#5 (0, 4, 6, 8, 10, 13, 15) (0, 1, 3, 5, 6, 8, 10)
 DefChord 7susb13 (0, 5, 10, 20) (0, 2, 5, 5, 8, 9, 10)
 DefChord 7(add3)(add4) (0, 4, 5, 7, 10) (0, 2, 4, 5, 7, 9, 10)
 DefChord M7+ (0, 4, 8, 11) (0, 2, 4, 5, 8, 9, 11)
-DefChord +#9(addM7) (0, 4, 8, 10, 15) (0, 3, 4, 5, 8, 9, 10)
 DefChord dimb13 (0, 3, 6, 9, 8) (0, 2, 3, 5, 6, 8, 9)
-DefChord m(add2) (0, 3, 7, 14) (0, 2, 3, 5, 7, 8, 14)
+DefChord m(add2) (0, 2, 3, 7) (0, 2, 3, 5, 7, 8, 8)
 DefChord m7+#9 (0, 3, 8, 10, 15) (0, 3, 3, 5, 8, 8, 10)
 DefChord m7+b9 (0, 3, 8, 10, 13) (0, 1, 3, 5, 8, 8, 10)
 DefChord m7+b9#11 (0, 3, 8, 10, 13, 18) (0, 1, 3, 6, 8, 9, 10)
@@ -344,16 +343,15 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
 Chord-Custom Sequence { </xsl:if>
   <xsl:value-of select="$start"/><xsl:text> </xsl:text>
   <!--
-    Calculate this chord's duration:
-    - The total duration of following non-chord notes until next harmony element,
-    - Minus the sum of following backup durations until next harmony element,
-    - In case of zero duration, there must have been a preceding backup duration that needs to be added now.
-
+    Calculate this chord's duration, which is the total duration of following non-chord notes until next harmony element,
     The total is divided by $divisions which is the current time resolution of the score.
     The final duration is expressed in "beats" == quarter note time.
   -->
-  <xsl:variable name="duration0"><xsl:value-of select="(sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) - sum(following-sibling::backup[generate-id(preceding-sibling::harmony[1]) = $id]/duration)) div $divisions"/></xsl:variable>
-  <xsl:variable name="duration"><xsl:value-of select="if ($duration0 = 0) then (sum(preceding-sibling::backup[1]/duration) div $divisions) else $duration0"/></xsl:variable>
+  <xsl:variable name="duration">
+    <xsl:value-of select="(
+      sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration)
+    ) div $divisions"/>
+  </xsl:variable>
   <!-- Express the duration in MIDI ticks = 192 * quarter note -->
   <xsl:value-of select="round($duration * 192)"/><xsl:text>t </xsl:text>
   <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
@@ -508,7 +506,7 @@ Chord-Custom Sequence { </xsl:if>
   <!-- Chord onset. -->
   <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
   <!-- Advance to next chord. -->
-  <xsl:variable name="duration"><xsl:value-of select="(sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) - sum(following-sibling::backup[generate-id(preceding-sibling::harmony[1]) = $id]/duration)) div $divisions"/></xsl:variable>
+  <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
   <xsl:apply-templates select="following-sibling::harmony[1]" mode="chords">
     <xsl:with-param name="start" select="$start + $duration"/>
     <xsl:with-param name="divisions" select="$divisions"/>
