@@ -8,7 +8,7 @@ A MusicXML converter to [Musical MIDI Accompaniment (MMA)](http://www.mellowood.
 - `git submodule update --init --recursive`
 - `git clone git@github.com:infojunkie/mma.git` and set env var `MMA_HOME=/path/to/mma`
 - `npm install && npm run build:grooves && npm run build:sef`
-- `npm run convert:mma song.musicxml && npm run convert:midi song.mma`
+- `npm run convert song.musicxml`
 
 ## Serving a conversion API endpoint
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
