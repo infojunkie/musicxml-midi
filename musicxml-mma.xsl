@@ -538,6 +538,7 @@ Chord-Custom Sequence { </xsl:if>
   <!--
     A note sequence (SOLO track in MMA glossary) is made of several pieces:
     - Opening bracket "{" to start measure
+    - For grace notes, the keyword <grace>
     - For non-chord notes and non-stopping ties, a duration expressed in MIDI ticks. The duration is computed recursively in the case of ties.
     - For pitched notes, the lower-case note + accidental + octave (4 is the base octave)
     - For rests and cue notes, "r"
@@ -559,6 +560,10 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:if test="not(preceding-sibling::note[voice = $melodyVoice])">
     <xsl:text> {</xsl:text>
     <xsl:if test="$tieStop">~</xsl:if>
+  </xsl:if>
+
+  <xsl:if test="grace">
+    <xsl:text disable-output-escaping="yes">&lt;grace&gt;</xsl:text>
   </xsl:if>
 
   <xsl:if test="not(chord or $tieStop)">
