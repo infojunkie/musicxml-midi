@@ -114,7 +114,7 @@ Plugin Slash</xsl:text>
   -->
   <xsl:variable name="thisGroove">
     <xsl:choose>
-      <xsl:when test="@number != 0 and $globalGroove != '' and $lastGroove != $globalGroove and lower-case($globalGroove) != 'none'">
+      <xsl:when test="@number != '0' and $globalGroove != '' and $lastGroove != $globalGroove and lower-case($globalGroove) != 'none'">
         <xsl:value-of select="$globalGroove"/>
       </xsl:when>
       <xsl:when test="$globalGroove != ''"></xsl:when>
@@ -175,9 +175,8 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
 
   <!-- Measure number. -->
   <xsl:text>&#xa;</xsl:text>
-  <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="@number"/>
+  <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="count(preceding::measure)"/>
   <xsl:text>&#xa;</xsl:text>
-  <xsl:value-of select="@number"/>
 
   <!-- Chord information. -->
   <xsl:apply-templates select="harmony[1]" mode="duration">
