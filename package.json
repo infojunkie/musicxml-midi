@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.10.11",
+  "version": "0.10.12",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
