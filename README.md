@@ -1,6 +1,6 @@
 # musicxml-mma
 
-A MusicXML converter to [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
+A MusicXML converter to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
 
 ![GitHub Build Status](https://github.com/infojunkie/musicxml-mma/workflows/Test/badge.svg)
 
