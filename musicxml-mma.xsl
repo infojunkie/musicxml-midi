@@ -687,9 +687,10 @@ TimeSig <xsl:value-of select="beats"/>/<xsl:value-of select="beat-type"/>
 </xsl:template>
 
 <xsl:template match="harmony" mode="slash">
+<xsl:if test="not(preceding::harmony[deep-equal(.,current())])">
 @Slash <xsl:apply-templates select="." mode="name">
   <xsl:with-param name="definition" select="true()"/>
-</xsl:apply-templates>
+</xsl:apply-templates></xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

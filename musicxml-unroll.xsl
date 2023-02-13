@@ -70,8 +70,6 @@
         self::*/sound[@fine] |
         self::*/sound[@dacapo] |
         self::*/sound[@tocoda]
-      ) and not(
-        self::attributes and $repeatCount != 1
       )]"/>
     </xsl:copy>
 
