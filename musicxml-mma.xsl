@@ -9,8 +9,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:mma="http://www.mellowood.ca/mma"
-  exclude-result-prefixes="xs mma"
-  version="2.0"
+  xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+  exclude-result-prefixes="#all"
+  version="3.0"
 >
 <xsl:output media-type="text/plain" omit-xml-declaration="yes"/>
 
@@ -22,6 +23,13 @@
 <xsl:param name="chordInstrument" select="'Piano1'"/>
 <xsl:param name="melodyVoice" select="1"/>
 <xsl:param name="globalGroove"/>
+
+<!--
+  Global state.
+-->
+<xsl:accumulator name="measures" as="map(xs:string, xs:integer)" initial-value="map{}">
+  <xsl:accumulator-rule match="measure" select="if (map:contains($value, @number)) then map:put($value, @number, map:get($value, @number)) else map:put($value, @number, map:size($value))"/>
+</xsl:accumulator>
 
 <!--
   Start here.
@@ -190,7 +198,7 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     Measure number.
   -->
   <xsl:text>&#xa;</xsl:text>
-  <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="count(preceding::measure)"/>
+  <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="accumulator-after('measures')(@number)"/>
   <xsl:text>&#xa;</xsl:text>
 
   <!--
