@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.10.12",
+  "version": "0.11.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build:grooves": "${MMA_HOME:-../mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
-    "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
+    "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -nogo:1 -t -ns:##html5 && xslt3 -xsl:musicxml-unroll.xsl -export:musicxml-unroll.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
+    "convert:unroll": "run() { xslt3 -xsl:musicxml-unroll.xsl -s:\"$1\" -o:\"${1/.musicxml/.unrolled.musicxml}\" ${@:2}; }; run",
     "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "convert": "run() { npm run convert:mma \"$1\" ${@:2} && npm run convert:midi \"${1/.musicxml/.mma}\"; }; run",
