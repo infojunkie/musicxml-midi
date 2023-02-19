@@ -48,7 +48,7 @@ for await (const file of files) {
         console.error(`[SaxonJS] [${file}/${song.title}] ${error.code} at ${error.xsltModule}:${error.xsltLineNr}: ${error.message}`)
       }))
       await fs.promises.writeFile(`${outFile}.mma`, saxonResult.principalResult)
-      const execResult = await execp('echo "$mma" | ${MMA_HOME:-../mma}/mma.py -II -f "$out" -', {
+      const execResult = await execp('echo "$mma" | ${MMA_HOME:-./mma}/mma.py -II -f "$out" -', {
         env: { ...process.env, 'mma': saxonResult.principalResult, 'out': midFile }
       })
       .catch(AbortChainError.chain(error => {

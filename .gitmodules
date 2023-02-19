@@ -7,3 +7,7 @@
 [submodule "test/libs/bats-support"]
 	path = test/libs/bats-support
 	url = https://github.com/ztombol/bats-support
+[submodule "mma"]
+	path = mma
+	url = git@github.com:infojunkie/mma.git
+	branch = infojunkie

@@ -7,7 +7,6 @@ A MusicXML converter to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.m
 ## Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
 - `git submodule update --init --recursive`
-- `git clone git@github.com:infojunkie/mma.git && export MMA_HOME=/path/to/mma`
 - `npm install && npm run build:grooves && npm run build:sef`
 
 ## Converting a MusicXML score

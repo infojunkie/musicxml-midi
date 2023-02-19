@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -8,15 +8,15 @@
     "test": "test"
   },
   "scripts": {
-    "build:grooves": "${MMA_HOME:-../mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
+    "build:grooves": "${MMA_HOME:-./mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
     "build:sef": "xslt3 -xsl:musicxml-mma.xsl -export:musicxml-mma.sef.json -nogo:1 -t -ns:##html5 && xslt3 -xsl:musicxml-unroll.xsl -export:musicxml-unroll.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
     "convert:unroll": "run() { xslt3 -xsl:musicxml-unroll.xsl -s:\"$1\" -o:\"${1/.musicxml/.unrolled.musicxml}\" ${@:2}; }; run",
     "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" ${@:2}; }; run",
-    "convert:midi": "run() { ${MMA_HOME:-../mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
+    "convert:midi": "run() { ${MMA_HOME:-./mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "convert": "run() { npm run convert:mma \"$1\" ${@:2} && npm run convert:midi \"${1/.musicxml/.mma}\"; }; run",
-    "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-../mma}/mma.py -n -; }; run",
-    "print:grooves": "find ${MMA_HOME:-../mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-../mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
-    "print:preview": "run() { ${MMA_HOME:-../mma}/mma.py -V \"$@\"; }; run",
+    "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-./mma}/mma.py -n -; }; run",
+    "print:grooves": "find ${MMA_HOME:-./mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-./mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
+    "print:preview": "run() { ${MMA_HOME:-./mma}/mma.py -V \"$@\"; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema musicxml.xsd \"$1\"; }; run",
     "develop": "nodemon -e js,json server.js",
     "test:xsl": "./test/libs/bats/bin/bats test/*.bats",
