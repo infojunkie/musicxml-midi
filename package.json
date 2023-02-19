@@ -29,7 +29,7 @@
     "url": "git+https://github.com/infojunkie/musicxml-mma.git"
   },
   "author": "Karim Ratib <karim.ratib@gmail.com> (https://github.com/infojunkie)",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/infojunkie/musicxml-mma/issues"
   },
