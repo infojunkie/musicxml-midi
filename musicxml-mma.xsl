@@ -81,9 +81,6 @@ Plugin Slash</xsl:text>
 
   <xsl:apply-templates select="part/measure[1]">
     <xsl:with-param name="lastHarmony"/>
-    <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-    <xsl:with-param name="repeatCount" select="1"/>
-    <xsl:with-param name="jump"/>
     <xsl:with-param name="lastGroove"/>
     <xsl:with-param name="lastMeasure"/>
     <xsl:with-param name="lastTime"/>
@@ -92,22 +89,12 @@ Plugin Slash</xsl:text>
 </xsl:template>
 
 <!--
-  Unroll the repeats and jumps into a linear sequence of measures. To do this, we advance measure by measure, carrying a state made of:
-  - Last chord we saw (to set in current measure in case it's empty)
-  - Last groove
-  - Last measure
-  - Current loop starting measure, typically indicated by a forward-facing repeat barline
-  - Current loop counter
-  - Current jump status
-  Based on the current measure's repeats and jumps, and the current state, we choose which measure to output next.
+  Output a single measure. We assume the score has been unrolled using musicxml-unroll.xsl.
 -->
 <xsl:template match="measure">
   <xsl:param name="lastHarmony"/>
   <xsl:param name="lastGroove"/>
   <xsl:param name="lastMeasure"/>
-  <xsl:param name="repeatMeasure"/>
-  <xsl:param name="repeatCount" as="xs:integer"/>
-  <xsl:param name="jump"/>
   <xsl:param name="lastTime"/>
   <xsl:param name="lastDivisions"/>
 
@@ -137,24 +124,6 @@ Plugin Slash</xsl:text>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="nextGroove" select="if ($thisGroove != '') then $thisGroove else $lastGroove"/>
-
-  <!--
-    Alternate ending start: Skip to the matching following alternate ending if the loop counter isn't mentioned in the current ending.
-  -->
-  <xsl:choose><xsl:when test="barline[ending/@type = 'start'] and not(index-of(tokenize(barline/ending[@type = 'start']/@number, '\s*,\s*'), format-number($repeatCount, '0')))">
-    <xsl:variable name="nextMeasure" select="following-sibling::measure[barline/ending/@type = 'start' and index-of(tokenize(barline/ending[@type = 'start']/@number, '\s*,\s*'), format-number($repeatCount, '0'))][1]"/>
-    <xsl:apply-templates select="$nextMeasure">
-      <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-      <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
-      <xsl:with-param name="repeatCount" select="$repeatCount"/>
-      <xsl:with-param name="jump" select="$jump"/>
-      <xsl:with-param name="lastGroove" select="$nextGroove"/>
-      <xsl:with-param name="lastMeasure" select="."/>
-      <xsl:with-param name="lastTime" select="$thisTime"/>
-      <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-    </xsl:apply-templates>
-  </xsl:when>
-  <xsl:otherwise>
 
   <!--
     Time signature if different from previous one.
@@ -234,152 +203,16 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
   </xsl:if>
 
   <!--
-    Advance to next measure with our unrolling algorithm.
+    Advance to next measure.
   -->
-  <xsl:choose>
-    <!--
-      Fine: Stop everything
-      TODO Handle sound/@time-only for alternate endings.
-    -->
-    <xsl:when test="*/sound/@fine = 'yes' and $jump != ''">
-    </xsl:when>
-    <!--
-      To Coda: Jump forward to labeled coda
-      TODO Handle sound/@time-only for alternate endings.
-    -->
-    <xsl:when test="*/sound[@tocoda] and $jump != ''">
-      <xsl:variable name="coda" select="*/sound/@tocoda"/>
-      <xsl:variable name="nextMeasure" select="following-sibling::measure[*/sound/@coda = $coda]"/>
-      <xsl:apply-templates select="$nextMeasure">
-        <xsl:with-param name="lastHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="10000"/>
-        <xsl:with-param name="jump" select="$coda"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Opening repeat: Save this measure as the loop start. Reset loop counter to 1 unless we're already looping.
-      TODO Handle sound/@forward-repeat attribute for the same effect.
-    -->
-    <xsl:when test="barline/repeat/@direction = 'forward' or generate-id(.) = generate-id($repeatMeasure)">
-      <xsl:apply-templates select="following-sibling::measure[1]">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="."/>
-        <xsl:with-param name="repeatCount" select="if (generate-id(.) = generate-id($repeatMeasure)) then $repeatCount else 1"/>
-        <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Closing repeat without alternate ending: Loop back if the loop counter hasn't reached the requested times and after-jump repeats are ok.
-    -->
-    <xsl:when test="
-      barline[not(ending)]/repeat/@direction = 'backward' and
-      ($jump = '' or barline[not(ending)]/repeat/@after-jump = 'yes') and
-      (if (barline[not(ending)]/repeat/@times) then number(barline[not(ending)]/repeat/@times) else 2) &gt; $repeatCount
-    ">
-      <xsl:apply-templates select="$repeatMeasure">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
-        <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
-        <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Alternate ending end: Jump back to loop start if next loop counter is mentioned in any alternate ending for the current repeat block.
-    -->
-    <xsl:when test="barline[ending/@type = 'stop']/repeat/@direction = 'backward' and $repeatMeasure/following-sibling::measure[
-      preceding-sibling::measure[barline/repeat/@direction = 'forward'][1][generate-id(.) = generate-id($repeatMeasure)] and
-      barline/ending/@type = 'start'
-      and index-of(tokenize(barline/ending[@type = 'start']/@number, '\s*,\s*'), format-number($repeatCount + 1, '0'))
-    ]">
-      <xsl:apply-templates select="$repeatMeasure">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
-        <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
-        <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Da capo: Go back to start.
-    -->
-    <xsl:when test="*/sound/@dacapo = 'yes' and $jump != 'capo'">
-      <xsl:apply-templates select="//measure[1]">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="10000"/>
-        <xsl:with-param name="jump" select="'capo'"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Dal segno: Go back to labeled sign.
-    -->
-    <xsl:when test="*/sound[@dalsegno] and $jump != */sound/@dalsegno">
-      <xsl:variable name="segno" select="*/sound/@dalsegno"/>
-      <xsl:variable name="nextMeasure" select="preceding-sibling::measure[*/sound/@segno = $segno]"/>
-      <xsl:apply-templates select="$nextMeasure">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="10000"/>
-        <xsl:with-param name="jump" select="$segno"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      Closing repeat without alternate ending: Go straight and reset state if the loop counter has reached the requested times.
-    -->
-    <xsl:when test="barline[not(ending)]/repeat/@direction = 'backward' and number(barline/repeat/@times) &lt;= $repeatCount">
-      <xsl:apply-templates select="following-sibling::measure[1]">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
-        <xsl:with-param name="repeatCount" select="10000"/>
-        <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:when>
-    <!--
-      General case: Keep going straight, remembering current state.
-    -->
-    <xsl:otherwise>
-      <xsl:apply-templates select="following-sibling::measure[1]">
-        <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-        <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
-        <xsl:with-param name="repeatCount" select="$repeatCount"/>
-        <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastGroove" select="$nextGroove"/>
-        <xsl:with-param name="lastMeasure" select="."/>
-        <xsl:with-param name="lastTime" select="$thisTime"/>
-        <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-      </xsl:apply-templates>
-    </xsl:otherwise>
-  </xsl:choose>
+  <xsl:apply-templates select="following-sibling::measure[1]">
+    <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
+    <xsl:with-param name="lastGroove" select="$nextGroove"/>
+    <xsl:with-param name="lastMeasure" select="."/>
+    <xsl:with-param name="lastTime" select="$thisTime"/>
+    <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
+  </xsl:apply-templates>
 
-</xsl:otherwise></xsl:choose>
 </xsl:template>
 
 <xsl:template match="harmony" mode="sequence">
