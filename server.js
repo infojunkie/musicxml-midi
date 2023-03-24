@@ -115,10 +115,21 @@ app.post('/convert', async (req, res, next) => {
       res.status(400).send(ERROR_BAD_PARAM)
     }))
     const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc).nodeValue || '(unknown)'
-    console.info(`[SaxonJS] Converting document '${title}' to MMA...`)
-    const saxonResult = await SaxonJS.transform({
-      stylesheetFileName: 'musicxml-mma.sef.json',
+    console.info(`[SaxonJS] Unrolling document '${title}'...`)
+    const unrolled = await SaxonJS.transform({
+      stylesheetFileName: 'musicxml-unroll.sef.json',
       sourceNode: doc,
+      destination: 'application',
+      stylesheetParams: params,
+    }, 'async')
+    .catch(AbortChainError.chain(error => {
+      console.error(`[SaxonJS] ${error.code}: ${error.message}`)
+      res.status(400).send(ERROR_BAD_PARAM)
+    }))
+    console.info(`[SaxonJS] Converting document '${title}' to MMA...`)
+    const mma = await SaxonJS.transform({
+      stylesheetFileName: 'musicxml-mma-unrolled.sef.json',
+      sourceNode: unrolled.principalResult,
       destination: 'serialized',
       stylesheetParams: params,
     }, 'async')
@@ -127,7 +138,7 @@ app.post('/convert', async (req, res, next) => {
       res.status(400).send(ERROR_BAD_PARAM)
     }))
     const execResult = await exec('echo "$mma" | ${MMA_HOME:-./mma}/mma.py -II -f "$out" -', {
-      env: { ...process.env, 'mma': saxonResult.principalResult, 'out': cacheFile }
+      env: { ...process.env, 'mma': mma.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
