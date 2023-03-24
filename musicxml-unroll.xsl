@@ -5,15 +5,30 @@
 -->
 
 <xsl:stylesheet
-  version="1.0"
+  version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+>
 
   <xsl:output method="xml" indent="yes" encoding="UTF-8"
     omit-xml-declaration="no" standalone="no"
     doctype-system="http://www.musicxml.org/dtds/partwise.dtd"
     doctype-public="-//Recordare//DTD MusicXML 4.0 Partwise//EN"/>
 
+  <!--
+    Global state.
+
+    We store the measure attributes, because these are implicitly carried forward from measure to measure
+    unless they are explicitly changed. In case of repeats, we will need to re-apply the implicit attributes.
+  -->
+  <xsl:accumulator name="attributes" as="element()" initial-value="()">
+    <xsl:accumulator-rule match="measure" select="if (./attributes) then ./attributes else $value"/>
+  </xsl:accumulator>
+
+  <!--
+    Start here.
+  -->
   <xsl:template match="/">
     <xsl:apply-templates select="./score-partwise"/>
   </xsl:template>
@@ -25,24 +40,29 @@
         <xsl:with-param name="repeatMeasure" select="measure[1]"/>
         <xsl:with-param name="repeatCount" select="1"/>
         <xsl:with-param name="jump"/>
-        <xsl:with-param name="lastMeasure"/>
+        <xsl:with-param name="previousMeasure"/>
+        <xsl:with-param name="previousAttributes" select="()"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
 
   <!--
     Unroll the repeats and jumps into a linear sequence of measures. To do this, we advance measure by measure, carrying a state made of:
-    - Last measure
+    - Previous measure
+    - Previous attributes
     - Current loop starting measure, typically indicated by a forward-facing repeat barline
     - Current loop counter
     - Current jump status
     Based on the current measure's repeats and jumps, and the current state, we choose which measure to output next.
   -->
   <xsl:template match="measure">
-    <xsl:param name="lastMeasure"/>
+    <xsl:param name="previousMeasure"/>
+    <xsl:param name="previousAttributes"/>
     <xsl:param name="repeatMeasure"/>
     <xsl:param name="repeatCount"/>
     <xsl:param name="jump"/>
+
+    <xsl:variable name="attributes" select="accumulator-after('attributes')"/>
 
     <!--
       Alternate ending start: Skip to the matching following alternate ending if the loop counter isn't mentioned in the current ending.
@@ -53,16 +73,27 @@
         <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
         <xsl:with-param name="repeatCount" select="$repeatCount"/>
         <xsl:with-param name="jump" select="$jump"/>
-        <xsl:with-param name="lastMeasure" select="."/>
+        <xsl:with-param name="previousMeasure" select="."/>
+        <xsl:with-param name="previousAttributes" select="$attributes"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
 
     <!--
-      Output the measure, minus any jump/repeat information.
+      Output the measure
+      - minus any jump/repeat information
+      - plus any implicit measure attributes that need redeclaring
     -->
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
+
+      <!-- Apply time attribute if it's different than previous and it won't be applied explicitly. -->
+      <xsl:if test="$attributes and not(deep-equal($attributes/time, $previousAttributes/time)) and not(./attributes/time)">
+        <xsl:call-template name="time">
+          <xsl:with-param name="time" select="$attributes/time"/>
+        </xsl:call-template>
+      </xsl:if>
+
       <xsl:apply-templates select="*[not(
         self::barline |
         self::*/sound[@segno] |
@@ -70,8 +101,6 @@
         self::*/sound[@fine] |
         self::*/sound[@dacapo] |
         self::*/sound[@tocoda]
-      ) and not(
-        self::attributes and $repeatCount != 1
       )]"/>
     </xsl:copy>
 
@@ -96,7 +125,8 @@
           <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
           <xsl:with-param name="repeatCount" select="10000"/>
           <xsl:with-param name="jump" select="$coda"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -108,7 +138,8 @@
           <xsl:with-param name="repeatMeasure" select="."/>
           <xsl:with-param name="repeatCount" select="if (generate-id(.) = generate-id($repeatMeasure)) then $repeatCount else 1"/>
           <xsl:with-param name="jump" select="$jump"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -123,7 +154,8 @@
           <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
           <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
           <xsl:with-param name="jump" select="$jump"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -138,7 +170,8 @@
           <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
           <xsl:with-param name="repeatCount" select="$repeatCount + 1"/>
           <xsl:with-param name="jump" select="$jump"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -149,7 +182,8 @@
           <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
           <xsl:with-param name="repeatCount" select="10000"/>
           <xsl:with-param name="jump" select="'capo'"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -162,7 +196,8 @@
           <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
           <xsl:with-param name="repeatCount" select="10000"/>
           <xsl:with-param name="jump" select="$segno"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -173,7 +208,8 @@
           <xsl:with-param name="repeatMeasure" select="//measure[1]"/>
           <xsl:with-param name="repeatCount" select="10000"/>
           <xsl:with-param name="jump" select="$jump"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -184,7 +220,8 @@
           <xsl:with-param name="repeatMeasure" select="$repeatMeasure"/>
           <xsl:with-param name="repeatCount" select="$repeatCount"/>
           <xsl:with-param name="jump" select="$jump"/>
-          <xsl:with-param name="lastMeasure" select="."/>
+          <xsl:with-param name="previousMeasure" select="."/>
+          <xsl:with-param name="previousAttributes" select="$attributes"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
@@ -207,6 +244,23 @@
     <xsl:copy><xsl:apply-templates
         select="*|@*|comment()|processing-instruction()|text()"
     /></xsl:copy>
+  </xsl:template>
+
+  <!--
+    Generate time signature.
+  -->
+  <xsl:template name="time">
+    <xsl:param name="time"/>
+    <xsl:element name="attributes">
+      <xsl:element name="time">
+        <xsl:element name="beats">
+          <xsl:value-of select="$time/beats"/>
+        </xsl:element>
+        <xsl:element name="beat-type">
+          <xsl:value-of select="$time/beat-type"/>
+        </xsl:element>
+      </xsl:element>
+    </xsl:element>
   </xsl:template>
 
 </xsl:stylesheet>
