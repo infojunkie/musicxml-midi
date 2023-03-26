@@ -51,6 +51,9 @@
         <xsl:with-param name="jump"/>
         <xsl:with-param name="previousMeasure"/>
         <xsl:with-param name="previousTime" select="()"/>
+        <xsl:with-param name="previousDivisions" select="()"/>
+        <xsl:with-param name="previousKey" select="()"/>
+        <xsl:with-param name="previousClef" select="()"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
@@ -90,6 +93,9 @@
         <xsl:with-param name="jump" select="$jump"/>
         <xsl:with-param name="previousMeasure" select="."/>
         <xsl:with-param name="previousTime" select="$time"/>
+        <xsl:with-param name="previousDivisions" select="$divisions"/>
+        <xsl:with-param name="previousKey" select="$key"/>
+        <xsl:with-param name="previousClef" select="$clef"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
@@ -108,18 +114,18 @@
         Note that the attributes are generated in the expected order as per musicxml.xsd.
       -->
       <xsl:variable name="attributes">
-        <!-- <xsl:if test="$divisions and not(deep-equal($divisions, $previousDivisions)) and not(./attributes/divisions)">
+        <xsl:if test="$divisions and not(deep-equal($divisions, $previousDivisions)) and not(./attributes/divisions)">
           <xsl:copy-of select="$divisions"/>
-        </xsl:if> -->
-        <!-- <xsl:if test="$key and not(deep-equal($key, $previousKey)) and not(./attributes/key)">
+        </xsl:if>
+        <xsl:if test="$key and not(deep-equal($key, $previousKey)) and not(./attributes/key)">
           <xsl:copy-of select="$key"/>
-        </xsl:if> -->
+        </xsl:if>
         <xsl:if test="$time and not(deep-equal($time, $previousTime)) and not(./attributes/time)">
           <xsl:copy-of select="$time"/>
         </xsl:if>
-        <!-- <xsl:if test="$clef and not(deep-equal($clef, $previousClef)) and not(./attributes/clef)">
+        <xsl:if test="$clef and not(deep-equal($clef, $previousClef)) and not(./attributes/clef)">
           <xsl:copy-of select="$clef"/>
-        </xsl:if> -->
+        </xsl:if>
       </xsl:variable>
       <xsl:if test="$attributes != ''">
         <xsl:element name="attributes">
@@ -160,6 +166,9 @@
           <xsl:with-param name="jump" select="$coda"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -173,6 +182,9 @@
           <xsl:with-param name="jump" select="$jump"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -189,6 +201,9 @@
           <xsl:with-param name="jump" select="$jump"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -205,6 +220,9 @@
           <xsl:with-param name="jump" select="$jump"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -217,6 +235,9 @@
           <xsl:with-param name="jump" select="'capo'"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -231,6 +252,9 @@
           <xsl:with-param name="jump" select="$segno"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -243,6 +267,9 @@
           <xsl:with-param name="jump" select="$jump"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -255,6 +282,9 @@
           <xsl:with-param name="jump" select="$jump"/>
           <xsl:with-param name="previousMeasure" select="."/>
           <xsl:with-param name="previousTime" select="$time"/>
+          <xsl:with-param name="previousDivisions" select="$divisions"/>
+          <xsl:with-param name="previousKey" select="$key"/>
+          <xsl:with-param name="previousClef" select="$clef"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
