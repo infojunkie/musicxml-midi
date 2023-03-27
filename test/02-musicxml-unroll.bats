@@ -21,3 +21,10 @@ teardown() {
   xslt3 -xsl:musicxml-unroll.xsl -s:"$unroll1" -o:"$unroll2"
   assert $(diff "$unroll1" "$unroll2")
 }
+
+@test "musicxml-unroll maintains implicit state" {
+  unroll=$(xslt3 -xsl:musicxml-unroll.xsl -s:test/data/blue-bag-folly.musicxml)
+  echo "${unroll}" | xmllint --schema musicxml.xsd --nonet --noout -
+  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='11']//sound[@tempo])" -)
+  assert_output --partial '1'
+}

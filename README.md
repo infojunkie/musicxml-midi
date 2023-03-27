@@ -10,8 +10,10 @@ A MusicXML converter to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.m
 - `npm install && npm run build:grooves && npm run build:sef`
 
 ## Converting a MusicXML score
-- `npm run convert song.musicxml` to convert a MusicXML score to MIDI `song.midi`
+- `npm run convert song.musicxml` to convert a MusicXML score to MIDI `song.mid`, which includes the following transformations:
 - `npm run convert:unroll song.musicxml` to "unroll" a MusicXML score by expanding all jumps and repeats, to `song.unroll.musicxml`
+- `npm run convert:mma song.musicxml` to both unroll a score and convert it to an MMA script `song.mma`
+- `npm run convert:midi song.mma` to convert the MMA script to MIDI `song.mid`
 
 ## Serving a conversion API endpoint
 - `PORT=3001 npm run develop` for development (including hot-reload)

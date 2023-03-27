@@ -22,17 +22,27 @@
     We store the measure attributes, because these are implicitly carried forward from measure to measure
     unless they are explicitly changed. In case of repeats, we will need to re-apply the implicit attributes.
   -->
-  <xsl:accumulator name="time" as="element()" initial-value="()">
+  <xsl:accumulator name="time" as="element()*" initial-value="()">
     <xsl:accumulator-rule match="measure" select="if (./attributes/time) then ./attributes/time else $value"/>
   </xsl:accumulator>
-  <xsl:accumulator name="clef" as="element()" initial-value="()">
+  <xsl:accumulator name="clef" as="element()*" initial-value="()">
     <xsl:accumulator-rule match="measure" select="if (./attributes/clef) then ./attributes/clef else $value"/>
   </xsl:accumulator>
-  <xsl:accumulator name="divisions" as="element()" initial-value="()">
+  <xsl:accumulator name="divisions" as="element()*" initial-value="()">
     <xsl:accumulator-rule match="measure" select="if (./attributes/divisions) then ./attributes/divisions else $value"/>
   </xsl:accumulator>
-  <xsl:accumulator name="key" as="element()" initial-value="()">
+  <xsl:accumulator name="key" as="element()*" initial-value="()">
     <xsl:accumulator-rule match="measure" select="if (./attributes/key) then ./attributes/key else $value"/>
+  </xsl:accumulator>
+  <xsl:accumulator name="tempo" as="element()*" initial-value="()">
+    <xsl:accumulator-rule match="measure">
+      <xsl:choose>
+        <xsl:when test="./direction[direction-type/metronome and sound/@tempo]">
+          <xsl:copy-of select="./direction[direction-type/metronome and sound/@tempo]"/>
+        </xsl:when>
+        <xsl:otherwise><xsl:copy-of select="$value"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:accumulator-rule>
   </xsl:accumulator>
 
   <!--
@@ -54,6 +64,7 @@
         <xsl:with-param name="previousDivisions" select="()"/>
         <xsl:with-param name="previousKey" select="()"/>
         <xsl:with-param name="previousClef" select="()"/>
+        <xsl:with-param name="previousTempo" select="()"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
@@ -73,6 +84,7 @@
     <xsl:param name="previousDivisions"/>
     <xsl:param name="previousKey"/>
     <xsl:param name="previousClef"/>
+    <xsl:param name="previousTempo"/>
     <xsl:param name="repeatMeasure"/>
     <xsl:param name="repeatCount"/>
     <xsl:param name="jump"/>
@@ -81,6 +93,7 @@
     <xsl:variable name="divisions" select="accumulator-after('divisions')"/>
     <xsl:variable name="key" select="accumulator-after('key')"/>
     <xsl:variable name="clef" select="accumulator-after('clef')"/>
+    <xsl:variable name="tempo" select="accumulator-after('tempo')"/>
 
     <!--
       Alternate ending start: Skip to the matching following alternate ending if the loop counter isn't mentioned in the current ending.
@@ -96,6 +109,7 @@
         <xsl:with-param name="previousDivisions" select="$divisions"/>
         <xsl:with-param name="previousKey" select="$key"/>
         <xsl:with-param name="previousClef" select="$clef"/>
+        <xsl:with-param name="previousTempo" select="$tempo"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
@@ -113,7 +127,7 @@
         Add a new <attributes> element if any such attribute is generated.
         Note that the attributes are generated in the expected order as per musicxml.xsd.
       -->
-      <xsl:variable name="attributes">
+      <xsl:variable name="attributes" as="element()*">
         <xsl:if test="$divisions and not(deep-equal($divisions, $previousDivisions)) and not(./attributes/divisions)">
           <xsl:copy-of select="$divisions"/>
         </xsl:if>
@@ -127,10 +141,18 @@
           <xsl:copy-of select="$clef"/>
         </xsl:if>
       </xsl:variable>
-      <xsl:if test="$attributes != ''">
+      <xsl:if test="count($attributes) > 0">
         <xsl:element name="attributes">
           <xsl:copy-of select="$attributes"/>
         </xsl:element>
+      </xsl:if>
+      <xsl:variable name="direction" as="element()*">
+        <xsl:if test="$tempo and not(deep-equal($tempo, $previousTempo)) and not(./direction[direction-type/metronome and sound/@tempo])">
+          <xsl:copy-of select="$tempo"/>
+        </xsl:if>
+      </xsl:variable>
+      <xsl:if test="count($direction) > 0">
+        <xsl:copy-of select="$direction"/>
       </xsl:if>
 
       <xsl:apply-templates select="*[not(
@@ -169,6 +191,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -185,6 +208,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -204,6 +228,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -223,6 +248,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -238,6 +264,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -255,6 +282,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -270,6 +298,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -285,6 +314,7 @@
           <xsl:with-param name="previousDivisions" select="$divisions"/>
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
+          <xsl:with-param name="previousTempo" select="$tempo"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
