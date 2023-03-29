@@ -10,6 +10,7 @@ import { TextDecoder } from 'util'
 import path from 'path'
 import unzip from 'unzipit'
 import { validateXMLWithXSD } from 'validate-with-xmllint';
+import cors from 'cors';
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
@@ -35,6 +36,7 @@ const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musi
 const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
 
 export const app = express()
+app.use(cors())
 app.use(compression())
 app.use(fileUpload({
   limits: {
