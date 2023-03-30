@@ -14,7 +14,7 @@ SeqSize 1
 // Baião pattern
 
 Begin Drum-Zabumba-Maceta-Mute
-  Tone KickDrum1
+  Tone MuteSurdo
   Sequence { 1 0 90 }
 End
 
@@ -24,7 +24,7 @@ Begin Drum-Zabumba-Maceta-Open
 End
 
 Begin Drum-Zabumba-Bacalhau
-  Tone MuteSurdo
+  Tone Sticks
   Sequence { 1.5 0 90 ; 2.5 0 90 }
 End
 
@@ -36,6 +36,26 @@ End
 Begin Drum-Triangle-Open
   Tone OpenTriangle
   Sequence { 1+16 0 90 ; 1+8 0 90 ; 2+16 0 90 ; 2+8 0 90 }
+End
+
+Begin Bass
+    Voice AcousticBass
+    Volume f
+    Octave 3
+    Articulate 90
+    RTime 5
+    RVolume 5
+    Sequence { 1+8+16 16+8 5- 90 ; 2+8 8+8+16 1 90 }
+End
+
+Begin Chord
+    Voice Piano1
+    Articulate 90
+    Voicing Mode=Key
+    Octave 5
+    Volume p
+    Sequence { 1 8 90 ; 2 8 90 }
+    Rskip 20
 End
 
 DefGroove Baiao-Miranda    Basic Baião 2/4 (Michael de Miranda & Matthias Haffner)
