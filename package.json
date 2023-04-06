@@ -1,11 +1,17 @@
 {
   "name": "musicxml-mma",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
   "directories": {
     "test": "test"
+  },
+  "bin": {
+    "musicxml-mma": "./server.js",
+    "ireal-midi": "./scripts/ireal-midi.js",
+    "midi-json": "./scripts/midi-json.js",
+    "midi-timemap": "./scripts/midi-timemap.js"
   },
   "scripts": {
     "build:grooves": "${MMA_HOME:-./mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
