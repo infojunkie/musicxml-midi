@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import compression from 'compression'
 import express from 'express'
 import SaxonJS from 'saxon-js'
