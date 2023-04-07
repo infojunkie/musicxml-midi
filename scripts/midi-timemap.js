@@ -4,14 +4,14 @@
 //
 // [
 //    {
-//       measure: integer,
-//       timestamps: [integer, ...]
+//       measure: number,
+//       timestamp: number
 //    },
 //    ...
 // ]
 //
-// where measure is an integer starting at 0
-// and each timestamps is a real-valued time offset specified in millisecs starting at 0
+// measure is an integer starting at 0
+// timestamp is a real-valued time offset specified in millisecs starting at 0
 
 import { parseMidi } from 'midi-file'
 import process from 'process'
@@ -39,20 +39,17 @@ midi.tracks[0].forEach((event) => {
         sensitivity: 'base',
       }) === 0
     ) {
-      const measureIndex = Number(marker[1])
+      const measure = Number(marker[1])
       const timestamp = Math.round(offset * (microsecondsPerQuarter / midi.header.ticksPerBeat)) / 1000
-      const timestamps = timemap[measureIndex] || []
-      timemap[measureIndex] = timestamps.concat(timestamp)
+      timemap.push({
+        measure,
+        timestamp
+      })
     }
   }
 })
 
-const output = JSON.stringify(timemap.map((timestamps, measure) => {
-  return {
-    measure,
-    timestamps
-  }
-}))
+const output = JSON.stringify(timemap)
 if (process.argv[3]) {
     fs.writeFileSync(process.argv[3], Buffer.from(output))
 }
