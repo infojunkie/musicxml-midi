@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -10,7 +10,6 @@
   "bin": {
     "musicxml-mma": "./server.js",
     "ireal-midi": "./scripts/ireal-midi.js",
-    "midi-json": "./scripts/midi-json.js",
     "midi-timemap": "./scripts/midi-timemap.js"
   },
   "scripts": {
