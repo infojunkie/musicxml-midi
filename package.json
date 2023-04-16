@@ -29,7 +29,7 @@
     "test:server": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
     "test": "npm run test:xsl && npm run test:server",
     "server": "PORT=8085 npm run start",
-    "postinstall": "./scripts/postinstall.sh"
+    "postprepare": "./scripts/postprepare.sh"
   },
   "repository": {
     "type": "git",
