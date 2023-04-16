@@ -28,7 +28,8 @@
     "test:xsl": "./test/libs/bats/bin/bats test/*.bats",
     "test:server": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
     "test": "npm run test:xsl && npm run test:server",
-    "server": "PORT=8085 npm run start"
+    "server": "PORT=8085 npm run start",
+    "postinstall": "git clone -b infojunkie git@github.com:infojunkie/mma.git"
   },
   "repository": {
     "type": "git",
