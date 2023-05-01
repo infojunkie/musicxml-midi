@@ -5,7 +5,7 @@
 // Debug Debug=On
 
 // Set the MIDI player that is invoked for MMA audio functions.
-SetMIDIplayer audacious
+// SetMIDIplayer audacious
 
 // Set the path to additional groove libraries.
 // MMA needs full paths, so edit yours here.

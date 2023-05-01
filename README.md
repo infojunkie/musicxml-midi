@@ -7,14 +7,17 @@ A MusicXML converter to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.m
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
+- Install `jq`
 - `git submodule update --init --recursive`
-- `npm install && npm run build:grooves && npm run build:sef`
+- `npm install && npm run build`
 
 # Converting a MusicXML score
-- `npm run convert song.musicxml` to convert a MusicXML score to MIDI `song.mid`, which includes the following transformations:
-- `npm run convert:unroll song.musicxml` to "unroll" a MusicXML score by expanding all jumps and repeats, to `song.unroll.musicxml`
+- `npm run convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats, to `song.unrolled.musicxml`
 - `npm run convert:mma song.musicxml` to both unroll a score and convert it to an MMA script `song.mma`
-- `npm run convert:midi song.mma` to convert the MMA script to MIDI `song.mid`
+- `npm run convert:midi song.mma` to convert an MMA script to MIDI `song.mid`
+- `npm run convert song.musicxml` to convert a MusicXML score to MIDI `song.mid`, as an aggregate of the above transformations
+- `npm run convert:timemap song.musicxml` to convert a score to a timemap JSON file `song.timemap.json`
+- `./scripts/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
 
 # Serving a conversion API endpoint
 - `PORT=3000 npm run develop` for development (including hot-reload)
