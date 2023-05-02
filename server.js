@@ -119,23 +119,12 @@ app.post('/convert', async (req, res, next) => {
       res.status(400).send(ERROR_BAD_PARAM)
     }))
     const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc).nodeValue || '(unknown)'
-    console.info(`[SaxonJS] Unrolling document '${title}'...`)
-    const unrolled = await SaxonJS.transform({
-      stylesheetFileName: 'musicxml-unroll.sef.json',
-      sourceNode: doc,
-      destination: 'application',
-      stylesheetParams: params,
-    }, 'async')
-    .catch(AbortChainError.chain(error => {
-      console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-      res.status(400).send(ERROR_BAD_PARAM)
-    }))
-    console.info(`[SaxonJS] Converting document '${title}' to MMA...`)
+    console.info(`[SaxonJS] Transforming document '${title}'...`)
     const mma = await SaxonJS.transform({
-      stylesheetFileName: 'musicxml-mma-unrolled.sef.json',
-      sourceNode: unrolled.principalResult,
+      stylesheetFileName: 'musicxml-mma.sef.json',
+      sourceNode: doc,
       destination: 'serialized',
-      stylesheetParams: params,
+      stylesheetParams: { useSef: true, ...params },
     }, 'async')
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
