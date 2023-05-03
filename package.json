@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -13,7 +13,7 @@
     "midi-timemap": "./scripts/midi-timemap.js"
   },
   "scripts": {
-    "build:mmarc": "sed -r \"s#/full/path/to/musicxml-mma#$PWD#\" mmarc.example > mmarc",
+    "build:mmarc": "cp mmarc.example mmarc",
     "build:grooves": "${MMA_HOME:-./mma}/mma.py -G && npm run --silent print:grooves > grooves.txt",
     "build:sef": "xsls=('musicxml-unroll' 'musicxml-mma-unrolled' 'musicxml-mma' 'musicxml-timemap'); for xsl in ${xsls[@]}; do xslt3 -relocate:on -xsl:$xsl.xsl -export:$xsl.sef.json -nogo:1 -t -ns:##html5; done && rm -f cache/*.mid",
     "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",

@@ -8,5 +8,4 @@
 // SetMIDIplayer audacious
 
 // Set the path to additional groove libraries.
-// MMA needs full paths, so edit yours here.
-SetLibPath /full/path/to/musicxml-mma/grooves $_LibPath
+SetLibPath ./grooves $_LibPath
