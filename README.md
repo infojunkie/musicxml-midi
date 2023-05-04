@@ -35,8 +35,8 @@ This converter aims to create a valid MMA accompaniment script out of a MusicXML
 
 ## Transformation pipeline
 The conversion process applies 2 consecutive XSD transformations to the input MusicXML score:
-- The first transformation `musicxml-unroll.xsd` "unrolls" the score by expanding all the repeats and jumps into a linear score. the output of this transformation is a new MusicXML score that contains no repeats or jumps, but is otherwise exactly equivalent to the source when it is played back.
-- The second transformation `musicxml-mma-unrolled.xsd` transforms a MusicXML score that _it assumes to be unrolled_ to a MMA script that can then be ran through the `mma` tool to produce a MIDI file.
+- The first transformation `musicxml-unroll.xsd` "unrolls" the score by expanding all the repeats and jumps into a linear score. The output of this transformation is a new MusicXML score that contains no repeats or jumps, but is otherwise exactly equivalent to the source when it is played back.
+- The second transformation `musicxml-mma-unrolled.xsd` transforms a MusicXML score that _it assumes to be unrolled_ to a MMA script that can then be run through the `mma` tool to produce a MIDI file.
 
 These two transformations are packaged in the higher-lever XSD transformation `musicml-mma.xsd`.
 
