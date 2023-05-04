@@ -3,6 +3,7 @@ node_modules
 test/data/**/*.mid
 test/data/**/*.mma
 test/data/**/*.unrolled.musicxml
+test/data/**/*.timemap.json
 test/data/output/*
 cache/*
 !.gitkeep

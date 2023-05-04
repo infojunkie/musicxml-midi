@@ -1,6 +1,6 @@
 {
   "name": "musicxml-mma",
-  "version": "1.4.0",
+  "version": "1.6.2",
   "description": "MusicXML to Musical MIDI Accompaniment (MMA) converter",
   "main": "server.js",
   "type": "module",
@@ -13,9 +13,12 @@
     "midi-timemap": "./scripts/midi-timemap.js"
   },
   "scripts": {
-    "build:grooves": "${MMA_HOME:-./mma}/mma.py -g && npm run --silent print:grooves > grooves.txt",
-    "build:sef": "xslt3 -xsl:musicxml-unroll.xsl -export:musicxml-unroll.sef.json -nogo:1 -t -ns:##html5 && xslt3 -xsl:musicxml-mma-unrolled.xsl -export:musicxml-mma-unrolled.sef.json -nogo:1 -t -ns:##html5 && rm -f cache/*.mid",
+    "build:mmarc": "cp mmarc.example mmarc",
+    "build:grooves": "${MMA_HOME:-./mma}/mma.py -G && npm run --silent print:grooves > grooves.txt",
+    "build:sef": "xsls=('musicxml-unroll' 'musicxml-mma-unrolled' 'musicxml-mma' 'musicxml-timemap'); for xsl in ${xsls[@]}; do xslt3 -relocate:on -xsl:$xsl.xsl -export:$xsl.sef.json -nogo:1 -t -ns:##html5; done && rm -f cache/*.mid",
+    "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",
     "convert:unroll": "run() { xslt3 -xsl:musicxml-unroll.xsl -s:\"$1\" -o:\"${1/.musicxml/.unrolled.musicxml}\" ${@:2}; }; run",
+    "convert:timemap": "run() { xslt3 -xsl:musicxml-timemap.xsl -s:\"$1\" -o:\"${1/.musicxml/.timemap.json}\" ${@:2}; }; run",
     "convert:mma": "run() { xslt3 -xsl:musicxml-mma.xsl -s:\"$1\" -o:\"${1/.musicxml/.mma}\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-./mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "convert": "run() { npm run convert:mma \"$1\" ${@:2} && npm run convert:midi \"${1/.musicxml/.mma}\"; }; run",
