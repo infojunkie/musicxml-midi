@@ -4,4 +4,5 @@ if [ ! -d './mma' ]; then
   mkdir -p cache
   cp mmarc.example mmarc
   ./mma/mma.py -G
+  echo $PWD
 fi
