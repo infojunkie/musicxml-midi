@@ -2,6 +2,8 @@
 if [ ! -d './mma' ]; then
   git clone -b infojunkie git@github.com:infojunkie/mma.git
 fi
-mkdir -p cache
-cp mmarc.example mmarc
+if [ ! -f './mmarc' ]; then
+  cp mmarc.example mmarc
+fi
 ./mma/mma.py -G
+mkdir -p cache
