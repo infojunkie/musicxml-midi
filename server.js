@@ -13,6 +13,14 @@ import path from 'path'
 import unzip from 'unzipit'
 import { validateXMLWithXSD } from 'validate-with-xmllint';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
+import process from 'process';
+
+// Ensure working directory is this script.
+// https://stackoverflow.com/a/62892482/209184
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+process.chdir(__dirname)
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
@@ -50,7 +58,7 @@ app.use(morgan('combined'))
 
 app.get('/', (req, res) => res.json({ name, version, description, author }))
 
-app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('grooves.txt')))
+app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve(__dirname, 'grooves.txt')))
 
 app.get('/convert', (req, res) => res.status(400).send(ERROR_BAD_PARAM))
 
@@ -92,7 +100,7 @@ app.post('/convert', async (req, res, next) => {
   const hash = crypto.createHash('sha256')
   hash.update(req.files.musicXml.data.toString('utf8') + JSON.stringify(params))
   const sig = hash.digest('hex')
-  const cacheFile = path.resolve(path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
+  const cacheFile = path.resolve(__dirname, path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
   try {
     await fs.access(cacheFile, constants.R_OK)
     res.status(200).sendFile(cacheFile)
