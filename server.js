@@ -11,15 +11,15 @@ import { promises as fs, constants } from 'fs'
 import { TextDecoder } from 'util'
 import path from 'path'
 import unzip from 'unzipit'
-import { validateXMLWithXSD } from 'validate-with-xmllint';
-import cors from 'cors';
-import { fileURLToPath } from 'url';
-import process from 'process';
+import { validateXMLWithXSD } from 'validate-with-xmllint'
+import cors from 'cors'
+import { fileURLToPath } from 'url'
+import process from 'process'
 
 // Ensure working directory is this script.
 // https://stackoverflow.com/a/62892482/209184
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 process.chdir(__dirname)
 
 // Import package.json the "easy" way.
@@ -30,7 +30,7 @@ const { name, description, version, author } = require('./package.json')
 
 // A Promise-based version of exec.
 // https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
-const exec = util.promisify(require('child_process').exec);
+const exec = util.promisify(require('child_process').exec)
 
 class AbortChainError extends Error {
   static chain(handler) {
