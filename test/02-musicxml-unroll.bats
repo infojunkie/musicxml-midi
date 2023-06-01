@@ -28,3 +28,14 @@ teardown() {
   run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='11']//sound[@tempo])" -)
   assert_output --partial '1'
 }
+
+@test "musicxml-unroll with renumbering produces a valid file" {
+  unroll=$(xslt3 -xsl:musicxml-unroll.xsl -s:test/data/salma-ya-salama.musicxml "renumberMeasures=1")
+  echo "${unroll}" | xmllint --schema musicxml.xsd --nonet --noout -
+  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='1'])" -)
+  assert_output --partial '1'
+  unroll=$(xslt3 -xsl:musicxml-unroll.xsl -s:test/data/salma-ya-salama.musicxml "renumberMeasures=0")
+  echo "${unroll}" | xmllint --schema musicxml.xsd --nonet --noout -
+  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='1'])" -)
+  assert_output --partial '2'
+}

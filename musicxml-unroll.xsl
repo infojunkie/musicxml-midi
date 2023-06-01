@@ -17,6 +17,11 @@
     doctype-public="-//Recordare//DTD MusicXML 4.0 Partwise//EN"/>
 
   <!--
+    User-defined arguments.
+  -->
+  <xsl:param name="renumberMeasures" as="xs:boolean" select="false()"/>
+
+  <!--
     Global state.
 
     We store the measure attributes, because these are implicitly carried forward from measure to measure
@@ -65,6 +70,7 @@
         <xsl:with-param name="previousKey" select="()"/>
         <xsl:with-param name="previousClef" select="()"/>
         <xsl:with-param name="previousTempo" select="()"/>
+        <xsl:with-param name="measureNumber" select="if (string(number(measure[1]/@number)) != 'NaN') then measure[1]/@number else 0"/>
       </xsl:apply-templates>
     </xsl:copy>
   </xsl:template>
@@ -88,6 +94,7 @@
     <xsl:param name="repeatMeasure"/>
     <xsl:param name="repeatCount"/>
     <xsl:param name="jump"/>
+    <xsl:param name="measureNumber" as="xs:integer"/>
 
     <xsl:variable name="time" select="accumulator-after('time')"/>
     <xsl:variable name="divisions" select="accumulator-after('divisions')"/>
@@ -110,6 +117,7 @@
         <xsl:with-param name="previousKey" select="$key"/>
         <xsl:with-param name="previousClef" select="$clef"/>
         <xsl:with-param name="previousTempo" select="$tempo"/>
+        <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
@@ -120,7 +128,13 @@
       - plus any implicit measure attributes that need redeclaring
     -->
     <xsl:copy>
-      <xsl:apply-templates select="@*"/>
+      <xsl:if test="$renumberMeasures">
+        <xsl:attribute name="number"><xsl:value-of select="$measureNumber"/></xsl:attribute>
+        <xsl:apply-templates select="@*[local-name() != 'number']"/>
+      </xsl:if>
+      <xsl:if test="not($renumberMeasures)">
+        <xsl:apply-templates select="@*"/>
+      </xsl:if>
 
       <!--
         Generate new attributes if they're different than previous attributes and are not explicitly declared in this measure.
@@ -192,6 +206,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -209,6 +224,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -229,6 +245,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -249,6 +266,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -265,6 +283,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -283,6 +302,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -299,6 +319,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:when>
       <!--
@@ -315,6 +336,7 @@
           <xsl:with-param name="previousKey" select="$key"/>
           <xsl:with-param name="previousClef" select="$clef"/>
           <xsl:with-param name="previousTempo" select="$tempo"/>
+          <xsl:with-param name="measureNumber" select="$measureNumber + 1"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
@@ -335,7 +357,7 @@
   -->
   <xsl:template match="*|@*|comment()|processing-instruction()">
     <xsl:copy><xsl:apply-templates
-        select="*|@*|comment()|processing-instruction()|text()"
+      select="*|@*|comment()|processing-instruction()|text()"
     /></xsl:copy>
   </xsl:template>
 
