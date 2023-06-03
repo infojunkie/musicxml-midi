@@ -93,7 +93,7 @@
     <!--
       Adjust carried-over state.
     -->
-    <xsl:variable name="timestamp" select="$previousTimestamp + accumulator-after('duration') * accumulator-after('divisions') * accumulator-after('tempo')"/>
+    <xsl:variable name="timestamp" select="$previousTimestamp + accumulator-after('duration') * 60000 div accumulator-after('divisions') div accumulator-after('tempo')"/>
 
     <!--
       Output JSON.
