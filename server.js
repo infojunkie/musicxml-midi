@@ -126,7 +126,7 @@ app.post('/convert', async (req, res, next) => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
       res.status(400).send(ERROR_BAD_PARAM)
     }))
-    const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc).nodeValue || '(unknown)'
+    const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc)?.nodeValue || '(untitled)'
     console.info(`[SaxonJS] Transforming document '${title}'...`)
     const mma = await SaxonJS.transform({
       stylesheetFileName: 'musicxml-mma.sef.json',
