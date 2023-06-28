@@ -20,13 +20,13 @@ import process from 'process'
 // https://stackoverflow.com/a/62892482/209184
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-process.chdir(__dirname)
+process.chdir(path.join(__dirname, '..', '..'))
 
 // Import package.json the "easy" way.
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
-const { name, description, version, author } = require('./package.json')
+const { name, description, version, author } = require('../../package.json')
 
 // A Promise-based version of exec.
 // https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback
@@ -58,7 +58,7 @@ app.use(morgan('combined'))
 
 app.get('/', (req, res) => res.json({ name, version, description, author }))
 
-app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve(__dirname, 'grooves.txt')))
+app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.txt')))
 
 app.get('/convert', (req, res) => res.status(400).send(ERROR_BAD_PARAM))
 
@@ -100,7 +100,7 @@ app.post('/convert', async (req, res, next) => {
   const hash = crypto.createHash('sha256')
   hash.update(req.files.musicXml.data.toString('utf8') + JSON.stringify(params))
   const sig = hash.digest('hex')
-  const cacheFile = path.resolve(__dirname, path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
+  const cacheFile = path.resolve(path.join(process.env.CACHE_DIR || 'cache', `${sig}.mid`))
   try {
     await fs.access(cacheFile, constants.R_OK)
     res.status(200).sendFile(cacheFile)
@@ -112,7 +112,7 @@ app.post('/convert', async (req, res, next) => {
 
   try {
     const xml = await tryCompressedMusicXml(req.files.musicXml.data)
-    await validateXMLWithXSD(xml, 'musicxml.xsd')
+    await validateXMLWithXSD(xml, 'src/xsd/musicxml.xsd')
     .catch(AbortChainError.chain(error => {
       console.error(`[xmllint] ${error.message}`)
       res.status(400).send(ERROR_BAD_PARAM)
@@ -129,7 +129,7 @@ app.post('/convert', async (req, res, next) => {
     const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc)?.nodeValue || '(untitled)'
     console.info(`[SaxonJS] Transforming document '${title}'...`)
     const mma = await SaxonJS.transform({
-      stylesheetFileName: 'musicxml-mma.sef.json',
+      stylesheetFileName: 'build/musicxml-mma.sef.json',
       sourceNode: doc,
       destination: 'serialized',
       stylesheetParams: { useSef: true, ...params },
@@ -138,7 +138,7 @@ app.post('/convert', async (req, res, next) => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
       res.status(400).send(ERROR_BAD_PARAM)
     }))
-    const execResult = await exec('echo "$mma" | ${MMA_HOME:-./mma}/mma.py -II -f "$out" -', {
+    const execResult = await exec('echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -f "$out" -', {
       env: { ...process.env, 'mma': mma.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {
