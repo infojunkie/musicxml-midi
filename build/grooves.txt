@@ -3976,3 +3976,23 @@ DnB05
  Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 DnB06
  Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, MutHiConga, OpenHiConga.
+Ayyub
+ Basic Ayyub 2/4 rhythm.
+Saidi
+ Basic Sa'idi 4/4 rhythm.
+Maqsum
+ Basic Maqsum 4/4 rhythm.
+Samai
+ Basic Sama'i 10/8 rhythm.
+Baiao-Miranda
+ Basic Baião 2/4 (Michael de Miranda & Matthias Haffner).
+Forro-Miranda
+ Basic Forró 2/4 (Michael de Miranda & Matthias Haffner).
+Xote-Miranda
+ Basic Xote 2/4 (Michael de Miranda & Matthias Haffner).
+Xaxado-Miranda
+ Basic Xaxado 2/4 (Michael de Miranda & Matthias Haffner).
+Arrastape-Miranda
+ Basic Arrasta-pé 2/4 (Michael de Miranda & Matthias Haffner).
+Baiao-Gimenez
+ Basic Baião 2/4 (Caio Gimenez).

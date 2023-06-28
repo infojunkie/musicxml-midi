@@ -84,6 +84,8 @@ describe('MusicXML to MIDI conversion server', () => {
     const res = await request(app).get('/grooves')
     expect(res.statusCode).toEqual(200)
     expect(res.text).toEqual(fs.readFileSync('build/grooves.txt').toString())
+    expect(res.text.includes('Ayyub')).toBeTruthy()
+    expect(res.text.includes('Baiao-Miranda')).toBeTruthy()
   })
 })
 
