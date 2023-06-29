@@ -9,7 +9,6 @@
   },
   "bin": {
     "musicxml-mma": "src/js/server.js",
-    "ireal-midi": "src/js/ireal-midi.js",
     "midi-timemap": "src/js/midi-timemap.js"
   },
   "scripts": {
@@ -30,8 +29,8 @@
     "develop": "nodemon -e js,json src/js/server.js",
     "start": "node src/js/server.js",
     "test:xsl": "test/libs/bats/bin/bats test/*.bats",
-    "test:server": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
-    "test": "npm run test:xsl && npm run test:server",
+    "test:js": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
+    "test": "npm run test:xsl && npm run test:js",
     "server": "PORT=8085 npm run start",
     "postinstall": "./postinstall.sh"
   },
@@ -59,7 +58,6 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "glob": "^8.0.3",
-    "ireal-musicxml": "^1.7.3",
     "jest": "^27.5.1",
     "midi-file": "^1.2.2",
     "nodemon": "^2.0.15",
