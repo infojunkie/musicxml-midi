@@ -6,8 +6,6 @@
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
   exclude-result-prefixes="#all"
 >
-  <xsl:output method="xml" encoding="utf-8" indent="yes"/>
-
   <!--
     Global state that is carried across measures.
   -->
@@ -97,7 +95,7 @@
     <xsl:sequence select="$offset * 60000 div $divisions div $tempo"/>
   </xsl:function>
 
-  <!-- Identity template : copy all text nodes, elements and attributes -->
+  <!-- Identity template : copy all text nodes, elements and attributes
   <xsl:template match="@*|node()">
       <xsl:copy>
           <xsl:apply-templates select="@*|node()" />
@@ -106,16 +104,13 @@
 
   <xsl:template match="measure">
       <xsl:message>
-
         MEASURE <xsl:value-of select="accumulator-after('measureIndex') - 1"/>
         starts <xsl:value-of select="musicxml:timestamp(
           accumulator-before('measureOnset'),
           accumulator-after('divisions'),
           accumulator-after('tempo')
         )"/>
-
         TIME <xsl:value-of select="accumulator-after('time')"/>
-
       </xsl:message>
       <xsl:copy>
           <xsl:apply-templates select="@*|node()" />
@@ -124,19 +119,15 @@
 
   <xsl:template match="note">
       <xsl:message>
-<!--
         <xsl:if test="not(./tie) or (./tie[@type='start'] and not(./tie[@type='stop']))">
           NOTE
           <xsl:value-of select="if (./pitch) then ./pitch else if (./rest) then 'rest' else 'unknown'"/>
           starts <xsl:value-of select="accumulator-before('noteOnset')"/>
         </xsl:if>
-
         <xsl:if test="not(./tie) or (./tie[@type='stop'] and not (./tie[@type='start']))">
           lasts <xsl:value-of select="accumulator-after('noteDuration')"/>
         </xsl:if>
- -->
       </xsl:message>
-
       <xsl:copy>
           <xsl:apply-templates select="@*|node()" />
       </xsl:copy>
@@ -144,16 +135,14 @@
 
   <xsl:template match="harmony">
       <xsl:message>
-<!--
         CHORD
         <xsl:value-of select="."/>
         starts <xsl:value-of select="accumulator-after('noteOnset')"/>
         previous duration <xsl:value-of select="accumulator-before('harmonyPreviousDuration')"/>
- -->
       </xsl:message>
       <xsl:copy>
           <xsl:apply-templates select="@*|node()" />
       </xsl:copy>
-  </xsl:template>
+  </xsl:template> -->
 
 </xsl:stylesheet>
