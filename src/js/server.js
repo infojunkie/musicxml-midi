@@ -129,7 +129,7 @@ app.post('/convert', async (req, res, next) => {
     const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc)?.nodeValue || '(untitled)'
     console.info(`[SaxonJS] Transforming document '${title}'...`)
     const mma = await SaxonJS.transform({
-      stylesheetFileName: 'build/musicxml-mma.sef.json',
+      stylesheetFileName: 'build/mma.sef.json',
       sourceNode: doc,
       destination: 'serialized',
       stylesheetParams: { useSef: true, ...params },

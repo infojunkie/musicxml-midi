@@ -18,7 +18,7 @@
     "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",
     "convert:unroll": "run() { xslt3 -xsl:src/xsl/unroll.xsl -s:\"$1\" ${@:2}; }; run",
     "convert:timemap": "run() { xslt3 -xsl:src/xsl/timemap.xsl -s:\"$1\" ${@:2}; }; run",
-    "convert:mma": "run() { xslt3 -xsl:src/xsl/musicxml-mma.xsl -s:\"$1\" ${@:2}; }; run",
+    "convert:mma": "run() { xslt3 -xsl:src/xsl/mma.xsl -s:\"$1\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "convert": "run() { npm run convert:mma \"$1\" ${@:2} && npm run convert:midi \"${1/.musicxml/.mma}\"; }; run",
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",

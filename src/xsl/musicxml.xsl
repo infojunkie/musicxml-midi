@@ -39,8 +39,8 @@
     <xsl:accumulator-rule match="measure/attributes/key" select="."/>
   </xsl:accumulator>
 
-  <xsl:accumulator name="measureIndex" as="xs:decimal" initial-value="0">
-    <xsl:accumulator-rule match="measure" select="$value + 1"/>
+  <xsl:accumulator name="measureIndex" as="map(xs:string, xs:integer)" initial-value="map {}">
+    <xsl:accumulator-rule match="measure" select="if (map:contains($value, @number)) then map:put($value, @number, map:get($value, @number)) else map:put($value, @number, map:size($value))"/>
   </xsl:accumulator>
 
   <xsl:accumulator name="measureDuration" as="xs:decimal" initial-value="0">

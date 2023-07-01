@@ -22,13 +22,13 @@
   -->
   <xsl:param name="useSef" as="xs:boolean" select="false()"/>
   <xsl:param name="renumberMeasures" as="xs:boolean" select="false()"/>
-  <xsl:variable name="stylesheetParams" select="map {
-    QName('', 'renumberMeasures'): $renumberMeasures
-  }"/>
 
   <!--
     First unroll the score.
   -->
+  <xsl:variable name="stylesheetParams" select="map {
+    QName('', 'renumberMeasures'): $renumberMeasures
+  }"/>
   <xsl:variable name="unroll">
     <xsl:if test="not($useSef)">
       <xsl:sequence select="transform(map {
@@ -65,7 +65,7 @@
       Output JSON.
     -->
     <xsl:sequence select="map {
-      'measure': number(@number),
+      'measure': accumulator-after('measureIndex')(@number),
       'timestamp': musicxml:timestamp(
         accumulator-before('measureOnset'),
         accumulator-after('divisions'),
