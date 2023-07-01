@@ -90,7 +90,7 @@ Plugin Slash</xsl:text>
 </xsl:template>
 
 <!--
-  Output a single measure. We assume the score has been unrolled using musicxml-unroll.xsl.
+  Output a single measure. We assume the score has been unrolled using unroll.xsl.
 -->
 <xsl:template match="measure">
   <xsl:param name="lastHarmony"/>

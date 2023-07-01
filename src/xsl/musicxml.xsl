@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Reusable functions for MusicXML documents.
+-->
+
 <xsl:stylesheet
   version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -15,6 +21,10 @@
 
   <xsl:accumulator name="tempo" as="xs:decimal" initial-value="120">
     <xsl:accumulator-rule match="sound[@tempo]" select="@tempo"/>
+  </xsl:accumulator>
+
+  <xsl:accumulator name="metronome" as="element()*" initial-value="()">
+    <xsl:accumulator-rule match="measure/direction[direction-type/metronome]" select="."/>
   </xsl:accumulator>
 
   <xsl:accumulator name="time" as="element()*" initial-value="()">

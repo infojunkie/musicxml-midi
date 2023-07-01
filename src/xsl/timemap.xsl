@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  Unroll a MusicXML score to expand all jumps/repeats.
+  Generate a JSON timemap given an input MusicXML.
 -->
 
 <xsl:stylesheet
@@ -13,12 +13,44 @@
   exclude-result-prefixes="#all"
 >
 
-  <xsl:output method="json" indent="yes" encoding="UTF-8"/>
-
   <xsl:include href="musicxml.xsl"/>
 
+  <xsl:output method="json" indent="yes" encoding="UTF-8"/>
+
+  <!--
+    User-defined arguments.
+  -->
+  <xsl:param name="useSef" as="xs:boolean" select="false()"/>
+  <xsl:param name="renumberMeasures" as="xs:boolean" select="false()"/>
+  <xsl:variable name="stylesheetParams" select="map {
+    QName('', 'renumberMeasures'): $renumberMeasures
+  }"/>
+
+  <!--
+    First unroll the score.
+  -->
+  <xsl:variable name="unroll">
+    <xsl:if test="not($useSef)">
+      <xsl:sequence select="transform(map {
+        'source-node': /,
+        'stylesheet-node': doc('unroll.xsl'),
+        'stylesheet-params': $stylesheetParams
+      })?output"/>
+    </xsl:if>
+    <xsl:if test="$useSef">
+      <xsl:sequence select="transform(map {
+        'source-node': /,
+        'package-text': unparsed-text('unroll.sef.json'),
+        'stylesheet-params': $stylesheetParams
+      })?output"/>
+    </xsl:if>
+  </xsl:variable>
+
+  <!--
+    Apply the timemap transformation to the unrolled score.
+  -->
   <xsl:template match="/">
-    <xsl:apply-templates select="./score-partwise/part"/>
+    <xsl:apply-templates select="$unroll/score-partwise/part"/>
   </xsl:template>
 
   <xsl:template match="part" as="array(*)">

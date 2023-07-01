@@ -33,8 +33,8 @@
 
     Chaining the transformations using https://stackoverflow.com/a/75594839/209184
   -->
-  <xsl:param name="xslt-uris" as="xs:string*" select="'musicxml-unroll.xsl', 'musicxml-mma-unrolled.xsl'"/>
-  <xsl:param name="sef-uris" as="xs:string*" select="'musicxml-unroll.sef.json', 'musicxml-mma-unrolled.sef.json'"/>
+  <xsl:param name="xslt-uris" as="xs:string*" select="'unroll.xsl', 'musicxml-mma-unrolled.xsl'"/>
+  <xsl:param name="sef-uris" as="xs:string*" select="'unroll.sef.json', 'musicxml-mma-unrolled.sef.json'"/>
 
   <xsl:output indent="yes"/>
 
