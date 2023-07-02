@@ -13,7 +13,7 @@
   exclude-result-prefixes="#all"
 >
   <!--
-    Global state that is carried across measures.
+    Global state.
   -->
   <xsl:accumulator name="divisions" as="xs:decimal" initial-value="1">
     <xsl:accumulator-rule match="attributes/divisions" select="text()"/>
@@ -74,7 +74,7 @@
 
   <xsl:accumulator name="noteOnset" as="xs:decimal" initial-value="0">
     <xsl:accumulator-rule match="measure" select="0"/>
-    <xsl:accumulator-rule match="note" phase="end">
+    <xsl:accumulator-rule match="note">
       <xsl:choose>
         <xsl:when test="./cue"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
@@ -83,10 +83,14 @@
     </xsl:accumulator-rule>
   </xsl:accumulator>
 
+  <xsl:accumulator name="harmony" as="element()*" initial-value="()">
+    <xsl:accumulator-rule match="harmony" select="."/>
+  </xsl:accumulator>
+
   <xsl:accumulator name="harmonyPreviousDuration" as="xs:decimal" initial-value="0">
     <xsl:accumulator-rule match="measure" select="0"/>
-    <xsl:accumulator-rule match="harmony" phase="end" select="0"/>
-    <xsl:accumulator-rule match="note" phase="end">
+    <xsl:accumulator-rule match="harmony" select="0"/>
+    <xsl:accumulator-rule match="note">
       <xsl:choose>
         <xsl:when test="./cue"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
@@ -98,61 +102,66 @@
   <!--
     MusicXML functions.
   -->
-  <xsl:function name="musicxml:timestamp" as="xs:decimal">
-    <xsl:param name="offset" as="xs:decimal"/>
+  <xsl:function name="musicxml:timestampToMillisecs" as="xs:decimal">
+    <xsl:param name="timestamp" as="xs:decimal"/>
     <xsl:param name="divisions" as="xs:decimal"/>
     <xsl:param name="tempo" as="xs:decimal"/>
-    <xsl:sequence select="$offset * 60000 div $divisions div $tempo"/>
+    <xsl:sequence select="$timestamp * 60000 div $divisions div $tempo"/>
   </xsl:function>
 
-  <!-- Identity template : copy all text nodes, elements and attributes
-  <xsl:template match="@*|node()">
-      <xsl:copy>
-          <xsl:apply-templates select="@*|node()" />
-      </xsl:copy>
-  </xsl:template>
+  <!--
+    Debugging information.
+  -->
+  <!-- <xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template> -->
 
-  <xsl:template match="measure">
-      <xsl:message>
-        MEASURE <xsl:value-of select="accumulator-after('measureIndex') - 1"/>
-        starts <xsl:value-of select="musicxml:timestamp(
-          accumulator-before('measureOnset'),
-          accumulator-after('divisions'),
-          accumulator-after('tempo')
-        )"/>
-        TIME <xsl:value-of select="accumulator-after('time')"/>
-      </xsl:message>
-      <xsl:copy>
-          <xsl:apply-templates select="@*|node()" />
-      </xsl:copy>
-  </xsl:template>
+  <!-- <xsl:template match="measure">
+    <xsl:message>
+      MEASURE <xsl:value-of select="accumulator-after('measureIndex')(@number)"/>
+      starts <xsl:value-of select="musicxml:timestampToMillisecs(
+        accumulator-before('measureOnset'),
+        accumulator-after('divisions'),
+        accumulator-after('tempo')
+      )"/>ms
+      TIME <xsl:value-of select="accumulator-after('time')"/>
+      <xsl:if test="not(deep-equal(accumulator-before('time'), accumulator-after('time')))">
+        TIME CHANGE!!
+      </xsl:if>
+    </xsl:message>
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template> -->
 
-  <xsl:template match="note">
-      <xsl:message>
-        <xsl:if test="not(./tie) or (./tie[@type='start'] and not(./tie[@type='stop']))">
-          NOTE
-          <xsl:value-of select="if (./pitch) then ./pitch else if (./rest) then 'rest' else 'unknown'"/>
-          starts <xsl:value-of select="accumulator-before('noteOnset')"/>
-        </xsl:if>
-        <xsl:if test="not(./tie) or (./tie[@type='stop'] and not (./tie[@type='start']))">
-          lasts <xsl:value-of select="accumulator-after('noteDuration')"/>
-        </xsl:if>
-      </xsl:message>
-      <xsl:copy>
-          <xsl:apply-templates select="@*|node()" />
-      </xsl:copy>
-  </xsl:template>
+  <!-- <xsl:template match="note">
+    <xsl:message>
+      <xsl:if test="not(./tie) or (./tie[@type='start'] and not(./tie[@type='stop']))">
+        NOTE
+        <xsl:value-of select="if (./pitch) then ./pitch else if (./rest) then 'rest' else 'unknown'"/>
+        starts <xsl:value-of select="accumulator-before('noteOnset')"/>
+      </xsl:if>
+      <xsl:if test="not(./tie) or (./tie[@type='stop'] and not (./tie[@type='start']))">
+        lasts <xsl:value-of select="accumulator-after('noteDuration')"/>
+      </xsl:if>
+    </xsl:message>
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template> -->
 
-  <xsl:template match="harmony">
-      <xsl:message>
-        CHORD
-        <xsl:value-of select="."/>
-        starts <xsl:value-of select="accumulator-after('noteOnset')"/>
-        previous duration <xsl:value-of select="accumulator-before('harmonyPreviousDuration')"/>
-      </xsl:message>
-      <xsl:copy>
-          <xsl:apply-templates select="@*|node()" />
-      </xsl:copy>
+  <!-- <xsl:template match="harmony">
+    <xsl:message>
+      CHORD
+      <xsl:value-of select="."/>
+      starts <xsl:value-of select="accumulator-after('noteOnset')"/>
+      previous duration <xsl:value-of select="accumulator-before('harmonyPreviousDuration')"/>
+    </xsl:message>
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
   </xsl:template> -->
 
 </xsl:stylesheet>

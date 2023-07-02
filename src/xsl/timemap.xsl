@@ -29,7 +29,7 @@
   <xsl:variable name="stylesheetParams" select="map {
     QName('', 'renumberMeasures'): $renumberMeasures
   }"/>
-  <xsl:variable name="unroll">
+  <xsl:variable name="unrolled">
     <xsl:if test="not($useSef)">
       <xsl:sequence select="transform(map {
         'source-node': /,
@@ -50,7 +50,7 @@
     Apply the timemap transformation to the unrolled score.
   -->
   <xsl:template match="/">
-    <xsl:apply-templates select="$unroll/score-partwise/part"/>
+    <xsl:apply-templates select="$unrolled/score-partwise/part"/>
   </xsl:template>
 
   <xsl:template match="part" as="array(*)">
@@ -66,7 +66,7 @@
     -->
     <xsl:sequence select="map {
       'measure': accumulator-after('measureIndex')(@number),
-      'timestamp': musicxml:timestamp(
+      'timestamp': musicxml:timestampToMillisecs(
         accumulator-before('measureOnset'),
         accumulator-after('divisions'),
         accumulator-after('tempo')

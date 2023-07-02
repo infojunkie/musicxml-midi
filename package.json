@@ -24,6 +24,7 @@
     "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
     "print:grooves": "find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
     "print:preview": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
+    "print:musicxml": "run() { xslt3 -xsl:src/xsl/musicxml.xsl -s:\"$1\" ${@:2}; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
     "develop": "nodemon -e js,json src/js/server.js",

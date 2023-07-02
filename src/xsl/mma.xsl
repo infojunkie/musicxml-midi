@@ -26,8 +26,76 @@
   <xsl:param name="melodyInstrument" select="'TenorSax'"/>
   <xsl:param name="chordInstrument" select="'Piano1'"/>
   <xsl:param name="melodyVoice" select="1"/>
-  <xsl:param name="globalGroove"/>
+  <xsl:param name="globalGroove" select="''"/>
   <xsl:param name="renumberMeasures" as="xs:boolean" select="false()"/>
+
+  <!--
+    Global state.
+  -->
+  <xsl:accumulator name="groove" as="xs:string" initial-value="if ($globalGroove != '' and lower-case($globalGroove) != 'none') then $globalGroove else ''">
+    <xsl:accumulator-rule match="sound/play/other-play[@type = 'groove']" select="text()"/>
+  </xsl:accumulator>
+
+  <!--
+    Functions.
+  -->
+  <!--
+    Convert MusicXML note to MMA pitch.
+  -->
+  <xsl:function name="mma:note" as="xs:integer">
+    <xsl:param name="step"/>
+    <xsl:param name="alter"/>
+    <xsl:choose>
+      <xsl:when test="($step = 'G' and $alter = '1') or ($step = 'A' and $alter = '-1')"><xsl:sequence select="-4"/></xsl:when>
+      <xsl:when test="($step = 'A' and $alter = '1') or ($step = 'B' and $alter = '-1')"><xsl:sequence select="-2"/></xsl:when>
+      <xsl:when test="($step = 'C' and $alter = '1') or ($step = 'D' and $alter = '-1')"><xsl:sequence select="1"/></xsl:when>
+      <xsl:when test="($step = 'D' and $alter = '1') or ($step = 'E' and $alter = '-1')"><xsl:sequence select="3"/></xsl:when>
+      <xsl:when test="($step = 'G' and $alter = '-1')"><xsl:sequence select="-6"/></xsl:when>
+      <xsl:when test="($step = 'C' and $alter = '-1')"><xsl:sequence select="-1"/></xsl:when>
+      <xsl:when test="($step = 'B' and $alter = '1')"><xsl:sequence select="0"/></xsl:when>
+      <xsl:when test="($step = 'F' and $alter = '-1')"><xsl:sequence select="4"/></xsl:when>
+      <xsl:when test="($step = 'E' and $alter = '1')"><xsl:sequence select="5"/></xsl:when>
+      <xsl:when test="($step = 'F' and $alter = '1')"><xsl:sequence select="6"/></xsl:when>
+      <xsl:when test="$step = 'G'"><xsl:sequence select="-5"/></xsl:when>
+      <xsl:when test="$step = 'A'"><xsl:sequence select="-3"/></xsl:when>
+      <xsl:when test="$step = 'D'"><xsl:sequence select="2"/></xsl:when>
+      <xsl:when test="$step = 'B'"><xsl:sequence select="-1"/></xsl:when>
+      <xsl:when test="$step = 'C'"><xsl:sequence select="0"/></xsl:when>
+      <xsl:when test="$step = 'E'"><xsl:sequence select="4"/></xsl:when>
+      <xsl:when test="$step = 'F'"><xsl:sequence select="5"/></xsl:when>
+    </xsl:choose>
+  </xsl:function>
+
+  <!--
+    Map incoming groove name to MMA groove.
+  -->
+  <xsl:function name="mma:groove">
+    <xsl:param name="groove"/>
+    <xsl:param name="time"/>
+    <!--
+      TODO Perform complete mapping between iReal Pro grooves and MMA grooves.
+      Use `npm run print:grooves` to list all available MMA grooves.
+    -->
+    <xsl:choose>
+      <xsl:when test="contains(lower-case($groove), 'swing') or contains(lower-case($groove), 'jazz')">
+        <xsl:choose>
+          <xsl:when test="$time/beats = 5 and $time/beat-type = 4"><xsl:sequence select="'Jazz54'"/></xsl:when>
+          <xsl:otherwise><xsl:sequence select="'Swing'"/></xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise/>
+    </xsl:choose>
+  </xsl:function>
+
+  <!--
+    Python mod function for compatibility with Slash MMA plugin.
+    https://stackoverflow.com/a/60182730/209184
+  -->
+  <xsl:function name="mma:mod" as="xs:decimal">
+    <xsl:param name="dividend"/>
+    <xsl:param name="divisor"/>
+    <xsl:sequence select="$dividend - floor($dividend div $divisor) * $divisor"/>
+  </xsl:function>
 
   <!--
     First unroll the score.
@@ -35,7 +103,7 @@
   <xsl:variable name="stylesheetParams" select="map {
     QName('', 'renumberMeasures'): $renumberMeasures
   }"/>
-  <xsl:variable name="unroll">
+  <xsl:variable name="unrolled">
     <xsl:if test="not($useSef)">
       <xsl:sequence select="transform(map {
         'source-node': /,
@@ -56,7 +124,7 @@
     Apply the MMA transformation to the unrolled score.
   -->
   <xsl:template match="/">
-    <xsl:apply-templates select="$unroll/score-partwise"/>
+    <xsl:apply-templates select="$unrolled/score-partwise"/>
   </xsl:template>
 
   <xsl:template match="score-partwise">
@@ -102,58 +170,17 @@ Plugin Slash</xsl:text>
     </xsl:apply-templates>
     <xsl:text>&#xa;</xsl:text>
 
-    <xsl:apply-templates select="part/measure[1]">
-      <xsl:with-param name="lastHarmony"/>
-      <xsl:with-param name="lastGroove"/>
-      <xsl:with-param name="lastMeasure"/>
-      <xsl:with-param name="lastTime"/>
-      <xsl:with-param name="lastDivisions"/>
-    </xsl:apply-templates>
+    <xsl:apply-templates select="part/measure"/>
   </xsl:template>
 
   <!--
-    Output a single measure. We assume the score has been unrolled using unroll.xsl.
+    Output a measure.
   -->
   <xsl:template match="measure">
-    <xsl:param name="lastHarmony"/>
-    <xsl:param name="lastGroove"/>
-    <xsl:param name="lastMeasure"/>
-    <xsl:param name="lastTime"/>
-    <xsl:param name="lastDivisions"/>
-
-    <xsl:variable name="thisHarmony" select="if (harmony) then harmony[last()] else $lastHarmony"/>
-    <xsl:variable name="thisTime" select="if (attributes/time) then attributes/time else preceding-sibling::measure[attributes/time][1]/attributes/time"/>
-    <xsl:variable name="thisDivisions" select="if (attributes/divisions) then attributes/divisions else preceding-sibling::measure[attributes/divisions][1]/attributes/divisions"/>
-    <xsl:variable name="durationDifference" select="round((sum(note[voice = $melodyVoice][not(chord)]/duration) div $thisDivisions) - ($thisTime/beats * 4 div $thisTime/beat-type))"/>
-
     <!--
-      Calculate this measure's groove.
-      If we have a global groove override, set it the first time around. It will override any groove command in the file.
-      Otherwise, detect a sound/play/other-play[@type = groove] element and derive the groove from it.
-      Remember the last seen groove to avoid redeclaring at each measure.
-      In case the measure number is 0 (pickup measure), then ignore the global groove if any (but a locally declared groove will still apply).
+      Time signature.
     -->
-    <xsl:variable name="thisGroove">
-      <xsl:choose>
-        <xsl:when test="@number != '0' and $globalGroove != '' and $lastGroove != $globalGroove and lower-case($globalGroove) != 'none'">
-          <xsl:value-of select="$globalGroove"/>
-        </xsl:when>
-        <xsl:when test="$globalGroove != ''"></xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates select="*/sound/play/other-play[@type = 'groove']" mode="groove">
-            <xsl:with-param name="time" select="$thisTime"/>
-          </xsl:apply-templates>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="nextGroove" select="if ($thisGroove != '') then $thisGroove else $lastGroove"/>
-
-    <!--
-      Time signature if different from previous one.
-    -->
-    <xsl:if test="not($lastTime) or generate-id($thisTime) != generate-id($lastTime)">
-      <xsl:apply-templates select="$thisTime"/>
-    </xsl:if>
+    <xsl:apply-templates select="attributes/time"/>
 
     <!--
       Tempo.
@@ -161,26 +188,39 @@ Plugin Slash</xsl:text>
     <xsl:apply-templates select="direction/sound[@tempo]" mode="tempo"/>
 
     <!--
-      If we don't have a groove, add our hand-made chord sequence that replicates the rhythm notation of the chords.
+      Groove.
     -->
+    <xsl:variable name="groove">
+      <xsl:choose>
+        <xsl:when test="@number = '0'"/>
+        <xsl:when test="@number = '1' and $globalGroove != '' and lower-case($globalGroove) != 'none'">
+          <xsl:value-of select="$globalGroove"/>
+        </xsl:when>
+        <xsl:when test="accumulator-before('groove') = accumulator-after('groove')"/>
+        <xsl:otherwise>
+          <xsl:value-of select="mma:groove(
+            */sound/play/other-play[@type = 'groove']/text(),
+            accumulator-after('time')
+          )"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:choose>
-      <xsl:when test="$thisGroove != ''">
-Groove <xsl:value-of select="$thisGroove"/>
-MidiMark Groove:<xsl:value-of select="$thisGroove"/>
+      <xsl:when test="$groove != ''">
+Groove <xsl:value-of select="$groove"/>
+MidiMark Groove:<xsl:value-of select="$groove"/>
       </xsl:when>
-      <xsl:when test="$lastGroove != ''"></xsl:when>
+      <xsl:when test="accumulator-after('groove') != '' and mma:groove(accumulator-after('groove'), accumulator-after('time')) != ''"/>
       <xsl:otherwise>
         <xsl:apply-templates select="harmony[1]" mode="sequence">
           <xsl:with-param name="start" select="1"/>
-          <xsl:with-param name="divisions" select="$thisDivisions"/>
         </xsl:apply-templates>
         <xsl:if test="not(harmony)">
           <!--
-            In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord.
+            In case of no chord in this measure, get the last chord.
           -->
-          <xsl:apply-templates select="$lastHarmony" mode="sequence">
+          <xsl:apply-templates select="accumulator-after('harmony')" mode="sequence">
             <xsl:with-param name="start" select="1"/>
-            <xsl:with-param name="divisions" select="$thisDivisions"/>
           </xsl:apply-templates>
         </xsl:if>
       </xsl:otherwise>
@@ -194,66 +234,50 @@ MidiMark Groove:<xsl:value-of select="$thisGroove"/>
     <xsl:text>&#xa;</xsl:text>
 
     <!--
-      Chord information.
+      Chords.
     -->
     <xsl:apply-templates select="harmony[1]" mode="duration">
       <xsl:with-param name="start" select="1"/>
-      <xsl:with-param name="divisions" select="$thisDivisions"/>
     </xsl:apply-templates>
     <xsl:if test="not(harmony)">
       <!--
-        In case of no chord in this measure, get the last chord of the closest preceding measure that had a chord.
+        In case of no chord in this measure, get the last chord.
       -->
-      <xsl:if test="not($lastHarmony)"> z</xsl:if>
-      <xsl:apply-templates select="$lastHarmony" mode="duration">
+      <xsl:if test="not(accumulator-after('harmony'))"> z</xsl:if>
+      <xsl:apply-templates select="accumulator-after('harmony')" mode="duration">
         <xsl:with-param name="start" select="1"/>
-        <xsl:with-param name="divisions" select="$thisDivisions"/>
       </xsl:apply-templates>
     </xsl:if>
 
     <!--
-      Notes information.
+      Notes.
     -->
     <xsl:apply-templates select="note[voice = $melodyVoice][1]">
-      <xsl:with-param name="shouldIgnoreTieStop" select="if (not($lastMeasure)) then false() else not($lastMeasure/note[voice = $melodyVoice][not(chord)][last()]/tie[@type = 'start'])"/>
+      <xsl:with-param name="shouldIgnoreTieStop" select="if (not(preceding-sibling::measure[1])) then false() else not(preceding-sibling::measure[1]/note[voice = $melodyVoice][not(chord)][last()]/tie[@type = 'start'])"/>
       <xsl:with-param name="isAnyNotePrinted" select="false()"/>
-      <xsl:with-param name="divisions" select="$thisDivisions"/>
     </xsl:apply-templates>
 
+    <xsl:variable name="durationDifference" select="round((sum(note[voice = $melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
     <xsl:if test="$durationDifference != 0">
-      <xsl:text>&#xa;</xsl:text>
-      <xsl:text>BeatAdjust </xsl:text><xsl:value-of select="$durationDifference"/>
+BeatAdjust <xsl:value-of select="$durationDifference"/>
     </xsl:if>
-
-    <!--
-      Advance to next measure.
-    -->
-    <xsl:apply-templates select="following-sibling::measure[1]">
-      <xsl:with-param name="lastHarmony" select="$thisHarmony"/>
-      <xsl:with-param name="lastGroove" select="$nextGroove"/>
-      <xsl:with-param name="lastMeasure" select="."/>
-      <xsl:with-param name="lastTime" select="$thisTime"/>
-      <xsl:with-param name="lastDivisions" select="$thisDivisions"/>
-    </xsl:apply-templates>
-
   </xsl:template>
 
   <xsl:template match="harmony" mode="sequence">
     <xsl:param name="start"/>
-    <xsl:param name="divisions"/>
     <xsl:variable name="id" select="generate-id(.)"/>
     <xsl:if test="$start = 1">
 Chord-Custom Sequence { </xsl:if>
     <xsl:value-of select="$start"/><xsl:text> </xsl:text>
     <!--
       Calculate this chord's duration, which is the total duration of following non-chord notes until next harmony element,
-      The total is divided by $divisions which is the current time resolution of the score.
+      The total is divided by the current time resolution of the score.
       The final duration is expressed in "beats" == quarter note time.
     -->
     <xsl:variable name="duration">
       <xsl:value-of select="(
         sum(following-sibling::note[voice = $melodyVoice][not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration)
-      ) div $divisions"/>
+      ) div accumulator-after('divisions')"/>
     </xsl:variable>
     <!--
       Express the duration in MIDI ticks = 192 * quarter note
@@ -262,44 +286,9 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
     <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
       <xsl:with-param name="start" select="$start + $duration"/>
-      <xsl:with-param name="divisions" select="$divisions"/>
     </xsl:apply-templates>
     <xsl:if test="not(following-sibling::harmony)">}</xsl:if>
   </xsl:template>
-
-  <xsl:function name="mma:note" as="xs:integer">
-    <xsl:param name="step"/>
-    <xsl:param name="alter"/>
-    <xsl:choose>
-      <xsl:when test="($step = 'G' and $alter = '1') or ($step = 'A' and $alter = '-1')"><xsl:sequence select="-4"/></xsl:when>
-      <xsl:when test="($step = 'A' and $alter = '1') or ($step = 'B' and $alter = '-1')"><xsl:sequence select="-2"/></xsl:when>
-      <xsl:when test="($step = 'C' and $alter = '1') or ($step = 'D' and $alter = '-1')"><xsl:sequence select="1"/></xsl:when>
-      <xsl:when test="($step = 'D' and $alter = '1') or ($step = 'E' and $alter = '-1')"><xsl:sequence select="3"/></xsl:when>
-      <xsl:when test="($step = 'G' and $alter = '-1')"><xsl:sequence select="-6"/></xsl:when>
-      <xsl:when test="($step = 'C' and $alter = '-1')"><xsl:sequence select="-1"/></xsl:when>
-      <xsl:when test="($step = 'B' and $alter = '1')"><xsl:sequence select="0"/></xsl:when>
-      <xsl:when test="($step = 'F' and $alter = '-1')"><xsl:sequence select="4"/></xsl:when>
-      <xsl:when test="($step = 'E' and $alter = '1')"><xsl:sequence select="5"/></xsl:when>
-      <xsl:when test="($step = 'F' and $alter = '1')"><xsl:sequence select="6"/></xsl:when>
-      <xsl:when test="$step = 'G'"><xsl:sequence select="-5"/></xsl:when>
-      <xsl:when test="$step = 'A'"><xsl:sequence select="-3"/></xsl:when>
-      <xsl:when test="$step = 'D'"><xsl:sequence select="2"/></xsl:when>
-      <xsl:when test="$step = 'B'"><xsl:sequence select="-1"/></xsl:when>
-      <xsl:when test="$step = 'C'"><xsl:sequence select="0"/></xsl:when>
-      <xsl:when test="$step = 'E'"><xsl:sequence select="4"/></xsl:when>
-      <xsl:when test="$step = 'F'"><xsl:sequence select="5"/></xsl:when>
-    </xsl:choose>
-  </xsl:function>
-
-  <!--
-    Python mod function for compatibility with Slash MMA plugin.
-    https://stackoverflow.com/a/60182730/209184
-  -->
-  <xsl:function name="mma:mod" as="xs:decimal">
-    <xsl:param name="dividend"/>
-    <xsl:param name="divisor"/>
-    <xsl:sequence select="$dividend - floor($dividend div $divisor) * $divisor"/>
-  </xsl:function>
 
   <xsl:template match="harmony" mode="name">
     <xsl:param name="definition"/>
@@ -403,16 +392,14 @@ Chord-Custom Sequence { </xsl:if>
 
   <xsl:template match="harmony" mode="duration">
     <xsl:param name="start"/>
-    <xsl:param name="divisions"/>
 
     <xsl:variable name="id" select="generate-id(.)"/>
     <xsl:text> </xsl:text>
     <xsl:apply-templates select="." mode="name"/>
     <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
-    <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div $divisions"/></xsl:variable>
+    <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div accumulator-after('divisions')"/></xsl:variable>
     <xsl:apply-templates select="following-sibling::harmony[1]" mode="duration">
       <xsl:with-param name="start" select="$start + $duration"/>
-      <xsl:with-param name="divisions" select="$divisions"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -435,7 +422,6 @@ Chord-Custom Sequence { </xsl:if>
   <xsl:template match="note">
     <xsl:param name="shouldIgnoreTieStop" as="xs:boolean"/>
     <xsl:param name="isAnyNotePrinted" as="xs:boolean"/>
-    <xsl:param name="divisions"/>
     <!--
       A note sequence (SOLO track in MMA glossary) is made of several pieces:
       - Opening bracket "{" to start measure
@@ -482,7 +468,7 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:variable>
       <xsl:if test="$duration != ''">
         <xsl:if test="$isAnyNotePrinted">;</xsl:if>
-        <xsl:value-of select="floor(192 * $duration div $divisions)"/>
+        <xsl:value-of select="floor(192 * $duration div accumulator-after('divisions'))"/>
         <xsl:text>t</xsl:text>
       </xsl:if>
     </xsl:if>
@@ -517,25 +503,7 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:apply-templates select="following-sibling::note[voice = $melodyVoice][1]">
       <xsl:with-param name="shouldIgnoreTieStop" select="false()"/>
       <xsl:with-param name="isAnyNotePrinted" select="$isAnyNotePrinted or not(chord or $tieStop)"/>
-      <xsl:with-param name="divisions" select="$divisions"/>
     </xsl:apply-templates>
-  </xsl:template>
-
-  <xsl:template match="other-play" mode="groove">
-    <xsl:param name="time"/>
-    <!--
-      TODO Perform complete mapping between iReal Pro grooves and MMA grooves.
-      Use `npm run print:grooves` to list all available MMA grooves.
-    -->
-    <xsl:choose>
-      <xsl:when test="contains(lower-case(.), 'swing') or contains(lower-case(.), 'jazz')">
-        <xsl:choose>
-          <xsl:when test="$time/beats = 5 and $time/beat-type = 4">Jazz54</xsl:when>
-          <xsl:otherwise>Swing</xsl:otherwise>
-        </xsl:choose>
-      </xsl:when>
-      <xsl:otherwise></xsl:otherwise>
-    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="sound" mode="tempo">
