@@ -36,6 +36,36 @@
     <xsl:accumulator-rule match="sound/play/other-play[@type = 'groove']" select="text()"/>
   </xsl:accumulator>
 
+  <xsl:accumulator name="tieStart" as="map(xs:string, xs:boolean)" initial-value="map {
+    'current': false(),
+    'previous': false()
+  }">
+    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="map {
+      'previous': map:get($value, 'current'),
+      'current': exists(tie[@type = 'start']) or exists(notations/tied[@type = 'start'])
+    }"/>
+  </xsl:accumulator>
+
+  <xsl:accumulator name="tieStop" as="xs:boolean" initial-value="false()">
+    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="
+      (exists(tie[@type = 'stop']) or exists(notations/tied[@type = 'stop'])) and accumulator-after('tieStart')('previous')
+    "/>
+  </xsl:accumulator>
+
+  <xsl:accumulator name="hasMeasurePrintedAnyNote" as="map(xs:string, xs:boolean)" initial-value="map {
+    'previous': false(),
+    'current': false()
+  }">
+    <xsl:accumulator-rule match="measure" select="map {
+      'previous': false(),
+      'current': false()
+    }"/>
+    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="map {
+      'previous': map:get($value, 'current'),
+      'current': map:get($value, 'current') or not(accumulator-after('tieStop'))
+    }"/>
+  </xsl:accumulator>
+
   <!--
     Functions.
   -->
@@ -252,10 +282,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     <!--
       Notes.
     -->
-    <xsl:apply-templates select="note[voice = $melodyVoice][1]">
-      <xsl:with-param name="shouldIgnoreTieStop" select="if (not(preceding-sibling::measure[1])) then false() else not(preceding-sibling::measure[1]/note[voice = $melodyVoice][not(chord)][last()]/tie[@type = 'start'])"/>
-      <xsl:with-param name="isAnyNotePrinted" select="false()"/>
-    </xsl:apply-templates>
+    <xsl:apply-templates select="note[voice = $melodyVoice]"/>
 
     <xsl:variable name="durationDifference" select="round((sum(note[voice = $melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
     <xsl:if test="$durationDifference != 0">
@@ -420,8 +447,6 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:template>
 
   <xsl:template match="note">
-    <xsl:param name="shouldIgnoreTieStop" as="xs:boolean"/>
-    <xsl:param name="isAnyNotePrinted" as="xs:boolean"/>
     <!--
       A note sequence (SOLO track in MMA glossary) is made of several pieces:
       - Opening bracket "{" to start measure
@@ -440,9 +465,8 @@ Chord-Custom Sequence { </xsl:if>
       - Chords with unequal ties
       - Unpitched notes
     -->
-    <xsl:variable name="tie" select="if (cue) then notations/tied else tie"/>
-    <xsl:variable name="tieStop" select="$tie[@type = 'stop'] and not($shouldIgnoreTieStop)"/>
-    <xsl:variable name="tieStart" select="$tie[@type = 'start']"/>
+    <xsl:variable name="tieStop" select="accumulator-after('tieStop')"/>
+    <xsl:variable name="tieStart" select="accumulator-after('tieStart')('current')"/>
 
     <xsl:if test="not(preceding-sibling::note[voice = $melodyVoice])">
       <xsl:text> {</xsl:text>
@@ -467,7 +491,7 @@ Chord-Custom Sequence { </xsl:if>
         </xsl:choose>
       </xsl:variable>
       <xsl:if test="$duration != ''">
-        <xsl:if test="$isAnyNotePrinted">;</xsl:if>
+        <xsl:if test="accumulator-after('hasMeasurePrintedAnyNote')('previous')">;</xsl:if>
         <xsl:value-of select="floor(192 * $duration div accumulator-after('divisions'))"/>
         <xsl:text>t</xsl:text>
       </xsl:if>
@@ -493,17 +517,12 @@ Chord-Custom Sequence { </xsl:if>
     </xsl:if>
 
     <xsl:if test="not(following-sibling::note[voice = $melodyVoice])">
-      <xsl:if test="not($isAnyNotePrinted or not(chord or $tieStop))">
+      <xsl:if test="not(accumulator-after('hasMeasurePrintedAnyNote')('current'))">
         <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
       </xsl:if>
       <xsl:if test="$tieStart">~</xsl:if>
       <xsl:text>;}</xsl:text>
     </xsl:if>
-
-    <xsl:apply-templates select="following-sibling::note[voice = $melodyVoice][1]">
-      <xsl:with-param name="shouldIgnoreTieStop" select="false()"/>
-      <xsl:with-param name="isAnyNotePrinted" select="$isAnyNotePrinted or not(chord or $tieStop)"/>
-    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="sound" mode="tempo">
