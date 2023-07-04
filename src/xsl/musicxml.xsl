@@ -45,13 +45,13 @@
 
   <xsl:accumulator name="measureDuration" as="xs:decimal" initial-value="0">
     <xsl:accumulator-rule match="measure" select="0"/>
-    <xsl:accumulator-rule match="measure/forward" select="$value + xs:decimal(./forward/duration)"/>
-    <xsl:accumulator-rule match="measure/backup" select="$value - xs:decimal(./backup/duration)"/>
+    <xsl:accumulator-rule match="measure/forward" select="$value + xs:decimal(duration)"/>
+    <xsl:accumulator-rule match="measure/backup" select="$value - xs:decimal(duration)"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="./cue"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(./duration)"/></xsl:otherwise>
+        <xsl:when test="cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(duration)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
   </xsl:accumulator>
@@ -64,10 +64,10 @@
   <xsl:accumulator name="noteDuration" as="xs:decimal" initial-value="0">
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="./cue"><xsl:sequence select="0"/></xsl:when>
-        <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="./tie[@type='stop']"><xsl:sequence select="$value + xs:decimal(./duration)"/></xsl:when>
-        <xsl:otherwise><xsl:sequence select="xs:decimal(./duration)"/></xsl:otherwise>
+        <xsl:when test="cue"><xsl:sequence select="0"/></xsl:when>
+        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="tie[@type='stop']"><xsl:sequence select="$value + xs:decimal(duration)"/></xsl:when>
+        <xsl:otherwise><xsl:sequence select="xs:decimal(duration)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
   </xsl:accumulator>
@@ -76,9 +76,9 @@
     <xsl:accumulator-rule match="measure" select="0"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="./cue"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(./duration)"/></xsl:otherwise>
+        <xsl:when test="cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(duration)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
   </xsl:accumulator>
@@ -92,9 +92,9 @@
     <xsl:accumulator-rule match="harmony" select="0"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="./cue"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="./chord"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(./duration)"/></xsl:otherwise>
+        <xsl:when test="cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:otherwise><xsl:sequence select="$value + xs:decimal(duration)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
   </xsl:accumulator>

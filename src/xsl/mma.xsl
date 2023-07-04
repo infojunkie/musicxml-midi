@@ -33,22 +33,22 @@
     Global state.
   -->
   <xsl:accumulator name="groove" as="xs:string" initial-value="if ($globalGroove != '' and lower-case($globalGroove) != 'none') then $globalGroove else ''">
-    <xsl:accumulator-rule match="sound/play/other-play[@type = 'groove']" select="text()"/>
+    <xsl:accumulator-rule match="sound/play/other-play[@type='groove']" select="text()"/>
   </xsl:accumulator>
 
   <xsl:accumulator name="tieStart" as="map(xs:string, xs:boolean)" initial-value="map {
     'current': false(),
     'previous': false()
   }">
-    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="map {
+    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="map {
       'previous': map:get($value, 'current'),
-      'current': exists(tie[@type = 'start']) or exists(notations/tied[@type = 'start'])
+      'current': exists(tie[@type='start']) or exists(notations/tied[@type='start'])
     }"/>
   </xsl:accumulator>
 
   <xsl:accumulator name="tieStop" as="xs:boolean" initial-value="false()">
-    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="
-      (exists(tie[@type = 'stop']) or exists(notations/tied[@type = 'stop'])) and accumulator-after('tieStart')('previous')
+    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="
+      (exists(tie[@type='stop']) or exists(notations/tied[@type='stop'])) and accumulator-after('tieStart')('previous')
     "/>
   </xsl:accumulator>
 
@@ -60,7 +60,7 @@
       'previous': false(),
       'current': false()
     }"/>
-    <xsl:accumulator-rule match="note[voice = $melodyVoice][not(chord)]" select="map {
+    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="map {
       'previous': map:get($value, 'current'),
       'current': map:get($value, 'current') or not(accumulator-after('tieStop'))
     }"/>
@@ -282,9 +282,12 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     <!--
       Notes.
     -->
-    <xsl:apply-templates select="note[voice = $melodyVoice]"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice]"/>
 
-    <xsl:variable name="durationDifference" select="round((sum(note[voice = $melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
+    <!--
+      Check if this measure needs any beat adjustment between the actual duration of notes and the time signature.
+    -->
+    <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
     <xsl:if test="$durationDifference != 0">
 BeatAdjust <xsl:value-of select="$durationDifference"/>
     </xsl:if>
@@ -297,13 +300,13 @@ BeatAdjust <xsl:value-of select="$durationDifference"/>
 Chord-Custom Sequence { </xsl:if>
     <xsl:value-of select="$start"/><xsl:text> </xsl:text>
     <!--
-      Calculate this chord's duration, which is the total duration of following non-chord notes until next harmony element,
+      Calculate this chord's duration, which is the total duration of following non-chord notes until next harmony element.
       The total is divided by the current time resolution of the score.
       The final duration is expressed in "beats" == quarter note time.
     -->
     <xsl:variable name="duration">
       <xsl:value-of select="(
-        sum(following-sibling::note[voice = $melodyVoice][not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration)
+        sum(following-sibling::note[voice=$melodyVoice][not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration)
       ) div accumulator-after('divisions')"/>
     </xsl:variable>
     <!--
@@ -434,10 +437,10 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:param name="duration"/>
     <xsl:variable name="tie" select="if (cue) then notations/tied else tie"/>
     <xsl:choose>
-      <xsl:when test="$tie[@type = 'stop'] and not($tie[@type = 'start'])"><xsl:value-of select="$duration + duration"/></xsl:when>
+      <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:value-of select="$duration + duration"/></xsl:when>
       <xsl:otherwise>
         <xsl:variable name="recursiveDuration">
-          <xsl:apply-templates select="if (following-sibling::note[voice = $melodyVoice][not(chord)]) then following-sibling::note[voice = $melodyVoice][not(chord)][1] else ../following-sibling::measure[1]/note[voice = $melodyVoice][not(chord)][1]" mode="duration">
+          <xsl:apply-templates select="if (following-sibling::note[voice=$melodyVoice][not(chord)]) then following-sibling::note[voice=$melodyVoice][not(chord)][1] else ../following-sibling::measure[1]/note[voice=$melodyVoice][not(chord)][1]" mode="duration">
             <xsl:with-param name="duration" select="duration + $duration"/>
           </xsl:apply-templates>
         </xsl:variable>
@@ -468,7 +471,7 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:variable name="tieStop" select="accumulator-after('tieStop')"/>
     <xsl:variable name="tieStart" select="accumulator-after('tieStart')('current')"/>
 
-    <xsl:if test="not(preceding-sibling::note[voice = $melodyVoice])">
+    <xsl:if test="not(preceding-sibling::note[voice=$melodyVoice])">
       <xsl:text> {</xsl:text>
       <xsl:if test="$tieStop">~</xsl:if>
     </xsl:if>
@@ -516,7 +519,7 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:choose>
     </xsl:if>
 
-    <xsl:if test="not(following-sibling::note[voice = $melodyVoice])">
+    <xsl:if test="not(following-sibling::note[voice=$melodyVoice])">
       <xsl:if test="not(accumulator-after('hasMeasurePrintedAnyNote')('current'))">
         <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
       </xsl:if>
