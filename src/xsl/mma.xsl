@@ -32,7 +32,7 @@
   <!--
     Global state.
   -->
-  <xsl:accumulator name="groove" as="xs:string" initial-value="if ($globalGroove != '' and lower-case($globalGroove) != 'none') then $globalGroove else ''">
+  <xsl:accumulator name="groove" as="xs:string" initial-value="''">
     <xsl:accumulator-rule match="sound/play/other-play[@type='groove']" select="text()"/>
   </xsl:accumulator>
 
@@ -223,7 +223,7 @@ Plugin Slash</xsl:text>
     <xsl:variable name="groove">
       <xsl:choose>
         <xsl:when test="@number = '0'"/>
-        <xsl:when test="@number = '1' and $globalGroove != '' and lower-case($globalGroove) != 'none'">
+        <xsl:when test="@number = '1' and $globalGroove != '' and lower-case($globalGroove) != 'default'">
           <xsl:value-of select="$globalGroove"/>
         </xsl:when>
         <xsl:when test="accumulator-before('groove') = accumulator-after('groove')"/>
@@ -236,11 +236,11 @@ Plugin Slash</xsl:text>
       </xsl:choose>
     </xsl:variable>
     <xsl:choose>
-      <xsl:when test="$groove != ''">
+      <xsl:when test="$groove != '' and lower-case($groove) != 'none'">
 Groove <xsl:value-of select="$groove"/>
 MidiMark Groove:<xsl:value-of select="$groove"/>
       </xsl:when>
-      <xsl:when test="accumulator-after('groove') != '' and mma:groove(accumulator-after('groove'), accumulator-after('time')) != ''"/>
+      <xsl:when test="lower-case($groove) != 'none' and accumulator-after('groove') != '' and mma:groove(accumulator-after('groove'), accumulator-after('time')) != ''"/>
       <xsl:otherwise>
         <xsl:apply-templates select="harmony[1]" mode="sequence">
           <xsl:with-param name="start" select="1"/>

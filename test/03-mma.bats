@@ -9,7 +9,23 @@ set -euo pipefail
   echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo ${mma}
   assert_output --partial 'Groove Jazz54'
-  assert_output --partial '1 Ebm@1 Bbm7@4 {576tr;384tr;}'
+  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+}
+
+@test "mma produces a valid file for take-five with overridden groove" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five.musicxml globalGroove=None)
+  echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo ${mma}
+  assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; }'
+  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+}
+
+@test "mma produces a valid file for take-five with default groove" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five.musicxml globalGroove=Default)
+  echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo ${mma}
+  assert_output --partial 'Groove Jazz54'
+  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
 }
 
 @test "mma produces a valid file for take-five with unknown groove" {
