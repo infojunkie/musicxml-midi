@@ -102,6 +102,9 @@
   <!--
     MusicXML functions.
   -->
+  <!--
+    Convert MusicXML duration to milliseconds.
+  -->
   <xsl:function name="musicxml:timestampToMillisecs" as="xs:decimal">
     <xsl:param name="timestamp" as="xs:decimal"/>
     <xsl:param name="divisions" as="xs:decimal"/>

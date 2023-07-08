@@ -118,13 +118,34 @@
   </xsl:function>
 
   <!--
-    Python mod function for compatibility with Slash MMA plugin.
+    Python-like mod function for compatibility with Slash MMA plugin.
     https://stackoverflow.com/a/60182730/209184
   -->
   <xsl:function name="mma:mod" as="xs:decimal">
-    <xsl:param name="dividend"/>
-    <xsl:param name="divisor"/>
+    <xsl:param name="dividend" as="xs:decimal"/>
+    <xsl:param name="divisor" as="xs:decimal"/>
     <xsl:sequence select="$dividend - floor($dividend div $divisor) * $divisor"/>
+  </xsl:function>
+
+  <!--
+    Calculate note duration.
+  -->
+  <xsl:function name="mma:noteDuration" as="xs:decimal">
+    <xsl:param name="note"/>
+    <xsl:param name="duration" as="xs:decimal"/>
+    <xsl:variable name="tie" select="if ($note/cue) then $note/notations/tied else $note/tie"/>
+    <xsl:choose>
+      <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:sequence select="xs:decimal($duration + $note/duration)"/></xsl:when>
+      <xsl:otherwise>
+        <xsl:sequence select="mma:noteDuration(
+          if ($note/following-sibling::note[voice=$melodyVoice][not(chord)]) then
+            $note/following-sibling::note[voice=$melodyVoice][not(chord)][1]
+          else
+            $note/../following-sibling::measure[1]/note[voice=$melodyVoice][not(chord)][1],
+          xs:decimal($duration + $note/duration)
+        )"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:function>
 
   <!--
@@ -286,10 +307,13 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
 
     <!--
       Check if this measure needs any beat adjustment between the actual duration of notes and the time signature.
+      Explicitly guard against <senza-misura>.
     -->
-    <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
-    <xsl:if test="$durationDifference != 0">
-BeatAdjust <xsl:value-of select="$durationDifference"/>
+    <xsl:if test="accumulator-after('time')/beat-type">
+      <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
+      <xsl:if test="$durationDifference != 0">
+  BeatAdjust <xsl:value-of select="$durationDifference"/>
+      </xsl:if>
     </xsl:if>
   </xsl:template>
 
@@ -433,22 +457,6 @@ Chord-Custom Sequence { </xsl:if>
     </xsl:apply-templates>
   </xsl:template>
 
-  <xsl:template match="note" mode="duration">
-    <xsl:param name="duration"/>
-    <xsl:variable name="tie" select="if (cue) then notations/tied else tie"/>
-    <xsl:choose>
-      <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:value-of select="$duration + duration"/></xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="recursiveDuration">
-          <xsl:apply-templates select="if (following-sibling::note[voice=$melodyVoice][not(chord)]) then following-sibling::note[voice=$melodyVoice][not(chord)][1] else ../following-sibling::measure[1]/note[voice=$melodyVoice][not(chord)][1]" mode="duration">
-            <xsl:with-param name="duration" select="duration + $duration"/>
-          </xsl:apply-templates>
-        </xsl:variable>
-        <xsl:value-of select="$recursiveDuration"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:template>
-
   <xsl:template match="note">
     <!--
       A note sequence (SOLO track in MMA glossary) is made of several pieces:
@@ -484,20 +492,16 @@ Chord-Custom Sequence { </xsl:if>
       <xsl:variable name="duration">
         <xsl:choose>
           <xsl:when test="$tieStart">
-            <xsl:apply-templates select="." mode="duration">
-              <xsl:with-param name="duration" select="0"/>
-            </xsl:apply-templates>
+            <xsl:value-of select="mma:noteDuration(., 0)"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="duration"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:variable>
-      <xsl:if test="$duration != ''">
-        <xsl:if test="accumulator-after('hasMeasurePrintedAnyNote')('previous')">;</xsl:if>
-        <xsl:value-of select="floor(192 * $duration div accumulator-after('divisions'))"/>
-        <xsl:text>t</xsl:text>
-      </xsl:if>
+      <xsl:if test="accumulator-after('hasMeasurePrintedAnyNote')('previous')">;</xsl:if>
+      <xsl:value-of select="floor(192 * $duration div accumulator-after('divisions'))"/>
+      <xsl:text>t</xsl:text>
     </xsl:if>
 
     <xsl:if test="not($tieStop)">
