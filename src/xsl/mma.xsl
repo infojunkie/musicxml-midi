@@ -121,28 +121,28 @@
     Python-like mod function for compatibility with Slash MMA plugin.
     https://stackoverflow.com/a/60182730/209184
   -->
-  <xsl:function name="mma:mod" as="xs:decimal">
-    <xsl:param name="dividend" as="xs:decimal"/>
-    <xsl:param name="divisor" as="xs:decimal"/>
+  <xsl:function name="mma:mod" as="xs:double">
+    <xsl:param name="dividend" as="xs:double"/>
+    <xsl:param name="divisor" as="xs:double"/>
     <xsl:sequence select="$dividend - floor($dividend div $divisor) * $divisor"/>
   </xsl:function>
 
   <!--
     Calculate note duration.
   -->
-  <xsl:function name="mma:noteDuration" as="xs:decimal">
+  <xsl:function name="mma:noteDuration" as="xs:double">
     <xsl:param name="note"/>
-    <xsl:param name="duration" as="xs:decimal"/>
+    <xsl:param name="duration" as="xs:double"/>
     <xsl:variable name="tie" select="if ($note/cue) then $note/notations/tied else $note/tie"/>
     <xsl:choose>
-      <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:sequence select="xs:decimal($duration + $note/duration)"/></xsl:when>
+      <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:sequence select="$duration + $note/duration"/></xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="mma:noteDuration(
           if ($note/following-sibling::note[voice=$melodyVoice][not(chord)]) then
             $note/following-sibling::note[voice=$melodyVoice][not(chord)][1]
           else
             $note/../following-sibling::measure[1]/note[voice=$melodyVoice][not(chord)][1],
-          xs:decimal($duration + $note/duration)
+          $duration + $note/duration
         )"/>
       </xsl:otherwise>
     </xsl:choose>
@@ -287,7 +287,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     <!--
       Chords.
     -->
-    <xsl:apply-templates select="harmony[1]" mode="duration">
+    <xsl:apply-templates select="harmony[1]" mode="onset">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
     <xsl:if test="not(harmony)">
@@ -295,7 +295,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
         In case of no chord in this measure, get the last chord.
       -->
       <xsl:if test="not(accumulator-after('harmony'))"> z</xsl:if>
-      <xsl:apply-templates select="accumulator-after('harmony')" mode="duration">
+      <xsl:apply-templates select="accumulator-after('harmony')" mode="onset">
         <xsl:with-param name="start" select="1"/>
       </xsl:apply-templates>
     </xsl:if>
@@ -317,29 +317,33 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="harmony" mode="onset">
+    <xsl:param name="start"/>
+    <xsl:text> </xsl:text>
+    <xsl:apply-templates select="." mode="name"/>
+    <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
+    <xsl:apply-templates select="following-sibling::harmony[1]" mode="onset">
+      <xsl:with-param name="start" select="$start + musicxml:harmonyDuration(.) div accumulator-after('divisions')"/>
+    </xsl:apply-templates>
+  </xsl:template>
+
   <xsl:template match="harmony" mode="sequence">
     <xsl:param name="start"/>
-    <xsl:variable name="id" select="generate-id(.)"/>
     <xsl:if test="$start = 1">
 Chord-Custom Sequence { </xsl:if>
     <xsl:value-of select="$start"/><xsl:text> </xsl:text>
     <!--
       Calculate this chord's duration, which is the total duration of following non-chord notes until next harmony element.
       The total is divided by the current time resolution of the score.
-      The final duration is expressed in "beats" == quarter note time.
+      The final duration is expressed in MIDI ticks == quarter note time.
     -->
     <xsl:variable name="duration">
-      <xsl:value-of select="(
-        sum(following-sibling::note[voice=$melodyVoice][not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration)
-      ) div accumulator-after('divisions')"/>
+      <xsl:value-of select="musicxml:harmonyDuration(.)"/>
     </xsl:variable>
-    <!--
-      Express the duration in MIDI ticks = 192 * quarter note
-    -->
-    <xsl:value-of select="round($duration * 192)"/><xsl:text>t </xsl:text>
+    <xsl:value-of select="musicxml:timeToMIDITicks($duration, accumulator-after('divisions'))"/><xsl:text>t </xsl:text>
     <xsl:value-of select="$chordVolume"/><xsl:text>; </xsl:text>
     <xsl:apply-templates select="following-sibling::harmony[1]" mode="sequence">
-      <xsl:with-param name="start" select="$start + $duration"/>
+      <xsl:with-param name="start" select="$start + $duration div accumulator-after('divisions')"/>
     </xsl:apply-templates>
     <xsl:if test="not(following-sibling::harmony)">}</xsl:if>
   </xsl:template>
@@ -442,19 +446,6 @@ Chord-Custom Sequence { </xsl:if>
         </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:template>
-
-  <xsl:template match="harmony" mode="duration">
-    <xsl:param name="start"/>
-
-    <xsl:variable name="id" select="generate-id(.)"/>
-    <xsl:text> </xsl:text>
-    <xsl:apply-templates select="." mode="name"/>
-    <xsl:text>@</xsl:text><xsl:value-of select="$start"/>
-    <xsl:variable name="duration"><xsl:value-of select="sum(following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = $id]/duration) div accumulator-after('divisions')"/></xsl:variable>
-    <xsl:apply-templates select="following-sibling::harmony[1]" mode="duration">
-      <xsl:with-param name="start" select="$start + $duration"/>
-    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="note">

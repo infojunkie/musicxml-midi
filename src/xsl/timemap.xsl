@@ -66,7 +66,7 @@
     -->
     <xsl:sequence select="map {
       'measure': accumulator-after('measureIndex')(@number),
-      'timestamp': musicxml:timestampToMillisecs(
+      'timestamp': musicxml:timeToMillisecs(
         accumulator-before('measureOnset'),
         accumulator-after('divisions'),
         accumulator-after('tempo')
