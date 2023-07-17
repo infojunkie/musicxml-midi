@@ -1,7 +1,7 @@
 MusicXML to MIDI converter
 ======================
 
-A suite of tool to convert MusicXML scores to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
+A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
 
 ![GitHub Build Status](https://github.com/infojunkie/musicxml-mma/workflows/Test/badge.svg)
 
