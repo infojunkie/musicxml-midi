@@ -4,7 +4,7 @@ import fs from 'fs'
 import crypto from 'crypto'
 import path from 'path'
 import { parseMidi } from 'midi-file'
-import { app, server } from '../server'
+import { app, server } from '../src/js/server'
 import SaxonJS from 'saxon-js'
 
 function getCacheFile(file, params) {
@@ -83,7 +83,9 @@ describe('MusicXML to MIDI conversion server', () => {
   test('should get existing grooves', async () => {
     const res = await request(app).get('/grooves')
     expect(res.statusCode).toEqual(200)
-    expect(res.text).toEqual(fs.readFileSync('grooves.txt').toString())
+    expect(res.text).toEqual(fs.readFileSync('build/grooves.txt').toString())
+    expect(res.text.includes('Ayyub')).toBeTruthy()
+    expect(res.text.includes('Baiao-Miranda')).toBeTruthy()
   })
 })
 

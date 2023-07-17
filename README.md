@@ -1,22 +1,21 @@
-MusicXML MMA Converter
+MusicXML to MIDI converter
 ======================
 
-A MusicXML converter to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
+A suite of tool to convert MusicXML scores to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
 
 ![GitHub Build Status](https://github.com/infojunkie/musicxml-mma/workflows/Test/badge.svg)
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
-- Install `jq`
+- Install `jq` (only needed for automated tests)
 - `git submodule update --init --recursive`
 - `npm install && npm run build`
 
 # Converting a MusicXML score
-- `npm run convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats, to `song.unrolled.musicxml`
-- `npm run convert:mma song.musicxml` to both unroll a score and convert it to an MMA script `song.mma`
-- `npm run convert:midi song.mma` to convert an MMA script to MIDI `song.mid`
-- `npm run convert song.musicxml` to convert a MusicXML score to MIDI `song.mid`, as an aggregate of the above transformations
-- `npm run convert:timemap song.musicxml` to convert a score to a timemap JSON file `song.timemap.json`
+- `npm run convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats at `stdout`
+- `npm run convert:mma song.musicxml` to both unroll a score and convert it to an MMA script at `stdout`
+- `npm run convert:midi /path/to/song.mma` to convert an MMA script to MIDI `/path/to/song.mid`
+- `npm run convert:timemap song.musicxml` to convert a score to a timemap JSON file at `stdout`
 - `./scripts/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
 
 # Serving a conversion API endpoint
@@ -32,13 +31,6 @@ This converter aims to create a valid MMA accompaniment script out of a MusicXML
 - Melody information, expressed as [`note` elements](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/note/). This is converted to an MMA `SOLO` sequence for each measure.
 
 - Optional playback style information, expressed as [`sound/play/other-play` elements](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/other-play/) with attribute `@type = 'groove'`. The content of this element represents the "groove" that is passed to MMA to generate an accompaniment. In case no such playback style information is found, or the specified style is not mapped to an existing MMA groove, the chords are played back as per the lead sheet without further accompaniment. Note that several styles can be specified in a single sheet, since the `sound` element is associated with `measure` or `measure/direction` elements. The groove can be overridden with the argument `globalGroove`.
-
-## Transformation pipeline
-The conversion process applies 2 consecutive XSD transformations to the input MusicXML score:
-- The first transformation `musicxml-unroll.xsd` "unrolls" the score by expanding all the repeats and jumps into a linear score. The output of this transformation is a new MusicXML score that contains no repeats or jumps, but is otherwise exactly equivalent to the source when it is played back.
-- The second transformation `musicxml-mma-unrolled.xsd` transforms a MusicXML score that _it assumes to be unrolled_ to a MMA script that can then be run through the `mma` tool to produce a MIDI file.
-
-These two transformations are packaged in the higher-lever XSD transformation `musicml-mma.xsd`.
 
 ## Output metadata in the MIDI file
 The produced MMA script contains metadata that can be useful to downstream consumers of the MIDI file. This metadata is generally expressed as [MIDI Marker meta messages](https://www.recordingblogs.com/wiki/midi-marker-meta-message), with the following syntax:
