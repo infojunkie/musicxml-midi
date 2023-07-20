@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction placement="above">
+   <direction-type>
+      <percussion default-y="8" halign="left" relative-x="-10">
+         <timpani/>
+      </percussion>
+   </direction-type>
+</direction>

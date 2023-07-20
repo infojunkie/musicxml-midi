@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <articulations>
+      <spiccato default-x="5" default-y="2" placement="above"/>
+   </articulations>
+</notations>

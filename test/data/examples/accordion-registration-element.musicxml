@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction>
+   <direction-type>
+      <accordion-registration>
+         <accordion-high/>
+         <accordion-middle>3</accordion-middle>
+      </accordion-registration>
+   </direction-type>
+</direction>

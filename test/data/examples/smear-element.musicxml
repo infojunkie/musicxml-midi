@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <technical>
+      <smear default-y="5" placement="above"/>
+   </technical>
+</notations>

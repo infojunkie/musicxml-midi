@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction-type>
+   <metronome font-family="EngraverTextT" font-size="12" parentheses="yes">
+      <beat-unit>quarter</beat-unit>
+      <per-minute>144</per-minute>
+   </metronome>
+</direction-type>

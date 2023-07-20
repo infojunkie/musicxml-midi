@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction placement="above">
+   <direction-type>
+      <percussion default-y="28" halign="center">
+         <glass>wind chimes</glass>
+      </percussion>
+   </direction-type>
+</direction>

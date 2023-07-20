@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<note default-x="45">
+   <rest/>
+   <duration>2</duration>
+   <voice>1</voice>
+   <type>eighth</type>
+   <lyric number="1">
+      <laughing/>
+   </lyric>
+</note>

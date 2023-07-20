@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction placement="above">
+   <direction-type>
+      <words default-y="33">From Stage Right Balcony</words>
+   </direction-type>
+   <sound>
+      <midi-instrument id="P1-I1">
+         <pan>-80</pan>
+         <elevation>45</elevation>
+      </midi-instrument>
+   </sound>
+</direction>

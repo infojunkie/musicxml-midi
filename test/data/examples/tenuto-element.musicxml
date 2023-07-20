@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <articulations>
+      <tenuto default-x="0" default-y="5" placement="above"/>
+   </articulations>
+</notations>

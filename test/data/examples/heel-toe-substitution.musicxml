@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <technical>
+      <heel placement="above"/>
+      <toe substitution="yes" placement="above"/>
+   </technical>
+</notations>

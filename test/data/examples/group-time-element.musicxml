@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<part-group number="1" type="start">
+   <group-symbol default-x="-10">square</group-symbol>
+   <group-barline>yes</group-barline>
+   <group-time/>
+</part-group>

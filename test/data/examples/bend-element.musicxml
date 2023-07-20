@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<technical>
+   <string>4</string>
+   <fret>3</fret>
+   <bend shape="curved">
+      <bend-alter>2</bend-alter>
+   </bend>
+</technical>

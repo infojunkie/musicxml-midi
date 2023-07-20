@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<direction-type>
+   <percussion default-y="45">
+      <beater>metal hammer</beater>
+   </percussion>
+</direction-type>

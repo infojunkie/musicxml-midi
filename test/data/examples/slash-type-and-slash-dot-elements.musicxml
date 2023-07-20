@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<measure-style>
+   <slash type="start" use-stems="no">
+      <slash-type>quarter</slash-type>
+      <slash-dot/>
+   </slash>
+</measure-style>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <technical>
+      <arrow default-x="0" default-y="15" placement="above">
+         <circular-arrow>anti-clockwise</circular-arrow>
+      </arrow>
+   </technical>
+</notations>

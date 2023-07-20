@@ -8,7 +8,7 @@ set -euo pipefail
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five.musicxml)
   echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo ${mma}
-  assert_output --partial 'Groove Jazz54'
+  assert_output --partial 'Groove Jazz54 MidiMark Groove:Jazz54'
   assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
 }
 
@@ -24,7 +24,7 @@ set -euo pipefail
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five.musicxml globalGroove=Default)
   echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo ${mma}
-  assert_output --partial 'Groove Jazz54'
+  assert_output --partial 'Groove Jazz54 MidiMark Groove:Jazz54'
   assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
 }
 
@@ -44,7 +44,7 @@ set -euo pipefail
   assert_output --partial 'E+@1 E7@3 {96tfn+;96ten+;96ten+;96tdn+;96ten+;96tg#+;96tcn++;96tbn+;}'
 }
 
-@test "mma produces a valid file for salma-ya-salama with overridden groove" {
+@test "mma produces a valid file for salma-ya-salama with custom groove" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/salma-ya-salama.musicxml globalGroove=Maqsum)
   echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo ${mma}
@@ -54,7 +54,7 @@ set -euo pipefail
 @test "mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/repeats.musicxml)
   run echo ${mma}
-  assert_output --partial 'Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:10 z {768tr;} MidiMark Measure:11 z {768tr;} Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:12 z {768tr;} MidiMark Measure:13 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;}'
+  assert_output --partial 'KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:10 z {768tr;} MidiMark Measure:11 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:12 z {768tr;} MidiMark Measure:13 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;}'
 }
 
 @test "mma produces a valid file for chords" {
@@ -67,6 +67,37 @@ set -euo pipefail
   echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo ${mma}
   assert_output --partial 'MidiMark Measure:0 z {192tcn+;192tdn+;384ten+;} MidiMark Measure:1 z {336tcn+;48tr;384tdn+;} MidiMark Measure:2 z {192tcn+;192tdn+;192ten+;576tfn+~;} MidiMark Measure:3 z {~1344tcn+~;} MidiMark Measure:4 z {~<>~;} MidiMark Measure:5 z {~768tcn+,en+,gn+~;} MidiMark Measure:6 z {~576tcn+,en+,gn+;} MidiMark Measure:7 z {192tfn,an,dn+;192tan,dn+,fn+;192tan,cn+,en+;192tfn,an,dn+;}'
+}
+
+@test "mma produces a valid and correct file for key-signatures" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/key-signatures.musicxml)
+  echo "${mma}" | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo ${mma}
+  assert_output --partial 'KeySig 0'
+  assert_output --partial 'KeySig 1#'
+  assert_output --partial 'KeySig 2#'
+  assert_output --partial 'KeySig 3#'
+  assert_output --partial 'KeySig 4#'
+  assert_output --partial 'KeySig 5#'
+  assert_output --partial 'KeySig 6#'
+  assert_output --partial 'KeySig 7#'
+  assert_output --partial 'KeySig 7b'
+  assert_output --partial 'KeySig 6b'
+  assert_output --partial 'KeySig 5b'
+  assert_output --partial 'KeySig 4b'
+  assert_output --partial 'KeySig 3b'
+  assert_output --partial 'KeySig 2b'
+  assert_output --partial 'KeySig 1b'
+  log=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/key-signatures.musicxml 2>&1 >/dev/null)
+  run echo $log
+  assert_output --partial '[KeySig] Unknown mode dorian'
+  assert_output --partial '[KeySig] Unknown mode phrygian'
+  assert_output --partial '[KeySig] Unknown mode lydian'
+  assert_output --partial '[KeySig] Unknown mode mixolydian'
+  assert_output --partial '[KeySig] Unknown mode aeolian'
+  assert_output --partial '[KeySig] Unknown mode ionian'
+  assert_output --partial '[KeySig] Unknown mode locrian'
+  assert_output --partial '[KeySig] Unknown key signature'
 }
 
 @test "mma produces a valid file for aquele-um" {

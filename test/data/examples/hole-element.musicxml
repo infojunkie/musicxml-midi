@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<technical>
+   <hole default-x="3" placement="above">
+      <hole-closed>yes</hole-closed>
+   </hole>
+</technical>

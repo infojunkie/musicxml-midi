@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <technical>
+      <down-bow placement="above" default-x="-1" default-y="5"/>
+   </technical>
+</notations>

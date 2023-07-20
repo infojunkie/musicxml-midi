@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<attributes>
+   <key>
+      <fifths>1</fifths>
+      <mode>major</mode>
+   </key>
+   <transpose>
+      <diatonic>-4</diatonic>
+      <chromatic>-7</chromatic>
+   </transpose>
+</attributes>

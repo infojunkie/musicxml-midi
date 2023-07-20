@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<notations>
+   <ornaments>
+      <shake default-x="-7" default-y="5" placement="above"/>
+   </ornaments>
+</notations>

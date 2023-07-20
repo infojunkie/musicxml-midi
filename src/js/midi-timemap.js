@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 
-// Parse a MIDI file and output a MeasureTimemap, which is a JSON array of the form:
-//
-// [
-//    {
-//       measure: number,
-//       timestamp: number
-//    },
-//    ...
-// ]
-//
-// measure is an integer starting at 0
-// timestamp is a real-valued time offset specified in millisecs starting at 0
+/**
+ * Parse a MIDI file and output a MeasureTimemap, which is a JSON array of the form:
+ *
+ * [
+ *    {
+ *       measure: number,
+ *       timestamp: number
+ *    },
+ *    ...
+ * ]
+ *
+ * measure is an integer starting at 0
+ * timestamp is a real-valued time offset specified in millisecs starting at 0
+ */
 
 import { parseMidi } from 'midi-file'
 import process from 'process'
@@ -19,8 +21,8 @@ import fs from 'fs'
 
 const input = process.argv[2]
 if (!input || !fs.existsSync(input)) {
-    console.error(`Missing input file ${input}`)
-    process.exit(1)
+  console.error(`Missing input file ${input}`)
+  process.exit(1)
 }
 
 const midi = parseMidi(fs.readFileSync(input))
