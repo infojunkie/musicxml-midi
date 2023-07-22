@@ -11,6 +11,7 @@
   xmlns:mma="http://www.mellowood.ca/mma"
   xmlns:musicxml="http://www.w3.org/2021/06/musicxml40"
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+  xmlns:array="http://www.w3.org/2005/xpath-functions/array"
   exclude-result-prefixes="#all"
 >
 
@@ -294,8 +295,15 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     <xsl:text>&#xa;</xsl:text>
 
     <!--
+      Notes.
+    -->
+    <xsl:apply-templates select="note[voice=$melodyVoice]" mode="riff"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice]" mode="pitch"/>
+
+    <!--
       Chords.
     -->
+    <xsl:text>&#xa;</xsl:text>
     <xsl:apply-templates select="harmony[1]" mode="onset">
       <xsl:with-param name="start" select="1"/>
     </xsl:apply-templates>
@@ -310,18 +318,13 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     </xsl:if>
 
     <!--
-      Notes.
-    -->
-    <xsl:apply-templates select="note[voice=$melodyVoice]"/>
-
-    <!--
       Check if this measure needs any beat adjustment between the actual duration of notes and the time signature.
       Explicitly guard against <senza-misura>.
     -->
     <xsl:if test="accumulator-after('time')/beat-type">
       <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
       <xsl:if test="$durationDifference != 0">
-  BeatAdjust <xsl:value-of select="$durationDifference"/>
+BeatAdjust <xsl:value-of select="$durationDifference"/>
       </xsl:if>
     </xsl:if>
   </xsl:template>
@@ -467,12 +470,12 @@ Chord-Custom Sequence { </xsl:if>
   </xsl:template>
 
   <!--
-    Template: Note.
+    Template: Note for melody sequence.
   -->
-  <xsl:template match="note">
+  <xsl:template match="note" mode="riff">
     <!--
       A note sequence (SOLO track in MMA glossary) is made of several pieces:
-      - Opening bracket "{" to start measure
+      - Opening stanza "Solo Riff" to start measure
       - For grace notes, the keyword <grace>
       - For non-chord notes and non-stopping ties, a duration expressed in MIDI ticks. The duration is computed recursively in the case of ties.
       - For pitched notes, the lower-case note + accidental + octave (4 is the base octave)
@@ -480,7 +483,6 @@ Chord-Custom Sequence { </xsl:if>
       - A tilde "~" in case a tie carries over from previous and/or to next measure
       - A comma "," for next chord note
       - A semicolon for next non-chord note
-      - Closing bracket "}" to end measure
 
       TODO Handle the following:
       - Articulations
@@ -492,7 +494,7 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:variable name="tieStart" select="accumulator-after('tieStart')('current')"/>
 
     <xsl:if test="not(preceding-sibling::note[voice=$melodyVoice])">
-      <xsl:text> {</xsl:text>
+      <xsl:text>Solo Riff </xsl:text>
       <xsl:if test="$tieStop">~</xsl:if>
     </xsl:if>
 
@@ -540,8 +542,28 @@ Chord-Custom Sequence { </xsl:if>
         <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
       </xsl:if>
       <xsl:if test="$tieStart">~</xsl:if>
-      <xsl:text>;}</xsl:text>
+      <xsl:text>;</xsl:text>
     </xsl:if>
+  </xsl:template>
+
+  <!--
+    Template: Note for pitch bend sequence.
+  -->
+  <xsl:template match="note" mode="pitch">
+    <xsl:choose>
+      <xsl:when test="not(pitch/alter)"/>
+      <xsl:when test="xs:double(pitch/alter) = round(pitch/alter)"/>
+      <xsl:when test="abs(pitch/alter) le 2">
+Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-before('noteOnset'), accumulator-after('divisions'))"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="4096 * xs:double(pitch/alter)"/>
+Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-after('noteOnset'), accumulator-after('divisions'))"/>
+        <xsl:text> 0</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message>[PitchBend] Unhandled pitch/alter value of <xsl:value-of select="pitch/alter"/></xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!--
@@ -577,11 +599,11 @@ KeySig <xsl:choose>
             <xsl:when test="lower-case(mode) = 'none'"></xsl:when>
             <xsl:when test="lower-case(mode) = 'major'"> Major</xsl:when>
             <xsl:when test="lower-case(mode) = 'minor'"> Minor</xsl:when>
-            <xsl:otherwise><xsl:message>[KeySig] Unknown mode <xsl:value-of select="mode"/></xsl:message></xsl:otherwise>
+            <xsl:otherwise><xsl:message>[KeySig] Unhandled mode <xsl:value-of select="mode"/></xsl:message></xsl:otherwise>
           </xsl:choose>
         </xsl:if>
       </xsl:when>
-      <xsl:otherwise>0<xsl:message>[KeySig] Unknown key signature <xsl:copy-of select="."/></xsl:message></xsl:otherwise>
+      <xsl:otherwise>0<xsl:message>[KeySig] Unhandled key signature <xsl:copy-of select="."/></xsl:message></xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 

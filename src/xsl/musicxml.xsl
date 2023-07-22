@@ -72,7 +72,7 @@
 
   <xsl:accumulator name="noteOnset" as="xs:double" initial-value="0">
     <xsl:accumulator-rule match="measure" select="0"/>
-    <xsl:accumulator-rule match="note">
+    <xsl:accumulator-rule match="note" phase="end">
       <xsl:choose>
         <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
         <xsl:otherwise><xsl:sequence select="$value + duration"/></xsl:otherwise>

@@ -12,10 +12,10 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 - `npm install && npm run build`
 
 # Converting a MusicXML score
-- `npm run convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats at `stdout`
-- `npm run convert:mma song.musicxml` to both unroll a score and convert it to an MMA script at `stdout`
+- `npm run --silent convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats at `stdout`
+- `npm run --silent convert:mma song.musicxml` to both unroll a score and convert it to an MMA script at `stdout`
 - `npm run convert:midi /path/to/song.mma` to convert an MMA script to MIDI `/path/to/song.mid`
-- `npm run convert:timemap song.musicxml` to convert a score to a timemap JSON file at `stdout`
+- `npm run --silent convert:timemap song.musicxml` to convert a score to a timemap JSON file at `stdout`
 - `./scripts/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
 
 # Serving a conversion API endpoint

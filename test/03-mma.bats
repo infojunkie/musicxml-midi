@@ -9,7 +9,8 @@ set -euo pipefail
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Groove Jazz54 MidiMark Groove:Jazz54'
-  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+  assert_output --partial 'Solo Riff 576tr;384tr;'
+  assert_output --partial 'Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for take-five with overridden groove" {
@@ -17,7 +18,8 @@ set -euo pipefail
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; }'
-  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+  assert_output --partial 'Solo Riff 576tr;384tr;'
+  assert_output --partial 'Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for take-five with default groove" {
@@ -25,7 +27,8 @@ set -euo pipefail
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Groove Jazz54 MidiMark Groove:Jazz54'
-  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+  assert_output --partial 'Solo Riff 576tr;384tr;'
+  assert_output --partial 'Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for take-five with unknown groove" {
@@ -33,7 +36,8 @@ set -euo pipefail
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; }'
-  assert_output --partial 'Ebm@1 Bbm7@4 {576tr;384tr;}'
+  assert_output --partial 'Solo Riff 576tr;384tr;'
+  assert_output --partial 'Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for salma-ya-salama" {
@@ -41,7 +45,8 @@ set -euo pipefail
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Chord-Custom Sequence { 1 384t 50; 3 384t 50; }'
-  assert_output --partial 'E+@1 E7@3 {96tfn+;96ten+;96ten+;96tdn+;96ten+;96tg#+;96tcn++;96tbn+;}'
+  assert_output --partial 'Solo Riff 96tfn+;96ten+;96ten+;96tdn+;96ten+;96tg#+;96tcn++;96tbn+;'
+  assert_output --partial 'E+@1 E7@3'
 }
 
 @test "mma produces a valid file for salma-ya-salama with custom groove" {
@@ -53,8 +58,9 @@ set -euo pipefail
 
 @test "mma produces a correct sequence for repeats" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/repeats.musicxml)
+  echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
-  assert_output --partial 'KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:4 z {768tr;} MidiMark Measure:5 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:9 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:8 z {768tr;} MidiMark Measure:7 z {768tr;} MidiMark Measure:10 z {768tr;} MidiMark Measure:11 z {768tr;} KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 z {768tr;} MidiMark Measure:1 z {768tr;} MidiMark Measure:2 z {768tr;} MidiMark Measure:3 z {768tr;} MidiMark Measure:12 z {768tr;} MidiMark Measure:13 z {768tr;} MidiMark Measure:6 z {768tr;} MidiMark Measure:7 z {768tr;}'
+  assert_output --partial 'KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 Solo Riff 768tr; z MidiMark Measure:1 Solo Riff 768tr; z KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 Solo Riff 768tr; z MidiMark Measure:1 Solo Riff 768tr; z KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 Solo Riff 768tr; z MidiMark Measure:1 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:3 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:3 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:4 Solo Riff 768tr; z MidiMark Measure:5 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:4 Solo Riff 768tr; z MidiMark Measure:5 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:4 Solo Riff 768tr; z MidiMark Measure:5 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:4 Solo Riff 768tr; z MidiMark Measure:5 Solo Riff 768tr; z MidiMark Measure:6 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:8 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:9 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:8 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:9 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:8 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:9 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:8 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z MidiMark Measure:10 Solo Riff 768tr; z MidiMark Measure:11 Solo Riff 768tr; z KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 Solo Riff 768tr; z MidiMark Measure:1 Solo Riff 768tr; z MidiMark Measure:2 Solo Riff 768tr; z MidiMark Measure:3 Solo Riff 768tr; z MidiMark Measure:12 Solo Riff 768tr; z MidiMark Measure:13 Solo Riff 768tr; z MidiMark Measure:6 Solo Riff 768tr; z MidiMark Measure:7 Solo Riff 768tr; z'
 }
 
 @test "mma produces a valid file for chords" {
@@ -66,7 +72,7 @@ set -euo pipefail
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/ties.musicxml)
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
-  assert_output --partial 'MidiMark Measure:0 z {192tcn+;192tdn+;384ten+;} MidiMark Measure:1 z {336tcn+;48tr;384tdn+;} MidiMark Measure:2 z {192tcn+;192tdn+;192ten+;576tfn+~;} MidiMark Measure:3 z {~1344tcn+~;} MidiMark Measure:4 z {~<>~;} MidiMark Measure:5 z {~768tcn+,en+,gn+~;} MidiMark Measure:6 z {~576tcn+,en+,gn+;} MidiMark Measure:7 z {192tfn,an,dn+;192tan,dn+,fn+;192tan,cn+,en+;192tfn,an,dn+;}'
+  assert_output --partial 'KeySig 0 Time 4 TimeSig 4/4 MidiMark Measure:0 Solo Riff 192tcn+;192tdn+;384ten+; z MidiMark Measure:1 Solo Riff 336tcn+;48tr;384tdn+; z MidiMark Measure:2 Solo Riff 192tcn+;192tdn+;192ten+;576tfn+~; z MidiMark Measure:3 Solo Riff ~1344tcn+~; z MidiMark Measure:4 Solo Riff ~<>~; z MidiMark Measure:5 Solo Riff ~768tcn+,en+,gn+~; z MidiMark Measure:6 Solo Riff ~576tcn+,en+,gn+; z MidiMark Measure:7 Solo Riff 192tfn,an,dn+;192tan,dn+,fn+;192tan,cn+,en+;192tfn,an,dn+; z'
 }
 
 @test "mma produces a valid and correct file for key-signatures" {
@@ -90,14 +96,14 @@ set -euo pipefail
   assert_output --partial 'KeySig 1b'
   log=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/key-signatures.musicxml 2>&1 >/dev/null)
   run echo $log
-  assert_output --partial '[KeySig] Unknown mode dorian'
-  assert_output --partial '[KeySig] Unknown mode phrygian'
-  assert_output --partial '[KeySig] Unknown mode lydian'
-  assert_output --partial '[KeySig] Unknown mode mixolydian'
-  assert_output --partial '[KeySig] Unknown mode aeolian'
-  assert_output --partial '[KeySig] Unknown mode ionian'
-  assert_output --partial '[KeySig] Unknown mode locrian'
-  assert_output --partial '[KeySig] Unknown key signature'
+  assert_output --partial '[KeySig] Unhandled mode dorian'
+  assert_output --partial '[KeySig] Unhandled mode phrygian'
+  assert_output --partial '[KeySig] Unhandled mode lydian'
+  assert_output --partial '[KeySig] Unhandled mode mixolydian'
+  assert_output --partial '[KeySig] Unhandled mode aeolian'
+  assert_output --partial '[KeySig] Unhandled mode ionian'
+  assert_output --partial '[KeySig] Unhandled mode locrian'
+  assert_output --partial '[KeySig] Unhandled key signature'
 }
 
 @test "mma produces a valid file for aquele-um" {
@@ -108,6 +114,8 @@ set -euo pipefail
 @test "mma produces a valid file for batwanness-beek" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/batwanness-beek.musicxml)
   echo $mma | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo $mma
+  assert_output --partial 'Solo MidiNote PB 672 2048 Solo MidiNote PB 768 0'
 }
 
 @test "mma produces a valid file for asa-branca" {
