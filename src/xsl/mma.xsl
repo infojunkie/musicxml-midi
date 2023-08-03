@@ -41,14 +41,14 @@
     'current': false(),
     'previous': false()
   }">
-    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="map {
+    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord)]" select="map {
       'previous': map:get($value, 'current'),
       'current': exists(tie[@type='start']) or exists(notations/tied[@type='start'])
     }"/>
   </xsl:accumulator>
 
   <xsl:accumulator name="tieStop" as="xs:boolean" initial-value="false()">
-    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="
+    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord)]" select="
       (exists(tie[@type='stop']) or exists(notations/tied[@type='stop'])) and accumulator-after('tieStart')('previous')
     "/>
   </xsl:accumulator>
@@ -61,7 +61,7 @@
       'previous': false(),
       'current': false()
     }"/>
-    <xsl:accumulator-rule match="note[voice=$melodyVoice][not(chord)]" select="map {
+    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord)]" select="map {
       'previous': map:get($value, 'current'),
       'current': map:get($value, 'current') or not(accumulator-after('tieStop'))
     }"/>
@@ -136,10 +136,10 @@
       <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:sequence select="$duration + $note/duration"/></xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="mma:noteDuration(
-          if ($note/following-sibling::note[voice=$melodyVoice][not(chord)]) then
-            $note/following-sibling::note[voice=$melodyVoice][not(chord)][1]
+          if ($note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord)]) then
+            $note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord)][1]
           else
-            $note/../following-sibling::measure[1]/note[voice=$melodyVoice][not(chord)][1],
+            $note/../following-sibling::measure[1]/note[voice=$melodyVoice or not(voice)][not(chord)][1],
           $duration + $note/duration
         )"/>
       </xsl:otherwise>
@@ -297,8 +297,8 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
     <!--
       Notes.
     -->
-    <xsl:apply-templates select="note[voice=$melodyVoice]" mode="riff"/>
-    <xsl:apply-templates select="note[voice=$melodyVoice]" mode="pitch"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="riff"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="pitch"/>
 
     <!--
       Chords.
@@ -322,7 +322,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
       Explicitly guard against <senza-misura>.
     -->
     <xsl:if test="accumulator-after('time')/beat-type">
-      <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
+      <xsl:variable name="durationDifference" select="round((sum(note[voice=$melodyVoice or not(voice)][not(chord)]/duration) div accumulator-after('divisions')) - (accumulator-after('time')/beats * 4 div accumulator-after('time')/beat-type))"/>
       <xsl:if test="$durationDifference != 0">
 BeatAdjust <xsl:value-of select="$durationDifference"/>
       </xsl:if>
@@ -493,7 +493,7 @@ Chord-Custom Sequence { </xsl:if>
     <xsl:variable name="tieStop" select="accumulator-after('tieStop')"/>
     <xsl:variable name="tieStart" select="accumulator-after('tieStart')('current')"/>
 
-    <xsl:if test="not(preceding-sibling::note[voice=$melodyVoice])">
+    <xsl:if test="not(preceding-sibling::note[voice=$melodyVoice or not(voice)])">
       <xsl:text>Solo Riff </xsl:text>
       <xsl:if test="$tieStop">~</xsl:if>
     </xsl:if>
@@ -537,7 +537,7 @@ Chord-Custom Sequence { </xsl:if>
       </xsl:choose>
     </xsl:if>
 
-    <xsl:if test="not(following-sibling::note[voice=$melodyVoice])">
+    <xsl:if test="not(following-sibling::note[voice=$melodyVoice or not(voice)])">
       <xsl:if test="not(accumulator-after('hasMeasurePrintedAnyNote')('current'))">
         <xsl:text disable-output-escaping="yes">&lt;&gt;</xsl:text>
       </xsl:if>
