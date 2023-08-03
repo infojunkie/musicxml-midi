@@ -556,7 +556,7 @@ Chord-Custom Sequence { </xsl:if>
       <xsl:when test="abs(pitch/alter) le 2">
 Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-before('noteOnset'), accumulator-after('divisions'))"/>
         <xsl:text> </xsl:text>
-        <xsl:value-of select="4096 * xs:double(pitch/alter)"/>
+        <xsl:value-of select="round(4096 * xs:double(pitch/alter))"/>
 Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-after('noteOnset'), accumulator-after('divisions'))"/>
         <xsl:text> 0</xsl:text>
       </xsl:when>
