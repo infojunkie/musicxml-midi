@@ -55,6 +55,7 @@
     "saxon-js": "^2.3.0",
     "unzipit": "^1.4.0",
     "validate-with-xmllint": "^1.2.0",
+    "xml-formatter": "^3.6.0",
     "xslt3": "^2.3.0"
   },
   "devDependencies": {

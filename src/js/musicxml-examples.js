@@ -10,6 +10,7 @@ const MUSICXML_VERSION = '4.0'
 
 import fetch from 'node-fetch'
 import * as cheerio from 'cheerio'
+import xmlFormat from 'xml-formatter';
 import fs from 'fs'
 import process from 'process'
 import path from 'path'
@@ -35,6 +36,10 @@ const options = {
   'version': {
     type: 'boolean',
     short: 'v'
+  },
+  'example': {
+    type: 'string',
+    short: 'e'
   }
 }
 const { values: args } = (function() {
@@ -76,60 +81,61 @@ async function extractMusicXml(page, title) {
   fs.writeFileSync(path.join(output, `${title}.musicxml`), musicxml)
 }
 
-const xmlHeader = `
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE score-partwise PUBLIC
-    "-//Recordare//DTD MusicXML ${MUSICXML_VERSION} Partwise//EN"
-    "http://www.musicxml.org/dtds/partwise.dtd">
-`.trim()
-
-const xmlTemplate = `
-<score-partwise version="${MUSICXML_VERSION}">
-  <part-list>
-    <score-part id="P1">
-      <part-name>Music</part-name>
-    </score-part>
-  </part-list>
-  <part id="P1">
-    <measure number="1">
-      <attributes>
-        <divisions>1</divisions>
-        <key>
-          <fifths>0</fifths>
-        </key>
-        <time>
-          <beats>4</beats>
-          <beat-type>4</beat-type>
-        </time>
-        <clef>
-          <sign>G</sign>
-          <line>2</line>
-        </clef>
-      </attributes>
-      <note>
-        <pitch>
-          <step>C</step>
-          <octave>4</octave>
-        </pitch>
-        <duration>4</duration>
-        <type>whole</type>
-      </note>
-    </measure>
-  </part>
-</score-partwise>
-`.trim()
-
 function scaffoldMusicXml(xml, title) {
   if (!('xml' in args)) {
-    return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + xml
+    return `<?xml version="1.0" encoding="utf-8"?>\n${xml}`
   }
 
-  // Compare the incoming XML with the template above,
-  // Filling in successive levels from the template if they don't appear in the source.
-  const src = cheerio.load(xml, { xmlMode: true })
-  const tmp = cheerio.load(xmlTemplate, { xmlMode: true })
+  const template = `
+  <?xml version="1.0" encoding="utf-8" standalone="no"?>
+  <!DOCTYPE score-partwise PUBLIC
+      "-//Recordare//DTD MusicXML ${MUSICXML_VERSION} Partwise//EN"
+      "http://www.musicxml.org/dtds/partwise.dtd">
+  <score-partwise version="${MUSICXML_VERSION}">
+    <part-list>
+      <score-part id="P1">
+        <part-name>${title}</part-name>
+      </score-part>
+    </part-list>
+    <part id="P1">
+      <measure number="1">
+        <attributes>
+          <divisions>1</divisions>
+          <key>
+            <fifths>0</fifths>
+          </key>
+          <time>
+            <beats>4</beats>
+            <beat-type>4</beat-type>
+          </time>
+          <clef>
+            <sign>G</sign>
+            <line>2</line>
+          </clef>
+        </attributes>
+        <note>
+          <pitch>
+            <step>C</step>
+            <octave>4</octave>
+          </pitch>
+          <duration>4</duration>
+          <type>whole</type>
+        </note>
+      </measure>
+    </part>
+  </score-partwise>
+  `.trim()
 
-  return xmlHeader + "\n" + src.html()
+  // Identify the example's root tag in the template, and replace it with the full example.
+  const src = cheerio.load(xml, { xml: true })
+  const core = src.root().children().first().prop('nodeName')
+  const dst = cheerio.load(template, { xml: { xmlMode: true, lowerCaseTags: true, lowerCaseAttributeNames : true }})
+  if (dst(core).length === 0) {
+    console.error(`${core} tag not found in template. Returning verbatim XML.`)
+    return `<?xml version="1.0" encoding="utf-8"?>\n${xml}`
+  }
+  dst(core).replaceWith(src.root())
+  return xmlFormat(dst.html(), { collapseContent: true })
 }
 
 const response = await fetch(URL_EXAMPLES_ROOT)
@@ -137,6 +143,7 @@ const main = await response.text()
 const $ = cheerio.load(main)
 for (const example of $('body').find('a:has(img)')) {
   const href = $(example).prop('href')
+  if ('example' in args && args['example'] !== href.replace('/', '')) continue
   console.log(`Extracting ${href}...`)
   await extractMusicXml(URL_EXAMPLES_ROOT + href, href.replace('/', ''))
 }
