@@ -54,7 +54,7 @@ const { values: args } = (function() {
 
 if ('help' in args) {
   console.log(`
-Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--xml|-x] [--version|-v] [--help|-h]
+Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--xml|-x] [--version|-v] [--help|-h]
 
 Extracts MusicXML examples from ${URL_EXAMPLES_ROOT}.
 Use --xml to recreate a valid MusicXML structure around examples that lack it.
@@ -68,7 +68,7 @@ if ('version' in args) {
 }
 
 const output = args['output'] || ''
-if (output != '' && !fs.existsSync(output)) {
+if (output !== '' && !fs.existsSync(output)) {
   console.error(`Missing output dir ${output}`)
   process.exit(1)
 }
@@ -78,7 +78,12 @@ async function extractMusicXml(page, title) {
   const body = await response.text()
   const $ = cheerio.load(body)
   const musicxml = scaffoldMusicXml($('.xmlmarkup').text(), title)
-  fs.writeFileSync(path.join(output, `${title}.musicxml`), musicxml)
+  if (output !== '') {
+    fs.writeFileSync(path.join(output, `${title}.musicxml`), musicxml)
+  }
+  else {
+    process.stdout.write(musicxml + '\n')
+  }
 }
 
 function scaffoldMusicXml(xml, title) {
@@ -99,6 +104,12 @@ function scaffoldMusicXml(xml, title) {
     </part-list>
     <part id="P1">
       <measure number="1">
+        <direction>
+          <direction-type>
+            <other-direction>placeholder</other-direction>
+            <accordion-registration optional-example="yes"/>
+          </direction-type>
+        </direction>
         <attributes>
           <divisions>1</divisions>
           <key>
@@ -113,6 +124,12 @@ function scaffoldMusicXml(xml, title) {
             <line>2</line>
           </clef>
         </attributes>
+        <harmony optional-example="yes">
+          <root>
+            <root-step>C</root-step>
+          </root>
+          <kind use-symbols="yes">major-seventh</kind>
+        </harmony>
         <note>
           <pitch>
             <step>C</step>
@@ -126,7 +143,10 @@ function scaffoldMusicXml(xml, title) {
   </score-partwise>
   `.trim()
 
-  // Identify the example's root tag in the template, and replace it with the full example.
+  // Insert the example fragment into the fully-formed template.
+  // 1. Find the example's root tag in the template
+  // 2. Replace it with the full example fragment
+  // 3. Remove all tags that include attribute optional-example="yes"
   const src = cheerio.load(xml, { xml: true })
   const core = src.root().children().first().prop('nodeName')
   const dst = cheerio.load(template, { xml: { xmlMode: true, lowerCaseTags: true, lowerCaseAttributeNames : true }})
@@ -135,6 +155,7 @@ function scaffoldMusicXml(xml, title) {
     return `<?xml version="1.0" encoding="utf-8"?>\n${xml}`
   }
   dst(core).replaceWith(src.root())
+  dst('[optional-example="yes"]').remove()
   return xmlFormat(dst.html(), { collapseContent: true })
 }
 
@@ -144,6 +165,6 @@ const $ = cheerio.load(main)
 for (const example of $('body').find('a:has(img)')) {
   const href = $(example).prop('href')
   if ('example' in args && args['example'] !== href.replace('/', '')) continue
-  console.log(`Extracting ${href}...`)
+  console.error(`Extracting ${href}...`)
   await extractMusicXml(URL_EXAMPLES_ROOT + href, href.replace('/', ''))
 }
