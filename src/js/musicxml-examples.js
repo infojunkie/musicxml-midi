@@ -137,6 +137,7 @@ function scaffoldMusicXml(xml, title) {
           </pitch>
           <duration>4</duration>
           <type>whole</type>
+          <notations optional-example="yes"/>
         </note>
       </measure>
     </part>
