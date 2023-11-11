@@ -16,6 +16,7 @@ import process from 'process'
 import path from 'path'
 import { parseArgs } from 'node:util'
 import { createRequire } from 'node:module'
+import { validateXMLWithXSD } from 'validate-with-xmllint'
 
 const require = createRequire(import.meta.url)
 const { version } = require('../../package.json')
@@ -40,6 +41,9 @@ const options = {
   'example': {
     type: 'string',
     short: 'e'
+  },
+  'validate': {
+    type: 'boolean'
   }
 }
 const { values: args } = (function() {
@@ -54,7 +58,7 @@ const { values: args } = (function() {
 
 if ('help' in args) {
   console.log(`
-Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--xml|-x] [--version|-v] [--help|-h]
+Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--xml|-x] [--validate] [--version|-v] [--help|-h]
 
 Extracts MusicXML examples from ${URL_EXAMPLES_ROOT}.
 Use --xml to recreate a valid MusicXML structure around examples that lack it.
@@ -73,20 +77,38 @@ if (output !== '' && !fs.existsSync(output)) {
   process.exit(1)
 }
 
-async function extractMusicXml(page, title) {
+const response = await fetch(URL_EXAMPLES_ROOT)
+const main = await response.text()
+const $ = cheerio.load(main)
+for (const example of $('body').find('a:has(img)')) {
+  const href = $(example).prop('href')
+  if ('example' in args && args['example'] !== href.replace('/', '')) continue
+  console.error(`Extracting ${href}...`)
+  await extractMusicXml(URL_EXAMPLES_ROOT + href, href.replace('/', ''))
+}
+
+async function extractMusicXml(page, slug) {
   const response = await fetch(page)
   const body = await response.text()
   const $ = cheerio.load(body)
-  const musicxml = scaffoldMusicXml($('.xmlmarkup').text(), title)
+  const musicxml = scaffoldMusicXml($('.xmlmarkup').text())
+
+  if ('validate' in args) {
+    await validateXMLWithXSD(musicxml, 'src/xsd/musicxml.xsd')
+    .catch(error => {
+      console.error(`Failed to validate MusicXML: ${error.message}`)
+    })
+  }
+
   if (output !== '') {
-    fs.writeFileSync(path.join(output, `${title}.musicxml`), musicxml)
+    fs.writeFileSync(path.join(output, `${slug}.musicxml`), musicxml)
   }
   else {
     process.stdout.write(musicxml + '\n')
   }
 }
 
-function scaffoldMusicXml(xml, title) {
+function scaffoldMusicXml(xml) {
   if (!('xml' in args)) {
     return `<?xml version="1.0" encoding="utf-8"?>\n${xml}`
   }
@@ -97,9 +119,10 @@ function scaffoldMusicXml(xml, title) {
       "-//Recordare//DTD MusicXML ${MUSICXML_VERSION} Partwise//EN"
       "http://www.musicxml.org/dtds/partwise.dtd">
   <score-partwise version="${MUSICXML_VERSION}">
+    <credit optional-example="yes"/>
     <part-list>
       <score-part id="P1">
-        <part-name>${title}</part-name>
+        <part-name>placeholder</part-name>
       </score-part>
     </part-list>
     <part id="P1">
@@ -145,27 +168,17 @@ function scaffoldMusicXml(xml, title) {
   `.trim()
 
   // Insert the example fragment into the fully-formed template.
-  // 1. Find the example's root tag in the template
+  // 1. Find the example's root element in the template
   // 2. Replace it with the full example fragment
   // 3. Remove all tags that include attribute optional-example="yes"
   const src = cheerio.load(xml, { xml: true })
   const core = src.root().children().first().prop('nodeName')
   const dst = cheerio.load(template, { xml: { xmlMode: true, lowerCaseTags: true, lowerCaseAttributeNames : true }})
   if (dst(core).length === 0) {
-    console.error(`${core} tag not found in template. Returning verbatim XML.`)
+    console.error(`${core} element not found in template. Returning verbatim XML.`)
     return `<?xml version="1.0" encoding="utf-8"?>\n${xml}`
   }
   dst(core).replaceWith(src.root())
   dst('[optional-example="yes"]').remove()
   return xmlFormat(dst.html(), { collapseContent: true })
-}
-
-const response = await fetch(URL_EXAMPLES_ROOT)
-const main = await response.text()
-const $ = cheerio.load(main)
-for (const example of $('body').find('a:has(img)')) {
-  const href = $(example).prop('href')
-  if ('example' in args && args['example'] !== href.replace('/', '')) continue
-  console.error(`Extracting ${href}...`)
-  await extractMusicXml(URL_EXAMPLES_ROOT + href, href.replace('/', ''))
 }
