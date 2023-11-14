@@ -44,6 +44,10 @@ const options = {
   },
   'validate': {
     type: 'boolean'
+  },
+  'source': {
+    type: 'string',
+    short: 's'
   }
 }
 const { values: args } = (function() {
@@ -55,12 +59,15 @@ const { values: args } = (function() {
     process.exit(1)
   }
 })()
+if (!('source' in args)) {
+  args['source'] = URL_EXAMPLES_ROOT
+}
 
 if ('help' in args) {
   console.log(`
-Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--xml|-x] [--validate] [--version|-v] [--help|-h]
+Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--source|-s url/or/path/to/examples/] [--xml|-x] [--validate] [--version|-v] [--help|-h]
 
-Extracts MusicXML examples from ${URL_EXAMPLES_ROOT}.
+Extracts MusicXML examples from ${args['source']}.
 Use --xml to recreate a valid MusicXML structure around examples that lack it.
 `.trim())
   process.exit(0)
@@ -77,19 +84,17 @@ if (output !== '' && !fs.existsSync(output)) {
   process.exit(1)
 }
 
-const response = await fetch(URL_EXAMPLES_ROOT)
-const main = await response.text()
+const main = await fetchPage(args['source'])
 const $ = cheerio.load(main)
 for (const example of $('body').find('a:has(img)')) {
   const href = $(example).prop('href')
   if ('example' in args && args['example'] !== href.replace('/', '')) continue
   console.error(`Extracting ${href}...`)
-  await extractMusicXml(URL_EXAMPLES_ROOT + href, href.replace('/', ''))
+  await extractMusicXml(args['source'] + href, href.replace('/', ''))
 }
 
 async function extractMusicXml(page, slug) {
-  const response = await fetch(page)
-  const body = await response.text()
+  const body = await fetchPage(page)
   const $ = cheerio.load(body)
   const musicxml = scaffoldMusicXml($('.xmlmarkup').text())
 
@@ -106,6 +111,14 @@ async function extractMusicXml(page, slug) {
   else {
     process.stdout.write(musicxml + '\n')
   }
+}
+
+async function fetchPage(url) {
+  if (/^http/.test(url)) {
+    const response = await fetch(url)
+    return await response.text()
+  }
+  return fs.readFileSync(path.join(url, 'index.html'), { encoding: 'utf-8' })
 }
 
 function scaffoldMusicXml(xml) {
