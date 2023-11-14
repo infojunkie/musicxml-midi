@@ -15,7 +15,7 @@
             <direction>
                 <direction-type>
                     <accordion-registration>
-                        <accordion-middle/>
+                        <accordion-middle>1</accordion-middle>
                     </accordion-registration>
                 </direction-type>
             </direction>

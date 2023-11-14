@@ -30,6 +30,7 @@
                 <numeral>
                     <numeral-root text="IV">4</numeral-root>
                 </numeral>
+                <kind use-symbols="yes">major-sixth</kind>
                 <inversion>1</inversion>
             </harmony>
             <note>
