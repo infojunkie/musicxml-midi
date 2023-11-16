@@ -75,7 +75,7 @@
       "/node_modules/"
     ],
     "moduleNameMapper": {
-      "^axios$": "<rootDir>/test/axios.cjs"
+      "^axios$": "<rootDir>/node_modules/axios/dist/node/axios.cjs"
     }
   }
 }
