@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -52,7 +52,7 @@
     "express-fileupload": "^1.3.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.1",
-    "saxon-js": "2.5.0",
+    "saxon-js": "^2.5.0",
     "unzipit": "^1.4.0",
     "validate-with-xmllint": "^1.2.0",
     "xml-formatter": "^3.6.0",
@@ -73,6 +73,9 @@
     "transform": {},
     "coveragePathIgnorePatterns": [
       "/node_modules/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^axios$": "<rootDir>/test/axios.cjs"
+    }
   }
 }
