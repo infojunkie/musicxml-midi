@@ -70,6 +70,11 @@
         accumulator-before('measureOnset'),
         accumulator-after('divisions'),
         accumulator-after('tempo')
+      ),
+      'duration': musicxml:timeToMillisecs(
+        accumulator-after('measureDuration'),
+        accumulator-after('divisions'),
+        accumulator-after('tempo')
       )
     }"/>
   </xsl:template>

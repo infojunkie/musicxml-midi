@@ -36,4 +36,5 @@ This converter aims to create a valid MMA accompaniment script out of a MusicXML
 ## Output metadata in the MIDI file
 The produced MMA script / MIDI file contains metadata that can be useful to downstream consumers. This metadata is generally expressed as [MIDI Marker meta messages](https://www.recordingblogs.com/wiki/midi-marker-meta-message), with the following syntax:
 - `Measure:N` informs the consumer that the MIDI playback has reached measure N (0-based) in the score.
+- `Duration:T` informs the consumer of the duration of the current measure in milliseconds.
 - `Groove:X` informs the consumer that the MIDI playback is henceforth using the specified playback style.

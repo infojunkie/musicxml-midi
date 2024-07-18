@@ -42,10 +42,12 @@ midi.tracks[0].forEach((event) => {
       }) === 0
     ) {
       const measure = Number(marker[1])
+      const duration = Number(marker[2])
       const timestamp = Math.round(offset * (microsecondsPerQuarter / midi.header.ticksPerBeat)) / 1000
       timemap.push({
         measure,
-        timestamp
+        timestamp,
+        duration
       })
     }
   }

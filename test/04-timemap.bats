@@ -10,4 +10,5 @@ set -euo pipefail
   select=$(echo "${timemap}" | jq '.[] | select(.measure == 1)')
   run echo ${select}
   assert_output --partial '"timestamp": 500'
+  assert_output --partial '"duration": 1000'
 }

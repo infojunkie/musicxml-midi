@@ -291,7 +291,13 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
       Measure number.
     -->
     <xsl:text>&#xa;</xsl:text>
-    <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="accumulator-after('measureIndex')(@number)"/>
+    <xsl:text>MidiMark Measure:</xsl:text><xsl:value-of select="accumulator-after('measureIndex')(@number)"/>:<xsl:value-of select="
+      musicxml:timeToMillisecs(
+        accumulator-after('measureDuration'),
+        accumulator-after('divisions'),
+        accumulator-after('tempo')
+      )
+    "/>
     <xsl:text>&#xa;</xsl:text>
 
     <!--
