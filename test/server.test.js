@@ -24,7 +24,7 @@ describe('MusicXML to MIDI conversion server', () => {
 
   test('should reject invalid invocations', async () => {
     const res1 = await request(app).get('/convert')
-    expect(res1.statusCode).toEqual(400)
+    expect(res1.statusCode).toEqual(404)
     const res2 = await request(app).post('/convert').field('foo', 'bar')
     expect(res2.statusCode).toEqual(400)
     const res3 = await request(app).post('/convert').attach('musicXml', 'package.json')
@@ -54,9 +54,7 @@ describe('MusicXML to MIDI conversion server', () => {
     const res = await request(app).post('/convert').attach('musicXml', file).responseType('blob')
     expect(res.statusCode).toEqual(200)
     expect(res.type).toEqual('audio/midi')
-    expect(() => {
-      const midi = parseMidi(res.body)
-    }).not.toThrow()
+    expect(() => { parseMidi(res.body) }).not.toThrow()
   })
 
   test('should cache valid MusicXML files and use the cache', async () => {
@@ -86,6 +84,21 @@ describe('MusicXML to MIDI conversion server', () => {
     expect(res.text).toEqual(fs.readFileSync('build/grooves.txt').toString())
     expect(res.text.includes('Ayyub')).toBeTruthy()
     expect(res.text.includes('Baiao-Miranda')).toBeTruthy()
+  })
+
+  test('should generate groove', async () => {
+    const res = await request(app)
+      .post('/groove')
+      .field('groove', 'Maqsum')
+      .field('tempo', 120)
+      .field('count', 4)
+      .responseType('blob')
+    const midi = parseMidi(res.body)
+    expect(midi.tracks.find(track => !!track.find(event => event.type === 'marker' && event.text === 'Groove:Maqsum')))
+      .not.toEqual(undefined)
+    const track = midi.tracks.find(track => !!track.find(event => event.type === 'marker' && event.text.includes('Measure:')))
+    expect(track.filter(event => event.type === 'marker' && event.text.includes('Measure:')).length)
+      .toEqual(4)
   })
 })
 

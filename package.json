@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build:mmarc": "cp mmarc.example mmarc",
-    "build:grooves": "${MMA_HOME:-mma}/mma.py -G && npm run --silent print:grooves > build/grooves.txt",
+    "build:grooves": "${MMA_HOME:-mma}/mma.py -G && npm run --silent debug:grooves > build/grooves.txt",
     "build:sef": "for xsl in src/xsl/*.xsl; do sef=$(basename \"$xsl\"); xslt3 -relocate:on -xsl:$xsl -export:build/${sef/.xsl/.sef.json} -nogo:1 -t -ns:##html5; done && rm -f cache/*.mid",
     "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",
     "convert:unroll": "run() { xslt3 -xsl:src/xsl/unroll.xsl -s:\"$1\" ${@:2}; }; run",
@@ -21,10 +21,10 @@
     "convert:mma": "run() { xslt3 -xsl:src/xsl/mma.xsl -s:\"$1\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "convert": "run() { mma=$(xslt3 -xsl:build/mma.sef.json -s:\"$1\" useSef=1 ${@:2}); echo \"$mma\" | ${MMA_HOME:-mma}/mma.py -II -f \"${1/.musicxml/.mid}\" -; }; run",
-    "print:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
-    "print:grooves": "find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
-    "print:preview": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
-    "print:musicxml": "run() { xslt3 -xsl:src/xsl/musicxml.xsl -s:\"$1\" ${@:2}; }; run",
+    "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
+    "debug:grooves": "find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Dbo \"$f\" | tail -n +2; done",
+    "debug:preview": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
+    "debug:musicxml": "run() { xslt3 -xsl:src/xsl/musicxml.xsl -s:\"$1\" ${@:2}; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
     "develop": "nodemon -e js,json src/js/server.js",

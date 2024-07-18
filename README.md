@@ -22,6 +22,7 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 - `PORT=3000 npm run develop` for development (including hot-reload)
 - `PORT=3000 npm run start` for production
 - `curl -sSf -F "musicXml=@test/data/salma-ya-salama.musicxml" -F "globalGroove=Maqsum" http://localhost:3000/convert -o "salma-ya-salama.mid"`
+- `curl -sSf -F "groove=Maqsum" -F"chords=I, vi, ii, V7" -F"count=8" http://localhost:3000/groove -o maqsum.mid`
 
 # Theory of operation
 This converter aims to create a valid MMA accompaniment script out of a MusicXML score. The MMA script is then converted to MIDI using the bundled `mma` tool. To accomplish this, the converter expects to find the following information in the sheet:

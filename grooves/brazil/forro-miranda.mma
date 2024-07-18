@@ -14,8 +14,8 @@ SeqSize 1
 // Baião pattern
 
 Begin Drum-Zabumba-Maceta-Mute
-  Tone MuteSurdo
-  Sequence { 1 0 90 }
+  Tone OpenSurdo
+  Sequence { 1 0 60 }
 End
 
 Begin Drum-Zabumba-Maceta-Open
