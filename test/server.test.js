@@ -99,6 +99,8 @@ describe('MusicXML to MIDI conversion server', () => {
     const track = midi.tracks.find(track => !!track.find(event => event.type === 'marker' && event.text.includes('Measure:')))
     expect(track.filter(event => event.type === 'marker' && event.text.includes('Measure:')).length)
       .toEqual(4)
+    const measure = track.filter(event => event.type === 'marker' && event.text.includes('Measure:'))[0]
+    expect(measure.text.split(':')[1]).toEqual('0')
   })
 })
 

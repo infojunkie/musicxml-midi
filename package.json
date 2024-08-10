@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {

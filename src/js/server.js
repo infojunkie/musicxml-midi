@@ -175,7 +175,7 @@ app.post('/groove', async (req, res, next) => {
   const chords = params['chords'].split(',').map(s => s.trim())
   const measures = [...Array(parseInt(params['count']))].map((_, index) => {
     return `
-MidiMark 0 Measure:${index+1}: $Duration
+MidiMark 0 Measure:${index}: $Duration
 ${chords[index % chords.length]}
     `.trim()
   }).join('\n')
