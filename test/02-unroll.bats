@@ -6,7 +6,7 @@ set -euo pipefail
 
 @test "unroll produces a valid file for repeats" {
   unroll=$(xslt3 -xsl:src/xsl/unroll.xsl -s:test/data/repeats.musicxml)
-  echo "${unroll}" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
+  echo "$unroll" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
 }
 
 teardown() {
@@ -24,18 +24,18 @@ teardown() {
 
 @test "unroll maintains implicit state" {
   unroll=$(xslt3 -xsl:src/xsl/unroll.xsl -s:test/data/blue-bag-folly.musicxml)
-  echo "${unroll}" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
-  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='11']//sound[@tempo])" -)
+  echo "$unroll" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
+  run $(echo "$unroll" | xmllint --xpath "count(//measure[@number='11']//sound[@tempo])" -)
   assert_output --partial '1'
 }
 
 @test "unroll with renumbering produces a valid file" {
   unroll=$(xslt3 -xsl:src/xsl/unroll.xsl -s:test/data/salma-ya-salama.musicxml "renumberMeasures=1")
-  echo "${unroll}" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
-  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='1'])" -)
+  echo "$unroll" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
+  run $(echo "$unroll" | xmllint --xpath "count(//measure[@number='1'])" -)
   assert_output --partial '1'
   unroll=$(xslt3 -xsl:src/xsl/unroll.xsl -s:test/data/salma-ya-salama.musicxml "renumberMeasures=0")
-  echo "${unroll}" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
-  run $(echo "${unroll}" | xmllint --xpath "count(//measure[@number='1'])" -)
+  echo "$unroll" | xmllint --schema src/xsd/musicxml.xsd --nonet --noout -
+  run $(echo "$unroll" | xmllint --xpath "count(//measure[@number='1'])" -)
   assert_output --partial '2'
 }
