@@ -1,3998 +1,3998 @@
 JazzWaltzMainA
- 12 bar main A.
+12 bar main A.
 JazzWaltzFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzWaltzIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzWaltzEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzWaltzMainB
- 12 bar main B.
+12 bar main B.
 JazzWaltzFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzBasieA
- 4 bars main.
+4 bars main.
 JazzBasieFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzBasieIntroA
- 1 bar Intro A.
+1 bar Intro A.
 JazzBasieEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzBasieB
- 4 bars main B.
+4 bars main B.
 JazzBasieFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzBasieFillBA
- 1 bar fill BA.
+1 bar fill BA.
 JazzBasieIntroB
- 2 bar Intro B.
+2 bar Intro B.
 JazzBasieEndingB
- 3 bar ending B.
+3 bar ending B.
 JazzBasieMainC
- 4 bar main C.
+4 bar main C.
 JazzBasieFillCC
- 1 bar fill CC.
+1 bar fill CC.
 JazzBasieIntroC
- 4 bar intro C.
+4 bar intro C.
 JazzBasieEndingC
- 5 bar ending C.
+5 bar ending C.
 JazzBasieMainD
- 4 bar main D.
+4 bar main D.
 JazzBasieFillDD
- 2 bar Fill DD.
+2 bar Fill DD.
 MamboMainA
- Good, basic beat.
+Good, basic beat.
 MamboFillAA
- An okay single bar fill.
+An okay single bar fill.
 MamboFillAB
- Single bar horn fill.
+Single bar horn fill.
 MamboIntroA
- Good horns, but odd sounding piano/bass.
+Good horns, but odd sounding piano/bass.
 MamboEndingA
- Rolling drums and final horns.
+Rolling drums and final horns.
 MamboBreakAA
- A nice transition section.
+A nice transition section.
 MamboMainB
- Nice variation of main pattern with horn section.
+Nice variation of main pattern with horn section.
 MamboFillBA
- Abrupt horns. Good for ending loop-back.
+Abrupt horns. Good for ending loop-back.
 MamboFillBB
- Sharp horns make this a possible intro.
+Sharp horns make this a possible intro.
 MamboIntroB
- Decent enough introduction.
+Decent enough introduction.
 MamboEndingB
- Pretty busy, but might be okay with a slower tempo.
+Pretty busy, but might be okay with a slower tempo.
 MamboBreakBB
- Good fill with drums on bar 1 and horns on 2.
+Good fill with drums on bar 1 and horns on 2.
 JazzBossaA
- 12 bars main A.
+12 bars main A.
 JazzBossaFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzBossaIntroA
- 2 bars intro A.
+2 bars intro A.
 JazzBossaEndingA
- 2 bars ending A.
+2 bars ending A.
 JazzBossaB
- 12 bars main B.
+12 bars main B.
 JazzBossaFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzGrTrioIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzGrTrioMainA
- 2 bar main A.
+2 bar main A.
 JazzGrTrioFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzGrTrioFillAB
- 1 bar fill AB.
+1 bar fill AB.
 JazzGrTrioEndingA
- 3 bar ending A.
+3 bar ending A.
 JazzGrTrioIntroB
- 6 bar intro B.
+6 bar intro B.
 JazzGrTrioMainB
- 4 bar main B.
+4 bar main B.
 JazzGrTrioFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzGrTrioFillBA
- 1 bar fill BA.
+1 bar fill BA.
 JazzGrTrioEndingB
- 6 bar ending B.
+6 bar ending B.
 JazzCountryMainA
- 12 bar main A.
+12 bar main A.
 JazzCountryFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzCountryIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzCountryEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzCountryMainB
- 12 bar Main B.
+12 bar Main B.
 JazzCountryFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzTrioMainA
- 12 bar main A.
+12 bar main A.
 JazzTrioFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzTrioIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzTrioEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzTrioMainB
- 12 bar main B.
+12 bar main B.
 JazzTrioFillBB
- 1 bar fill BB.
+1 bar fill BB.
 JazzSwingMainA
- 12 bar main A.
+12 bar main A.
 JazzSwingFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzSwingIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzSwingEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzSwingMainB
- 12 bar main B.
+12 bar main B.
 JazzSwingFillBB
- 1 bar fill BB.
+1 bar fill BB.
 QuandoGSMainA
- Steady Samba beat.
+Steady Samba beat.
 QuandoGSFillAA
- Good fill for repeats with Main-A.
+Good fill for repeats with Main-A.
 QuandoGSIntroA
- A one bar intro with a heavy hit on beat 1.
+A one bar intro with a heavy hit on beat 1.
 QuandoGSEndingA
- Good ending to go with Main-A.
+Good ending to go with Main-A.
 QuandoGSMainB
- Adds horn section to Main-A.
+Adds horn section to Main-A.
 QuandoGSFillBB
- Fill for Main-B.
+Fill for Main-B.
 QuandoGSFillBA
- Simple fill with horns.
+Simple fill with horns.
 QuandoGSIntroB
- This is an 8 bar introduction. The first 6 bars are a just a Main-A, but bars 7 and 8 have the anticipated hits.
+This is an 8 bar introduction. The first 6 bars are a just a Main-A, but bars 7 and 8 have the anticipated hits.
 QuandoGSEndingB
- This 8 bar ending duplicates Main-B with a single bar "ending".
+This 8 bar ending duplicates Main-B with a single bar "ending".
 QuandoGSMainC
- Pretty much like Main-B, but the horns are softer.
+Pretty much like Main-B, but the horns are softer.
 QuandoGSFillCC
- Abrupt fill with hit on 1.
+Abrupt fill with hit on 1.
 QuandoGSIntroC
- Pretty much like Intro-B.
+Pretty much like Intro-B.
 QuandoGSEndingC
- This 8 bar ending duplicates Main-C with an "end" on the last bar.
+This 8 bar ending duplicates Main-C with an "end" on the last bar.
 QuandoGSMainD
- Much like Main-A, but a bit brighter percussion.
+Much like Main-A, but a bit brighter percussion.
 QuandoGSFillDD
- Loud fill with a brass hit on beat 1.
+Loud fill with a brass hit on beat 1.
 JazzBouncyMainA
- 12 bar main A.
+12 bar main A.
 JazzBouncyFillAA
- 1 bar fill AA.
+1 bar fill AA.
 JazzBouncyIntroA
- 2 bar intro A.
+2 bar intro A.
 JazzBouncyEndingA
- 2 bar ending A.
+2 bar ending A.
 JazzBouncyMainB
- 12 bars main B.
+12 bars main B.
 JazzBouncyFillBB
- 1 bar fill BB.
+1 bar fill BB.
 W-RockIntroA
- A drum-only intro. Probably not that useful?
+A drum-only intro. Probably not that useful?
 W-RockMainA
- Good rhythm with drums and guitar.
+Good rhythm with drums and guitar.
 W-RockFillAB
- Fill sounds pretty much like MAIN-A pattern.
+Fill sounds pretty much like MAIN-A pattern.
 W-RockMainB
- Much like "A" with an added horn section.
+Much like "A" with an added horn section.
 W-RockEndingA
- Single bar ending. Not too final sounding.
+Single bar ending. Not too final sounding.
 W-RockEndingB
- A drum-only ending.
+A drum-only ending.
 W-RockFillAA
- Okay fill or change bar.
+Okay fill or change bar.
 W-RockFillBA
- A cymbal crash on beat 1 creates a fill.
+A cymbal crash on beat 1 creates a fill.
 W-RockFillBB
- No drums, just bass and piano.
+No drums, just bass and piano.
 WesternMainA
- A bit like a train taking off.
+A bit like a train taking off.
 WesternFillAA
- A fill which sounds better than the main pattern.
+A fill which sounds better than the main pattern.
 WesternFillAB
- Goes well with the train.
+Goes well with the train.
 WesternIntroA
- A pluck on 1,2,3 with added snare.
+A pluck on 1,2,3 with added snare.
 WesternEndingA
- A banjo run with a final chord.
+A banjo run with a final chord.
 WesternMainB
- Very blue-grassy with picked banjo.
+Very blue-grassy with picked banjo.
 WesternFillBA
- Somehow the train is running over the banjo.
+Somehow the train is running over the banjo.
 WesternFillBB
- And I thought the banjo had been run over.
+And I thought the banjo had been run over.
 WesternIntroB
- A banjo introduction.
+A banjo introduction.
 WesternEndingB
- Fiddle sounding end. Okay.
+Fiddle sounding end. Okay.
 Salsa1MainA
- Auto-generated 'Main A' sty/salsa1.sty.
+Auto-generated 'Main A' sty/salsa1.sty.
 Salsa1IntroA
- Auto-generated 'Intro A' sty/salsa1.sty.
+Auto-generated 'Intro A' sty/salsa1.sty.
 Salsa1FillAA
- Auto-generated 'Fill In AA' sty/salsa1.sty.
+Auto-generated 'Fill In AA' sty/salsa1.sty.
 Salsa1FillAB
- Auto-generated 'Fill In AB' sty/salsa1.sty.
+Auto-generated 'Fill In AB' sty/salsa1.sty.
 Salsa1EndingA
- Auto-generated 'Ending A' sty/salsa1.sty.
+Auto-generated 'Ending A' sty/salsa1.sty.
 Salsa1MainB
- Auto-generated 'Main B' sty/salsa1.sty.
+Auto-generated 'Main B' sty/salsa1.sty.
 Salsa1IntroB
- Auto-generated 'Intro B' sty/salsa1.sty.
+Auto-generated 'Intro B' sty/salsa1.sty.
 Salsa1FillBB
- Auto-generated 'Fill In BB' sty/salsa1.sty.
+Auto-generated 'Fill In BB' sty/salsa1.sty.
 Salsa1FillBA
- Auto-generated 'Fill In BA' sty/salsa1.sty.
+Auto-generated 'Fill In BA' sty/salsa1.sty.
 Salsa1EndingB
- Auto-generated 'Ending B' sty/salsa1.sty.
+Auto-generated 'Ending B' sty/salsa1.sty.
 Salsa2MainA
- Auto-generated 'Main A' salsa2.sty.
+Auto-generated 'Main A' salsa2.sty.
 Salsa2IntroA
- Auto-generated 'Intro A' salsa2.sty.
+Auto-generated 'Intro A' salsa2.sty.
 Salsa2FillAA
- Auto-generated 'Fill In AA' salsa2.sty.
+Auto-generated 'Fill In AA' salsa2.sty.
 Salsa2FillAB
- Auto-generated 'Fill In AB' salsa2.sty.
+Auto-generated 'Fill In AB' salsa2.sty.
 Salsa2EndingA
- Auto-generated 'Ending A' salsa2.sty.
+Auto-generated 'Ending A' salsa2.sty.
 Salsa2MainB
- Auto-generated 'Main B' salsa2.sty.
+Auto-generated 'Main B' salsa2.sty.
 Salsa2IntroB
- Auto-generated 'Intro B' salsa2.sty.
+Auto-generated 'Intro B' salsa2.sty.
 Salsa2FillBB
- Auto-generated 'Fill In BB' salsa2.sty.
+Auto-generated 'Fill In BB' salsa2.sty.
 Salsa2FillBA
- Auto-generated 'Fill In BA' salsa2.sty.
+Auto-generated 'Fill In BA' salsa2.sty.
 Salsa2EndingB
- Auto-generated 'Ending B' salsa2.sty.
+Auto-generated 'Ending B' salsa2.sty.
 50s_RockA
- 'Main A' 50s rock, length is 4 bars.
+'Main A' 50s rock, length is 4 bars.
 50s_RockFillAA
- 'One bar Fill In Main A substyle' 50s rock.
+'One bar Fill In Main A substyle' 50s rock.
 50s_RockIntroA
- One bar 'Intro A' 50s rock.
+One bar 'Intro A' 50s rock.
 50s_RockEndingA
- Two bars 'Ending A' 50s rock.
+Two bars 'Ending A' 50s rock.
 50s_RockB
- B sub-style 50s rock. Length is 4 bars.
+B sub-style 50s rock. Length is 4 bars.
 50s_RockFillBB
- One Bar Fill In for B substyle' 50s rock.
+One Bar Fill In for B substyle' 50s rock.
 50s_RockFillBA
- One bar Fill In used to return from B substyle to A substyle. 50s rock.
+One bar Fill In used to return from B substyle to A substyle. 50s rock.
 50s_RockIntroB
- Two bar 'Intro B substyle ' 50s rock.
+Two bar 'Intro B substyle ' 50s rock.
 50s_RockEndingB
- Three bars 'Ending B substyle' 50s rock.
+Three bars 'Ending B substyle' 50s rock.
 50s_RockC
- Four bar 'Main C substyle' 50s rock.
+Four bar 'Main C substyle' 50s rock.
 50s_RockFillCC
- One bar Fill In for C substyle' 50s rock.
+One bar Fill In for C substyle' 50s rock.
 50s_RockIntroC
- Four bar Intro for C substyle 50srock.
+Four bar Intro for C substyle 50srock.
 50s_RockEndingC
- Five bar Ending for C substyle 50s rock.
+Five bar Ending for C substyle 50s rock.
 50s_RockD
- Four bar Main D substyle 50s rock.
+Four bar Main D substyle 50s rock.
 50s_RockFillDD
- One bar Fill In for D substyle 50s rock.
+One bar Fill In for D substyle 50s rock.
 Kfunk1A
- A nice funk quartet, nothing to heavy.
+A nice funk quartet, nothing to heavy.
 Kfunk1FillAA
- Fill In AA.
+Fill In AA.
 Kfunk1FillAB
- Fill In AB, we prepare the B substyle, we add some brass.
+Fill In AB, we prepare the B substyle, we add some brass.
 Kfunk1B
- Main B more busy & with brass.
+Main B more busy & with brass.
 Kfunk1FillBA
- Fill In BA, go back to A-substyle.
+Fill In BA, go back to A-substyle.
 Kfunk1FillBB
- Fill In BB.
+Fill In BB.
 Kfunk1IntroA
- Intro A,drum starts others follow from second bar.
+Intro A,drum starts others follow from second bar.
 Kfunk1EndingA
- Ending A.
+Ending A.
 fasttwistA
- 4 bars main groove.
+4 bars main groove.
 fasttwistFillA
- One bar Fill A.
+One bar Fill A.
 fasttwistEndingA
- 2 bars ending.
+2 bars ending.
 fasttwistB
- 4 bars Main B.
+4 bars Main B.
 fasttwistFillB
- 1 bar B fill.
+1 bar B fill.
 fasttwistEndingB
- 4 bar Ending B.
+4 bar Ending B.
 fasttwistIntroA
- Auto-generated 'Intro A' mytwist.sty.
+Auto-generated 'Intro A' mytwist.sty.
 fasttwistIntroB
- Auto-generated 'Intro B' mytwist.sty.
+Auto-generated 'Intro B' mytwist.sty.
 kwestballadIntroA
- 4 bars Intro.
+4 bars Intro.
 kwestballadIntroB
- 4 bars Intro like Intro A but with 2 guitars.
+4 bars Intro like Intro A but with 2 guitars.
 kwestballadA
- 4 bars Main A.
+4 bars Main A.
 kwestballadB
- 4 bars like Main A but with 2 guitars.
+4 bars like Main A but with 2 guitars.
 kwestballadFillA
- 1 bar Fill A.
+1 bar Fill A.
 kwestballadFillB
- Like Fill A but with 2 guitars.
+Like Fill A but with 2 guitars.
 kwestballadFillAB
- The second guitar comes in.
+The second guitar comes in.
 kwestballadC
- 4 bars Main C.
+4 bars Main C.
 kwestballadD
- Like Main C but with 2 guitars.
+Like Main C but with 2 guitars.
 kwestballadFillB
- 1 bar Fill B.
+1 bar Fill B.
 kwestballadFillC
- Like Fill B but with 2 guitars.
+Like Fill B but with 2 guitars.
 kwestballadEndingA
- 2 bar Ending like in Main A style.
+2 bar Ending like in Main A style.
 kwestballadEndingB
- 2 bars like Ending A but with 2 guitars.
+2 bars like Ending A but with 2 guitars.
 kwestballadEndingC
- 2 bar ending after C or D style.
+2 bar ending after C or D style.
 kwestballadEndingD
- 2 bar ending after C or D style with 2 guitars.
+2 bar ending after C or D style with 2 guitars.
 HappyshuffleA
- Main A - piano, organ, drums, bass.
+Main A - piano, organ, drums, bass.
 HappyshuffleB
- Main B add a accordion.
+Main B add a accordion.
 HappyshuffleC
- Main C more busy then Main B.
+Main C more busy then Main B.
 HappyshuffleD
- The full band is rocking !
+The full band is rocking !
 HappyshuffleFillA
- 1 bar simple fill.
+1 bar simple fill.
 HappyshuffleFillB
- 1 bar Fill In to stay in B.
+1 bar Fill In to stay in B.
 HappyshuffleFillC
- 1 bar Fill In to stay in C.
+1 bar Fill In to stay in C.
 HappyshuffleFillD
- 1 bar fill in comming from Main D.
+1 bar fill in comming from Main D.
 HappyshuffleIntroA
- One bar simple Intro.
+One bar simple Intro.
 HappyshuffleIntroB
- 2 bar intro, more instruments.
+2 bar intro, more instruments.
 HappyshuffleIntroC
- 5 bar intro, full band.
+5 bar intro, full band.
 HappyshuffleEndingA
- One bar simple ending.
+One bar simple ending.
 HappyshuffleEndingB
- 3 bar Ending B, the full band.
+3 bar Ending B, the full band.
 HappyshuffleEndingC
- 6 bars Ending C.
+6 bars Ending C.
 HappyshuffleFillB
- Fill In B to A.
+Fill In B to A.
 kbossaIntroA
- 4 bar intro, drums, bass, rhodes.
+4 bar intro, drums, bass, rhodes.
 kbossaIntroB
- 4 bar intro more rythmic.
+4 bar intro more rythmic.
 kbossaIntroC
- 4 bar intro More rythmic, drum,bass, rhodes, strings.
+4 bar intro More rythmic, drum,bass, rhodes, strings.
 kbossaA
- 4 bars, drum, bass, piano.
+4 bars, drum, bass, piano.
 kbossaFillA
- One bar fill.
+One bar fill.
 kbossaFillAB
- One bar fill, goto B style.
+One bar fill, goto B style.
 kbossaFillC
- One bar fill, goto C style.
+One bar fill, goto C style.
 kbossaB
- 4 bars, more rythmic.
+4 bars, more rythmic.
 kbossaC
- 4 bars more rythmic and add strings.
+4 bars more rythmic and add strings.
 kbossaFillB
- 1 bar fill in B style.
+1 bar fill in B style.
 kbossaFillC
- One bar in C style.
+One bar in C style.
 kbossaEndingA
- 2 bar ending in A style.
+2 bar ending in A style.
 kbossaEndingB
- 2 bar ending in B style.
+2 bar ending in B style.
 kbossaEndingC
- 2 bar ending in C style.
+2 bar ending in C style.
 kbossaEndingD
- 2 bar ending in C style with strings.
+2 bar ending in C style with strings.
 2beatpA
- Main A. 2 bars, left & right hand comping.
+Main A. 2 bars, left & right hand comping.
 2beatpB
- Main B. 2 bars, more rythm in the right hand.
+Main B. 2 bars, more rythm in the right hand.
 2beatpC
- Main C. 2bars, more busy & upper octave.
+Main C. 2bars, more busy & upper octave.
 2beatpD
- Main D. 2 bars variation on Main C.
+Main D. 2 bars variation on Main C.
 2beatpFillA
- Fill In A. One bar Fill.
+Fill In A. One bar Fill.
 2beatpFillB
- Fill In B. One bar fill.
+Fill In B. One bar fill.
 2beatpFillC
- Fill In C. One bar.
+Fill In C. One bar.
 2beatpFillD
- Fill In D. One bar.
+Fill In D. One bar.
 2beatpIntroA
- 'Intro A. One bar; simple.
+'Intro A. One bar; simple.
 2beatpIntroB
- Intro B. 4 bar intro, 2 octaves.
+Intro B. 4 bar intro, 2 octaves.
 2beatpIntroC
- Intro C. 6 bars intro.
+Intro C. 6 bars intro.
 2beatpEndingA
- Ending A. 1 bars.
+Ending A. 1 bars.
 2beatpEndingB
- Ending B. 3 bar ending.
+Ending B. 3 bar ending.
 2beatpEndingC
- Ending C. 2 bar ending.
+Ending C. 2 bar ending.
 8beatmotownA
- Main A 8 bars drums, bass, piano, guitar.
+Main A 8 bars drums, bass, piano, guitar.
 8beatmotownB
- Main B 8 Bar add strings.
+Main B 8 Bar add strings.
 8beatmotownC
- Main C 8 bars.
+Main C 8 bars.
 8beatmotownD
- Main D 8 bars the full band rocks.
+Main D 8 bars the full band rocks.
 8beatmotownFillA
- Fill In AA 1 bar.
+Fill In AA 1 bar.
 8beatmotownFillB
- Fill In BB 1 bar.
+Fill In BB 1 bar.
 8beatmotownFillC
- Fill In CC 1 bar.
+Fill In CC 1 bar.
 8beatmotownFillD
- Fill In DD 1 bar.
+Fill In DD 1 bar.
 8beatmotownIntroA
- Intro A 4 bars.
+Intro A 4 bars.
 8beatmotownIntroB
- Intro B 4 bars.
+Intro B 4 bars.
 8beatmotownIntroC
- Intro C 4 bars.
+Intro C 4 bars.
 8beatmotownEndingA
- Ending A 4 bars.
+Ending A 4 bars.
 8beatmotownEndingB
- Ending B 4 bars.
+Ending B 4 bars.
 8beatmotownEndingC
- Ending C 3 bars.
+Ending C 3 bars.
 8beatmotownFillBA
- Fill In BA 1 bar.
+Fill In BA 1 bar.
 TwiMainA
- Bass, Steel Guitar, Tenor Sax & Drums.
+Bass, Steel Guitar, Tenor Sax & Drums.
 TwiFillAA
- Fill for Main A style.
+Fill for Main A style.
 TwiFillAB
- Fill In AB, add the piano to prepare the B substyle.
+Fill In AB, add the piano to prepare the B substyle.
 TwiMainB
- Here it realy grooves and we have a piano.
+Here it realy grooves and we have a piano.
 TwiFillBA
- Fill In BA, we go back to Main A so piano only on the first measure.
+Fill In BA, we go back to Main A so piano only on the first measure.
 TwiFillBB
- Fill In BB, pause the piano.
+Fill In BB, pause the piano.
 TwiIntroB
- Our Intro-B , drums, guitar & bass.
+Our Intro-B , drums, guitar & bass.
 TwiEndingB
- The ending, all instruments involved.
+The ending, all instruments involved.
 TeamTechno
- A basic Techno groove.
+A basic Techno groove.
 TeamTechnoSus
- Add sustained strings.
+Add sustained strings.
 TeamTechnoIntro
- Simple 1 bar intro.
+Simple 1 bar intro.
 TeamTechnoIntroPlus
- Adds in rhythmic bass line.
+Adds in rhythmic bass line.
 TeamTechnoEnd
- A 1 bar ending.
+A 1 bar ending.
 HipHop
- Rythmic line and off-beat pads.
+Rythmic line and off-beat pads.
 HipHopSus
- HipHop groove + basic strings.
+HipHop groove + basic strings.
 HipHopPlus1
- Adds piano arpeggios.
+Adds piano arpeggios.
 HipHopSusPlus1
- Piano arpeggios and strings.
+Piano arpeggios and strings.
 HipHopPlus2
- Adds sawtooth arpeggios.
+Adds sawtooth arpeggios.
 HipHopSusPlus2
- Sawtooth arpeggios and strings.
+Sawtooth arpeggios and strings.
 HipHopPlusPlus
- Sawtooth and piano arpeggios.
+Sawtooth and piano arpeggios.
 HipHopSusPlusPlus
- Sawtooth and piano arpeggios and strings.
+Sawtooth and piano arpeggios and strings.
 HipHopIntro
- Only drums and bass.
+Only drums and bass.
 HipHopEnd
- Removes basses.
+Removes basses.
 JazzWaltz
- Basic jazz waltz.
+Basic jazz waltz.
 JazzWaltzSus
- Strings added to our waltz.
+Strings added to our waltz.
 JazzWaltz1
- Add arpeggio runs.
+Add arpeggio runs.
 JazzWaltz1Sus
- Sustained strings and arpeggios.
+Sustained strings and arpeggios.
 JazzWaltz2
- Add VoiceOohs.
+Add VoiceOohs.
 JazzWaltz2Sus
- Sustained strings and DUH voices.
+Sustained strings and DUH voices.
 JazzWaltzIntro
- 4 bar intro.
+4 bar intro.
 JazzWaltzIntro8
- 8 bar intro.
+8 bar intro.
 JazzWaltzFill
- Single bar fill, can be used in endings.
+Single bar fill, can be used in endings.
 JazzWaltzEnd
- Simple ending.
+Simple ending.
 JazzWaltz1End
- Ending with arpeggio eights and quarters.
+Ending with arpeggio eights and quarters.
 GuitarBallad
- Simple ballad with drums and guitar.
+Simple ballad with drums and guitar.
 GuitarBallad1
- Add additional guitar chords.
+Add additional guitar chords.
 GuitarBalladSus
- Guitar arpeggios with a bit of strings.
+Guitar arpeggios with a bit of strings.
 GuitarBallad1Sus
- Guitar arpeggios with chords and strings.
+Guitar arpeggios with chords and strings.
 GuitarBalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 GuitarBalladSusIntro
- The same 4 bar intro with strings.
+The same 4 bar intro with strings.
 GuitarBalladEnd
- A 2 bar ending.
+A 2 bar ending.
 Evansish
- A slow, steady beat.
+A slow, steady beat.
 EvansishPlus
- Add in some random piano notes.
+Add in some random piano notes.
 EvansishSus
- Add strings to the mix.
+Add strings to the mix.
 EvansishSusPlus
- Solo piano and strings.
+Solo piano and strings.
 EvansishFill
- A one bar fill.
+A one bar fill.
 Evansish1
- Same basic without push chords.
+Same basic without push chords.
 Evansish1Plus
- Random notes added, pushy chords out.
+Random notes added, pushy chords out.
 Evansish1Sus
- Basic sustained without push.
+Basic sustained without push.
 Evansish1SusPlus
- Random notes, strings and no push.
+Random notes, strings and no push.
 EvansishIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 EvansishEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 SlowBolero
- Easy going Bolero for ballads.
+Easy going Bolero for ballads.
 SlowBoleroSus
- Add sustained voices.
+Add sustained voices.
 SlowBoleroPlus
- Add in some nylon guitar apreggios.
+Add in some nylon guitar apreggios.
 SlowBoleroSusPlus
- Arpeggios and sustained voices.
+Arpeggios and sustained voices.
 SlowBolero1
- Basic slow Bolero with alternate backing melody.
+Basic slow Bolero with alternate backing melody.
 SlowBolero1Sus
- Backing melody and sustained voices.
+Backing melody and sustained voices.
 SlowBoleroIntro
- A simple introduction.
+A simple introduction.
 SlowBoleroIntroSus
- Intro with sustained voices.
+Intro with sustained voices.
 SlowBoleroEnd
- 2 bar ending.
+2 bar ending.
 BasicRock
- A very basic rock beat in 4.
+A very basic rock beat in 4.
 BasicRockSus
- Even rockers like strings!
+Even rockers like strings!
 BasicRock4
- Same rock with more of a 4/4 emphasis. Good for alternate sections.
+Same rock with more of a 4/4 emphasis. Good for alternate sections.
 BasicRock4Sus
- Our 4/4 version with strings.
+Our 4/4 version with strings.
 BasicRockIntro
- 4 bar intro.
+4 bar intro.
 BasicRock4Intro
- 4 bar intro with 4-feel.
+4 bar intro with 4-feel.
 BasicRockEnd
- A 2 bar ending.
+A 2 bar ending.
 LatinWaltz
- Our basic latin-waltz.
+Our basic latin-waltz.
 LatinWaltzSus
- Same latin waltz with strings.
+Same latin waltz with strings.
 LatinWaltzPlus
- Adds a bit of a background guitar melody.
+Adds a bit of a background guitar melody.
 LatinWaltzSusPlus
- Guitar background and sustained strings.
+Guitar background and sustained strings.
 LatinWaltzFill
- Single bar fill, can be used in endings.
+Single bar fill, can be used in endings.
 LatinWaltzIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 LatinWaltzIntro8
- Simple 8 bar introduction.
+Simple 8 bar introduction.
 LatinWaltzEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 MilIntro4
- A 4 bar military-style intro. Easy to use if you include a line like "z * 4" at the start of the piece.
+A 4 bar military-style intro. Easy to use if you include a line like "z * 4" at the start of the piece.
 MilIntro2
- A 2 bar military-style intro. This is identical to the MilIntro4, but only uses the first 2 bars of the sequence.
+A 2 bar military-style intro. This is identical to the MilIntro4, but only uses the first 2 bars of the sequence.
 March
- Standard march pattern. Boring, but it works.
+Standard march pattern. Boring, but it works.
 March1
- Adds alterating bars of walking bass to the standard march. Also, changes the trombones to a piano.
+Adds alterating bars of walking bass to the standard march. Also, changes the trombones to a piano.
 March1Slow
- This is just March1 with the walking bass set to beats 1 and 3 instead of 1,2,3 and 4.
+This is just March1 with the walking bass set to beats 1 and 3 instead of 1,2,3 and 4.
 March2
- Adds sustained strings to March1. The strings replace the trumpets. A major sound difference.
+Adds sustained strings to March1. The strings replace the trumpets. A major sound difference.
 March3
- Adds an apreggiating piccolo to March1. Great for trios.
+Adds an apreggiating piccolo to March1. Great for trios.
 March4
- Add sustained strings and apreggiating piccolo to March2.
+Add sustained strings and apreggiating piccolo to March2.
 MarchEnd
- Four bar ending.
+Four bar ending.
 DSoul
- Basic pattern.
+Basic pattern.
 DSoulPlus
- Adds a riffing guitar.
+Adds a riffing guitar.
 DSoulSus
- Add choir.
+Add choir.
 DSoulSusPlus
- Choir and the guitar riff.
+Choir and the guitar riff.
 DSoulFill
- A single bar fill suitable for transitions.
+A single bar fill suitable for transitions.
 DSoulIntro
- 4 bar introduction.
+4 bar introduction.
 DSoulEnd
- 2 bar ending.
+2 bar ending.
 BVFunk
- A basic Funk groove.
+A basic Funk groove.
 BVFunkSus
- The funk groove with strings.
+The funk groove with strings.
 BVFunkHorns
- Horns added in with 1/4 5/4 pattern.
+Horns added in with 1/4 5/4 pattern.
 BVFunkIntro
- 4 bar introduction.
+4 bar introduction.
 BVFunkIntro8
- 8 bar introduction.
+8 bar introduction.
 BVFunkEnd
- 2 bar ending.
+2 bar ending.
 FolkyJazzGuitar
- Basic pattern with bass, guitar notes and drum.
+Basic pattern with bass, guitar notes and drum.
 FolkyJazzGuitarPlus
- Add in some Clavinet notes.
+Add in some Clavinet notes.
 FolkyJazzGuitarSus
- Basic with sustained voices.
+Basic with sustained voices.
 FolkyJazzGuitarSusPlus
- Added Clavinet and sustained voices.
+Added Clavinet and sustained voices.
 FolkyJazzGuitarIntro
- A basic 4 bar introduction.
+A basic 4 bar introduction.
 FolkyJazzGuitarEnd
- A 2 bar ending.
+A 2 bar ending.
 FolkyJazzPiano
- Piano with guitar bass and drum.
+Piano with guitar bass and drum.
 FolkyJazzPianoPlus
- Add in some guitar notes.
+Add in some guitar notes.
 FolkyJazzPianoSus
- Our piano groove with sustained voices.
+Our piano groove with sustained voices.
 FolkyJazzPianoSusPlus
- Added guitar and sustained voices.
+Added guitar and sustained voices.
 FolkyJazzPianoIntro
- A basic 4 bar introduction.
+A basic 4 bar introduction.
 FolkyJazzPianoEnd
- A 2 bar ending.
+A 2 bar ending.
 BWMarch
- A musical style march.
+A musical style march.
 BWMarchPlus
- Add in arpegiating flute.
+Add in arpegiating flute.
 BWMarchSus
- Add sustained strings.
+Add sustained strings.
 BWMarchSusPlus
- Sustained strings and apregiating flute.
+Sustained strings and apregiating flute.
 BWMarchPlus2
- Basic rhythm with some piano fills.
+Basic rhythm with some piano fills.
 BWMarchSusPlus2
- Add in strings and piano fills.
+Add in strings and piano fills.
 BWMarchFill
- A 2 bar fill for endings.
+A 2 bar fill for endings.
 BWMarchIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 BWMarchIntro8
- Simple 8 bar intro.
+Simple 8 bar intro.
 BWMarchEnd
- A 2 bar ending with a very final sound.
+A 2 bar ending with a very final sound.
 WesternSwing
- Not too bad for dancing.
+Not too bad for dancing.
 WesternSwingSus
- Adds a sustained accordion for the chorus.
+Adds a sustained accordion for the chorus.
 WesternSwingPlus
- Adds in Steel Guitar "melody".
+Adds in Steel Guitar "melody".
 WesternSwingSusPlus
- Steel guitar and accordion.
+Steel guitar and accordion.
 WesternSwingIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 WesternSwingEnd
- Simple ending. Hits on each beat on bar 1, beat 1 only on bar 2.
+Simple ending. Hits on each beat on bar 1, beat 1 only on bar 2.
 HillCountry
- Our basic hillbilly beat. Pretty boring.
+Our basic hillbilly beat. Pretty boring.
 HillCountryPlus
- Adds in another banjo.
+Adds in another banjo.
 HillCountrySus
- Why not strings in the hills?
+Why not strings in the hills?
 HillCountrySusPlus
- Strings and banjos!
+Strings and banjos!
 HillCountryFill
- Single bar fill with walking bass, good for repeats.
+Single bar fill with walking bass, good for repeats.
 HillCountryIntro
- A basic 4 bar intro.
+A basic 4 bar intro.
 HillCountryEnd
- An abrupt 2 bar ending.
+An abrupt 2 bar ending.
 RagTime
- A simple ragtime pattern.
+A simple ragtime pattern.
 RagtimePlus
- Addition of a arpeggiating piano makes it a bit busier.
+Addition of a arpeggiating piano makes it a bit busier.
 RagtimeSus
- Our simple ragtime with string section.
+Our simple ragtime with string section.
 RagtimeSusPlus
- Busy version with strings.
+Busy version with strings.
 RagtimeIntro
- A 4 bar introduction.
+A 4 bar introduction.
 RagtimeEnd
- A 2 bar ending.
+A 2 bar ending.
 DixieMarch
- A basic Dixieland March.
+A basic Dixieland March.
 DixieMarchPlus
- Add in a wild clarinet.
+Add in a wild clarinet.
 DixieMarchSus
- A little change with the arpeggios gone.
+A little change with the arpeggios gone.
 DixieMarchSusPlus
- Apreggios and sustain.
+Apreggios and sustain.
 DixieMarchIntro
- A 4 bar introduction.
+A 4 bar introduction.
 DixieMarchEnd
- Finis!
+Finis!
 CountryWaltz
- Doris Day would like this! A string bass on beat 1 with a strummed guitar on 2 and 3, and a light-feeling drum.
+Doris Day would like this! A string bass on beat 1 with a strummed guitar on 2 and 3, and a light-feeling drum.
 CountryWaltzSus
- The CountryWaltz with a sustained string.
+The CountryWaltz with a sustained string.
 CountryWaltz1
- Same old waltz with an arpeggiating flute. Nice.
+Same old waltz with an arpeggiating flute. Nice.
 CountryWaltz1Sus
- Arpeggiating flute and sustained strings.
+Arpeggiating flute and sustained strings.
 CountryWaltz2
- Guitar arpeggios.
+Guitar arpeggios.
 CountryWaltz2Sus
- Guitar arpeggios and sustained strings.
+Guitar arpeggios and sustained strings.
 CountryWaltzWalk
- Countrywaltz with walking bass.
+Countrywaltz with walking bass.
 CountryWaltzWalkSus
- CountryWaltz with sustained string and walking bass.
+CountryWaltz with sustained string and walking bass.
 CountryWaltz1Walk
- Walking bass and arpeggiating flute.
+Walking bass and arpeggiating flute.
 Countrywaltz2Walk
- Walking bass and apreggiating guitar.
+Walking bass and apreggiating guitar.
 CountryWaltz1SusWalk
- Arpeggiating flute, sustained string and walking bass.
+Arpeggiating flute, sustained string and walking bass.
 CountryWaltz2SusWalk
- Apregginating guitar, sustained string and walking bass.
+Apregginating guitar, sustained string and walking bass.
 CountryWaltzIntro
- Introduction to the waltz.
+Introduction to the waltz.
 CountryWaltzIntro8
- 8 Bar intro to the waltz.
+8 Bar intro to the waltz.
 CountryWaltzEnd
- A good, simple ending. The 4th bar just hits on the first beat.
+A good, simple ending. The 4th bar just hits on the first beat.
 Blues68
- A very simple, plusing 6/8 beat.
+A very simple, plusing 6/8 beat.
 Blues68Plus
- Add a guitar "Solo" to our groove.
+Add a guitar "Solo" to our groove.
 Blues68Walk
- Same 6/8 blues, but with a walking bass.
+Same 6/8 blues, but with a walking bass.
 Blues68WalkPlus
- Our 6/8 blues with a walking bass and solo.
+Our 6/8 blues with a walking bass and solo.
 Blues68Intro
- A four bar introduction.
+A four bar introduction.
 Blues68End
- A two bar ending.
+A two bar ending.
 Trance
- A smooth techno beat.
+A smooth techno beat.
 Trance1
- Adds an annoying repetition to the beat.
+Adds an annoying repetition to the beat.
 Trance2
- Changes repeating brass to 8ths and kills space sounds.
+Changes repeating brass to 8ths and kills space sounds.
 TranceBass1
- Same as Trance, with long bass on 1,3.
+Same as Trance, with long bass on 1,3.
 Trance1Bass1
- Same as Trance1, with long bass on 1,3.
+Same as Trance1, with long bass on 1,3.
 Trance2Bass1
- Same as Trance2, with long bass on 1,3.
+Same as Trance2, with long bass on 1,3.
 TranceIntro
- Hypnotic intro?
+Hypnotic intro?
 TranceEnd
- Fading ending, nothing on beats 3/4 of final bar.
+Fading ending, nothing on beats 3/4 of final bar.
 Jive
- A simple jive-dance beat.
+A simple jive-dance beat.
 JiveClap
- Adds a handclap to the Jive beat, mostly on 2 and 4.
+Adds a handclap to the Jive beat, mostly on 2 and 4.
 JiveSus
- Harmonic strings added.
+Harmonic strings added.
 JiveClapSus
- Sustained strings with handclaps.
+Sustained strings with handclaps.
 JivePlus
- Add some additional arpeggios.
+Add some additional arpeggios.
 JiveSusPlus
- Arpeggios plus strings.
+Arpeggios plus strings.
 Jive1
- Our jive-dance with less shuffle.
+Our jive-dance with less shuffle.
 Jive1Clap
- Handclap added to Jive1 beat.
+Handclap added to Jive1 beat.
 Jive1Sus
- Harmonic strings added.
+Harmonic strings added.
 Jive1ClapSus
- Sustained strings with handclaps.
+Sustained strings with handclaps.
 Jive1Plus
- The un-push version with arpeggios.
+The un-push version with arpeggios.
 Jive1SusPlus
- No push with strings and arpeggios.
+No push with strings and arpeggios.
 JiveIntro
- 4 bar intro.
+4 bar intro.
 JiveIntro2
- Alternate, busier, 4 bar intro.
+Alternate, busier, 4 bar intro.
 JiveIntro8
- 8 bar intro.
+8 bar intro.
 JiveEnd
- This 2 bar ending has 4 beats/hits on the first bar and hits on 1 and 3 on the second.
+This 2 bar ending has 4 beats/hits on the first bar and hits on 1 and 3 on the second.
 BoneyM
- Our basic BoneyM pattern.
+Our basic BoneyM pattern.
 BoneyMPlus
- Basic pattern with added steel drum line.
+Basic pattern with added steel drum line.
 BoneyMSus
- Sustained strings added.
+Sustained strings added.
 BoneyMSusPlus
- Strings and steel.
+Strings and steel.
 BoneyMFill
- One bar fill with some steel drums.
+One bar fill with some steel drums.
 BoneyMIntro
- A 4 bar introduction.
+A 4 bar introduction.
 BoneyMIntro8
- A 8 bar introduction.
+A 8 bar introduction.
 BoneyMEnd
- A 2 bar ending.
+A 2 bar ending.
 R&B-Ballad
- Basic R&B Ballad.
+Basic R&B Ballad.
 R&B-BalladSus
- Change rhythmic organ to sustained chords.
+Change rhythmic organ to sustained chords.
 R&B-BalladFill
- Simple one bar fill.
+Simple one bar fill.
 R&B-BalladPlus
- Basic with added guitar riffs.
+Basic with added guitar riffs.
 R&B-BalladSusPlus
- Sustained with guitar riffs.
+Sustained with guitar riffs.
 R&B-BalladIntro
- A bit laid-back, 4 bar intro.
+A bit laid-back, 4 bar intro.
 R&B-BalladFill
- Bass Heavy one bar fill.
+Bass Heavy one bar fill.
 R&B-BalladEnd
- Two bar ending.
+Two bar ending.
 Arpeggio68
- A eighth note piano (6 hits/bar).
+A eighth note piano (6 hits/bar).
 Arpeggio68-16
- A 16th note piano (12 hits/bar).
+A 16th note piano (12 hits/bar).
 Arpeggio68-816
- 3 bars of 8ths, 1 bar 16ths.
+3 bars of 8ths, 1 bar 16ths.
 Arpeggio68Sus
- Sustained strings with eight note piano.
+Sustained strings with eight note piano.
 Arpeggio68Sus-16
- Sustained strings with 16ths.
+Sustained strings with 16ths.
 Arpeggio68Sus-816
- Sustained strings with 8ths, 8ths, 8ths, 16ths pattern.
+Sustained strings with 8ths, 8ths, 8ths, 16ths pattern.
 Arpeggio68Intro
- A basic 4 bar introduction (works for ending as well).
+A basic 4 bar introduction (works for ending as well).
 Arpeggio68SusIntro
- Same intro with strings.
+Same intro with strings.
 BossaNova
- Standard bossanova beat.
+Standard bossanova beat.
 BossaNovaSus
- Adds sustained choir voices.
+Adds sustained choir voices.
 BossaNova1Sus
- Adds sustained strings.
+Adds sustained strings.
 BossaNova2Sus
- Basic Bossa with decending string pattern.
+Basic Bossa with decending string pattern.
 BossaNova3Sus
- A combination of BossaNova1Sus and BossaNova2Sus. Alternating bars of decending strings with full chords.
+A combination of BossaNova1Sus and BossaNova2Sus. Alternating bars of decending strings with full chords.
 BossaNovaPlus
- Basic rhythm with apreggiating guitar.
+Basic rhythm with apreggiating guitar.
 BossaNovaSusPlus
- Sustained choir and arpeggios.
+Sustained choir and arpeggios.
 BossaNova1SusPlus
- Sustained strings and arpeggios.
+Sustained strings and arpeggios.
 BossaNova2SusPlus
- Descending strings and arpeggios.
+Descending strings and arpeggios.
 BossaNova3SusPlus
- Alternating 1Sus/2Sus and arpeggios.
+Alternating 1Sus/2Sus and arpeggios.
 BossaNovaFill
- Adds a bell to the BossaNova groove and forces the chord to a straight pattern. This Good for the occasional bar in an ending, etc.
+Adds a bell to the BossaNova groove and forces the chord to a straight pattern. This Good for the occasional bar in an ending, etc.
 BossaNovaIntro
- Dull introduction.
+Dull introduction.
 BossaNovaIntro1
- Same intro with straighter chording.
+Same intro with straighter chording.
 BossaNovaIntro8
- Another dull intro, but this is for 8 bars.
+Another dull intro, but this is for 8 bars.
 BossaNovaEnd
- The strings do a scale. First bar is eights, second is quarters, third is halves, and the last is a held whole note.
+The strings do a scale. First bar is eights, second is quarters, third is halves, and the last is a held whole note.
 BossaNova1End
- Same ending, but with sustained strings added.
+Same ending, but with sustained strings added.
 BossaNova2End
- Ending with sustained strings, but no scale.
+Ending with sustained strings, but no scale.
 SoftRock
- Basic Soft-rock for 60's tunes.
+Basic Soft-rock for 60's tunes.
 SoftRockSus
- Strings with the rock.
+Strings with the rock.
 SoftRock1
- Adds a latin-pop touch by using flute arpeggios.
+Adds a latin-pop touch by using flute arpeggios.
 SoftRock1Sus
- Latin-pop with sustained strings.
+Latin-pop with sustained strings.
 SoftRock2
- Add some guitar arpeggios to basic rhythm.
+Add some guitar arpeggios to basic rhythm.
 SoftRock2Sus
- SoftRock2 with added sustain.
+SoftRock2 with added sustain.
 SoftRockFill
- 1 bar fill for endings.
+1 bar fill for endings.
 SoftRockIntro
- Basic introduction.
+Basic introduction.
 SoftRockSusIntro
- Basic introduction with added strings.
+Basic introduction with added strings.
 SoftRockEnd
- Simple 4 beats to the bar ending.
+Simple 4 beats to the bar ending.
 Metronome68
- A two bar 6/8 ballad introduction.
+A two bar 6/8 ballad introduction.
 FastBlues
- Fast blues with a bit of R&B.
+Fast blues with a bit of R&B.
 FastBluesSus
- Adds sustained strings to FastBlues.
+Adds sustained strings to FastBlues.
 FastBluesWalk
- Change bass line from 1/5 to walking.
+Change bass line from 1/5 to walking.
 FastBluesWalkSus
- Walking bass version with sustained strings.
+Walking bass version with sustained strings.
 FastBlues1
- A more rowdy version, with alternating bars of a distorted guitar riff.
+A more rowdy version, with alternating bars of a distorted guitar riff.
 FastBlues1Sus
- Who invited the violin guys to the blues party?
+Who invited the violin guys to the blues party?
 FastBluesEnd
- Simple ending.
+Simple ending.
 Samba
- Our basic dance beat.
+Our basic dance beat.
 SambaFill
- Adds a whistle to the standard beat.
+Adds a whistle to the standard beat.
 SambaPlus
- Adds pizzicato strings.
+Adds pizzicato strings.
 SambaSus
- Add sustained bandoneon.
+Add sustained bandoneon.
 SambaSusFill
- Sustained bandoneon and whistle.
+Sustained bandoneon and whistle.
 SambaSusPlus
- Sustained bandoneon and arpeggios.
+Sustained bandoneon and arpeggios.
 SambaIntro
- 4 bar introduction.
+4 bar introduction.
 SambaIntro1
- Alternate 4 bar introduction.
+Alternate 4 bar introduction.
 SambaIntro8
- 8 bar introduction.
+8 bar introduction.
 SambaEnd
- 4 bar ending.
+4 bar ending.
 VieneseWaltz
- Basic waltz, piano only.
+Basic waltz, piano only.
 VieneseWaltzSus
- Basic waltz with strings and piano.
+Basic waltz with strings and piano.
 VieneseWaltz1
- Our VieneseWaltz with light, eight note arpeggios.
+Our VieneseWaltz with light, eight note arpeggios.
 VieneseWaltz1Sus
- Waltz with arpeggios and strings.
+Waltz with arpeggios and strings.
 VieneseWaltz2
- Musicbox sounds with piano.
+Musicbox sounds with piano.
 VieneseWaltz2Sus
- Musicbox with piano and strings.
+Musicbox with piano and strings.
 VieneseWaltzIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 VieneseWaltzEnd
- A 4 bar ending. Set SEQ so that the final bar is the 4th bar of the pattern. A CUT after the last bar will help.
+A 4 bar ending. Set SEQ so that the final bar is the 4th bar of the pattern. A CUT after the last bar will help.
 Mambo
- Basic rhythm.
+Basic rhythm.
 Mambo1
- Adds pizzicato arpeggios.
+Adds pizzicato arpeggios.
 Mambo2
- Add articulated Marimbas.
+Add articulated Marimbas.
 Mambo3
- Add jazz guitar chords.
+Add jazz guitar chords.
 MamboSus
- Sustained version.
+Sustained version.
 Mambo1Sus
- Sustain and pizzicato arpeggios.
+Sustain and pizzicato arpeggios.
 Mambo2Sus
- Sustain and articulated Marimbas.
+Sustain and articulated Marimbas.
 Mambo3Sus
- Sustain and guitar chords.
+Sustain and guitar chords.
 MamboIntro
- 4 bar intro with a bit of a cha-cha on 4.
+4 bar intro with a bit of a cha-cha on 4.
 MamboEnd
- That's the end!
+That's the end!
 FastJazzWaltz
- Basic fast jazz waltz.
+Basic fast jazz waltz.
 FastJazzWaltzSus
- Strings added to our waltz.
+Strings added to our waltz.
 FastJazzWaltz1
- Add arpeggio runs.
+Add arpeggio runs.
 FastJazzWaltz1Sus
- Sustained strings and arpeggios.
+Sustained strings and arpeggios.
 FastJazzWaltz2
- Add VoiceOohs.
+Add VoiceOohs.
 FastJazzWaltz2Sus
- Sustained strings and DUH voices.
+Sustained strings and DUH voices.
 FastJazzWaltzIntro
- 4 bar intro.
+4 bar intro.
 FastJazzWaltzIntro8
- 8 bar intro.
+8 bar intro.
 FastJazzWaltzFill
- Single bar fill, can be used in endings.
+Single bar fill, can be used in endings.
 FastJazzWaltzEnd
- Simple ending.
+Simple ending.
 FastJazzWaltz1End
- Ending with arpeggio eights and quarters.
+Ending with arpeggio eights and quarters.
 EEWaltz
- A basic waltz for Slavic love tunes.
+A basic waltz for Slavic love tunes.
 EEWaltzPlus
- Lighten up on the chords and add in some random improve.
+Lighten up on the chords and add in some random improve.
 EEWaltzWalkPlus
- Exchange regular bass for walking.
+Exchange regular bass for walking.
 EEWaltzSus
- Not quite a sustain since the accordion notes start just before beat 2.
+Not quite a sustain since the accordion notes start just before beat 2.
 EEWaltzWalkSus
- Same sustain with a walking bass.
+Same sustain with a walking bass.
 EEWaltzEnd
- A 2 bar ending.
+A 2 bar ending.
 Metronome6
- A two bar 6/8 ballad introduction.
+A two bar 6/8 ballad introduction.
 BubbleRock
- Our basic bubblegum rock beat.
+Our basic bubblegum rock beat.
 BubbleRockSus
- Add some sustained strings to the party.
+Add some sustained strings to the party.
 BubbleRockPlus
- Some variety with light guitar picking.
+Some variety with light guitar picking.
 BubbleRockSusPlus
- Guitar pickin' and strings meet.
+Guitar pickin' and strings meet.
 BubbleRockFill
- A single bar fill.
+A single bar fill.
 BubbleRockIntro
- A silly little introduction.
+A silly little introduction.
 BubbleRockEnd
- An abrupt 2 bar conculusion.
+An abrupt 2 bar conculusion.
 JazzRhumba
- Nice, smooth easy listening.
+Nice, smooth easy listening.
 JazzRhumbaSus
- Sustained strings make it smoother.
+Sustained strings make it smoother.
 JazzRhumbaPlus
- Adds pizzicato arpeggios.
+Adds pizzicato arpeggios.
 JazzRhumbaSusPlus
- Apreggios and sustained strings.
+Apreggios and sustained strings.
 JazzRhumbaFill
- A one bar fill for endings.
+A one bar fill for endings.
 JazzRhumbaIntro
- 4 bar intro.
+4 bar intro.
 JazzRhumbaEnd
- Simple, 2 bar, ending.
+Simple, 2 bar, ending.
 Broadway
- A very corny Broadway tune rhythm.
+A very corny Broadway tune rhythm.
 Broadway1
- Add in arpegiating flute.
+Add in arpegiating flute.
 BroadwaySus
- Add sustained strings.
+Add sustained strings.
 Broadway1Sus
- Sustained strings and apregiating flute.
+Sustained strings and apregiating flute.
 Broadway2
- Basic rhythm with some piano fills.
+Basic rhythm with some piano fills.
 Broadway2Sus
- Add in strings and piano fills.
+Add in strings and piano fills.
 BroadwayFill
- A 2 bar fill for endings.
+A 2 bar fill for endings.
 BroadwayIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 BroadwayIntro8
- Simple 8 bar intro.
+Simple 8 bar intro.
 BroadwayEnd
- A 2 bar ending reminiscent of a cha-cha.
+A 2 bar ending reminiscent of a cha-cha.
 CubanGuitar
- Basic 4 bar pattern with apreggiating guitar.
+Basic 4 bar pattern with apreggiating guitar.
 CubanGuitarSus
- Add in sustained strings.
+Add in sustained strings.
 CubanGuitarPlus
- Basic pattern with some additional harmony notes.
+Basic pattern with some additional harmony notes.
 CubanGuitarSusPlus
- Additional harmony and sustain strings.
+Additional harmony and sustain strings.
 CubanGuitarIntro
- A simple introduction.
+A simple introduction.
 CubanGuitarIntroSus
- Basic intro with strings.
+Basic intro with strings.
 CubanGuitarEnd
- 2 bar ending.
+2 bar ending.
 CubanGuitarEndSus
- 2 bar ending with strings.
+2 bar ending with strings.
 NiteJazz
- Our basic sultry beat.
+Our basic sultry beat.
 NiteJazzSus
- Add in some strings.
+Add in some strings.
 NiteJazzPlus
- Add in some jazz guitar picking.
+Add in some jazz guitar picking.
 NiteJazzSusPlus
- Guitar picking and sustained low strings.
+Guitar picking and sustained low strings.
 NiteJazzIntro
- Simple 4 bar intro with bass walk on 4.
+Simple 4 bar intro with bass walk on 4.
 NiteJazzEnd
- 2 bar ending.
+2 bar ending.
 Tango
- Basic tango.
+Basic tango.
 Tango1
- Our basic Tango with a March feel.
+Our basic Tango with a March feel.
 TangoClean
- A simpler version with just block chords.
+A simpler version with just block chords.
 TangoCleanSus
- Simple tango with sustained strings.
+Simple tango with sustained strings.
 TangoCleanPlus
- Clean version with a violin alternate.
+Clean version with a violin alternate.
 TangoIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 TangoEnd
- A nice ending for our dance.
+A nice ending for our dance.
 GypsyJazz
- Straight ahead gypsy.
+Straight ahead gypsy.
 GypsyJazzSus
- Add in a sustained violin.
+Add in a sustained violin.
 GypsyJazzFiddle
- A fiddling gypsy.
+A fiddling gypsy.
 GypsyJazzSusFiddle
- A fiddling gypsy with orchestra.
+A fiddling gypsy with orchestra.
 GypsyJazzGuitar
- Add in guitar riffs.
+Add in guitar riffs.
 GypsyJazzSusGuitar
- A guitar riffing gypsy with orchestra.
+A guitar riffing gypsy with orchestra.
 GypsyJazzIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 GypsyJazzEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 Ska
- Good if you're from Trinidad.
+Good if you're from Trinidad.
 Ska1
- Change Piano to SteelDrums and add in some eight note Claves.
+Change Piano to SteelDrums and add in some eight note Claves.
 SkaSus
- Adds sustained voices to Ska.
+Adds sustained voices to Ska.
 Ska1Sus
- Adds sustained voices to Ska1.
+Adds sustained voices to Ska1.
 SkaClap
- Adds a rather loud handclap to the basic beat. Good for repeatendings, etc.
+Adds a rather loud handclap to the basic beat. Good for repeatendings, etc.
 SkaEnd
- A funky ending. Really does need some work.
+A funky ending. Really does need some work.
 RockBallad
- Basic beat with triplet Hi-Hats.
+Basic beat with triplet Hi-Hats.
 RockBallad1
- Same as the basic pattern, but skips the chord triplet on bar 4.
+Same as the basic pattern, but skips the chord triplet on bar 4.
 RockBalladFill
- Add guitar arpeggios.
+Add guitar arpeggios.
 RockBallad1Fill
- Guitar apreggio fills without 4th bar triplets.
+Guitar apreggio fills without 4th bar triplets.
 RockBalladVoice
- Adds some cheese with choir voices.
+Adds some cheese with choir voices.
 RockBallad1Voice
- Cheese without 4th bar triplets.
+Cheese without 4th bar triplets.
 RockBalladIntro
- 4 bar intro.
+4 bar intro.
 RockBalladSusIntro
- 4 bar intro with mostly strings.
+4 bar intro with mostly strings.
 RockBalladEnd
- Ending with a scaling tenor sax. Use Seq 1 to 4 for 16ths, 8th, 4th or 1/2 note runs.
+Ending with a scaling tenor sax. Use Seq 1 to 4 for 16ths, 8th, 4th or 1/2 note runs.
 RockBalladEnd1
- Simple 2 bar ending.
+Simple 2 bar ending.
 Merengue
- Driving dance rhythm.
+Driving dance rhythm.
 Merengue1
- Substitute bandoneon for first piano.
+Substitute bandoneon for first piano.
 Merengue2
- Add brass hits every 4 bars.
+Add brass hits every 4 bars.
 MerengueSus
- Basic version with sustained bandoneon.
+Basic version with sustained bandoneon.
 Merengue1Sus
- Bandoneon rhythm and sustain.
+Bandoneon rhythm and sustain.
 Merengue2Sus
- Bandoneon rhythm with 4 bar brass hits.
+Bandoneon rhythm with 4 bar brass hits.
 MerengueIntro
- 8 bar introduction.
+8 bar introduction.
 MerengueEnd
- 4 bar ending.
+4 bar ending.
 CountryBlues
- Somewhat lamentive blues.
+Somewhat lamentive blues.
 CountryBluesSus
- Adds sustained strings.
+Adds sustained strings.
 CountryBluesWalk
- Walking bass version.
+Walking bass version.
 CountryBluesWalkSus
- Walking bass and sustained strings.
+Walking bass and sustained strings.
 CountryBlues1
- Add piano triplets every 2 bars.
+Add piano triplets every 2 bars.
 CountryBlues1Sus
- Sustained version.
+Sustained version.
 CountryBlues1Walk
- Triplet version with walking bass.
+Triplet version with walking bass.
 CountryBlues1WalkSus
- Triplet version with walking bass and strings.
+Triplet version with walking bass and strings.
 CountryBluesFill
- Adds a bad fiddler (use sparingly!).
+Adds a bad fiddler (use sparingly!).
 CountryBluesWalkFill
- Walking bass with fiddler.
+Walking bass with fiddler.
 CountryBlues1Fill
- Piano triplets and fiddle.
+Piano triplets and fiddle.
 CountryBlues1WalkFill
- Piano triplets, walking bass and fiddle.
+Piano triplets, walking bass and fiddle.
 CountryBluesIntro
- A 4 bar introduction.
+A 4 bar introduction.
 CountryBluesEnd
- Simple ending.
+Simple ending.
 Jazz54
- Basic 5/4 jazz rhythm.
+Basic 5/4 jazz rhythm.
 Jazz54Walk
- This replaces the original bass pattern with a five-to-the-bar walking bass.
+This replaces the original bass pattern with a five-to-the-bar walking bass.
 Jazz54Sus
- Add in some sustained strings. Not really all that great.
+Add in some sustained strings. Not really all that great.
 Jazz54WalkSus
- Walking bass and sustained strings.
+Walking bass and sustained strings.
 Jazz54DrumIntro
- Single bar intro with only funky drum line.
+Single bar intro with only funky drum line.
 Foxtrot
- Basic Foxtrot.
+Basic Foxtrot.
 FoxtrotSus
- Adds sustained strings to Foxtrot.
+Adds sustained strings to Foxtrot.
 FoxTrotPlus
- A jazzy piano addition to the basic beat.
+A jazzy piano addition to the basic beat.
 FoxTrotSusPlus
- Sustained strings and piano 8ths.
+Sustained strings and piano 8ths.
 Foxtrot1
- FoxTrot with sax section and walking bass.
+FoxTrot with sax section and walking bass.
 FoxTrot1Sus
- TremoloStrings added to FoxTrot1.
+TremoloStrings added to FoxTrot1.
 FoxTrot1Plus
- Add arpeggio piano to FoxTrot1.
+Add arpeggio piano to FoxTrot1.
 FoxTrot1SusPlus
- Add arpeggio and sustained strings.
+Add arpeggio and sustained strings.
 FoxTrotIntro
- Walking bass intro.
+Walking bass intro.
 FoxTrot1Intro
- Intro based on FoxTrot1 (with saxes).
+Intro based on FoxTrot1 (with saxes).
 FoxtrotFill
- A 2 bar fill with a rather heavy walking bass.
+A 2 bar fill with a rather heavy walking bass.
 FoxTrotEnd
- Simple ending, 4 beats on first bar and 2 on second.
+Simple ending, 4 beats on first bar and 2 on second.
 FoxTrot1End
- Ending based on Foxtrot1.
+Ending based on Foxtrot1.
 PopBallad
- Plain old Pop Ballad.
+Plain old Pop Ballad.
 PopBallad1
- The PopBallad with a bit more drum beat and some sustained strings.
+The PopBallad with a bit more drum beat and some sustained strings.
 PopBallad2
- A straighter version of the ballad.
+A straighter version of the ballad.
 PopBalladPlus
- Adds nice guitar riffs.
+Adds nice guitar riffs.
 PopBallad1Plus
- Alternative with riffs.
+Alternative with riffs.
 PopBallad2Plus
- Straigther, with riffs.
+Straigther, with riffs.
 PopBalladSus
- A slightly lighter version, with strings.
+A slightly lighter version, with strings.
 PopBallad2Sus
- Add strings to straight version.
+Add strings to straight version.
 PopBalladSusPlus
- Ballad with strings and guitar riffs.
+Ballad with strings and guitar riffs.
 PopBallad2SusPlus
- Alternative with strings and guitar riffs.
+Alternative with strings and guitar riffs.
 PopBallad2Plus
- Straighter, with riffs.
+Straighter, with riffs.
 PopBalladIntro
- A simple introduction.
+A simple introduction.
 PopBalladEnd
- This is a finalizing, 1 bar ending.
+This is a finalizing, 1 bar ending.
 ModernJazzWaltz
- ModernJazzWaltz with just a piano and guitar.
+ModernJazzWaltz with just a piano and guitar.
 ModernJazzWaltz1
- Adds a muted trumpet on alternate bars.
+Adds a muted trumpet on alternate bars.
 ModernJazzWaltzSus
- ModernJazzWaltz with added sustained violins.
+ModernJazzWaltz with added sustained violins.
 ModernJazzWaltz1Sus
- The full-meal-deal.
+The full-meal-deal.
 ModernJazzWaltz2
- A slower version of alternate-bar trumpet for faster tempos.
+A slower version of alternate-bar trumpet for faster tempos.
 ModernJazzWaltz2Sus
- Slower alternate-bar trumpets with violins for faster tempos.
+Slower alternate-bar trumpets with violins for faster tempos.
 ModernJazzWaltzFill
- A 2 bar horn fill good for endings.
+A 2 bar horn fill good for endings.
 ModernJazzWaltzIntro
- 4 bar introduction.
+4 bar introduction.
 ModernJazzWaltzEnd
- Nice, 2 bar, ending. First bar is full, second has hits on 1 and 3.
+Nice, 2 bar, ending. First bar is full, second has hits on 1 and 3.
 Rhumba
- Nice, smooth easy listening.
+Nice, smooth easy listening.
 RhumbaSus
- Sustained strings make it smoother.
+Sustained strings make it smoother.
 RhumbaTriple
- Rhumba with quarter note triplet chords. Good for emphasizing a single bar in a piece. Not great for more than one bar in a row.
+Rhumba with quarter note triplet chords. Good for emphasizing a single bar in a piece. Not great for more than one bar in a row.
 RhumbaTripleSus
- Triplets and sustained strings.
+Triplets and sustained strings.
 RhumbaTriple12
- Variation of RhumbaTriple with triplets on beats 1/2 and quarters on 3/4.
+Variation of RhumbaTriple with triplets on beats 1/2 and quarters on 3/4.
 RhumbaTriple12Sus
- Triplet on 1/2 and strings.
+Triplet on 1/2 and strings.
 RhumbaTriple34
- Variation of RhumbaTriple with triplets on beats 3/4 and quarters on 1/2.
+Variation of RhumbaTriple with triplets on beats 3/4 and quarters on 1/2.
 RhumbaTriple34Sus
- Triplet on 3/4 and strings.
+Triplet on 3/4 and strings.
 Rhumba1
- Adds pizzicato arpeggios.
+Adds pizzicato arpeggios.
 Rhumba1Sus
- Apreggios and sustained strings.
+Apreggios and sustained strings.
 Rhumba2
- Add articulated Marimbas.
+Add articulated Marimbas.
 Rhumba2Sus
- Marimbas and sustained strings.
+Marimbas and sustained strings.
 Rhumba3
- Add jazz guitar chords.
+Add jazz guitar chords.
 Rhumba3Sus
- Guitar chords and sustained strings.
+Guitar chords and sustained strings.
 RhumbaIntro
- 4 bar intro to go with standard Rhumba.
+4 bar intro to go with standard Rhumba.
 RhumbaEnd
- Ending with string scales. The scales use 8th, quarter, half and finally a whole note. Setting the seq to different values for each bar of the ending will create proper effects.
+Ending with string scales. The scales use 8th, quarter, half and finally a whole note. Setting the seq to different values for each bar of the ending will create proper effects.
 RhumbaEnd1
- Simpler, 2 bar, ending.
+Simpler, 2 bar, ending.
 Spiritual
- A basic spiritual beat in 4.
+A basic spiritual beat in 4.
 SpiritualPlus
- Add in a jazz guitar plucking notes.
+Add in a jazz guitar plucking notes.
 SpiritualSus
- Our basic beat with added organ.
+Our basic beat with added organ.
 SpiritualSusPlus
- Organ and crazy guitar.
+Organ and crazy guitar.
 SpiritualIntro
- Our basic 4 bar introduction.
+Our basic 4 bar introduction.
 SpiritualSusIntro
- A 4 bar intro with organ.
+A 4 bar intro with organ.
 SpiritualEnd
- A 2 bar ending.
+A 2 bar ending.
 Polka
- Simple, Barvarian-style polka.
+Simple, Barvarian-style polka.
 PolkaSus
- Same as Polka, but we add in singing frauleins.
+Same as Polka, but we add in singing frauleins.
 PolkaArp
- Polka with a imported accordion player for arpeggios.
+Polka with a imported accordion player for arpeggios.
 PolkaSusArp
- Polka with frauleins and accordion player. Wow!
+Polka with frauleins and accordion player. Wow!
 Polka1
- Similar to Polka, but with a snazzier bass.
+Similar to Polka, but with a snazzier bass.
 Polka1Sus
- Polka1 with sustained voices.
+Polka1 with sustained voices.
 Polka1Arp
- Polka1 with Accordion arpeggios.
+Polka1 with Accordion arpeggios.
 Polka1SusArp
- Polka1 with voices and arpeggios.
+Polka1 with voices and arpeggios.
 PolkaIntro
- A nice little 4 bar intro.
+A nice little 4 bar intro.
 PolkaIntro8
- Expanded version of PolkaIntro for 8 bars.
+Expanded version of PolkaIntro for 8 bars.
 PolkaEnd
- A repeatable, single bar ending.
+A repeatable, single bar ending.
 Strut
- Basic strut in 4.
+Basic strut in 4.
 StrutSus
- A soothing strut with strings.
+A soothing strut with strings.
 Strut2
- Same strut with a 2 beat emphasis.
+Same strut with a 2 beat emphasis.
 Strut2Sus
- Our 2 beat version with strings.
+Our 2 beat version with strings.
 StrutIntro
- 4 bar intro.
+4 bar intro.
 StrutSusIntro
- Same intro with sustained strings.
+Same intro with sustained strings.
 StrutEnd
- A 2 bar ending.
+A 2 bar ending.
 Folk
- A very simple pattern to set against old songs. Uses a random Tambourine to liven things up a bit. Wear something tie-dyed when you use this.
+A very simple pattern to set against old songs. Uses a random Tambourine to liven things up a bit. Wear something tie-dyed when you use this.
 FolkWalk
- Plain folk rhythm with walking bass.
+Plain folk rhythm with walking bass.
 FolkArticulated
- Fingered picked guitar and a bit of bass.
+Fingered picked guitar and a bit of bass.
 FolkSus
- Some nice harmonica chords with the guitar.
+Some nice harmonica chords with the guitar.
 FolkArticulatedSus
- Articulated version with harmonica.
+Articulated version with harmonica.
 FolkIntro
- Pretty boring 4 bar intro.
+Pretty boring 4 bar intro.
 FolkEnd
- Easy, 2 bar ending. First bar has 4 strums, second bar has 2 strums.
+Easy, 2 bar ending. First bar has 4 strums, second bar has 2 strums.
 MellowJazz
- A slow, steady beat.
+A slow, steady beat.
 MellowJazzPlus
- Add in some random piano notes.
+Add in some random piano notes.
 MellowJazzSus
- Add strings to the mix.
+Add strings to the mix.
 MellowJazzSusPlus
- Solo piano and strings.
+Solo piano and strings.
 MellowJazzFill
- A one bar fill.
+A one bar fill.
 MellowJazzIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 MellowJazzEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 Ballad
- Simple Rock ballad in 4.
+Simple Rock ballad in 4.
 BalladSus
- Our simple ballad with sustained strings.
+Our simple ballad with sustained strings.
 Ballad1
- Arpeggios replaced with block chords.
+Arpeggios replaced with block chords.
 Ballad1Sus
- Add sustained strings to Ballad1.
+Add sustained strings to Ballad1.
 BalladFill
- 1 bar fill, good for endings.
+1 bar fill, good for endings.
 BalladPlus
- Ballad with a bit of solo guitar.
+Ballad with a bit of solo guitar.
 BalladSusPlus
- Ballad with strings and guitar solo.
+Ballad with strings and guitar solo.
 Ballad1Plus
- Block chord ballad with guitar solo.
+Block chord ballad with guitar solo.
 Ballad1SusPlus
- Block chord ballad with strings and guitar.
+Block chord ballad with strings and guitar.
 BalladIntro
- 4 bar introduction.
+4 bar introduction.
 BalladIntro1
- Intro without arpeggios and straight chords.
+Intro without arpeggios and straight chords.
 BalladIntro2
- Add in some sustained strings to BalladIntro1.
+Add in some sustained strings to BalladIntro1.
 BalladEnd
- A 4 bar ending with a scale played on a harp. The scale goes from 16ths, 8ths, quarters and half notes on bars 1 to 4.
+A 4 bar ending with a scale played on a harp. The scale goes from 16ths, 8ths, quarters and half notes on bars 1 to 4.
 Ballad1End
- A simpler 4 bar ending. We still have a harp, but it's doing quarter note arpeggios.
+A simpler 4 bar ending. We still have a harp, but it's doing quarter note arpeggios.
 Afro-Cuban
- Basic 6/8 Afro-Cuban style.
+Basic 6/8 Afro-Cuban style.
 Afro-CubanIntro
- A 4 bar introduction.
+A 4 bar introduction.
 Afro-CubanSus
- Add in an jazz organ sound.
+Add in an jazz organ sound.
 Afro-CubanPlus
- Basic pattern with articulating trumpet.
+Basic pattern with articulating trumpet.
 Afro-CubanSusPlus
- Organ and muted trumpet.
+Organ and muted trumpet.
 Afro-CubanFill
- A 1 bar fill.
+A 1 bar fill.
 Afro-CubanEnd
- A 2 bar ending.
+A 2 bar ending.
 Waltz
- A very boring waltz with piano chords.
+A very boring waltz with piano chords.
 WaltzSus
- Adds strings to Waltz.
+Adds strings to Waltz.
 Waltz1
- Add piano apreggios to the basic waltz.
+Add piano apreggios to the basic waltz.
 Waltz1Sus
- Waltz with arpeggios and sustained strings.
+Waltz with arpeggios and sustained strings.
 WaltzWalk
- Walking bass version of Waltz.
+Walking bass version of Waltz.
 WaltzWalkSus
- Walking bass and sustained strings.
+Walking bass and sustained strings.
 Waltz1Walk
- Walking bass and arpeggios.
+Walking bass and arpeggios.
 Waltz1WalkSus
- Walking bass, arpeggios and sustained strings.
+Walking bass, arpeggios and sustained strings.
 WaltzIntro
- Waltz intro with piano chords.
+Waltz intro with piano chords.
 WaltzSusIntro
- Simple intro with strings.
+Simple intro with strings.
 Waltz1Intro
- Waltz intro with piano arpeggios.
+Waltz intro with piano arpeggios.
 Waltz1SusIntro
- Intro with arepeggios and strings.
+Intro with arepeggios and strings.
 WaltzIntro8
- 8 bar waltz intro with piano chords.
+8 bar waltz intro with piano chords.
 WaltzSusIntro8
- 8 bar Intro with arepeggios and strings.
+8 bar Intro with arepeggios and strings.
 Waltz1Intro8
- 8 bar wWaltz intro with piano arpeggios.
+8 bar wWaltz intro with piano arpeggios.
 Waltz1SusIntro8
- 8 bar intro with arpgeggios and strings.
+8 bar intro with arpgeggios and strings.
 WaltzEnd
- Simple ending based on Waltz with piano scales. Scales are 16ths on bar 1, 8ths on 2, quarters on 3 and a single note on 4. Adjust your SEQ accordingly, and use a CUT to finish the last bar.
+Simple ending based on Waltz with piano scales. Scales are 16ths on bar 1, 8ths on 2, quarters on 3 and a single note on 4. Adjust your SEQ accordingly, and use a CUT to finish the last bar.
 LFusion
- Basic Latin Fusion.
+Basic Latin Fusion.
 LFusionSus
- Add sustained atmosphere.
+Add sustained atmosphere.
 LFusion1
- Same rhythm but with an accordion for that zydeco feeling.
+Same rhythm but with an accordion for that zydeco feeling.
 LFusion1Sus
- The zydeco with strings.
+The zydeco with strings.
 LFusionIntro
- Smooth intro with strings.
+Smooth intro with strings.
 LFusionIntroSus
- Intro with strings.
+Intro with strings.
 LFusionEnd
- A one bar ending.
+A one bar ending.
 Lfusion1End
- Same as LFusionEnd, but uses accordion instead of piano.
+Same as LFusionEnd, but uses accordion instead of piano.
 Blues
- Straight-ahead blues.
+Straight-ahead blues.
 BluesTriple
- Change the piano chords to triplets. Nice for a transition bar.
+Change the piano chords to triplets. Nice for a transition bar.
 BluesSus
- Add a sustained harmonica. Annoying.
+Add a sustained harmonica. Annoying.
 BluesTripleSus
- Sustained 'arp and chord triplets.
+Sustained 'arp and chord triplets.
 BluesTripleL
- Same as BluesTriple with triplets on beats 1 and 2.
+Same as BluesTriple with triplets on beats 1 and 2.
 BluesTripleLSus
- Same as BluesTripleSus with triplets on beats 1 and 2.
+Same as BluesTripleSus with triplets on beats 1 and 2.
 BluesTripleR
- Same as BluesTriple with triplets on beats 3 and 4.
+Same as BluesTriple with triplets on beats 3 and 4.
 BluesTripleRSus
- Same as BluesTripleSus with triplets on beats 3 and 4.
+Same as BluesTripleSus with triplets on beats 3 and 4.
 Blues1
- Add honky-piano.
+Add honky-piano.
 Blues1Sus
- The honky-piano meets the mouth-arp.
+The honky-piano meets the mouth-arp.
 BluesIntro
- Simple, 4 bar, introduction.
+Simple, 4 bar, introduction.
 BluesEnd
- A 4 bar ending. First 2 bars have 4 "hits", the last 2 have 2.
+A 4 bar ending. First 2 bars have 4 "hits", the last 2 have 2.
 Click
- A simple click track.
+A simple click track.
 ShowTune
- Basic track with strings.
+Basic track with strings.
 ShowTune1
- Add in pizzicato strings.
+Add in pizzicato strings.
 ShowTune2
- Basic version with extra ''stuff''. Set voice with ``ExtraVoice''.
+Basic version with extra ''stuff''. Set voice with ``ExtraVoice''.
 ShowTunePlus
- Add trumpet arpeggios.
+Add trumpet arpeggios.
 ShowTune1Plus
- Add trumpets and plucked strings.
+Add trumpets and plucked strings.
 ShowTune2Plus
- Add trumpets and ``extra''.
+Add trumpets and ``extra''.
 ShowTuneIntro
- 4 bar intro with plucked strings.
+4 bar intro with plucked strings.
 ShowTuneEnd
- A pretty dull ending.
+A pretty dull ending.
 FastWaltz
- A basic waltz pattern in 1.
+A basic waltz pattern in 1.
 FastWaltzSus
- Add strings to FastWaltz.
+Add strings to FastWaltz.
 FastWaltzPlus
- Piano arpeggios filler.
+Piano arpeggios filler.
 FastWaltzSusPlus
- FastWaltz with arpeggios and sustained strings.
+FastWaltz with arpeggios and sustained strings.
 FastWaltzWalk
- Walking bass version of FastWaltz.
+Walking bass version of FastWaltz.
 FastWaltzWalkSus
- Walking bass and sustained strings.
+Walking bass and sustained strings.
 FastWaltzWalkPlus
- Walking bass and arpeggios.
+Walking bass and arpeggios.
 FastWaltzWalkSusPlus
- Walking bass, arpeggios and sustained strings.
+Walking bass, arpeggios and sustained strings.
 FastWaltzIntro
- 4 bar intro.
+4 bar intro.
 FastWaltzIntro8
- 8 bar intro.
+8 bar intro.
 FastWaltzEnd
- Simple ending based on Waltz with piano scales. Adjust your SEQ points or use a CUT to finish the last bar.
+Simple ending based on Waltz with piano scales. Adjust your SEQ points or use a CUT to finish the last bar.
 BroadwayWaltz
- A happy waltz for the stage.
+A happy waltz for the stage.
 BroadwayWaltz1
- Add in arpegiating flute.
+Add in arpegiating flute.
 BroadwayWaltzSus
- Add sustained strings.
+Add sustained strings.
 BroadwayWaltz1Sus
- Sustained strings and apregiating flute.
+Sustained strings and apregiating flute.
 BroadwayWaltz2
- Basic rhythm with some piano fills.
+Basic rhythm with some piano fills.
 BroadwayWaltz2Sus
- Add in strings and piano fills.
+Add in strings and piano fills.
 BroadwayWaltzIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 BroadwayWaltzIntro8
- Simple 8 bar intro.
+Simple 8 bar intro.
 BroadwayWaltzEnd
- A simple 2 bar ending.
+A simple 2 bar ending.
 PopSpiritual
- Basic pattern.
+Basic pattern.
 PopSpiritualSus
- Piano with big sustained organ.
+Piano with big sustained organ.
 PopSpiritualPlus
- Let the guitar apreggiate.
+Let the guitar apreggiate.
 PopSpiritualSusPlus
- Organ and guitar.
+Organ and guitar.
 PopSpiritualIntro
- 4 bar introduction.
+4 bar introduction.
 PopSpiritualEnd
- Simple ending.
+Simple ending.
 JazzRock
- Basic jazz-rock pattern.
+Basic jazz-rock pattern.
 JazzRockSus
- Basic with added choir voices.
+Basic with added choir voices.
 JazzRockWalk
- Our basic pattern with walking bass.
+Our basic pattern with walking bass.
 JazzRockWalkSus
- Walking bass with choir.
+Walking bass with choir.
 JazzRockPlus
- Add a bit of trumpet solo.
+Add a bit of trumpet solo.
 JazzRockSusPlus
- The trumpet and strings.
+The trumpet and strings.
 JazzRockWalkPlus
- Walking bass with trumpet.
+Walking bass with trumpet.
 JazzRockWalkSusPlus
- Walking bass with trumpet and strings.
+Walking bass with trumpet and strings.
 JazzRockFill
- A single bar triplet fill.
+A single bar triplet fill.
 JazzRockIntro
- A 4 bar introduction.
+A 4 bar introduction.
 JazzRockIntro8
- A 8 bar introduction.
+A 8 bar introduction.
 JazzRockEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 SlowBlues
- Simple guitar chords.
+Simple guitar chords.
 SlowBluesFill
- Full chord plus argeggio for fills.
+Full chord plus argeggio for fills.
 SlowBluesFill1
- Same as Fill but with straight 8ths.
+Same as Fill but with straight 8ths.
 SlowBluesFill2
- Full chord plus scale for fills.
+Full chord plus scale for fills.
 SlowBluesFill3
- Same as fill2 but with straight 8ths.
+Same as fill2 but with straight 8ths.
 SlowBluesSus
- Our simple blues with the choir added.
+Our simple blues with the choir added.
 SlowBluesWalk4
- Same as SlowBlues but with a strong quarter note walking bass.
+Same as SlowBlues but with a strong quarter note walking bass.
 SlowBluesWalk4Sus
- Choir added to Walk4.
+Choir added to Walk4.
 SlowBluesWalk8
- Same as SlowBlues but with a strong eight note walking bass. This works nicely with SlowBluesWalk4 in an A-A-B-A selection with the B section using this groove and the A using SlowBLuesWalk4.
+Same as SlowBlues but with a strong eight note walking bass. This works nicely with SlowBluesWalk4 in an A-A-B-A selection with the B section using this groove and the A using SlowBLuesWalk4.
 SlowBluesWalk8Sus
- Choir added to Walk8.
+Choir added to Walk8.
 SlowBlues12Triple
- Triplets on beats 1,2.
+Triplets on beats 1,2.
 SlowBlues34Triple
- Triplets on beats 3,4.
+Triplets on beats 3,4.
 SlowBlues4Triple
- Triplets on beats 1,2,3 and 4.
+Triplets on beats 1,2,3 and 4.
 SlowBluesIntro
- Standard 4 bar introduction with walking bass on 4th bar.
+Standard 4 bar introduction with walking bass on 4th bar.
 SlowBluesEnd
- Quite a dull ending. The High Hats play 16 notes on the first bar, 8 on the second, 4 on the third and 2 on the fourth. Set the SEQ point appropiately for your ending.
+Quite a dull ending. The High Hats play 16 notes on the first bar, 8 on the second, 4 on the third and 2 on the fourth. Set the SEQ point appropiately for your ending.
 FolkRock
- Basic Mama/Papa rock style.
+Basic Mama/Papa rock style.
 FolkRockPlus
- Our basic style with added piano stuff.
+Our basic style with added piano stuff.
 FolkRockSus
- Add in some synthesized voices.
+Add in some synthesized voices.
 FolkRockSusPlus
- Piano fills and voices.
+Piano fills and voices.
 FolkRockFill
- A noisy, one bar fill.
+A noisy, one bar fill.
 FolkRockIntro
- Simple four bar intro.
+Simple four bar intro.
 FolkRockEnd
- A 2 bar ending.
+A 2 bar ending.
 CountrySwing
- Marty Robbins might like this.
+Marty Robbins might like this.
 CountrySwingSus
- Adds a sustained fiddle to the hoedown.
+Adds a sustained fiddle to the hoedown.
 CountrySwing1
- Adds an annoying fiddle.
+Adds an annoying fiddle.
 CountrySwing1Sus
- Now we have 2 fiddlers, one off in wonderland and a second playing long notes.
+Now we have 2 fiddlers, one off in wonderland and a second playing long notes.
 CountrySwing2
- Same fiddle, but a more sane pattern.
+Same fiddle, but a more sane pattern.
 CountrySwing2Sus
- A sustained and a random fiddler. Great dance!
+A sustained and a random fiddler. Great dance!
 CountrySwingIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 CountrySwingEnd
- Simple ending. Hits on each beat on bar 1, beats 1 and 3 on bar 2.
+Simple ending. Hits on each beat on bar 1, beats 1 and 3 on bar 2.
 RockWaltz
- Hold tight for this dance.
+Hold tight for this dance.
 RockWaltzSus
- Add strings to RockWaltz.
+Add strings to RockWaltz.
 RockWaltz1
- Add piano apreggios to the RockWaltz.
+Add piano apreggios to the RockWaltz.
 RockWaltz1Sus
- RockWaltz with arpeggios and sustained strings.
+RockWaltz with arpeggios and sustained strings.
 RockWaltzWalk
- Walking bass version of RockWaltz.
+Walking bass version of RockWaltz.
 RockWaltzWalkSus
- Walking bass and sustained strings.
+Walking bass and sustained strings.
 RockWaltz1Walk
- Walking bass and arpeggios.
+Walking bass and arpeggios.
 RockWaltz1WalkSus
- Walking bass, arpeggios and sustained strings.
+Walking bass, arpeggios and sustained strings.
 RockWaltzIntro
- RockWaltz intro with guitar chords.
+RockWaltz intro with guitar chords.
 RockWaltz1Intro
- RockWaltz intro with arpeggios.
+RockWaltz intro with arpeggios.
 RockWaltzIntro8
- 8 bar RockWaltz intro with guitar chords.
+8 bar RockWaltz intro with guitar chords.
 RockWaltz1intro8
- 8 bar RockWaltz intro with arpeggios.
+8 bar RockWaltz intro with arpeggios.
 RockWaltzEnd
- Simple 4 bar ending.
+Simple 4 bar ending.
 JazzCombo
- A driving, straight-ahead jazz beat.
+A driving, straight-ahead jazz beat.
 JazzCombo1
- Basic beat with straighter piano.
+Basic beat with straighter piano.
 JazzCombo2
- The basic beat with added drums.
+The basic beat with added drums.
 JazzComboSus
- Add some string players to the quartet.
+Add some string players to the quartet.
 JazzCombo1Sus
- Strings and straighter piano.
+Strings and straighter piano.
 JazzCombo2Sus
- Strings plus added drums.
+Strings plus added drums.
 JazzComboPlus
- Guitar plays pseudo melody instead of rhythm.
+Guitar plays pseudo melody instead of rhythm.
 JazzCombo1Plus
- Guitar melody with staighter piano.
+Guitar melody with staighter piano.
 JazzCombo2Plus
- More drums with guitar melody.
+More drums with guitar melody.
 JazzComboSusPlus
- Strings with guitar.
+Strings with guitar.
 JazzCombo1SusPlus
- Strings, straight chords and guitar.
+Strings, straight chords and guitar.
 JazzCombo2SusPlus
- Strings, drums and guitar.
+Strings, drums and guitar.
 JazzComboIntro
- A 4 bar introduction.
+A 4 bar introduction.
 JazzComboIntro2
- Same intro with less stuff going on.
+Same intro with less stuff going on.
 JazzComboEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 BlueFolk
- Standard groove.
+Standard groove.
 BlueFolk2
- Standard with a bit less SteelGuitar.
+Standard with a bit less SteelGuitar.
 BlueFolkPlus
- Add a guitar "solo" to the mix.
+Add a guitar "solo" to the mix.
 BlueFolk2Plus
- Same solo, with a bit less SteelGuitar.
+Same solo, with a bit less SteelGuitar.
 BlueFolkSus
- Add in the sustained organ.
+Add in the sustained organ.
 BlueFolk2Sus
- Same sustained, with a bit less SteelGuitar.
+Same sustained, with a bit less SteelGuitar.
 BlueFolkSusPlus
- Organ and guitar solo.
+Organ and guitar solo.
 BlueFolk2SusPlus
- Less arpeggio, organ and guitar solo.
+Less arpeggio, organ and guitar solo.
 BlueFolkIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 BlueFolkEnd
- 2 bar ending with walking bass on 1st bar.
+2 bar ending with walking bass on 1st bar.
 DescendingJazz
- A walking style with decending chords.
+A walking style with decending chords.
 DescendingJazzPlus
- A walking style with piano arpeggios.
+A walking style with piano arpeggios.
 DescendingJazzSus
- A walking style with added strings.
+A walking style with added strings.
 DescendingJazzSusPlus
- A walking style with strings and arpeggios.
+A walking style with strings and arpeggios.
 DescendingJazzIntro
- 4 bar introduction.
+4 bar introduction.
 DescendingJazzIntro8
- 8 bar introduction.
+8 bar introduction.
 DescendingJazzPlusIntro
- 4 bar introduction with arpeggios.
+4 bar introduction with arpeggios.
 DescendingJazzPlusIntro8
- 8 bar introduction with arpeggios.
+8 bar introduction with arpeggios.
 DescendingJazzEnd
- 2 bar ending.
+2 bar ending.
 Calypso
- A nice, simple Calypos beat with lots of tom-drums.
+A nice, simple Calypos beat with lots of tom-drums.
 CalypsoSus
- A synth voice sustained under the beat.
+A synth voice sustained under the beat.
 Calypso1
- Walking Bass changed to 4-in-a-bar.
+Walking Bass changed to 4-in-a-bar.
 Calypso1Sus
- 4-in-a-bar bass with sustained, artifical voices.
+4-in-a-bar bass with sustained, artifical voices.
 CalypsoPlus
- Add solo-sounding guitar.
+Add solo-sounding guitar.
 CalypsoSusPlus
- Guitar and synth voice.
+Guitar and synth voice.
 Calypso1Plus
- 4 to the bar bass and guitar.
+4 to the bar bass and guitar.
 Calypso1SusPlus
- 4 to the bar bass, guitar and voice.
+4 to the bar bass, guitar and voice.
 CalypsoIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 Calypso8Intro
- An expansion of CalypsoIntro to 8 bars.
+An expansion of CalypsoIntro to 8 bars.
 CalypsoEnd
- A very simple, finalized ending. All the same instruments as Calypso, but all are on beats 1,2,3 and 4.
+A very simple, finalized ending. All the same instruments as Calypso, but all are on beats 1,2,3 and 4.
 Ballad68
- A rock ballad beat in 6/8.
+A rock ballad beat in 6/8.
 Ballad68Plus
- Adds arpeggiated piano.
+Adds arpeggiated piano.
 Ballad68Sus
- Add in sustained TremoloStrings.
+Add in sustained TremoloStrings.
 Ballad68SusPlus
- Sustained strings and apreggiating piano.
+Sustained strings and apreggiating piano.
 Ballad68-44
- A 4/4 fill bar.
+A 4/4 fill bar.
 Ballad68Intro
- This 4 bar intro with arpeggios.
+This 4 bar intro with arpeggios.
 Ballad68End
- Simple 2 bar ending.
+Simple 2 bar ending.
 Swing
- Basic swing beat.
+Basic swing beat.
 SwingWalk
- Change the 1/3 syncapated bass to the same pattern, but with a walking style.
+Change the 1/3 syncapated bass to the same pattern, but with a walking style.
 SwingTriple
- Modified Swing with quarter note triplets. Good for occasional fill bars.
+Modified Swing with quarter note triplets. Good for occasional fill bars.
 SwingFill
- Simple 2 bar fill. Good for endings.
+Simple 2 bar fill. Good for endings.
 SwingPlus
- Adds clarinet arpeggios to Swing.
+Adds clarinet arpeggios to Swing.
 SwingWalkPlus
- Swing with walking bass and arpeggios.
+Swing with walking bass and arpeggios.
 SwingSus
- Add sustained strings to Swing.
+Add sustained strings to Swing.
 SwingPlusSus
- Add sustained strings to SwingPlus. This is getting a bit thick sounding.
+Add sustained strings to SwingPlus. This is getting a bit thick sounding.
 SwingWalkSus
- Swing with walking bass and sustained strings.
+Swing with walking bass and sustained strings.
 SwingWalkPlusSus
- Swing with walking bass, arpeggio and sustained Strings.
+Swing with walking bass, arpeggio and sustained Strings.
 Swing1
- A more syncopated version of Swing. This sounds a bit "twangy" with the piano voice selected.
+A more syncopated version of Swing. This sounds a bit "twangy" with the piano voice selected.
 Swing1Walk
- Walking bass version of Swing1.
+Walking bass version of Swing1.
 Swing1Triple
- Modified Swing1 with quarter note triplets.
+Modified Swing1 with quarter note triplets.
 Swing1Sus
- Swing1 with sustained strings.
+Swing1 with sustained strings.
 Swing1WalkSus
- Swing1Walk with sustained strings.
+Swing1Walk with sustained strings.
 Swing1Plus
- Swing1 with arpeggiating clarinets.
+Swing1 with arpeggiating clarinets.
 Swing1PlusSus
- Swing1 with clarinet and sustained strings.
+Swing1 with clarinet and sustained strings.
 Swing1WalkPlus
- Swing1Walk with the clarinet.
+Swing1Walk with the clarinet.
 Swing1WalkPlusSus
- Swing1Walk with clarinet and sustained strings.
+Swing1Walk with clarinet and sustained strings.
 Swing2
- This version is much better with slower tempos (no walking bass versions since it's already marching).
+This version is much better with slower tempos (no walking bass versions since it's already marching).
 Swing2Triple
- Modified Swing2 with quarter note triplets.
+Modified Swing2 with quarter note triplets.
 Swing2Plus
- Swing2 with clarinet.
+Swing2 with clarinet.
 Swing2Sus
- Swing2 with sustained strings.
+Swing2 with sustained strings.
 Swing2PlusSus
- Swing2 with clarinet.
+Swing2 with clarinet.
 SwingIntro
- Simple, 4 bar introduction.
+Simple, 4 bar introduction.
 SwingIntro2
- Same intro, but Swing2 voices.
+Same intro, but Swing2 voices.
 SwingEnd
- Basic ending based on Swing. 4 beats on first bar; beats on 1 and 3 on the second.
+Basic ending based on Swing. 4 beats on first bar; beats on 1 and 3 on the second.
 Swing1End
- Ending for Swing1.
+Ending for Swing1.
 Swing2End
- Swing2 ending with alto sax run. Use ``seq'' so that you end on bar 4. The sax plays 1 bar of chords, then 16th, 8th, half note runs on bar 2, 3 and 4. If don't like the sax run, use ''Scale Off'' to disable.
+Swing2 ending with alto sax run. Use ``seq'' so that you end on bar 4. The sax plays 1 bar of chords, then 16th, 8th, half note runs on bar 2, 3 and 4. If don't like the sax run, use ''Scale Off'' to disable.
 Beguine
- Nice, smooth easy listening.
+Nice, smooth easy listening.
 BeguineSus
- Adds in a sustained string.
+Adds in a sustained string.
 Beguine1
- Adds a pizzicato string to standard Beguine.
+Adds a pizzicato string to standard Beguine.
 Beguine1Sus
- This has the pizzicatos strings and a sustained string.
+This has the pizzicatos strings and a sustained string.
 BeguineFill
- Single bar fill, good for endings.
+Single bar fill, good for endings.
 BeguineIntro
- Simple enough 4 bar introduction.
+Simple enough 4 bar introduction.
 BeguineIntro8
- Expanded, 8 bar, version of our 4 bar introduction.
+Expanded, 8 bar, version of our 4 bar introduction.
 BeguineSusIntro
- 4 bar intro with sustained strings.
+4 bar intro with sustained strings.
 BeguineEnd
- Ending with string scales. Uses 8ths on 1st bar 4th on 2nd, halves 3rd and a fullish chord on the 4th. Use a CUT if the final chord sounds too long.
+Ending with string scales. Uses 8ths on 1st bar 4th on 2nd, halves 3rd and a fullish chord on the 4th. Use a CUT if the final chord sounds too long.
 Beguine2End
- A more abrupt 2 bar ending.
+A more abrupt 2 bar ending.
 Desert
- Pretty funky beat for the desert.
+Pretty funky beat for the desert.
 DesertSus
- Add sustained strings.
+Add sustained strings.
 DesertFill
- A bit of a drum torrent over the basic beat.
+A bit of a drum torrent over the basic beat.
 DesertEnd
- Desert Ending.
+Desert Ending.
 Hymn
- A simple hymn accompaniment.
+A simple hymn accompaniment.
 HymnRoot
- The same hymn with chords in root position.
+The same hymn with chords in root position.
 HymnWalk
- Basic hymn with walking bass.
+Basic hymn with walking bass.
 HymnRootWalk
- Hymn in root position with walking bass.
+Hymn in root position with walking bass.
 HymnPlus
- Some heavenly voices added in.
+Some heavenly voices added in.
 HymnWalkPlus
- Walking bass with voices.
+Walking bass with voices.
 HymnRootPlus
- Root chords with voices.
+Root chords with voices.
 HymnRootWalkPlus
- Root chords with walk and voices.
+Root chords with walk and voices.
 HymnIntro
- A simple sustained intro.
+A simple sustained intro.
 HymnEnd
- A 2 bar ending.
+A 2 bar ending.
 BigBand
- Basic big band beat.
+Basic big band beat.
 BigBandSus
- Tremolo strings added to BigBand.
+Tremolo strings added to BigBand.
 BigBandPlus
- Additional piano notes.
+Additional piano notes.
 BigBandSusPlus
- Sustained strings and piano.
+Sustained strings and piano.
 BigBand1
- Basic big band with 1,3 bass, no walking.
+Basic big band with 1,3 bass, no walking.
 BigBand1Sus
- Bigband1 with sustained strings.
+Bigband1 with sustained strings.
 BigBand1Plus
- Bigband1 with additional guitar arpeggios.
+Bigband1 with additional guitar arpeggios.
 BigBand1SusPlus
- Bigband1 with sustained strings and guitar.
+Bigband1 with sustained strings and guitar.
 BigBand8
- BigBand with 8 bar variation.
+BigBand with 8 bar variation.
 BigBand8Sus
- BigBand8 with sustained strings.
+BigBand8 with sustained strings.
 BigBandFill
- Simple fill bar, good in an ending.
+Simple fill bar, good in an ending.
 BigBand1Fill
- Louder, 4 in the bar fill.
+Louder, 4 in the bar fill.
 BigBandIntro
- 4 bar introduction.
+4 bar introduction.
 BigBandIntro2
- Alternate 4 bar introduction.
+Alternate 4 bar introduction.
 BigBandIntro8
- 8 bar introduction.
+8 bar introduction.
 BigBandEnd
- Straight ending for BigBand.
+Straight ending for BigBand.
 BigBand1End
- Ending for BigBand1.
+Ending for BigBand1.
 BigBand2End
- Straight, 4 bar ending for BigBand.
+Straight, 4 bar ending for BigBand.
 BigBand4End
- A 4 bar ending. Good ending for BigBand8.
+A 4 bar ending. Good ending for BigBand8.
 68Swing
- Basic 6/8 swing time, 2 to the bar chording.
+Basic 6/8 swing time, 2 to the bar chording.
 68Swing1
- Chord just sounds once per bar.
+Chord just sounds once per bar.
 68Swing2
- Chord Pattern is 4-8-4-8.
+Chord Pattern is 4-8-4-8.
 68SwingSus
- 2 to the bar with sustained strings.
+2 to the bar with sustained strings.
 68Swing1Sus
- Single chord to the bar with strings.
+Single chord to the bar with strings.
 68Swing2Sus
- Single chord to the bar with strings.
+Single chord to the bar with strings.
 68SwingPlus
- Add in a solo guitar to 2-to-the-bar piano.
+Add in a solo guitar to 2-to-the-bar piano.
 68Swing1Plus
- Solo guitar with 1-to-the-bar piano.
+Solo guitar with 1-to-the-bar piano.
 68Swing2Plus
- Solo guitar with 4-to-the bar piano.
+Solo guitar with 4-to-the bar piano.
 68SwingSusPlus
- Strings and solo guitar with 2-to-the-bar piano.
+Strings and solo guitar with 2-to-the-bar piano.
 68Swing1SusPlus
- Strings and solo guitar with 1-to-the-bar piano.
+Strings and solo guitar with 1-to-the-bar piano.
 68Swing2SusPlus
- Strings and solo guitar with 4-to-the-bar piano.
+Strings and solo guitar with 4-to-the-bar piano.
 68SwingIntro
- Basic 4 bar introduction.
+Basic 4 bar introduction.
 68SwingEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 68March
- A basic 6/8 march in 2.
+A basic 6/8 march in 2.
 68MarchPlus
- Our plain march with added piccolos.
+Our plain march with added piccolos.
 68MarchSus
- Our basic march with a sax continuo.
+Our basic march with a sax continuo.
 68MarchSusPlus
- Sustained with piccolos.
+Sustained with piccolos.
 68MarchFill
- Single bar fill, for endings.
+Single bar fill, for endings.
 68MarchFill2
- Single bar fill with triplet, for endings.
+Single bar fill with triplet, for endings.
 68MarchIntro
- A 4 bar introduction.
+A 4 bar introduction.
 68MarchEnd
- A 2 bar ending. Kill Bass-Piccolo track if you don't like it.
+A 2 bar ending. Kill Bass-Piccolo track if you don't like it.
 68MarchMetronome
- A military-like intro on snare.
+A military-like intro on snare.
 Bebop
- A fast BeBop rhythm.
+A fast BeBop rhythm.
 BebopPlus
- Add a walking piano line.
+Add a walking piano line.
 BebopSus
- Add some sustained organ chords.
+Add some sustained organ chords.
 BebopSusPlus
- Organ chords and walking piano.
+Organ chords and walking piano.
 BebopIntro
- Our normalized 4 bar intro.
+Our normalized 4 bar intro.
 BebopEnd
- A quick 2 bar ending.
+A quick 2 bar ending.
 Salsa
- Basic Salsa pattern.
+Basic Salsa pattern.
 SalsaPlus
- Basic pattern with apreggiating flute.
+Basic pattern with apreggiating flute.
 SalsaSus
- Basic pattern with added strings.
+Basic pattern with added strings.
 SalsaSusPlus
- Sustained pattern with added flute.
+Sustained pattern with added flute.
 SalsaIntro
- A 4 bar introduction.
+A 4 bar introduction.
 SalsaFill
- Straight, 1 bar fill.
+Straight, 1 bar fill.
 SalsaEnd
- Fast, 2 bar ending.
+Fast, 2 bar ending.
 SlowSpiritual
- Basic pattern.
+Basic pattern.
 SlowSpiritualSus
- Piano with big sustained organ.
+Piano with big sustained organ.
 SlowSpiritualPlus
- Let the guitar apreggiate.
+Let the guitar apreggiate.
 SlowSpiritualSusPlus
- Organ and guitar.
+Organ and guitar.
 SlowSpiritualIntro
- 4 bar introduction.
+4 bar introduction.
 SlowSpiritualEnd
- Simple ending.
+Simple ending.
 Rock128
- Basic 12/8 beat with the piano doing most of the work.
+Basic 12/8 beat with the piano doing most of the work.
 Rock128Plain
- Piano changes from triplets to 4 in the bar.
+Piano changes from triplets to 4 in the bar.
 Rock128Sus
- Add in sustained strings and voices.
+Add in sustained strings and voices.
 Rock128PlainSus
- Piano 4-to-the bar with strings.
+Piano 4-to-the bar with strings.
 Rock128Plus
- Add some piano notes for interest.
+Add some piano notes for interest.
 Rock128SusPlus
- Strings and piano.
+Strings and piano.
 Rock128PlainPlus
- Straight version with piano.
+Straight version with piano.
 Rock128PlainSusPlus
- Straight version with strings and piano.
+Straight version with strings and piano.
 Rock128Intro
- A 4 bar introduction.
+A 4 bar introduction.
 Rock128IntroSus
- Same 4 bar intro with strings.
+Same 4 bar intro with strings.
 Rock128End
- Simple ending.
+Simple ending.
 DooWop
- Basic DooWop.
+Basic DooWop.
 DooWopSus
- Add in sustained strings and voices.
+Add in sustained strings and voices.
 DooWopPlus
- Add some piano notes for interest.
+Add some piano notes for interest.
 DooWopSusPlus
- Plus version with strings.
+Plus version with strings.
 DooWopIntro
- A 4 bar introduction.
+A 4 bar introduction.
 DooWopIntroSus
- Same 4 bar intro with strings.
+Same 4 bar intro with strings.
 DooWopFill
- One bar fill.
+One bar fill.
 DooWopEnd
- Simple ending.
+Simple ending.
 Dixie
- Complete with arpeggiating banjo.
+Complete with arpeggiating banjo.
 Dixie1
- Bass/walk variation.
+Bass/walk variation.
 Dixie2
- The arpeggio has been slowed down and a stumming, plectrum, banjo has been added. Use this for repeat endings, etc.
+The arpeggio has been slowed down and a stumming, plectrum, banjo has been added. Use this for repeat endings, etc.
 Dixie3
- A more gentle attempt.
+A more gentle attempt.
 Dixie4
- Same voicing, but less strumming.
+Same voicing, but less strumming.
 DixieStrum
- Strumming tenor banjo and piano. No apreggiating.
+Strumming tenor banjo and piano. No apreggiating.
 Dixie4Strum
- Less strumming version of DixieStrum.
+Less strumming version of DixieStrum.
 DixieSus
- Basic groove with added sustain.
+Basic groove with added sustain.
 Dixie1Sus
- Bass/Walk variation with sustain.
+Bass/Walk variation with sustain.
 Dixie2Sus
- Strumming banjo and sustain.
+Strumming banjo and sustain.
 Dixie3Sus
- Gentle dixie with sustain.
+Gentle dixie with sustain.
 Dixie4Sus
- Less strumming and sustain.
+Less strumming and sustain.
 DixieStrumSus
- Strumming banjo and piano with sustain.
+Strumming banjo and piano with sustain.
 DixieIntro
- A 4 bar intro.
+A 4 bar intro.
 DixieIntro8
- An 8 bar introduction which gets less and less busy.
+An 8 bar introduction which gets less and less busy.
 DixieEnd
- Straight ending.
+Straight ending.
 EasySwing
- Nice/simple jazz guitar in 4.
+Nice/simple jazz guitar in 4.
 EasySwingSus
- Adds a sustained strings (2 part) to EasySwing.
+Adds a sustained strings (2 part) to EasySwing.
 EasySwingFill
- Adds guitar apreggio. Quarters on bar 1,2,3 and eights on bar 4.
+Adds guitar apreggio. Quarters on bar 1,2,3 and eights on bar 4.
 EasySwingWalk
- The EasySwing Groove with a full walking bass line. The bass volume has been increased as well.
+The EasySwing Groove with a full walking bass line. The bass volume has been increased as well.
 EasySwingWalkSus
- The EasySwing with a walking bass line and a sustained string.
+The EasySwing with a walking bass line and a sustained string.
 EasySwingWalkFill
- Walking bass fill.
+Walking bass fill.
 EasySwingSusFill
- Sustained strings and fill.
+Sustained strings and fill.
 EasySwing1
- One strum per bar. Okay if the tempo is quite fast, or as an introduction.
+One strum per bar. Okay if the tempo is quite fast, or as an introduction.
 EasySwing1Sus
- Adds sustained strings to EasySwing1.
+Adds sustained strings to EasySwing1.
 EasySwing1Fill
- Add apreggios to single chord swing.
+Add apreggios to single chord swing.
 EasySwing2
- Same EasySwing, but with 2 strums per bar.
+Same EasySwing, but with 2 strums per bar.
 EasySwing2Sus
- Adds ChoirAahs to EasySwing2.
+Adds ChoirAahs to EasySwing2.
 EasySwing2Fill
- Add apreggios to two chord swing.
+Add apreggios to two chord swing.
 EasySwing42
- For faster rhythms, a bar of 4 followed by a bar of 2.
+For faster rhythms, a bar of 4 followed by a bar of 2.
 EasySwing42Sus
- Add sustained strings to the 4-2 pattern.
+Add sustained strings to the 4-2 pattern.
 EasySwing42Fill
- Add arpeggios to 4-2 pattern.
+Add arpeggios to 4-2 pattern.
 EasySwing42Walk
- A 4-2 pattern with 4 beat walking bass.
+A 4-2 pattern with 4 beat walking bass.
 EasySwing42WalkSus
- The 4-2 pattern with walking bass and sustained strings.
+The 4-2 pattern with walking bass and sustained strings.
 EasySwing42WalkFill
- Add arpeggios and walking bass with 4-2 pattern.
+Add arpeggios and walking bass with 4-2 pattern.
 EasySwingIntro
- 4 bar intro.
+4 bar intro.
 EasySwingIntro1
- 4 bar intro with 1 long chord per bar.
+4 bar intro with 1 long chord per bar.
 EasySwingIntro2
- 4 bar intro with cymbals and 2 strum chords.
+4 bar intro with cymbals and 2 strum chords.
 EasySwingIntro3
- 4 bar intro with triplet bass pattern.
+4 bar intro with triplet bass pattern.
 EasySwingEnd
- Simple ending.
+Simple ending.
 Softshoe
- Nice little dance beat with ``shuffles'' on bar 3 and 4.
+Nice little dance beat with ``shuffles'' on bar 3 and 4.
 SoftShoePlus
- Add a cool clarinet.
+Add a cool clarinet.
 SoftShoeSus
- Add sustained strings.
+Add sustained strings.
 SoftShoeSusPlus
- Add the cool clarinet and strings.
+Add the cool clarinet and strings.
 SoftShoeIntro
- A 4 bar introduction.
+A 4 bar introduction.
 SoftShoeIntro8
- Same intro over 8 bars.
+Same intro over 8 bars.
 SoftShoeEnd
- 2 bar ending with nice walk on first bar.
+2 bar ending with nice walk on first bar.
 LightTango
- A light Tango, more Spanish.
+A light Tango, more Spanish.
 LightTangoSus
- Add a sustained tone to the tango.
+Add a sustained tone to the tango.
 LightTango1
- Change out the accordion for a piano.
+Change out the accordion for a piano.
 LightTango1Sus
- Add a sustained tone to the piano variant.
+Add a sustained tone to the piano variant.
 LightTangoFill
- A one bar fill pattern.
+A one bar fill pattern.
 LightTangoIntro
- Simple introduction.
+Simple introduction.
 LightTangoIntro1
- Smoother version of basic introduction.
+Smoother version of basic introduction.
 LightTangoEnd
- A fast single bar ending.
+A fast single bar ending.
 LightTango4End
- Smoother 4 bar ending.
+Smoother 4 bar ending.
 Twist
- A basic 50s twist.
+A basic 50s twist.
 Twist4
- Same twist, leaving out a lot of eight notes.
+Same twist, leaving out a lot of eight notes.
 TwistSus
- Basic twist with sustained organ.
+Basic twist with sustained organ.
 Twist4Sus
- Four-to-the-bar twist with organ.
+Four-to-the-bar twist with organ.
 TwistIntro
- Pretty boring, but safe, 4 bar intro.
+Pretty boring, but safe, 4 bar intro.
 TwistEnd
- A short and sweet 2 bar ending.
+A short and sweet 2 bar ending.
 Son
- Our basic Son rhythm.
+Our basic Son rhythm.
 SonSus
- Son with sustained strings.
+Son with sustained strings.
 SonPlus
- Son with flute arpeggios.
+Son with flute arpeggios.
 SonSusPlus
- Sustained with flute apreggios.
+Sustained with flute apreggios.
 SonIntro
- Boring, four bar introduction.
+Boring, four bar introduction.
 SonFill
- Basic beats on 1 & 3.
+Basic beats on 1 & 3.
 SonFill2
- Pretty much the same fill, but here we emphasize the end of the bar.
+Pretty much the same fill, but here we emphasize the end of the bar.
 SonEnd
- Simple ending.
+Simple ending.
 Metronome3
- A single bar waltz introduction.
+A single bar waltz introduction.
 8Beat
- Good for oldish rock stuff.
+Good for oldish rock stuff.
 8BeatSus
- Adds sustained string to 8Beat.
+Adds sustained string to 8Beat.
 8Beat1
- Adds interest to bass line with alternate walking bars.
+Adds interest to bass line with alternate walking bars.
 8Beat1Sus
- Adds sustained string to 8Beat1.
+Adds sustained string to 8Beat1.
 8BeatWalk
- A complete walking bass line alternative.
+A complete walking bass line alternative.
 8BeatWalkSus
- Sustained strings with walking bass.
+Sustained strings with walking bass.
 8BeatPlus
- Adds a bit of random piano.
+Adds a bit of random piano.
 8BeatSusPlus
- Strings and random piano.
+Strings and random piano.
 8Beat1Plus
- Interesting bass line and piano.
+Interesting bass line and piano.
 8BeatWalkPlus
- Walking bass line and piano.
+Walking bass line and piano.
 8Beat1SusPlus
- Interesting bass, piano and strings.
+Interesting bass, piano and strings.
 8BeatWalkSusPlus
- Walking bass, piano and strings.
+Walking bass, piano and strings.
 8BeatIntro
- Straight-ahead four bar introduction.
+Straight-ahead four bar introduction.
 8BeatFill
- A single bar fill, mostly drums.
+A single bar fill, mostly drums.
 8BeatEnd
- Simple ending.
+Simple ending.
 Blues128
- A very simple, relaxed 12/8 blues pattern.
+A very simple, relaxed 12/8 blues pattern.
 Blues128Plus
- Adds arpeggiated piano.
+Adds arpeggiated piano.
 Blues128Sus
- Add in sustained Organ.
+Add in sustained Organ.
 Blues128SusPlus
- Sustained strings and apreggiating piano.
+Sustained strings and apreggiating piano.
 Blues128Intro
- Straight chord/bass intro.
+Straight chord/bass intro.
 Blues128End
- A 2 bar ending.
+A 2 bar ending.
 PianoBallad
- Simple ballad with drums and piano.
+Simple ballad with drums and piano.
 PianoBallad1
- Add additional piano chords.
+Add additional piano chords.
 PianoBalladSus
- Piano arpeggios with a bit of strings.
+Piano arpeggios with a bit of strings.
 PianoBallad1Sus
- Piano arpeggios with chords and strings.
+Piano arpeggios with chords and strings.
 PianoBallad2
- PianoBallad with added block chords, no arpeggios.
+PianoBallad with added block chords, no arpeggios.
 PianoBallad2Sus
- Block chords and strings.
+Block chords and strings.
 PianoBalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 PianoBalladIntro2
- Simple intro using additional block chords.
+Simple intro using additional block chords.
 PianoBalladFill
- A 2 bar fill.
+A 2 bar fill.
 PianoBalladEnd
- A 2 bar ending.
+A 2 bar ending.
 QuickStep
- Snappy quickstep, good for showtunes.
+Snappy quickstep, good for showtunes.
 QuickStepHit
- Brass hits on 1, 4 and 4.5.
+Brass hits on 1, 4 and 4.5.
 QuickStepSus
- Sustained version with strings.
+Sustained version with strings.
 QuickStepHitSus
- Sustains with hits.
+Sustains with hits.
 QuickStepDuh
- Some vocalization over the basic beat.
+Some vocalization over the basic beat.
 QuickStepDuhSus
- Sustains with vocalization.
+Sustains with vocalization.
 QuickStepWalk
- Basic pattern with walking bass.
+Basic pattern with walking bass.
 QuickStepHitWalk
- Brass hits with walking bass.
+Brass hits with walking bass.
 QuickStepSusWalk
- Sustained strings with walking bass.
+Sustained strings with walking bass.
 QuickStepHitSusWalk
- Sustained strings, brass hits and walking bass.
+Sustained strings, brass hits and walking bass.
 QuickStepDuhWalk
- Vocalization and walking bass.
+Vocalization and walking bass.
 QuickStepDuhSusWalk
- Strings, vocalization and walking bass.
+Strings, vocalization and walking bass.
 QuickStepIntro
- Four bar intro.
+Four bar intro.
 QuickStepIntro8
- The 4 bar intro stretched to 8.
+The 4 bar intro stretched to 8.
 QuickStepEnd
- Two bar ending.
+Two bar ending.
 None
- A silent groove.
+A silent groove.
 StringBallad
- Slow ballad with strings and bass.
+Slow ballad with strings and bass.
 StringBalladVoice
- Add a sustained voice to the strings.
+Add a sustained voice to the strings.
 StringBalladStrum
- Gentle guitar adds some interest.
+Gentle guitar adds some interest.
 StringBalladVoiceStrum
- Add the guitar and soothing voices.
+Add the guitar and soothing voices.
 StringBalladPlus
- Add a bit of piano to the strings.
+Add a bit of piano to the strings.
 StringBalladStrumPlus
- Piano and strumming.
+Piano and strumming.
 StringBalladVoicePlus
- Add the piano and soothing voices.
+Add the piano and soothing voices.
 StringBalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 StringBalladEnd
- A 2 bar ending.
+A 2 bar ending.
 SlowDesert
- Pretty funky beat for the desert.
+Pretty funky beat for the desert.
 SlowDesertSus
- Add sustained strings.
+Add sustained strings.
 SlowDesertPlus
- Desert theme with a jazz guitar overlay.
+Desert theme with a jazz guitar overlay.
 SlowDesertSusPlus
- Desert with strings and guitar.
+Desert with strings and guitar.
 SlowDesertFill
- A bit of a drum torrent over the basic beat.
+A bit of a drum torrent over the basic beat.
 SlowDesertFillSus
- Fill groove with sustained strings.
+Fill groove with sustained strings.
 SlowDesertEnd
- Desert Ending.
+Desert Ending.
 ChaCha
- Our basic, non-American, pattern.
+Our basic, non-American, pattern.
 ChaCha1
- Adds in flute arpeggios.
+Adds in flute arpeggios.
 ChaChaSus
- Adds sustained string arpeggios.
+Adds sustained string arpeggios.
 ChaCha1Sus
- Combines the flute and string arpeggios.
+Combines the flute and string arpeggios.
 ChaChaFill
- A one bar fill.
+A one bar fill.
 ChaCha1Fill
- Fill with accending flute run. Makes a good section introduction.
+Fill with accending flute run. Makes a good section introduction.
 ChaChaIntro
- A plain 4 bar introduction.
+A plain 4 bar introduction.
 ChaChaIntro8
- Same intro expanded to 8 bars.
+Same intro expanded to 8 bars.
 ChaChaEnd
- The End.
+The End.
 Zydeco
- Our basic cajan beat.
+Our basic cajan beat.
 ZydecoPlus
- Adds a rhythmic accordion.
+Adds a rhythmic accordion.
 ZydecoSus
- The orchestra in New Orleans?
+The orchestra in New Orleans?
 ZydecoSusPlus
- String and accordion? Too cool!
+String and accordion? Too cool!
 ZydecoIntro
- A simple, 4 bar, introduction with accordion.
+A simple, 4 bar, introduction with accordion.
 ZydecoEnd
- 2 bar ending with guitar.
+2 bar ending with guitar.
 ZydecoPlusEnd
- 2 bar ending with accordion.
+2 bar ending with accordion.
 Ballad128
- A very simple, relaxed 12/8 ballad pattern.
+A very simple, relaxed 12/8 ballad pattern.
 Ballad128Plus
- Adds arpeggiated piano.
+Adds arpeggiated piano.
 Ballad128Sus
- Add in sustained TremoloStrings.
+Add in sustained TremoloStrings.
 Ballad128SusPlus
- Sustained strings and apreggiating piano.
+Sustained strings and apreggiating piano.
 Ballad128Intro
- This 4 bar intro plays bass notes and harp arpeggios. It pretty much assumes a 7th chord on the 4th bar.
+This 4 bar intro plays bass notes and harp arpeggios. It pretty much assumes a 7th chord on the 4th bar.
 Ballad128Intro1
- Alternative, straighter, intro.
+Alternative, straighter, intro.
 Ballad128End
- A 2 bar ending.
+A 2 bar ending.
 JazzGuitar
- A very basic 4 to the bar accompaniment.
+A very basic 4 to the bar accompaniment.
 JazzGuitarWalk
- Changes the bass pattern to walking.
+Changes the bass pattern to walking.
 JazzGuitar1
- Our basic pattern with arpeggios every 4th bar.
+Our basic pattern with arpeggios every 4th bar.
 JazzGuitar1Walk
- Walking bass with arpeggios every 4th bar.
+Walking bass with arpeggios every 4th bar.
 JazzGuitar2
- Basic pattern with more strum and syncopation.
+Basic pattern with more strum and syncopation.
 JazzGuitar2Walk
- The strum pattern with walking bass.
+The strum pattern with walking bass.
 JazzGuitar3
- Add arpeggios every 4 bars to the syncopated strumming.
+Add arpeggios every 4 bars to the syncopated strumming.
 JazzGuitar3Walk
- Aprpeggios and walking bass.
+Aprpeggios and walking bass.
 JazzGuitarSus
- Sustained strings added to basic pattern.
+Sustained strings added to basic pattern.
 JazzGuitar1Sus
- Sustained strings added to JazzGuitar1.
+Sustained strings added to JazzGuitar1.
 JazzGuitar2Sus
- Sustained strings added to JazzGuitar2.
+Sustained strings added to JazzGuitar2.
 JazzGuitar3Sus
- Sustained strings added to JazzGuitar3.
+Sustained strings added to JazzGuitar3.
 JazzGuitarWalkSus
- Sustained strings added to JazzGuitarWalk.
+Sustained strings added to JazzGuitarWalk.
 JazzGuitar1WalkSus
- Sustained strings added to JazzGuitarWalk1.
+Sustained strings added to JazzGuitarWalk1.
 JazzGuitar2WalkSus
- Sustained strings added to JazzGuitarWalk2.
+Sustained strings added to JazzGuitarWalk2.
 JazzGuitar3WalkSus
- Sustained strings added to JazzGuitarWalk3.
+Sustained strings added to JazzGuitarWalk3.
 JazzGuitarPlus
- Basic pattern with some random notes.
+Basic pattern with some random notes.
 JazzGuitarWalkPlus
- Basic walking version with random notes.
+Basic walking version with random notes.
 JazzGuitar2Plus
- Syncopated with random notes.
+Syncopated with random notes.
 JazzGuitar2WalkPlus
- Syncopated walking with random notes.
+Syncopated walking with random notes.
 JazzGuitarSusPlus
- Basic with strings and random notes.
+Basic with strings and random notes.
 JazzGuitarWalkSusPlus
- Walking version with strings and random notes.
+Walking version with strings and random notes.
 JazzGuitar2WalkSusPlus
- Syncopated walking version with strings and random notes.
+Syncopated walking version with strings and random notes.
 JazzGuitarFill
- Changes the guitar strum and walk to 2 sets of quarter note triplets.
+Changes the guitar strum and walk to 2 sets of quarter note triplets.
 JazzGuitarFill1
- Guitar stums eight note tripets on 1 and 2.
+Guitar stums eight note tripets on 1 and 2.
 JazzGuitarIntro
- A 4 bar, arpeggiating introduction.
+A 4 bar, arpeggiating introduction.
 JazzGuitar1Intro
- A 4 bar intro with a bass run on bar 4.
+A 4 bar intro with a bass run on bar 4.
 JazzGuitarEnd
- Soft, 2 bar ending.
+Soft, 2 bar ending.
 JazzGuitarEnd1
- Soft, 1 bar ending.
+Soft, 1 bar ending.
 50sRock
- Your basic rock beat from the 50s.
+Your basic rock beat from the 50s.
 50sRockSus
- Sustained strings added.
+Sustained strings added.
 50sRockPlus
- Basic with extra guitar arpeggios.
+Basic with extra guitar arpeggios.
 50sRockSusPlus
- Basic sustained with arpeggions.
+Basic sustained with arpeggions.
 50sRock1
- Cut out most of the shuffle. Good for short contrast sections.
+Cut out most of the shuffle. Good for short contrast sections.
 50sRock1Sus
- Unshuffled 50s with sustained strings.
+Unshuffled 50s with sustained strings.
 50sRock1Plus
- Unshuffled with arpeggios.
+Unshuffled with arpeggios.
 50sRock1SusPlus
- Unshuffled with strings and arpeggios.
+Unshuffled with strings and arpeggios.
 50sRockIntro
- A 4 bar introduction.
+A 4 bar introduction.
 50sRockIntro1
- Alternate introduction (no big sax bop on bar 4).
+Alternate introduction (no big sax bop on bar 4).
 50sRockEnd
- Simple, single bar ending.
+Simple, single bar ending.
 60sRock
- A loud, steady rock beat.
+A loud, steady rock beat.
 60sRock1
- Bridge version of 60sRock.
+Bridge version of 60sRock.
 60sRockSus
- 60s Rock with strings.
+60s Rock with strings.
 60sRock1Sus
- Alternate 60s Rock with strings.
+Alternate 60s Rock with strings.
 60sRockPlus
- Adds some guitar noise.
+Adds some guitar noise.
 60sRock1Plus
- Alternate version with more noise.
+Alternate version with more noise.
 60sRockSusPlus
- Sustained with noise.
+Sustained with noise.
 60sRock1SusPlus
- Alternate sustained with noise.
+Alternate sustained with noise.
 60sRockIntro
- 4 bar intro.
+4 bar intro.
 60sRockEnd
- Simple ending with 4 on first bar and 2 on 2nd.
+Simple ending with 4 on first bar and 2 on 2nd.
 ArpeggioWaltz
- An quarter note piano.
+An quarter note piano.
 ArpeggioWaltz8
- An 8th note piano.
+An 8th note piano.
 ArpeggioWaltz48
- 3 bars of quarters, 1 bar 8ths.
+3 bars of quarters, 1 bar 8ths.
 ArpeggioWaltzSus
- Sustained strings with quarters.
+Sustained strings with quarters.
 Arpeggiowaltz8Sus
- Sustained strings with 8ths.
+Sustained strings with 8ths.
 Arpeggiowaltz48Sus
- Sustained strings with 4,4,4,8 pattern.
+Sustained strings with 4,4,4,8 pattern.
 ArpeggioWaltzIntro
- A basic 4 bar introduction (works for ending as well).
+A basic 4 bar introduction (works for ending as well).
 ArpeggioWaltzSusIntro
- Same intro with strings.
+Same intro with strings.
 R&B
- Basic Rythmn and Blues.
+Basic Rythmn and Blues.
 R&BSus
- Change rhythmic organ to sustained chords.
+Change rhythmic organ to sustained chords.
 R&BPlus
- Our basic rhythm with some nice picking.
+Our basic rhythm with some nice picking.
 R&BSusPlus
- Sustained with picking.
+Sustained with picking.
 R&BFill
- Simple one bar fill.
+Simple one bar fill.
 R&BIntro
- A bit laid-back, 4 bar intro.
+A bit laid-back, 4 bar intro.
 R&BEnd
- Ending for R&B.
+Ending for R&B.
 SlowJazz
- Slow, basic jazz backup track.
+Slow, basic jazz backup track.
 SlowJazzSus
- Bring in the orchestra.
+Bring in the orchestra.
 SlowJazzWalk
- Change bass to walk on 1/2/3/4.
+Change bass to walk on 1/2/3/4.
 SlowJazzWalkSus
- Sustained version with full walk.
+Sustained version with full walk.
 SlowJazzPlus
- A bit of a plucked melody backup.
+A bit of a plucked melody backup.
 SlowJazzSusPlus
- Plucked melody plus strings.
+Plucked melody plus strings.
 SlowJazz1
- Slow jazz piano with a straight rhythm.
+Slow jazz piano with a straight rhythm.
 SlowJazz1Sus
- Add sustained strings to straight slow jazz.
+Add sustained strings to straight slow jazz.
 SlowJazz1Walk
- Slow, straight piano jazz with walking bass.
+Slow, straight piano jazz with walking bass.
 SlowJazz1WalkSus
- Slow, straight walking with strings.
+Slow, straight walking with strings.
 SlowJazz1Plus
- Straight chords with plucked background melody.
+Straight chords with plucked background melody.
 SlowJazz1SusPlus
- Straight chords, strings and plucked background melody.
+Straight chords, strings and plucked background melody.
 SlowJazz2
- A pretty straight, guitar strum for slow tunes.
+A pretty straight, guitar strum for slow tunes.
 SlowJazz2Sus
- Straight guitar with sustained Hammond-like organ.
+Straight guitar with sustained Hammond-like organ.
 SlowJazzFill
- One bar fill with a decending bass walk.
+One bar fill with a decending bass walk.
 SlowJazzIntro
- A 4 bar introduction.
+A 4 bar introduction.
 SlowJazz1Intro
- 4 bar intro without push chords.
+4 bar intro without push chords.
 SlowJazz2Intro
- A 4 bar intro with organ.
+A 4 bar intro with organ.
 SlowJazzEnd
- An easy, 2 bar ending.
+An easy, 2 bar ending.
 SlowJazz2End
- Substitute organ for Piano.
+Substitute organ for Piano.
 BoggieWoggie
- Basic BG with four-to-the-bar bass line.
+Basic BG with four-to-the-bar bass line.
 BoggieWoggie1
- Basic BG with stronger chord line.
+Basic BG with stronger chord line.
 BoggieWoggie2
- BG with 8/16s bass line.
+BG with 8/16s bass line.
 BoggieWoggie3
- BG with 8/16s bass line and strong chords.
+BG with 8/16s bass line and strong chords.
 BoggieWoggieSus
- Basic pattern with sustained Clarinet.
+Basic pattern with sustained Clarinet.
 BoggieWoggie1Sus
- Alternate 1 with Clarinet.
+Alternate 1 with Clarinet.
 BoggieWoggie2Sus
- Alternate 2 with Clarinet.
+Alternate 2 with Clarinet.
 BoggieWoggie3Sus
- Alternate 3 with Clarinet.
+Alternate 3 with Clarinet.
 BoggieWoggieEnd
- Same bass line but bar 1 has chords on 1/3 and bar 2 has 1/2/3. Use a ``z!'' to turn off the bass on the last beat(s).
+Same bass line but bar 1 has chords on 1/3 and bar 2 has 1/2/3. Use a ``z!'' to turn off the bass on the last beat(s).
 BoggieWoggieIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 Lullaby
- Just a solo guitar in 4.
+Just a solo guitar in 4.
 Lullaby1
- Adds in a bit of bass.
+Adds in a bit of bass.
 LullabyWalk
- Adds an 8th note walking bass line.
+Adds an 8th note walking bass line.
 LullabySus
- Add some sustained strings to our guitar.
+Add some sustained strings to our guitar.
 Lullaby1Sus
- A bit of bass with the strings.
+A bit of bass with the strings.
 LullabyWalkSus
- Strings and walking bass.
+Strings and walking bass.
 LullabyPlus
- Add in arpeggiating guitar.
+Add in arpeggiating guitar.
 Lullaby1Plus
- Arpeggiating guitar and extra bass.
+Arpeggiating guitar and extra bass.
 LullabyWalkPlus
- Arpeggiating guitar and walking bass.
+Arpeggiating guitar and walking bass.
 LullabySusPlus
- Arpeggiating guitar and sustained strings.
+Arpeggiating guitar and sustained strings.
 Lullaby1SusPlus
- Arpeggiating guitar, sustained strings and extra bass.
+Arpeggiating guitar, sustained strings and extra bass.
 LullabyWalkSusPlus
- Arpeggiating guitar, strings and walking bass.
+Arpeggiating guitar, strings and walking bass.
 LullabyIntro
- A 4 bar intro with sustained chords.
+A 4 bar intro with sustained chords.
 LullabyEnd
- Two half notes on the guitar.
+Two half notes on the guitar.
 Arpeggio4
- A quarter note piano arpeggio.
+A quarter note piano arpeggio.
 Arpeggio8
- An 8th note piano.
+An 8th note piano.
 Arpeggio48
- 3 bars of quarters, 1 bar 8ths.
+3 bars of quarters, 1 bar 8ths.
 Arpeggio4Sus
- Sustained strings with quarters.
+Sustained strings with quarters.
 Arpeggio8Sus
- Sustained strings with 8ths.
+Sustained strings with 8ths.
 Arpeggio48Sus
- Sustained strings with 4,4,4,8 pattern.
+Sustained strings with 4,4,4,8 pattern.
 Arpeggio4Intro
- A basic 4 bar introduction (works for ending as well).
+A basic 4 bar introduction (works for ending as well).
 Arpeggio4SusIntro
- Same intro with strings.
+Same intro with strings.
 FolkBallad
- A soothing guitar.
+A soothing guitar.
 FolkBallad1
- Alternating chord and arpeggio work.
+Alternating chord and arpeggio work.
 FolkBalladPlus
- Basic arpeggio ballad with counter melody.
+Basic arpeggio ballad with counter melody.
 FolkBallad1Plus
- Alternating chord/arpeggio ballad with counter melody.
+Alternating chord/arpeggio ballad with counter melody.
 FolkBalladSus
- Arpeggios with harmonica.
+Arpeggios with harmonica.
 FolkBalladSusPlus
- Arpeggios, counter melody and harmonica.
+Arpeggios, counter melody and harmonica.
 FolkBallad1Sus
- Chord/Arpeggios with harmonica.
+Chord/Arpeggios with harmonica.
 FolkBallad1SusPlus
- Chord/Arpeggios, counter melody and harmonica.
+Chord/Arpeggios, counter melody and harmonica.
 FolkBalladIntro
- Simple introduction.
+Simple introduction.
 FolkBalladEnd
- Simple ending.
+Simple ending.
 BlueGrass
- A simple BlueGrass sound with a banjo and guitar doing the strumming with a doghouse bass and drum holding the beat.
+A simple BlueGrass sound with a banjo and guitar doing the strumming with a doghouse bass and drum holding the beat.
 BlueGrassClap
- Bluegrass with added handclaps.
+Bluegrass with added handclaps.
 BlueGrassBottle
- Adds in a blow-bottle which no blue grass group seems to be without.
+Adds in a blow-bottle which no blue grass group seems to be without.
 BlueGrassBottleClap
- Bottles and handclaps...where will it stop!
+Bottles and handclaps...where will it stop!
 BlueGrassSus
- Add sustained accordion.
+Add sustained accordion.
 BlueGrassSusClap
- Accordion and clapping.
+Accordion and clapping.
 BlueGrassIntro
- 4 bar introduction.
+4 bar introduction.
 BlueGrassEnd
- One bar ending.
+One bar ending.
 SlowCountry
- Simple nylon guitar in 2.
+Simple nylon guitar in 2.
 SlowCountrySus
- Adds a sustained strings (2 part) to SlowCountry.
+Adds a sustained strings (2 part) to SlowCountry.
 SlowCountryFill
- Adds guitar apreggio. Quarters on bar 1,2,3 and eights on bar 4.
+Adds guitar apreggio. Quarters on bar 1,2,3 and eights on bar 4.
 SlowCountryWalk
- The SlowCountry Groove with a full walking bass line. The bass volume has been increased as well.
+The SlowCountry Groove with a full walking bass line. The bass volume has been increased as well.
 SlowCountryWalkSus
- SlowCountry with a walking bass line and a sustained string.
+SlowCountry with a walking bass line and a sustained string.
 SlowCountryWalkFill
- Walking bass fill.
+Walking bass fill.
 SlowCountryPlus
- Basic slow country with awful fiddling.
+Basic slow country with awful fiddling.
 SlowCountrySusPlus
- Slow country with strings and fiddling.
+Slow country with strings and fiddling.
 SlowCountryWalkPlus
- Slow country walking bass fiddling.
+Slow country walking bass fiddling.
 SlowCountryWalkSusPlus
- Slow country with walking bass, strings and fiddling.
+Slow country with walking bass, strings and fiddling.
 SlowCountryFillPlus
- Slow country with guitar arpeggios and fiddling.
+Slow country with guitar arpeggios and fiddling.
 SlowCountryWalkFillPlus
- Slow country with walking bass, guitar arpeggios and fiddling.
+Slow country with walking bass, guitar arpeggios and fiddling.
 SlowCountryIntro
- 4 bar intro.
+4 bar intro.
 SlowCountryEnd
- Simple ending.
+Simple ending.
 SlowBroadway
- A corny Broadway tune rhythm.
+A corny Broadway tune rhythm.
 SlowBroadway1
- Add in arpegiating flute.
+Add in arpegiating flute.
 SlowBroadwaySus
- Add sustained strings.
+Add sustained strings.
 SlowBroadway1Sus
- Sustained strings and apregiating flute.
+Sustained strings and apregiating flute.
 SlowBroadwayIntro
- Simple 4 bar intro.
+Simple 4 bar intro.
 SlowBroadwayEnd
- A 2 bar ending.
+A 2 bar ending.
 Metronome2
- Single bar sequence with hits on beats 1 and 3.
+Single bar sequence with hits on beats 1 and 3.
 Metronome4
- Single bar sequence with hits on beats 1, 2, 3 and 4.
+Single bar sequence with hits on beats 1, 2, 3 and 4.
 Metronome2-4
- A very useful introduction. On bar one we have hits on beats 1 and 3; on bar two hits on beats 1, 2, 3 and 4.
+A very useful introduction. On bar one we have hits on beats 1 and 3; on bar two hits on beats 1, 2, 3 and 4.
 ModernJazz
- ModernJazz with just a piano and guitar.
+ModernJazz with just a piano and guitar.
 ModernJazz1
- Adds a muted trumpet on alternate bars.
+Adds a muted trumpet on alternate bars.
 ModernJazzSus
- ModernJazz with added sustained violins.
+ModernJazz with added sustained violins.
 ModernJazz1Sus
- The full-meal-deal.
+The full-meal-deal.
 ModernJazz2
- A slower version of alternate-bar trumpet for faster tempos.
+A slower version of alternate-bar trumpet for faster tempos.
 ModernJazz2Sus
- Slower alternate-bar trumpets with violins for faster tempos.
+Slower alternate-bar trumpets with violins for faster tempos.
 ModernJazzFill
- A 2 bar horn fill good for endings.
+A 2 bar horn fill good for endings.
 ModernJazzIntro
- 4 bar introduction.
+4 bar introduction.
 ModernJazzEnd
- Nice, 2 bar, ending. First bar is full, second has hits on 1 and 3.
+Nice, 2 bar, ending. First bar is full, second has hits on 1 and 3.
 ShuffleBoggie
- Blues with a shuffle style.
+Blues with a shuffle style.
 ShuffleBoggie1
- Adds an articulated guitar riff to the basic beat.
+Adds an articulated guitar riff to the basic beat.
 ShuffleBoggieSus
- Blues with violins. Sort of odd, but we can call them fiddles!
+Blues with violins. Sort of odd, but we can call them fiddles!
 ShuffleBoggieIntro
- A two bar intro. Short, loud and sweet.
+A two bar intro. Short, loud and sweet.
 ShuffleBoggieIntro4
- A four bar intro.
+A four bar intro.
 ShuffleBoggieEnd
- Very simple ending, hits on 1, 2 and 3 of last bar.
+Very simple ending, hits on 1, 2 and 3 of last bar.
 ShuffleBoggieFill
- Single bar fill.
+Single bar fill.
 FastSwing
- Basic fast swing rhythm.
+Basic fast swing rhythm.
 FastSwingWalk
- Fast swing with walking bass.
+Fast swing with walking bass.
 FastSwingSus
- Fast swing with sustaining sax section.
+Fast swing with sustaining sax section.
 FastSwingWalkSus
- Fast swing with walking bass and sustained saxes.
+Fast swing with walking bass and sustained saxes.
 FastSwingIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 FastSwingIntro8
- Simple 8 bar introduction.
+Simple 8 bar introduction.
 FastSwingEnd
- Quick, 2 bar ending.
+Quick, 2 bar ending.
 Charleston
- Basic Charleston rhythm.
+Basic Charleston rhythm.
 Charleston1
- Basic rhythm with snappier guitar.
+Basic rhythm with snappier guitar.
 Charleston2
- Basic rhythm with complex guitar.
+Basic rhythm with complex guitar.
 CharlestonWalk
- Basic with walking bass.
+Basic with walking bass.
 Charleston1Walk
- Snappy with walking bass.
+Snappy with walking bass.
 Charleston2Walk
- Complex with walking bass.
+Complex with walking bass.
 CharlestonSus
- Basic with sustained sax section.
+Basic with sustained sax section.
 Charleston1Sus
- Snappy guitar with saxes.
+Snappy guitar with saxes.
 Charleston2Sus
- Complex guitar with saxes.
+Complex guitar with saxes.
 CharlestonWalkSus
- Basic walk with saxes.
+Basic walk with saxes.
 Charleston1WalkSus
- Snappy walking with saxes.
+Snappy walking with saxes.
 Charleston2WalkSus
- Complex walking with saxes.
+Complex walking with saxes.
 CharlestonPlus
- Basic with piano.
+Basic with piano.
 Charleston1Plus
- Snappy with piano.
+Snappy with piano.
 Charleston2Plus
- Complex with piano.
+Complex with piano.
 CharlestonWalkPlus
- Basic walking with piano.
+Basic walking with piano.
 Charleston1WalkPlus
- Snappy walking with piano.
+Snappy walking with piano.
 Charleston2WalkPlus
- Complex walking with piano.
+Complex walking with piano.
 CharlestonSusPlus
- Basic with saxes and piano.
+Basic with saxes and piano.
 Charleston1SusPlus
- Snappy with saxes and piano.
+Snappy with saxes and piano.
 Charleston2SusPlus
- Complex with saxes and piano.
+Complex with saxes and piano.
 CharlestonWalkSusPlus
- Basic walking with saxes and piano.
+Basic walking with saxes and piano.
 Charleston1WalkSusPlus
- Snappy walking with saxes and piano.
+Snappy walking with saxes and piano.
 Charleston2WalkSusPlus
- Complex walking with saxes and piano.
+Complex walking with saxes and piano.
 CharlestonIntro
- Simple 4 bar introduction.
+Simple 4 bar introduction.
 CharlestonIntro8
- Simple 8 bar introduction.
+Simple 8 bar introduction.
 CharlestonEnd
- Simple 2 bar ending.
+Simple 2 bar ending.
 FrenchWaltz
- Accordion umm-pa-pa. Ya either love it or hate it!
+Accordion umm-pa-pa. Ya either love it or hate it!
 FrenchWaltzSus
- Add sustained strings to basic pattern.
+Add sustained strings to basic pattern.
 FrenchWaltz1
- FrenchWaltz with with accordion apreggios.
+FrenchWaltz with with accordion apreggios.
 FrenchWaltz1Fill
- Adds an accending run.
+Adds an accending run.
 FrenchWaltz1Sus
- Arpeggios and sustained strings.
+Arpeggios and sustained strings.
 FrenchWaltz1FillSus
- Arpeggios, run and sustained strings.
+Arpeggios, run and sustained strings.
 FrenchWaltz2
- A simple, little counter melody on a piano.
+A simple, little counter melody on a piano.
 FrenchWaltz2Fill
- Add a piano run to the counter melody.
+Add a piano run to the counter melody.
 FrenchWaltz2Sus
- Piano counter melody and sustained strings.
+Piano counter melody and sustained strings.
 FrenchWaltz2FillSus
- Piano counter melody and run with sustained strings.
+Piano counter melody and run with sustained strings.
 FrenchWaltz3
- A simple, little counter melody on a viola.
+A simple, little counter melody on a viola.
 FrenchWaltz3Fill
- Add a string run to the counter melody.
+Add a string run to the counter melody.
 FrenchWaltz3Sus
- Viola counter melody and sustained strings.
+Viola counter melody and sustained strings.
 FrenchWaltz3FillSus
- Viola counter melody and run with sustained strings.
+Viola counter melody and run with sustained strings.
 FrenchWaltzIntro
- A 4 bar intro.
+A 4 bar intro.
 FrenchWaltzEnd
- A scale with the strings to end the FrenchWaltz. The scales run from 16, 8, 4 and whole notes.
+A scale with the strings to end the FrenchWaltz. The scales run from 16, 8, 4 and whole notes.
 FrenchWaltz1End
- Same ending as FrenchWaltzEnd but with an accordion instead of strings.
+Same ending as FrenchWaltzEnd but with an accordion instead of strings.
 Bolero
- Latin-style Bolero rhythm.
+Latin-style Bolero rhythm.
 BoleroFill
- Add arpeggiating flute.
+Add arpeggiating flute.
 BoleroSus
- Bolero with sustained strings.
+Bolero with sustained strings.
 BoleroSusFill
- Sustained Bolero with flute fill.
+Sustained Bolero with flute fill.
 BoleroAlt
- Arpeggiated guitars.
+Arpeggiated guitars.
 BoleroAltSus
- Sustain with Arpeggiated guitars.
+Sustain with Arpeggiated guitars.
 BoleroAltFill
- Arpeggiated flutes and guitars.
+Arpeggiated flutes and guitars.
 BoleroAltSusFill
- Sustain with arpeggiated flutes and guitars.
+Sustain with arpeggiated flutes and guitars.
 BoleroIntro
- 4 bar intro.
+4 bar intro.
 BoleroEnd
- Ending with string scales. Uses 8ths on 1st bar 4th on 2nd, halves 3rd and a whole note on 4th.
+Ending with string scales. Uses 8ths on 1st bar 4th on 2nd, halves 3rd and a whole note on 4th.
 Bolero1
- Spanish-style Bolero rhythm.
+Spanish-style Bolero rhythm.
 Bolero1Fill
- Add guitar arpeggios to Bolero1.
+Add guitar arpeggios to Bolero1.
 Bolero1Sus
- Spanish Bolero with sustained strings.
+Spanish Bolero with sustained strings.
 Bolero1SusFill
- Sustained Bolero1 with guitar fill.
+Sustained Bolero1 with guitar fill.
 Bolero1Intro
- 4 bar intro.
+4 bar intro.
 Bolero1End
- Single bar ending for Bolero1.
+Single bar ending for Bolero1.
 JazzWaltz
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 JazzWaltzIntro
- 4 bar introduction.
+4 bar introduction.
 JazzWaltzEnd
- 2 bar ending.
+2 bar ending.
 WorldPop
- A percusion heavy beat.
+A percusion heavy beat.
 WorldPopIntro
- 4 bar intro.
+4 bar intro.
 WorldPopEnd
- 2 bar ending.
+2 bar ending.
 ElectricPop
- Electronic Pop Dance Beat.
+Electronic Pop Dance Beat.
 ElectricPopIntro
- Electronic Pop.
+Electronic Pop.
 ElectricPopEnd
- Electronic Pop Ending.
+Electronic Pop Ending.
 DigitalRock
- Main pattern.
+Main pattern.
 DigitalRockIntro
- 4 bar introduction.
+4 bar introduction.
 DigitalRockEnd
- 2 bar ending.
+2 bar ending.
 PopShuffle2
- The main mover.
+The main mover.
 PopShuffle2Intro
- A 4 bar introduction.
+A 4 bar introduction.
 PopShuffle2End
- 2 bar ending.
+2 bar ending.
 8BeatBallad2
- A 2 bar ballad.
+A 2 bar ballad.
 8BeatBallad2Intro
- A 4 bar introduction.
+A 4 bar introduction.
 8BeatBallad2End
- A 2 bar ballad.
+A 2 bar ballad.
 80sPop
- Remember the 80s?
+Remember the 80s?
 80sPopIntro
- A 4 bar intro.
+A 4 bar intro.
 80sPopEnd
- A 2 bar ending.
+A 2 bar ending.
 Techno
- Main pattern.
+Main pattern.
 TechnoIntro
- 4 bar introduction.
+4 bar introduction.
 TechnoEnd
- 2 bar ending.
+2 bar ending.
 SoulPop
- A basic pop, not too soulfull.
+A basic pop, not too soulfull.
 SoulPopIntro
- 4 bar intro.
+4 bar intro.
 SoulPopEnd
- 2 bar ending.
+2 bar ending.
 16BeatBallad1
- Our basic 2 bar pattern.
+Our basic 2 bar pattern.
 16BeatBallad1Intro
- A 4 bar intro.
+A 4 bar intro.
 16BeatBallad1End
- A 2 bar ending.
+A 2 bar ending.
 16BeatBallad2
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 16BeatBallad2Intro
- 4 bar introduction.
+4 bar introduction.
 16BeatBallad2End
- 2 bar ending.
+2 bar ending.
 Ambient1
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 Ambient1Intro
- A 4 bar intro.
+A 4 bar intro.
 Ambient1End
- A 2 bar ending.
+A 2 bar ending.
 PopShuffle1
- A bubble gum track.
+A bubble gum track.
 PopShuffle1Intro
- 4 bar intro.
+4 bar intro.
 PopShuffle1End
- 2 bar ending.
+2 bar ending.
 Soul
- A busy soul-like beat.
+A busy soul-like beat.
 SoulIntro
- A busy 4 bar intro.
+A busy 4 bar intro.
 SoulEnd
- 2 bar ending.
+2 bar ending.
 PolkaFox
- Happy polka with guitar and accordion.
+Happy polka with guitar and accordion.
 PolkaFoxIntro
- 4 bar introduction.
+4 bar introduction.
 PolkaFoxEnd
- 2 bar ending.
+2 bar ending.
 DancePop2
- Electronic dance beat.
+Electronic dance beat.
 DancePop2Intro
- 4 bar introduction.
+4 bar introduction.
 DancePop2End
- 2 bar ending.
+2 bar ending.
 ShuffleBoogie
- Main pattern.
+Main pattern.
 ShuffleBoogieIntro
- 4 bar intro.
+4 bar intro.
 ShuffleBoogieEnd
- 2 bar ending.
+2 bar ending.
 TripHop
- Electronic dance beat.
+Electronic dance beat.
 TripHopEnd
- A 2 bar ending.
+A 2 bar ending.
 TripHopIntro
- A 4 bar intro.
+A 4 bar intro.
 DancePop3
- Basic electronic pop beat.
+Basic electronic pop beat.
 DancePop3Intro
- 4 bar introduction.
+4 bar introduction.
 DancePop3End
- 2 bar ending.
+2 bar ending.
 8BeatPop1
- Good for old time rock and roll.
+Good for old time rock and roll.
 8BeatPop1End
- A nice little 2 bar ending.
+A nice little 2 bar ending.
 8BeatPop1Intro
- A 4 bar introduction.
+A 4 bar introduction.
 Rock2
- Main pattern.
+Main pattern.
 Rock2Intro
- 4 bar introduction.
+4 bar introduction.
 Rock2End
- 2 bar ending.
+2 bar ending.
 8BeatPop2
- A latin-ish sounding pop rock.
+A latin-ish sounding pop rock.
 8BeatPop2End
- A 2 bar ending.
+A 2 bar ending.
 8BeatPop2Intro
- It's a 4 bar intro, but not too great.
+It's a 4 bar intro, but not too great.
 60sPop
- A decent pop/rock rhythm.
+A decent pop/rock rhythm.
 60sPopIntro
- A 4 bar intro.
+A 4 bar intro.
 60sPopEnd
- 2 bar ending.
+2 bar ending.
 8BeatBallad3
- Basic track.
+Basic track.
 8BeatBallad3Intro
- 4 bar intro.
+4 bar intro.
 8BeatBallad3End
- 2 bar end.
+2 bar end.
 PopPolka
- The main, happy, beat.
+The main, happy, beat.
 PopPolkaIntro
- A 4 bar introduction to happiness.
+A 4 bar introduction to happiness.
 PopPolkaEnd
- A 2 bar end to happiness.
+A 2 bar end to happiness.
 PopWaltzEnd
- A 2 bar ending.
+A 2 bar ending.
 R&B
- Main rhythm & blues groove.
+Main rhythm & blues groove.
 R&BIntro
- 4 bar introduction.
+4 bar introduction.
 R&BEnd
- 2 bar ending.
+2 bar ending.
 ModernR&B
- Basic pattern.
+Basic pattern.
 ModernR&BIntro
- 4 bar intro.
+4 bar intro.
 ModernR&BEnd
- 2 bar ending.
+2 bar ending.
 LatinFusion
- Busy latin rhythm.
+Busy latin rhythm.
 LatinFusionIntro
- 4 bar introduction.
+4 bar introduction.
 PopRock2
- A cheery version.
+A cheery version.
 PopRock2Intro
- A 4 bar intro.
+A 4 bar intro.
 PopRock2End
- A 2 bar ending.
+A 2 bar ending.
 HeavyMetal
- Basic pattern in 4.
+Basic pattern in 4.
 HeavyMetalIntro
- A 4 bar intro.
+A 4 bar intro.
 HeavyMetalEnd
- 2 bar ending.
+2 bar ending.
 8Beat3
- Electro-sounding 8beat.
+Electro-sounding 8beat.
 8Beat3End
- 2 bar ending.
+2 bar ending.
 8Beat3Intro
- 4 bar intro.
+4 bar intro.
 MellowRB
- Interesting rhythm.
+Interesting rhythm.
 MellowRBIntro
- A 4 bar intro.
+A 4 bar intro.
 MellowRBEnd
- A 2 bar ending.
+A 2 bar ending.
 MiddleBigBand
- Basic pattern.
+Basic pattern.
 MiddleBigBandIntro
- 4 bar intro.
+4 bar intro.
 MiddleBigBandEnd
- 2 bar ending.
+2 bar ending.
 Foxtrot
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 FoxtrotIntro
- 4 bar introduction.
+4 bar introduction.
 PopBallad
- A basic rhythm.
+A basic rhythm.
 PopBalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 PopBalladEnd
- A 2 bar ending.
+A 2 bar ending.
 16Beat3
- A techno-sounding dance beat.
+A techno-sounding dance beat.
 16Beat3End
- 2 Bar ending.
+2 Bar ending.
 16Beat3Intro
- 4 bar introduction.
+4 bar introduction.
 Dance1
- Basic pattern.
+Basic pattern.
 Dance1Intro
- 4 bar introduction.
+4 bar introduction.
 Dance1End
- 2 bar ending.
+2 bar ending.
 Polka
- Standard polka with strumming guitar from Casio.
+Standard polka with strumming guitar from Casio.
 PolkaEnd
- A 2 bar ending.
+A 2 bar ending.
 PolkaIntro
- A 4 bar intro.
+A 4 bar intro.
 8Beat1
- Basic 8beat pop-rock.
+Basic 8beat pop-rock.
 8Beat1End
- 2 bar ending.
+2 bar ending.
 8Beat1Intro
- 4 bar introduction.
+4 bar introduction.
 Blues
- Main 4 bar pattern.
+Main 4 bar pattern.
 BluesIntro
- 4 bar intro.
+4 bar intro.
 BluesEnd
- 2 bar ending.
+2 bar ending.
 8BeatDance
- Good if you are young.
+Good if you are young.
 8BeatDanceIntro
- A 4 bar intro to the dance.
+A 4 bar intro to the dance.
 8BeatDanceEnd
- A 2 bar end of dancing.
+A 2 bar end of dancing.
 Ambient2
- Main pattern.
+Main pattern.
 Ambient2Intro
- A 4 bar introduction.
+A 4 bar introduction.
 Ambient2End
- A 2 bar ending.
+A 2 bar ending.
 DancePop1
- Electronic Dance beat.
+Electronic Dance beat.
 DancePop1Intro
- Electronic Dance beat 4 bar intro.
+Electronic Dance beat 4 bar intro.
 DancePop1End
- Electronic Dance beat 2 bar ending.
+Electronic Dance beat 2 bar ending.
 SlowRock
- A boring 4 bar sequence.
+A boring 4 bar sequence.
 SlowRockIntro
- A 4 bar introduction.
+A 4 bar introduction.
 SlowRockEnd
- A 2 bar ending.
+A 2 bar ending.
 OldieBallad
- Main pattern, a 2 bar sequence.
+Main pattern, a 2 bar sequence.
 OldieBalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 OldieBalladEnd
- A 2 bar ending.
+A 2 bar ending.
 ShuffleRock
- A 60s shuffle.
+A 60s shuffle.
 ShuffleRockIntro
- A 4 bar introduction.
+A 4 bar introduction.
 ShuffleRockEnd
- A 2 bar ending.
+A 2 bar ending.
 PopRock1
- A 70s style pop rock.
+A 70s style pop rock.
 PopRock1Intro
- A 4 bar intro.
+A 4 bar intro.
 PopRock1End
- A 2 bar ending.
+A 2 bar ending.
 8BeatBallad1
- A strumming minstrel.
+A strumming minstrel.
 8BeatBallad1Intro
- 4 bar intro.
+4 bar intro.
 JazzCombo
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 JazzComboIntro
- 4 bar introduction.
+4 bar introduction.
 JazzComboEnd
- 2 bar ending.
+2 bar ending.
 8Beat2
- Harder version of the 8beat1 rhythm.
+Harder version of the 8beat1 rhythm.
 8Beat2End
- 2 bar ending.
+2 bar ending.
 8Beat2Intro
- 4 bar introduction.
+4 bar introduction.
 60sSoul
- A Supreme ryhthm.
+A Supreme ryhthm.
 60sSoulIntro
- A 4 bar intro.
+A 4 bar intro.
 60sSoulEnd
- A 2 bar ending.
+A 2 bar ending.
 Slow16Beat
- For techno huggers.
+For techno huggers.
 Slow16BeatIntro
- 4 bar introduction.
+4 bar introduction.
 Slow16BeatEnd
- 2 bar ending.
+2 bar ending.
 Swing
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 Rave
- A repetitive beat to keep you dancing.
+A repetitive beat to keep you dancing.
 RaveIntro
- 4 bar intro.
+4 bar intro.
 RaveEnd
- 2 bar ending.
+2 bar ending.
 16Beat2
- A light, arpeggiated dance.
+A light, arpeggiated dance.
 16Beat2Intro
- A 4 bar introduction.
+A 4 bar introduction.
 16Beat2End
- A 4 bar introduction.
+A 4 bar introduction.
 Rock1Intro
- 4 bar introduction.
+4 bar introduction.
 Rock1End
- 2 bar ending.
+2 bar ending.
 House
- Main beat.
+Main beat.
 HouseIntro
- 4 bar introduction.
+4 bar introduction.
 HouseEnd
- 2 bar ending.
+2 bar ending.
 Fusion
- Main fusion rhythm with horns.
+Main fusion rhythm with horns.
 FusionIntro
- A 4 bar intro with lots of horns.
+A 4 bar intro with lots of horns.
 FusionEnd
- A 2 bar ending.
+A 2 bar ending.
 SlowSwing
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 SlowSwingIntro
- 4 bar introduction.
+4 bar introduction.
 16Shuffle2
- A goofy 16 beat shuffle.
+A goofy 16 beat shuffle.
 16Shuffle2Intro
- A 4 bar introduction.
+A 4 bar introduction.
 16Shuffle2End
- A 2 bar ending.
+A 2 bar ending.
 Serenade
- Basic 1 bar pattern.
+Basic 1 bar pattern.
 SerenadeIntro
- 4 bar introduction.
+4 bar introduction.
 SerenadeEnd
- 2 bar ending.
+2 bar ending.
 Hip-Hop
- Our main pattern.
+Our main pattern.
 Hip-HopIntro
- A 4 bar introduction.
+A 4 bar introduction.
 Hip-HopEnd
- A 2 bar ending.
+A 2 bar ending.
 DiscoSoul
- Basic pattern.
+Basic pattern.
 DiscoSoulIntro
- 4 bar introduction.
+4 bar introduction.
 DiscoSoulEnd
- 2 bar ending.
+2 bar ending.
 Funk2
- Our basic rhythm.
+Our basic rhythm.
 Funk2Intro
- A funky 4 bar introdution.
+A funky 4 bar introdution.
 Funk2End
- A funky 4 bar introdution.
+A funky 4 bar introdution.
 Twist
- Basic pattern.
+Basic pattern.
 TwistIntro
- A 4 bar introduction.
+A 4 bar introduction.
 TwistEnd
- A 2 bar ending.
+A 2 bar ending.
 QuickStep
- Basic 4 bar pattern.
+Basic 4 bar pattern.
 SlowBigBand
- 4 bar pattern.
+4 bar pattern.
 SlowBigBandIntro
- 4 bar introduction.
+4 bar introduction.
 SlowBigBandEnd
- 2 bar endingxd.
+2 bar endingxd.
 Pop
- A basic pop beat.
+A basic pop beat.
 PopEnd
- A 2 bar ending.
+A 2 bar ending.
 PopIntro
- A 4 bar intro.
+A 4 bar intro.
 16Shuffle1
- 16 beat with shuffle.
+16 beat with shuffle.
 16Shuffle1Intro
- 4 bar introduction.
+4 bar introduction.
 16Shuffle1End
- 4 bar ending.
+4 bar ending.
 60sRock
- Nice 4 bar main pattern.
+Nice 4 bar main pattern.
 60sRockIntro
- 4 bar intro.
+4 bar intro.
 60sRockEnd
- A 2 bar ending.
+A 2 bar ending.
 68Ballad
- A 4 bar pattern.
+A 4 bar pattern.
 68BalladIntro
- A 4 bar introduction.
+A 4 bar introduction.
 68BalladEnd
- A 2 bar ending.
+A 2 bar ending.
 16Beat1
- Simple dance beat.
+Simple dance beat.
 16beat1End
- A 2 bar ending.
+A 2 bar ending.
 16beat1Intro
- A 4 bar intro.
+A 4 bar intro.
 FastBigBand
- Basic pattern.
+Basic pattern.
 FastBigBandIntro
- 4 bar introduction.
+4 bar introduction.
 FastBigBandEnd
- 2 bar ending.
+2 bar ending.
 Dance2
- Main pattern.
+Main pattern.
 Dance2Intro
- 4 bar intro.
+4 bar intro.
 Dance2End
- 2 bar ending.
+2 bar ending.
 LatinHouse
- Basic rhythm.
+Basic rhythm.
 LatinHouseIntro
- 4 bar introduction.
+4 bar introduction.
 LatinHouseEnd
- 2 bar ending.
+2 bar ending.
 Funk1
- A funky groove.
+A funky groove.
 Funk1Intro
- A 4 bar, funky, introduction.
+A 4 bar, funky, introduction.
 Funk1End
- A 2 bar, funky, ending.
+A 2 bar, funky, ending.
 8BeatPop3
- A more driving 8 beat rhythm.
+A more driving 8 beat rhythm.
 8BeatPop3Intro
- 4 bar intro.
+4 bar intro.
 8BeatPop3End
- 2 bar ending.
+2 bar ending.
 Trance1
- The basic pattern.
+The basic pattern.
 16BeatBallad3
- Basic pattern.
+Basic pattern.
 16BeatBallad3Intro
- 4 bar introduction.
+4 bar introduction.
 16BeatBallad3End
- 2 bar ending.
+2 bar ending.
 March1
- Basic pattern for march.
+Basic pattern for march.
 March1Intro
- A 4 bar introduction.
+A 4 bar introduction.
 March1End
- A 2 bar ending.
+A 2 bar ending.
 metal2A
- Metal 2, Section A.
+Metal 2, Section A.
 metal2B
- Metal 2, Section B.
+Metal 2, Section B.
 metal2FA
- Metal 2, Section A Fill-in.
+Metal 2, Section A Fill-in.
 metal2FB
- Metal 2, Section B Fill-in.
+Metal 2, Section B Fill-in.
 metal2E
- Metal 2, Ending.
+Metal 2, Ending.
 metal1A
- Metal 1, Section A.
+Metal 1, Section A.
 metal1B
- Metal 1, Section B.
+Metal 1, Section B.
 metal1FA
- Metal 1, Section A Fill-in.
+Metal 1, Section A Fill-in.
 metal1FB
- Metal 1, Section B Fill-in.
+Metal 1, Section B Fill-in.
 metal1E
- Metal 1, Ending.
+Metal 1, Ending.
 8beat1A
- 8 Beat 1, Section A.
+8 Beat 1, Section A.
 8beat1B
- 8 Beat 1, Section B.
+8 Beat 1, Section B.
 8beat1FA
- 8 Beat 1, Section A Fill-in.
+8 Beat 1, Section A Fill-in.
 8beat1FB
- 8 Beat 1, Section B Fill-in.
+8 Beat 1, Section B Fill-in.
 8beat1E
- 8 Beat 1, Ending.
+8 Beat 1, Ending.
 slowrockA
- Slowrock, Section A.
+Slowrock, Section A.
 slowrockB
- Slowrock, Section B.
+Slowrock, Section B.
 slowrockFA
- Slow rock Section A Fill-in.
+Slow rock Section A Fill-in.
 slowrockFB
- Slow rock, Section B Fill-in.
+Slow rock, Section B Fill-in.
 slowrockE
- Slow rock, Ending.
+Slow rock, Ending.
 highfiveA
- High Five, Section A.
+High Five, Section A.
 highfiveB
- High Five, Section B.
+High Five, Section B.
 highfiveFA
- High Five, Section A Fill-in.
+High Five, Section A Fill-in.
 highfiveFB
- High Five, Section B Fill-in.
+High Five, Section B Fill-in.
 highfiveE
- High Five, Ending.
+High Five, Ending.
 8beat2A
- 8 Beat 2, Section A.
+8 Beat 2, Section A.
 8beat2B
- 8 Beat 2, Section B.
+8 Beat 2, Section B.
 8beat2FA
- 8 Beat 2, Section A Fill-in.
+8 Beat 2, Section A Fill-in.
 8beat2FB
- 8 Beat 2, Section B Fill-in.
+8 Beat 2, Section B Fill-in.
 8beat2E
- 8 Beat 2, Ending.
+8 Beat 2, Ending.
 16beat2A
- 16 Beat 2, Section A.
+16 Beat 2, Section A.
 16beat2B
- 16 Beat 2, Section B.
+16 Beat 2, Section B.
 16beat2FA
- 16 Beat 2, Section A Fill-in.
+16 Beat 2, Section A Fill-in.
 16beat2FB
- 16 Beat 2, Section B Fill-in.
+16 Beat 2, Section B Fill-in.
 16beat2E
- 16 Beat 2, Ending.
+16 Beat 2, Ending.
 rock1A
- Rock 1, Section A.
+Rock 1, Section A.
 rock1B
- Rock 1, Section B.
+Rock 1, Section B.
 rock1FA
- Rock 1, Section A Fill-in.
+Rock 1, Section A Fill-in.
 rock1FB
- Rock 1, Section B Fill-in.
+Rock 1, Section B Fill-in.
 rock1E
- Rock 1, Ending.
+Rock 1, Ending.
 16beat1A
- 16 Beat 1, Section A.
+16 Beat 1, Section A.
 16beat1B
- 16 Beat 1, Section B.
+16 Beat 1, Section B.
 16beat1FA
- 16 Beat 1, Section A Fill-in.
+16 Beat 1, Section A Fill-in.
 16beat1FB
- 16 Beat 1, Section B Fill-in.
+16 Beat 1, Section B Fill-in.
 16beat1E
- 16 Beat 1, Ending.
+16 Beat 1, Ending.
 08Beat01
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 08Beat02
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 08Beat03
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 08Beat04
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 08Beat05
- Time = 4/4, SeqLen = 4; Kick, Snare, OpenHat, Crash.
+Time = 4/4, SeqLen = 4; Kick, Snare, OpenHat, Crash.
 08Beat06
- Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Bell.
+Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Bell.
 08Beat07
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 08Beat08
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 08Beat09
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Crash.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Crash.
 08Beat10
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 08Beat11
- Time = 4/4, SeqLen = 4; Kick, Snare, OpenHat, Crash.
+Time = 4/4, SeqLen = 4; Kick, Snare, OpenHat, Crash.
 08Beat12
- Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Bell.
+Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Bell.
 TECH01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 TECH02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2.
 TECH03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tom1.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tom1.
 TECH04
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat, Tom1, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat, Tom1, Tom3.
 TECH05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom1, Tom2, Tom3, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom1, Tom2, Tom3, Stick.
 TECH06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 TECH07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, Stick, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, Stick, Maracas, Tambourine.
 TECH08
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Tom1, Tom2, Tom3, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Tom1, Tom2, Tom3, LowConga, MutHiConga, OpenHiConga.
 TECH09
- Time = 4/4, SeqLen = 2; Kick, Snare.
+Time = 4/4, SeqLen = 2; Kick, Snare.
 TECH10
- Time = 4/4, SeqLen = 2; Kick, Snare, Tom1, Tom2, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Tom1, Tom2, Tambourine.
 REGG01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Stick.
 REGG02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick.
 REGG03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick.
 REGG04
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
 MTL01
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell, Tambourine.
 MTL02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 MTL03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
 MTL04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
 INTRO01
- Time = 4/4, SeqLen = 1; OpenHat, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 1; OpenHat, Tom1, Tom2, Tom3.
 INTRO02
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
 INTRO03
- Time = 4/4, SeqLen = 1; Kick, Snare, OpenHat, Crash.
+Time = 4/4, SeqLen = 1; Kick, Snare, OpenHat, Crash.
 INTRO04
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Crash, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Crash, Tom1, Tom2, Tom3.
 INTRO05
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
 INTRO06
- Time = 4/4, SeqLen = 1; Snare, Tom1, Tom2, Tom3, Stick.
+Time = 4/4, SeqLen = 1; Snare, Tom1, Tom2, Tom3, Stick.
 INTRO07
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
 INTRO08
- Time = 4/4, SeqLen = 1; Kick, ClosedHat, Tom1, Tom2.
+Time = 4/4, SeqLen = 1; Kick, ClosedHat, Tom1, Tom2.
 INTRO09
- Time = 4/4, SeqLen = 1; Kick, Snare, Crash, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 1; Kick, Snare, Crash, Tom1, Tom2, Tom3.
 INTRO10
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Tom1, Tom3, Maracas.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Tom1, Tom3, Maracas.
 INTRO11
- Time = 4/4, SeqLen = 1; Snare, Tom2, Stick.
+Time = 4/4, SeqLen = 1; Snare, Tom2, Stick.
 INTRO12
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, OpenHat, Crash.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, OpenHat, Crash.
 INTRO13
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, OpenHat, Tom2.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, OpenHat, Tom2.
 INTRO14
- Time = 4/4, SeqLen = 1; ClosedHat, Crash, Tom1, Tom3, Stick, Maracas.
+Time = 4/4, SeqLen = 1; ClosedHat, Crash, Tom1, Tom3, Stick, Maracas.
 INTRO15
- Time = 4/4, SeqLen = 1; Kick, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 1; Kick, ClosedHat, OpenHat.
 COUNT
- Time = 4/4, SeqLen = 2; Stick.
+Time = 4/4, SeqLen = 2; Stick.
 68BLUS
- Time = 6/8, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
+Time = 6/8, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
 TRIP01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tom2.
 TRIP02
- Time = 4/4, SeqLen = 2; Kick, Snare, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Maracas, Tambourine.
 TRIP03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, OpenHiConga.
 TRIP04
- Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Tom1, Tom2, Tom3.
 LATN01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Stick, Maracas, Tambourine.
 LATN02
- Time = 4/4, SeqLen = 2; Ride, Tambourine, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Ride, Tambourine, LowConga, MutHiConga, OpenHiConga.
 LATN03
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, LowConga, MutHiConga, OpenHiConga.
 LATN04
- Time = 4/4, SeqLen = 2; Maracas, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Maracas, LowConga, OpenHiConga.
 LATN05
- Time = 4/4, SeqLen = 2; Stick, Maracas.
+Time = 4/4, SeqLen = 2; Stick, Maracas.
 LATN06
- Time = 4/4, SeqLen = 2; Kick, Ride, Tom3, Stick.
+Time = 4/4, SeqLen = 2; Kick, Ride, Tom3, Stick.
 LATN07
- Time = 4/4, SeqLen = 2; ClosedHat, Ride, Maracas, Tambourine, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; ClosedHat, Ride, Maracas, Tambourine, LowConga, MutHiConga.
 LATN08
- Time = 4/4, SeqLen = 2; Ride, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Ride, Maracas, LowConga, MutHiConga, OpenHiConga.
 LATN09
- Time = 4/4, SeqLen = 2; ClosedHat, Ride, Maracas, Tambourine, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; ClosedHat, Ride, Maracas, Tambourine, LowConga, MutHiConga.
 LATN10
- Time = 4/4, SeqLen = 2; Tom2, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Tom2, Maracas, LowConga, MutHiConga, OpenHiConga.
 LATN11
- Time = 4/4, SeqLen = 2; Tom2, Maracas, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Tom2, Maracas, LowConga, OpenHiConga.
 LATN12
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, LowConga, OpenHiConga.
 04JAZZ01
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride, Tom1, Tom3, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride, Tom1, Tom3, LowConga, MutHiConga, OpenHiConga.
 04JAZZ02
- Time = 4/4, SeqLen = 4; ClosedHat, Ride, Stick.
+Time = 4/4, SeqLen = 4; ClosedHat, Ride, Stick.
 04JAZZ03
- Time = 4/4, SeqLen = 4; Kick, ClosedHat, Ride, Stick.
+Time = 4/4, SeqLen = 4; Kick, ClosedHat, Ride, Stick.
 04JAZZ04
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Crash, Ride, Tom1, Tom3.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Crash, Ride, Tom1, Tom3.
 SAMBA01
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Maracas.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Maracas.
 SAMBA02
- Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Tom1, Tom2, Tom3, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 4; Kick, Snare, Ride, Tom1, Tom2, Tom3, Maracas, LowConga, MutHiConga, OpenHiConga.
 BALD01
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Ride, Stick, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Ride, Stick, Tambourine.
 BALD02
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Stick, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Stick, Maracas, Tambourine.
 BALD03
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Stick, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Stick, Maracas, Tambourine.
 BALD04
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Ride, Stick, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Ride, Stick, Tambourine.
 BALD06
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
 BALD07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 BALD08
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
 BALD09
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
 BALD10
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
 BOSSA01
- Time = 4/4, SeqLen = 4; Kick, Ride, Stick, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 4; Kick, Ride, Stick, Maracas, LowConga, MutHiConga, OpenHiConga.
 BOSSA02
- Time = 4/4, SeqLen = 4; Kick, ClosedHat, Stick, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 4; Kick, ClosedHat, Stick, Maracas, LowConga, MutHiConga, OpenHiConga.
 DANC01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 DANC02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 DANC03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas.
 DANC04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
 DANC05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Maracas.
 DANC06
- Time = 4/4, SeqLen = 2; Kick, Snare, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Maracas, Tambourine.
 DANCE
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas.
 SKA01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 SKA02
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
 SKA03
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
 SKA04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Stick.
 RnB01
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick.
 RnB02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 RnB03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 RnB04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 RnB05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash.
 RnB06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 RnB07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 RnB08
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
 RnB09
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 RnB10
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tom1, Tom2, Tom3.
 ROCK01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 ROCK02
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 ROCK03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
 ROCK04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash.
 ROCK05
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 ROCK06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Tambourine.
 ROCK07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Bell.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Bell.
 ROCK08
- Time = 4/4, SeqLen = 2; Kick, Snare, Bell, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Bell, Tambourine.
 ROCK09
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 ROCK10
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash.
 ROCK11
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 ROCK12
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 ROCK13
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
 ROCK14
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 ROCK15
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 ROCK16
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom3, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom3, Tambourine.
 ROCK17
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 ROCK18
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 ROCK19
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 ROCK20
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2.
 ROCK21
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash.
 ROCK22
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 ROCK23
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
 ROCK24
- Time = 4/4, SeqLen = 2; Kick, Snare, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, Maracas.
 ROCK25
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 ROCK26
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
 ROCK27
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tambourine.
 THRS01
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 THRS02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride.
 MidE01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, LowConga, MutHiConga, OpenHiConga.
 MidE02
- Time = 4/4, SeqLen = 2; Kick, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, LowConga, MutHiConga, OpenHiConga.
 MidE03
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, LowConga, MutHiConga.
 MidE04
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Maracas.
 ENDING01
- Time = 4/4, SeqLen = 1; Kick, Crash.
+Time = 4/4, SeqLen = 1; Kick, Crash.
 ENDING02
- Time = 4/4, SeqLen = 1; Kick, Snare, Crash, Maracas.
+Time = 4/4, SeqLen = 1; Kick, Snare, Crash, Maracas.
 ENDING03
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
 ENDING04
- Time = 4/4, SeqLen = 1; Kick, Crash.
+Time = 4/4, SeqLen = 1; Kick, Crash.
 ENDING05
- Time = 4/4, SeqLen = 1; Kick, Crash.
+Time = 4/4, SeqLen = 1; Kick, Crash.
 ENDING06
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Crash, Tom2, Maracas.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat, Crash, Tom2, Maracas.
 ENDING07
- Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 1; Kick, Snare, ClosedHat.
 16Beat01
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 16Beat02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 16Beat03
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
 16Beat04
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 16Beat05
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat.
 16Beat06
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride.
 16Beat07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Bell.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Bell.
 16Beat08
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tambourine.
 16Beat09
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2.
 16Beat10
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 16Beat11
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 16Beat12
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, Tambourine.
 JAZZ01
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat, Ride, Bell.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat, Ride, Bell.
 JAZZ02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick.
 JAZZ03
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Maracas.
 JAZZ04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Bell, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Bell, Maracas.
 JAZZ05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
 JAZZ06
- Time = 4/4, SeqLen = 2; Kick, Ride, Stick, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; Kick, Ride, Stick, LowConga, MutHiConga.
 JAZZ07
- Time = 4/4, SeqLen = 4; Kick, Snare, Ride, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 4; Kick, Snare, Ride, LowConga, MutHiConga, OpenHiConga.
 HRK01
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 HRK02
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell.
 HRK03
- Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Bell, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Bell, Tambourine.
 HRK04
- Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, OpenHat.
 HRK05
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Bell.
 HRK06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas, Tambourine.
 HRK07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Tom3.
 BLUS04
- Time = 6/8, SeqLen = 2; Kick, Snare, Ride.
+Time = 6/8, SeqLen = 2; Kick, Snare, Ride.
 BLUS01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 BLUS02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tom1, Tom2, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tom1, Tom2, Stick.
 BLUS03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 BLUS05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride.
 BLUS06
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
 AFRO01
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Stick, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Stick, LowConga, MutHiConga, OpenHiConga.
 AFRO02
- Time = 4/4, SeqLen = 2; Kick, Tom1, Tom2, Tom3, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Tom1, Tom2, Tom3, LowConga, MutHiConga, OpenHiConga.
 AFRO03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, OpenHiConga.
 AFRO04
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, LowConga, MutHiConga, OpenHiConga.
 AFRO05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2, Maracas, LowConga, MutHiConga, OpenHiConga.
 AFRO06
- Time = 4/4, SeqLen = 2; Crash, Tom2, Stick.
+Time = 4/4, SeqLen = 2; Crash, Tom2, Stick.
 AFRO07
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Tom1, Tom2, Tom3, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, Tom1, Tom2, Tom3, Maracas, Tambourine.
 AFRO08
- Time = 4/4, SeqLen = 2; Crash, Tom1, Tom2, Stick, Maracas, Tambourine, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; Crash, Tom1, Tom2, Stick, Maracas, Tambourine, LowConga, MutHiConga.
 SHFL01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 SHFL02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 SHFL03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 SHFL04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 SHFL05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom2.
 BALD05
- Time = 3/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 3/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 BALD11
- Time = 3/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride, Tambourine.
+Time = 3/4, SeqLen = 4; Kick, Snare, ClosedHat, Ride, Tambourine.
 FUNK01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUNK02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 FUNK03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Tom1, Tom2, Tom3.
 FUNK04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 FUNK05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 FUNK06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 FUNK07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Stick, Tambourine, LowConga, MutHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Stick, Tambourine, LowConga, MutHiConga.
 FUNK08
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride, LowConga, OpenHiConga.
 FUNK09
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUNK10
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
 FUNK11
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUNK12
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tambourine.
 HOUS01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HOUS02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
 HOUS03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HOUS04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
 FUS01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUS02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUS03
- Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Tom2, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, Crash, Ride, Tom2, Tambourine.
 FUS04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom1, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom1, Tom3.
 FUS05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUS06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 FUS07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride, Maracas, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Crash, Ride, Maracas, LowConga, MutHiConga, OpenHiConga.
 FUS08
- Time = 4/4, SeqLen = 2; Kick, Snare, Stick.
+Time = 4/4, SeqLen = 2; Kick, Snare, Stick.
 ROCK28
- Time = 3/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tom1, Tom2, Tom3.
+Time = 3/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tom1, Tom2, Tom3.
 CNTR01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 CNTR02
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Stick.
 CNTR03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom1.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tom1.
 CNTR04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas.
 PUNK01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
 PUNK02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 CNTRY
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Maracas, Tambourine.
 POP01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 POP02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 POP03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, LowConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, LowConga, OpenHiConga.
 POP04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 POP05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 POP06
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, OpenHat, Stick, Maracas.
 POP07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 POP08
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
 POP09
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 POP10
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 POP11
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 POP12
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 16FUS01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 16FUS02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 16FUS03
- Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 4; Kick, Snare, ClosedHat, OpenHat.
 16FUS04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
 HIP01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom3.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom3.
 HIP03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HIP04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Maracas, Tambourine.
 HIP05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP07
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Tambourine.
 HIP08
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HIP09
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Tambourine.
 HIP10
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HIP11
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Ride, Stick.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Ride, Stick.
 HIP12
- Time = 4/4, SeqLen = 2; Kick, ClosedHat, Tom3.
+Time = 4/4, SeqLen = 2; Kick, ClosedHat, Tom3.
 HIP13
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Stick, Tambourine.
 HIP14
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Maracas.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride, Maracas.
 HIP15
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 HIP16
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 HIP17
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP18
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tambourine.
 HIP19
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP20
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP21
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 HIP22
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
 HIP23
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Crash, Ride, Tambourine.
 AMB01
- Time = 4/4, SeqLen = 2; Kick, Tom2, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Tom2, LowConga, MutHiConga, OpenHiConga.
 AMB02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat.
 AMB03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHiConga.
 AMB04
- Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, Ride.
 DnB01
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tom2, Tambourine.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride, Tom2, Tambourine.
 DnB02
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 DnB03
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, OpenHat, Ride.
 DnB04
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Ride.
 DnB05
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat.
 DnB06
- Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, MutHiConga, OpenHiConga.
+Time = 4/4, SeqLen = 2; Kick, Snare, ClosedHat, Tom2, LowConga, MutHiConga, OpenHiConga.
 Ayyub
- Basic Ayyub 2/4 rhythm.
+Basic Ayyub 2/4 rhythm.
 Saidi
- Basic Sa'idi 4/4 rhythm.
+Basic Sa'idi 4/4 rhythm.
 Maqsum
- Basic Maqsum 4/4 rhythm.
+Basic Maqsum 4/4 rhythm.
 Samai
- Basic Sama'i 10/8 rhythm.
+Basic Sama'i 10/8 rhythm.
 Baiao-Miranda
- Basic Baião 2/4 (Michael de Miranda & Matthias Haffner).
+Basic Baião 2/4 (Michael de Miranda & Matthias Haffner).
 Forro-Miranda
- Basic Forró 2/4 (Michael de Miranda & Matthias Haffner).
+Basic Forró 2/4 (Michael de Miranda & Matthias Haffner).
 Xote-Miranda
- Basic Xote 2/4 (Michael de Miranda & Matthias Haffner).
+Basic Xote 2/4 (Michael de Miranda & Matthias Haffner).
 Xaxado-Miranda
- Basic Xaxado 2/4 (Michael de Miranda & Matthias Haffner).
+Basic Xaxado 2/4 (Michael de Miranda & Matthias Haffner).
 Arrastape-Miranda
- Basic Arrasta-pé 2/4 (Michael de Miranda & Matthias Haffner).
+Basic Arrasta-pé 2/4 (Michael de Miranda & Matthias Haffner).
 Baiao-Gimenez
- Basic Baião 2/4 (Caio Gimenez).
+Basic Baião 2/4 (Caio Gimenez).

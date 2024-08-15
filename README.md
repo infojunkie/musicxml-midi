@@ -7,7 +7,7 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
-- Install `jq` (only needed for automated tests)
+- Install `jq`
 - `git submodule update --init --recursive`
 - `npm install && npm run build`
 

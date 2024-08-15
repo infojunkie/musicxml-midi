@@ -59,6 +59,8 @@ app.use(morgan('combined'))
 app.get('/', (req, res) => res.json({ name, version, description, author }))
 
 app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.txt')))
+app.get('/grooves.txt', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.txt')))
+app.get('/grooves.json', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.json')))
 
 async function tryCompressedMusicXml(buffer) {
   try {
