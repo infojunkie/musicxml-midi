@@ -15,6 +15,7 @@ import { validateXMLWithXSD } from 'validate-with-xmllint'
 import cors from 'cors'
 import { fileURLToPath } from 'url'
 import process from 'process'
+import jq from 'node-jq'
 
 // Ensure working directory is this script.
 // https://stackoverflow.com/a/62892482/209184
@@ -58,9 +59,26 @@ app.use(morgan('combined'))
 
 app.get('/', (req, res) => res.json({ name, version, description, author }))
 
-app.get('/grooves', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.txt')))
-app.get('/grooves.txt', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.txt')))
-app.get('/grooves.json', (req, res) => res.status(200).sendFile(path.resolve('build/grooves.json')))
+app.get('/grooves', async (req, res) => {
+  jq.run('.[] | .groove, .description', path.resolve('build/grooves.json'), { raw: true })
+    .then(output => res.status(200).send(output))
+    .catch(error => {
+      console.error(`[jq] ${error}`)
+      res.status(400).send(error)
+    })
+})
+
+app.post('/grooves.json', async (req, res) => {
+  if (!req.body?.jq) {
+    return res.status(200).sendFile(path.resolve('build/grooves.json'))
+  }
+  jq.run(req.body.jq, path.resolve('build/grooves.json'), { raw: true })
+    .then(output => res.status(200).send(output))
+    .catch(error => {
+      console.error(`[jq] ${error}`)
+      res.status(400).send(error)
+    })
+})
 
 async function tryCompressedMusicXml(buffer) {
   try {
@@ -83,7 +101,7 @@ async function tryCompressedMusicXml(buffer) {
   }
 }
 
-app.post('/convert', async (req, res, next) => {
+app.post('/convert', async (req, res) => {
   if (!req.files || !('musicXml' in req.files) ) {
     return res.status(400).json(ERROR_BAD_PARAM)
   }
@@ -104,8 +122,7 @@ app.post('/convert', async (req, res, next) => {
   try {
     await fs.access(cacheFile, constants.R_OK)
     console.info(`Sending ${cacheFile} from cache...`)
-    res.status(200).sendFile(cacheFile)
-    return
+    return res.status(200).sendFile(cacheFile)
   }
   catch {
     // Could not access cache file: Keep going below to generate it.
@@ -181,8 +198,7 @@ app.post('/groove', async (req, res, next) => {
   try {
     await fs.access(cacheFile, constants.R_OK)
     console.info(`Sending ${cacheFile} from cache...`)
-    res.status(200).sendFile(cacheFile)
-    return
+    return res.status(200).sendFile(cacheFile)
   }
   catch {
     // Could not access cache file: Keep going below to generate it.

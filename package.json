@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build:mmarc": "cp mmarc.example mmarc",
-    "build:grooves": "${MMA_HOME:-mma}/mma.py -G && find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Djs \"$f\" | tail -n +2; done > /tmp/grooves.json; jq -rs \". | flatten\" < /tmp/grooves.json > build/grooves.json; jq -rs \". | flatten | .[] | .groove, .description\" < /tmp/grooves.json > build/grooves.txt",
+    "build:grooves": "${MMA_HOME:-mma}/mma.py -G && find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Djs \"$f\" | tail -n +2; done > /tmp/grooves.json; jq -rs \". | flatten\" < /tmp/grooves.json > build/grooves.json",
     "build:sef": "for xsl in src/xsl/*.xsl; do sef=$(basename \"$xsl\"); xslt3 -relocate:on -xsl:$xsl -export:build/${sef/.xsl/.sef.json} -nogo:1 -t -ns:##html5; done && rm -f cache/*.mid",
     "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",
     "convert:unroll": "run() { xslt3 -xsl:src/xsl/unroll.xsl -s:\"$1\" ${@:2}; }; run",
@@ -51,6 +51,7 @@
     "express-fileupload": "^1.3.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.1",
+    "node-jq": "^6.0.1",
     "saxon-js": "^2.5.0",
     "unzipit": "^1.4.0",
     "validate-with-xmllint": "^1.2.0",

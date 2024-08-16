@@ -81,14 +81,17 @@ describe('MusicXML to MIDI conversion server', () => {
   test('should get existing grooves', async () => {
     const res = await request(app).get('/grooves')
     expect(res.statusCode).toEqual(200)
-    expect(res.text).toEqual(fs.readFileSync('build/grooves.txt').toString())
     expect(res.text.includes('Ayyub')).toBeTruthy()
     expect(res.text.includes('Baiao-Miranda')).toBeTruthy()
-    const res2 = await request(app).get('/grooves.txt')
+    const res2 = await request(app).post('/grooves.json')
     expect(res2.statusCode).toEqual(200)
-    const res3 = await request(app).get('/grooves.json')
+    expect(res2.text).toEqual(fs.readFileSync('build/grooves.json').toString())
+    const res3 = await request(app)
+      .post('/grooves.json')
+      .field('jq', '.[] | select(.groove == "Ayyub")')
     expect(res3.statusCode).toEqual(200)
-    expect(res3.text).toEqual(fs.readFileSync('build/grooves.json').toString())
+    expect(res3.text).toContain('Basic Ayyub 2/4 rhythm.')
+    expect(res3.text).not.toContain('Baiao-Miranda')
   })
 
   test('should generate groove', async () => {
