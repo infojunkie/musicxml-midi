@@ -10,7 +10,7 @@ const MUSICXML_VERSION = '4.0'
 
 import fetch from 'node-fetch'
 import * as cheerio from 'cheerio'
-import xmlFormat from 'xml-formatter';
+import xmlFormat from 'xml-formatter'
 import fs from 'fs'
 import process from 'process'
 import path from 'path'
@@ -38,7 +38,7 @@ const options = {
     type: 'boolean',
     short: 'v'
   },
-  'example': {
+  'examples': {
     type: 'string',
     short: 'e'
   },
@@ -59,13 +59,14 @@ const { values: args } = (function() {
     process.exit(1)
   }
 })()
+
 if (!('source' in args)) {
   args['source'] = URL_EXAMPLES_ROOT
 }
 
 if ('help' in args) {
   console.log(`
-Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--example|-e example-slug] [--source|-s url/or/path/to/examples/] [--xml|-x] [--validate] [--version|-v] [--help|-h]
+Usage: musicxml-examples v${version} [--output|-o /path/to/output] [--examples|-e comma-separated-example-slugs] [--source|-s url/or/path/to/examples/] [--xml|-x] [--validate] [--version|-v] [--help|-h]
 
 Extracts MusicXML examples from ${args['source']}.
 Use --xml to recreate a valid MusicXML structure around examples that lack it.
@@ -78,19 +79,21 @@ if ('version' in args) {
   process.exit(0)
 }
 
-const output = args['output'] || ''
-if (output !== '' && !fs.existsSync(output)) {
-  console.error(`Missing output dir ${output}`)
+if ('output' in args && !fs.existsSync(args['output'])) {
+  console.error(`Missing output dir ${args['output']}`)
   process.exit(1)
 }
 
+const examples = 'examples' in args ? args['examples'].split(',').map(e => e.trim()) : []
 const main = await fetchPage(args['source'])
 const $ = cheerio.load(main)
 for (const example of $('body').find('a:has(img)')) {
   const href = $(example).prop('href')
-  if ('example' in args && args['example'] !== href.replace('/', '')) continue
+  const slug = href.replace('/', '')
+  if (examples.length > 0 && examples.indexOf(slug) < 0) continue
+
   console.error(`Extracting ${href}...`)
-  await extractMusicXml(args['source'] + href, href.replace('/', ''))
+  await extractMusicXml(args['source'] + href, slug)
 }
 
 async function extractMusicXml(page, slug) {
@@ -105,8 +108,8 @@ async function extractMusicXml(page, slug) {
     })
   }
 
-  if (output !== '') {
-    fs.writeFileSync(path.join(output, `${slug}.musicxml`), musicxml)
+  if ('output' in args) {
+    fs.writeFileSync(path.join(args['output'], `${slug}.musicxml`), musicxml)
   }
   else {
     process.stdout.write(musicxml + '\n')
@@ -115,7 +118,33 @@ async function extractMusicXml(page, slug) {
 
 async function fetchPage(url) {
   if (/^http/.test(url)) {
-    const response = await fetch(url)
+    const response = await fetch(url, {
+      "headers": {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        "accept-language": "en",
+        "cache-control": "no-cache",
+        "pragma": "no-cache",
+        "priority": "u=0, i",
+        "sec-ch-ua": "\"Not)A;Brand\";v=\"99\", \"Google Chrome\";v=\"127\", \"Chromium\";v=\"127\"",
+        "sec-ch-ua-arch": "\"x86\"",
+        "sec-ch-ua-bitness": "\"64\"",
+        "sec-ch-ua-full-version": "\"127.0.6533.72\"",
+        "sec-ch-ua-full-version-list": "\"Not)A;Brand\";v=\"99.0.0.0\", \"Google Chrome\";v=\"127.0.6533.72\", \"Chromium\";v=\"127.0.6533.72\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-model": "\"\"",
+        "sec-ch-ua-platform": "\"Linux\"",
+        "sec-ch-ua-platform-version": "\"6.9.3\"",
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "same-origin",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1",
+        "Referer": "https://www.w3.org/2021/06/musicxml40/musicxml-reference/",
+        "Referrer-Policy": "same-origin"
+      },
+      "body": null,
+      "method": "GET"
+    });
     return await response.text()
   }
   return fs.readFileSync(path.join(url, 'index.html'), { encoding: 'utf-8' })
