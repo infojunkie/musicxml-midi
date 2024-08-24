@@ -14,18 +14,18 @@ SeqSize 1
 // Baião pattern
 
 Begin Drum-Zabumba-Maceta-Mute
-  Tone OpenSurdo
+  Tone KickDrum2
   Sequence { 1 0 60 }
 End
 
 Begin Drum-Zabumba-Maceta-Open
-  Tone OpenSurdo
+  Tone KickDrum1
   Sequence { 1+8+16 0 90 }
 End
 
 Begin Drum-Zabumba-Bacalhau
-  Tone Sticks
-  Sequence { 1.5 0 90 ; 2.5 0 90 }
+  Tone SideKick
+  Sequence { 1.5 0 60 ; 2.5 0 60 }
 End
 
 Begin Drum-Triangle-Mute

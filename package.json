@@ -23,6 +23,7 @@
     "convert:midi": "run() { ${MMA_HOME:-mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
     "debug:musicxml": "run() { xslt3 -xsl:src/xsl/musicxml.xsl -s:\"$1\" ${@:2}; }; run",
+    "debug:groove": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
     "develop": "nodemon -e js,json src/js/server.js",
