@@ -84,6 +84,19 @@
       <instrument-sound>effect.metronome-bell</instrument-sound>
     </drum>
   </instrument>
+  <instrument id="hand-clap">
+    <part-name lang="en">Hand Clap</part-name>
+    <part-abbreviation lang="en">Hd. Clp.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="39">
+      <instrument-name lang="en">Hand Clap</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>effect.hand-clap</instrument-sound>
+    </drum>
+  </instrument>
   <instrument id="bass-drum">
     <part-name lang="en">Bass Drum</part-name>
     <part-abbreviation lang="en">B. Dr.</part-abbreviation>
@@ -385,6 +398,27 @@
       <instrument-sound>drum.timbale</instrument-sound>
     </drum>
   </instrument>
+  <instrument id="agogo">
+    <part-name lang="en">Agogo</part-name>
+    <part-abbreviation lang="en">Ago.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="67">
+      <instrument-name lang="en">High Agogo</instrument-name>
+      <display-step>F</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>metal.bells.agogo</instrument-sound>
+    </drum>
+    <drum midi="68">
+      <instrument-name lang="en">Low Agogo</instrument-name>
+      <display-step>D</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>metal.bells.agogo</instrument-sound>
+    </drum>
+  </instrument>
   <instrument id="cabasa">
     <part-name lang="en">Cabasa</part-name>
     <part-abbreviation lang="en">Cabs.</part-abbreviation>
@@ -409,6 +443,48 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>rattle.maraca</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="whistle">
+    <part-name lang="en">Whistle</part-name>
+    <part-abbreviation lang="en">Wh.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="71">
+      <instrument-name lang="en">Short High Whistle</instrument-name>
+      <display-step>F</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>effect.whistle</instrument-sound>
+    </drum>
+    <drum midi="72">
+      <instrument-name lang="en">Long Low Whistle</instrument-name>
+      <display-step>D</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>effect.whistle</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="guiro">
+    <part-name lang="en">Guiro</part-name>
+    <part-abbreviation lang="en">Gro.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="73">
+      <instrument-name lang="en">Short Guiro</instrument-name>
+      <display-step>F</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>wood.guiro</instrument-sound>
+    </drum>
+    <drum midi="74">
+      <instrument-name lang="en">Long Guiro</instrument-name>
+      <display-step>D</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>wood.guiro</instrument-sound>
     </drum>
   </instrument>
   <instrument id="claves">
@@ -445,6 +521,27 @@
       <instrument-sound>wood.wood-block</instrument-sound>
     </drum>
   </instrument>
+  <instrument id="cuica">
+    <part-name lang="en">Cuica</part-name>
+    <part-abbreviation lang="en">Cu.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="78">
+      <instrument-name lang="en">Mute Cuica</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>x</notehead>
+      <instrument-sound>drum.cuica</instrument-sound>
+    </drum>
+    <drum midi="79">
+      <instrument-name lang="en">Open Cuica</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>drum.cuica</instrument-sound>
+    </drum>
+  </instrument>
   <instrument id="triangle">
     <part-name lang="en">Triangle</part-name>
     <part-abbreviation lang="en">Trgl.</part-abbreviation>
@@ -477,6 +574,66 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>rattle.shaker</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="sleigh-bells">
+    <part-name lang="en">Sleigh Bells</part-name>
+    <part-abbreviation lang="en">Sle. Be.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="83">
+      <instrument-name lang="en">Sleigh Bells</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>metal.bells.sleigh-bells</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="bell-tree">
+    <part-name lang="en">Bell Tree</part-name>
+    <part-abbreviation lang="en">Be. Tr.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="84">
+      <instrument-name lang="en">Sleigh Bells</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>metal.bells.bell-tree</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="castanets">
+    <part-name lang="en">Castanets</part-name>
+    <part-abbreviation lang="en">Cst.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="85">
+      <instrument-name lang="en">Castanets</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>wood.castanets</instrument-sound>
+    </drum>
+  </instrument>
+  <instrument id="surdo">
+    <part-name lang="en">Surdo</part-name>
+    <part-abbreviation lang="en">Srd.</part-abbreviation>
+    <staff-lines>1</staff-lines>
+    <drum midi="86">
+      <instrument-name lang="en">Mute Surdo</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>x</notehead>
+      <instrument-sound>drum.surdo</instrument-sound>
+    </drum>
+    <drum midi="87">
+      <instrument-name lang="en">Open Surdo</instrument-name>
+      <display-step>E</display-step>
+      <display-octave>4</display-octave>
+      <stem>up</stem>
+      <notehead>normal</notehead>
+      <instrument-sound>drum.surdo</instrument-sound>
     </drum>
   </instrument>
 </instruments>

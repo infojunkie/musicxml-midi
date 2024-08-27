@@ -14,6 +14,7 @@ import { parseArgs } from 'node:util'
 import { createRequire } from 'node:module'
 import { validateXMLWithXSD } from 'validate-with-xmllint'
 import SaxonJS from 'saxon-js'
+import path from 'path'
 
 const require = createRequire(import.meta.url)
 const { version } = require('../../package.json')
@@ -87,21 +88,26 @@ const grooves = 'grooves' in args ? args['grooves'].split(',').map(g => g.trim()
 for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
   if (grooves.length > 0 && grooves.indexOf(groove.groove) < 0) continue
 
-  console.error(`Generating ${groove.groove}...`)
-  const musicxml = createMusicXML(groove)
+  try {
+    console.error(`Generating ${groove.groove}...`)
+    const musicxml = createMusicXML(groove)
 
-  if ('validate' in args) {
-    await validateXMLWithXSD(musicxml, 'src/xsd/musicxml.xsd')
-    .catch(error => {
-      console.error(`Failed to validate MusicXML: ${error.message}`)
-    })
-  }
+    if ('validate' in args) {
+      await validateXMLWithXSD(musicxml, 'src/xsd/musicxml.xsd')
+      .catch(error => {
+        console.error(`Failed to validate MusicXML: ${error.message}`)
+      })
+    }
 
-  if ('output' in args) {
-    fs.writeFileSync(path.join(args['output'], `${groove}.musicxml`), musicxml)
+    if ('output' in args) {
+      fs.writeFileSync(path.join(args['output'], `${groove.groove}.musicxml`), musicxml)
+    }
+    else {
+      process.stdout.write(musicxml + '\n')
+    }
   }
-  else {
-    process.stdout.write(musicxml + '\n')
+  catch (error) {
+    console.error(`Failed to convert ${groove.groove} to MusicXML: ${error}`)
   }
 }
 
@@ -113,7 +119,7 @@ function createMusicXML(groove) {
       "http://www.musicxml.org/dtds/partwise.dtd">
   <score-partwise version="${MUSICXML_VERSION}">
     <work>
-      <work-title>${groove.groove}</work-title>
+      <work-title>${escape(groove.groove)}</work-title>
     </work>
     <identification>
       <encoding>
@@ -140,6 +146,10 @@ function createPartList(groove) {
   // It can happen that a MIDI drum voice is used by multiple instruments,
   // so we gather all matching instruments and later select those with the most voices.
   const tracks = groove.tracks.filter(t => t.track.startsWith('DRUM')).reverse()
+  if (!tracks.length) {
+    throw Error('No drum tracks found.')
+  }
+
   const partCandidates = tracks.reduce((partCandidates, track) => {
     track.candidateInstrumentIds = []
     const midi = track.midi[0] // In grooves.json, all MIDI notes are the same for each track
@@ -314,22 +324,38 @@ function createPartEntry(groove, partId, part) {
       return n1.onset - n2.onset
     }).reduce((notes, note, index, source) => {
       const onset = notes.length > 0 ? notes[notes.length-1].onset : 1
-      const duration = note.onset - onset;
+      const duration = note.onset - onset
       if (duration > 0) {
         if (notes.length === 0) {
           notes.push({
-            midi: undefined,
+            midi: undefined, // rest
             onset,
             duration
           })
         }
         else {
-          notes.filter(note => note.onset === onset).forEach(note => { note.duration = duration })
+          // Maximum duration of a drum beat is 1.
+          notes.filter(note => note.onset === onset).forEach(note => { note.duration = Math.min(1, duration) })
+          if (duration > 1) {
+            notes.push({
+              midi: undefined,
+              onset: onset + 1,
+              duration: duration - 1
+            })
+          }
         }
       }
       notes.push(note)
       if (index === source.length - 1) {
-        notes.filter(note => note.duration === undefined).forEach(note => { note.duration = beats + 1 - note.onset })
+        const duration = beats + 1 - note.onset
+        notes.filter(note => note.duration === undefined).forEach(note => { note.duration = Math.min(1, duration) })
+        if (duration > 1) {
+          notes.push({
+            midi: undefined,
+            onset: onset + 1,
+            duration: duration - 1
+          })
+        }
       }
       return notes
     }, []).map((note, index, notes) => {
@@ -373,7 +399,7 @@ function getNoteTiming(note, _index, _notes, beatType) {
     12: '256th',
     24: '128th',
     48: '64th',
-    96: '32th',
+    96: '32nd',
     192: '16th',
     384: 'eighth',
     768: 'quarter',
@@ -417,10 +443,10 @@ function createInstrument(document, _groove, track) {
     target.appendChild(el)
     if (obj.hasOwnProperty('children')) {
       obj.children.forEach(child => {
-        createElement(el, child);
-      });
+        createElement(el, child)
+      })
     }
-    return el;
+    return el
   }
   return createElement(instruments.documentElement, {
     tagName: 'instrument',
@@ -470,5 +496,18 @@ function createInstrument(document, _groove, track) {
         text: 'normal'
       }]
     }]
+  })
+}
+
+// https://stackoverflow.com/a/27979933/209184
+function escape(unsafe) {
+  return unsafe.replace(/[<>&'"]/g, function (c) {
+    switch (c) {
+      case '<': return '&lt;'
+      case '>': return '&gt;'
+      case '&': return '&amp;'
+      case '\'': return '&apos;'
+      case '"': return '&quot;'
+    }
   })
 }
