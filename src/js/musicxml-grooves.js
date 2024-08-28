@@ -348,6 +348,9 @@ function createPartEntry(groove, partId, part) {
       notes.push(note)
       if (index === source.length - 1) {
         const duration = beats + 1 - note.onset
+        if (duration <= 0) {
+          console.warn(`Found note with duration 0. Ignoring.`)
+        }
         notes.filter(note => note.duration === undefined).forEach(note => { note.duration = Math.min(1, duration) })
         if (duration > 1) {
           notes.push({
@@ -358,7 +361,7 @@ function createPartEntry(groove, partId, part) {
         }
       }
       return notes
-    }, []).map((note, index, notes) => {
+    }, []).filter(note => note.duration > 0).map((note, index, notes) => {
       const drum = note.midi ? SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${note.midi}"]`, instruments) : undefined
       const pitch = drum ? `
         <unpitched>
@@ -366,6 +369,7 @@ function createPartEntry(groove, partId, part) {
           <display-octave>${drum.getElementsByTagName('display-octave')[0].textContent}</display-octave>
         </unpitched>
       `.trim() : '<rest/>'
+      const instrument = drum ? `<instrument id="P${note.partId}-I${note.midi}"/>` : ''
       const chord = (index > 0 && notes[index - 1].onset === note.onset) ? '<chord/>' : ''
       const stem = drum ? `<stem>${drum.getElementsByTagName('stem')[0].textContent}</stem>` : ''
       const notehead = drum ? `<notehead>${drum.getElementsByTagName('notehead')[0].textContent}</notehead>` : ''
@@ -375,7 +379,7 @@ function createPartEntry(groove, partId, part) {
           ${chord}
           ${pitch}
           <duration>${duration}</duration>
-          <instrument id="P${note.partId}-I${note.midi}"/>
+          ${instrument}
           ${getNoteTiming(note, index, notes, beatType)}
           ${stem}
           ${notehead}
