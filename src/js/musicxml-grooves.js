@@ -6,6 +6,17 @@
 
 const MUSICXML_VERSION = '4.0'
 const DIVISIONS = 384
+const DURATION_WHOLE = DIVISIONS*8/1
+const DURATION_HALF = DIVISIONS*8/2
+const DURATION_QUARTER = DIVISIONS*8/4
+const DURATION_EIGHTH = DIVISIONS*8/8
+const DURATION_16th = DIVISIONS*8/16
+const DURATION_32nd = DIVISIONS*8/32
+const DURATION_64th = DIVISIONS*8/64
+const DURATION_128th = DIVISIONS*8/128
+const DURATION_256th = DIVISIONS*8/256
+const DURATION_512th = DIVISIONS*8/512
+const DURATION_1024th = DIVISIONS*8/1024
 const INSTRUMENTS = 'src/xml/drums.xml'
 
 import fs from 'fs'
@@ -296,7 +307,7 @@ function createPartEntry(groove, partId, part) {
         </staff-details>
       </attributes>
     `.trim()
-    const direction = partId > 1 ? '' : `
+    const direction = (i > 0 || partId > 1) ? '' : `
       <direction placement="above">
         <direction-type>
           <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
@@ -398,34 +409,41 @@ function createPartEntry(groove, partId, part) {
 
 function getNoteTiming(note, _index, _notes, beatType) {
   const types = {
-    3: '1024th',
-    6: '512th',
-    12: '256th',
-    24: '128th',
-    48: '64th',
-    96: '32nd',
-    192: '16th',
-    384: 'eighth',
-    768: 'quarter',
-    1536: 'half',
-    3072: 'whole',
+    [DURATION_WHOLE]: 'whole',
+    [DURATION_HALF]: 'half',
+    [DURATION_QUARTER]: 'quarter',
+    [DURATION_EIGHTH]: 'eighth',
+    [DURATION_16th]: '16th',
+    [DURATION_32nd]: '32nd',
+    [DURATION_64th]: '64th',
+    [DURATION_128th]: '128th',
+    [DURATION_256th]: '256th',
+    [DURATION_512th]: '512th',
+    [DURATION_1024th]: '1024th',
   }
   const elements = []
   const duration = Math.round(note.duration * DIVISIONS * 8 / beatType)
   if (duration in types) {
     elements.push(`<type>${types[duration]}</type>`)
   }
-  else for (const [entry, type] of Object.entries(types).reverse()) {
-    if (entry < duration) {
+  else for (const [entry, type] of Object.entries(types)) {
+    if (entry > duration) {
       const dots = Math.log(2 - duration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
         elements.push(`<type>${type}</type>`)
         elements.push(...Array.from(Array(dots), _ => '<dot/>'))
+        break
       }
     }
+    for (const tuplet of [3, 5]) {
+      if (Math.abs(duration * tuplet - entry * 2) < Number.EPSILON) {
+        elements.push(`<type>${type}</type>`)
+        elements.push(`<time-modification><actual-notes>${tuplet}</actual-notes><normal-notes>2</normal-notes></time-modification>`)
+        break
+      }
+    }
+    // TODO: Detect swing mode.
   }
-
-  // TODO Handle odd timings, starting with triplets.
 
   if (elements.length < 1) {
     console.error(`Could not transform note duration ${note.duration} to MusicXML.`)
