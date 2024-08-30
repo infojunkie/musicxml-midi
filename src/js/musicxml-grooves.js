@@ -123,6 +123,11 @@ for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
 }
 
 function createMusicXML(groove) {
+  groove.tracks = groove.tracks.filter(t => t.track.startsWith('DRUM')).reverse()
+  if (!groove.tracks.length) {
+    throw Error('No drum tracks found.')
+  }
+
   const template = `
   <?xml version="1.0" encoding="utf-8" standalone="no"?>
   <!DOCTYPE score-partwise PUBLIC
@@ -156,12 +161,7 @@ function createPartList(groove) {
   // Each drum <Instrument> element has a number of <Drum> elements whose @pitch attribute corresponds to the MIDI drum voice.
   // It can happen that a MIDI drum voice is used by multiple instruments,
   // so we gather all matching instruments and later select those with the most voices.
-  const tracks = groove.tracks.filter(t => t.track.startsWith('DRUM')).reverse()
-  if (!tracks.length) {
-    throw Error('No drum tracks found.')
-  }
-
-  const partCandidates = tracks.reduce((partCandidates, track) => {
+  const partCandidates = groove.tracks.reduce((partCandidates, track) => {
     track.candidateInstrumentIds = []
     const midi = track.midi[0] // In grooves.json, all MIDI notes are the same for each track
     const trackCandidates = SaxonJS.XPath.evaluate(`//instrument[drum[@midi="${midi}"]]/@id`, instruments, { resultForm: 'array' })
@@ -187,7 +187,7 @@ function createPartList(groove) {
   // Now select the most used instrument for each drum track.
   // If there are multiple instruments with the same usage, we pick the one already used by another track.
   // Otherwise, we pick the instrument with the least pitches.
-  const parts = tracks.reduce((parts, track) => {
+  const parts = groove.tracks.reduce((parts, track) => {
     track.candidateInstrumentIds = track.candidateInstrumentIds.sort((a, b) => {
       if (partCandidates[b].usage === partCandidates[a].usage) {
         if (a in parts) return -1
@@ -216,14 +216,15 @@ function createPartList(groove) {
 
 function createParts(groove) {
   const parts = groove.tracks
-    .filter(t => t.track.startsWith('DRUM'))
-    .reverse()
     .reduce((parts, track) => {
-      const partId = track.partId
-      if (!(partId in parts)) {
-        parts[partId] = []
+      if (track.partId === undefined) {
+        console.error(`Found track ${track.track} without a part, which usually indicates a track name mismatch. Ignoring.`)
+        return parts
       }
-      parts[partId].push(track)
+      if (!(track.partId in parts)) {
+        parts[track.partId] = []
+      }
+      parts[track.partId].push(track)
       return parts
     }, {})
 
@@ -246,7 +247,7 @@ function createPartListEntry(groove, instrumentId, partId) {
   const entries = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum`, instruments, { resultForm: 'array' })
   .reduce((entries, drum) => {
     const scoreInstrumentId = `P${partId}-I${drum.getAttribute('midi')}`
-    const track = groove.tracks.find(t => t.midi[0].toString() === drum.getAttribute('midi'))
+    const track = groove.tracks.find(t => t.midi[0].toString() === drum.getAttribute('midi').toString())
     if (track) {
       track.partId = partId
       track.scoreInstrumentId = scoreInstrumentId
