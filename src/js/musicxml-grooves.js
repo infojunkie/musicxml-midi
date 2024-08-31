@@ -218,7 +218,7 @@ function createParts(groove) {
   const parts = groove.tracks
     .reduce((parts, track) => {
       if (track.partId === undefined) {
-        console.error(`Found track ${track.track} without a part, which usually indicates a track name mismatch. Ignoring.`)
+        console.error(`[${track.track}] Found track without an assigned part. Ignoring.`)
         return parts
       }
       if (!(track.partId in parts)) {
@@ -247,11 +247,13 @@ function createPartListEntry(groove, instrumentId, partId) {
   const entries = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum`, instruments, { resultForm: 'array' })
   .reduce((entries, drum) => {
     const scoreInstrumentId = `P${partId}-I${drum.getAttribute('midi')}`
-    const track = groove.tracks.find(t => t.midi[0].toString() === drum.getAttribute('midi').toString())
-    if (track) {
+    groove.tracks.filter(t => t.midi[0].toString() === drum.getAttribute('midi').toString()).forEach((track, index) => {
+      if (index > 0) {
+        console.warn(`[${track.track}] Found a track with duplicate drum voice ${track.voice[0]}. This may indicate a name mismatch in the source groove.`)
+      }
       track.partId = partId
       track.scoreInstrumentId = scoreInstrumentId
-    }
+    })
     entries.push({
       scoreInstrument: `
         <score-instrument id="${scoreInstrumentId}">
@@ -330,6 +332,7 @@ function createPartEntry(groove, partId, part) {
           duration: undefined,
           velocity: parseInt(p[2]),
           partId: track.partId,
+          track: track.track
         }
       }).filter(n => !!n.midi))
     }, []).sort((n1, n2) => {
@@ -342,7 +345,8 @@ function createPartEntry(groove, partId, part) {
           notes.push({
             midi: undefined, // rest
             onset,
-            duration
+            duration,
+            track: note.track
           })
         }
         else {
@@ -352,7 +356,8 @@ function createPartEntry(groove, partId, part) {
             notes.push({
               midi: undefined,
               onset: onset + 1,
-              duration: duration - 1
+              duration: duration - 1,
+              track: note.track
             })
           }
         }
@@ -361,14 +366,15 @@ function createPartEntry(groove, partId, part) {
       if (index === source.length - 1) {
         const duration = beats + 1 - note.onset
         if (duration <= 0) {
-          console.warn(`Found note with duration 0. Ignoring.`)
+          console.warn(`[${note.track}] Found note with duration 0. Ignoring.`)
         }
         notes.filter(note => note.duration === undefined).forEach(note => { note.duration = Math.min(1, duration) })
         if (duration > 1) {
           notes.push({
             midi: undefined,
             onset: onset + 1,
-            duration: duration - 1
+            duration: duration - 1,
+            track: note.track
           })
         }
       }
@@ -447,7 +453,7 @@ function getNoteTiming(note, _index, _notes, beatType) {
   }
 
   if (elements.length < 1) {
-    console.error(`Could not transform note duration ${note.duration} to MusicXML.`)
+    console.error(`[${note.track}] Could not transform note duration ${note.duration} to MusicXML.`)
   }
   return elements.join('')
 }
