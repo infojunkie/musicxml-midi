@@ -18,6 +18,7 @@ const DURATION_256th = DIVISIONS*8/256
 const DURATION_512th = DIVISIONS*8/512
 const DURATION_1024th = DIVISIONS*8/1024
 const INSTRUMENTS = 'src/xml/drums.xml'
+const STACCATO = 0.2 // 20% less than regular duration
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -53,10 +54,10 @@ const options = {
   'tempo': {
     type: 'string',
     short: 't',
-    default: '100'
+    default: '120'
   }
 }
-const { values: args } = (function() {
+const { values: args } = (() => {
   try {
     return parseArgs({ options, allowPositionals: false })
   }
@@ -122,6 +123,9 @@ for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
   }
 }
 
+/**
+ * Main entrypoint for MusicXML generation.
+ */
 function createMusicXML(groove) {
   groove.tracks = groove.tracks.filter(t => t.track.startsWith('DRUM')).reverse()
   if (!groove.tracks.length) {
@@ -156,20 +160,27 @@ function createMusicXML(groove) {
   return xmlFormat(template, { collapseContent: true })
 }
 
+/**
+ * Create <part-list> section.
+ *
+ * We first compute the score parts. The score parts are based on a drums.xml file.
+ * Each part corresponds to a drum set <instrument> element.
+ * An <instrument> element has a number of <drum> elements whose @midi attribute corresponds to the MIDI drum voice.
+ */
 function createPartList(groove) {
-  // The parts are based on MuseScore's instruments.xml file. Each part corresponds to a drum <Instrument> element.
-  // Each drum <Instrument> element has a number of <Drum> elements whose @pitch attribute corresponds to the MIDI drum voice.
-  // It can happen that a MIDI drum voice is used by multiple instruments,
-  // so we gather all matching instruments and later select those with the most voices.
+  // Loop on each track to find which instrument(s) it belongs to.
   const partCandidates = groove.tracks.reduce((partCandidates, track) => {
     track.candidateInstrumentIds = []
     const midi = track.midi[0] // In grooves.json, all MIDI notes are the same for each track
     const trackCandidates = SaxonJS.XPath.evaluate(`//instrument[drum[@midi="${midi}"]]/@id`, instruments, { resultForm: 'array' })
     if (trackCandidates.length < 1) {
-      console.warn(`No instrument found for MIDI drum voice ${track.voice[0]} (${midi}). Creating a new one.`)
+      console.warn(`[${track.track}] No instrument found for MIDI drum voice ${track.voice[0]} (${midi}). Creating a new one.`)
       const instrument = createInstrument(instruments, groove, track)
       trackCandidates.push({ value: instrument.getAttribute('id') })
     }
+
+    // It can happen that a MIDI drum voice is used by multiple instruments,
+    // so we gather all matching instruments and later select those with the most voices.
     trackCandidates.forEach(candidate => {
       const id = candidate.value
       track.candidateInstrumentIds.push(id)
@@ -214,6 +225,12 @@ function createPartList(groove) {
   `.trim()
 }
 
+/**
+ * Create <part> sections.
+ *
+ * We've already created partId entries in each track, so we can now aggregate those in each <part> entry.
+ * A <part> entry has measures.
+ */
 function createParts(groove) {
   const parts = groove.tracks
     .reduce((parts, track) => {
@@ -231,19 +248,22 @@ function createParts(groove) {
   return Object.keys(parts).map((partId) => {
     return `
       <part id="P${partId}">
-        ${createPartEntry(groove, partId, parts[partId])}
+        ${createPartMeasures(groove, partId, parts[partId])}
       </part>
     `.trim()
   }).join('')
 }
 
+/**
+ * Create <part-list> entries.
+ *
+ * Iterate on all instrument Drum entries, create a score-instrument and a midi-instrument for each.
+ * Generate an score-instrument id which is the part id followed by the drum pitch.
+ * This score-instrument id is used in the part's notes to reference the corresponding instrument.
+ * Update each groove track with its score-instrument id.
+ */
 function createPartListEntry(groove, instrumentId, partId) {
   const instrument = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]`, instruments)
-
-  // Iterate on all instrument Drum entries, create a score-instrument and a midi-instrument for each.
-  // Generate an score-instrument id which is the part id followed by the drum pitch.
-  // This score-instrument id is used in the part's notes to reference the corresponding instrument.
-  // Update each groove track with its score-instrument id.
   const entries = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum`, instruments, { resultForm: 'array' })
   .reduce((entries, drum) => {
     const scoreInstrumentId = `P${partId}-I${drum.getAttribute('midi')}`
@@ -281,9 +301,14 @@ function createPartListEntry(groove, instrumentId, partId) {
   `.trim()
 }
 
-function createPartEntry(groove, partId, part) {
-  // Create part measures by combining the notes of all tracks in the part.
-  // The notes are sorted by time and then by pitch.
+/**
+ * Create measures for a part.
+ *
+ * For the first measure of first part, we add <direction> for metronome.
+ * For the first measure of each part, we add <attributes> for divisions, time signature, clef, staff lines.
+ * For each measure, we add notes.
+ */
+function createPartMeasures(groove, partId, part) {
   const instrumentId = part[0].candidateInstrumentIds[0]
   const instrument = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]`, instruments)
   const beats = parseInt(groove.timeSignature.split('/')[0])
@@ -295,6 +320,17 @@ function createPartEntry(groove, partId, part) {
     16: '16th'
   }
   return part[0].sequence.map((_, i) => {
+    const direction = (i > 0 || partId > 1) ? '' : `
+      <direction placement="above">
+        <direction-type>
+          <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
+            <beat-unit>${types[beatType]}</beat-unit>
+            <per-minute>${args['tempo']}</per-minute>
+          </metronome>
+        </direction-type>
+        <sound tempo="${args['tempo']}"/>
+      </direction>
+    `.trim()
     const attributes = i > 0 ? '' : `
       <attributes>
         <divisions>${DIVISIONS}</divisions>
@@ -310,111 +346,144 @@ function createPartEntry(groove, partId, part) {
         </staff-details>
       </attributes>
     `.trim()
-    const direction = (i > 0 || partId > 1) ? '' : `
-      <direction placement="above">
-        <direction-type>
-          <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
-            <beat-unit>${types[beatType]}</beat-unit>
-            <per-minute>${args['tempo']}</per-minute>
-          </metronome>
-        </direction-type>
-        <sound tempo="${args['tempo']}"/>
-      </direction>
-    `.trim()
-    const notes = part.reduce((notes, track) => {
-      return notes.concat(track.sequence[i].split(';').map(note => {
-        const p = note.split(/\s+/).filter(p => !!p)
-        return p[0] === 'z' ? {
-          midi: undefined
-        } : {
-          midi: track.midi[0],
-          onset: parseFloat(p[0]),
-          duration: undefined,
-          velocity: parseInt(p[2]),
-          partId: track.partId,
-          track: track.track
-        }
-      }).filter(n => !!n.midi))
-    }, []).sort((n1, n2) => {
-      return n1.onset - n2.onset
-    }).reduce((notes, note, index, source) => {
-      const onset = notes.length > 0 ? notes[notes.length-1].onset : 1
-      const duration = note.onset - onset
-      if (duration > 0) {
-        if (notes.length === 0) {
-          notes.push({
-            midi: undefined, // rest
-            onset,
-            duration,
-            track: note.track
-          })
-        }
-        else {
-          // Maximum duration of a drum beat is 1.
-          notes.filter(note => note.onset === onset).forEach(note => { note.duration = Math.min(1, duration) })
-          if (duration > 1) {
-            notes.push({
-              midi: undefined,
-              onset: onset + 1,
-              duration: duration - 1,
-              track: note.track
-            })
-          }
-        }
-      }
-      notes.push(note)
-      if (index === source.length - 1) {
-        const duration = beats + 1 - note.onset
-        if (duration <= 0) {
-          console.warn(`[${note.track}] Found note with duration 0. Ignoring.`)
-        }
-        notes.filter(note => note.duration === undefined).forEach(note => { note.duration = Math.min(1, duration) })
-        if (duration > 1) {
-          notes.push({
-            midi: undefined,
-            onset: onset + 1,
-            duration: duration - 1,
-            track: note.track
-          })
-        }
-      }
-      return notes
-    }, []).filter(note => note.duration > 0).map((note, index, notes) => {
-      const drum = note.midi ? SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${note.midi}"]`, instruments) : undefined
-      const pitch = drum ? `
-        <unpitched>
-          <display-step>${drum.getElementsByTagName('display-step')[0].textContent}</display-step>
-          <display-octave>${drum.getElementsByTagName('display-octave')[0].textContent}</display-octave>
-        </unpitched>
-      `.trim() : '<rest/>'
-      const instrument = drum ? `<instrument id="P${note.partId}-I${note.midi}"/>` : ''
-      const chord = (index > 0 && notes[index - 1].onset === note.onset) ? '<chord/>' : ''
-      const stem = drum ? `<stem>${drum.getElementsByTagName('stem')[0].textContent}</stem>` : ''
-      const notehead = drum ? `<notehead>${drum.getElementsByTagName('notehead')[0].textContent}</notehead>` : ''
-      const duration = Math.round(note.duration * DIVISIONS)
-      return `
-        <note>
-          ${chord}
-          ${pitch}
-          <duration>${duration}</duration>
-          ${instrument}
-          ${getNoteTiming(note, index, notes, beatType)}
-          ${stem}
-          ${notehead}
-        </note>
-      `.trim()
-    }).join('')
     return `
       <measure number="${i + 1}">
         ${attributes}
         ${direction}
-        ${notes}
+        ${createMeasureNotes(groove, part, i)}
       </measure>
     `.trim()
   }).join('')
 }
 
-function getNoteTiming(note, _index, _notes, beatType) {
+/**
+ * Create notes for a single measure.
+ *
+ * A single measure results from blending multiple tracks that belong to the same part.
+ *
+ * The notes go through a pipeline of transformations:
+ * - Convert the textual note representation to a flat array of objects
+ * - Sort the notes by onset
+ * - Calculate the duration of notes
+ * - Insert extra rests where a duration > 1 (since we're dealing with drum beats)
+ * - Generate the MusicXML note representation, including the trick note type/duration/timing.
+ */
+function createMeasureNotes(groove, part, i) {
+  const instrumentId = part[0].candidateInstrumentIds[0]
+  const beats = parseInt(groove.timeSignature.split('/')[0])
+  const beatType = parseInt(groove.timeSignature.split('/')[1])
+
+  // Step 1: Gather all notes and parse them.
+  return part.reduce((notes, track) => {
+    return notes.concat(track.sequence[i].split(';').map(note => {
+      const parts = note.split(/\s+/).filter(part => !!part)
+      return parts[0] !== 'z' ? {
+        midi: track.midi[0],
+        onset: parseFloat(parts[0]),
+        duration: undefined,
+        velocity: parseInt(parts[2]),
+        partId: track.partId,
+        track: track.track
+      } : undefined
+    }).filter(note => !!note))
+  }, [])
+
+  // Step 2: Sort the notes.
+  .sort((n1, n2) => {
+    return n1.onset - n2.onset
+  })
+
+  // Step 3: Calculate note durations.
+  .reduce((notes, note, index, source) => {
+    const previous = notes.length > 0 ? notes[notes.length-1].onset : 1
+    const duration = note.onset - previous
+    if (duration > 0) {
+      // If the first note starts later than 1, insert a rest before the note.
+      if (notes.length === 0) {
+        notes.push({
+          midi: undefined, // rest
+          onset: previous,
+          duration,
+          track: note.track
+        })
+      }
+      else {
+        notes.filter(note => note.onset === previous).forEach(note => { note.duration = duration })
+      }
+    }
+
+    // Only add the note if it's being sounded.
+    if (note.velocity > 0) {
+      notes.push(note)
+    }
+
+    // If we're at the end of the measure, calculate the duration of all remaining notes.
+    if (index === source.length - 1) {
+      const duration = beats + 1 - note.onset
+      if (duration <= 0) {
+        console.warn(`[${note.track}] Found note with duration <= 0. Ignoring.`)
+      }
+      notes.filter(note => note.duration === undefined).forEach(note => { note.duration = duration })
+    }
+    return notes
+  }, []).filter(note => note.duration > 0)
+
+  // Step 4. Insert extra rests where needed.
+  .reduce((notes, note, index, source) => {
+    const extra = []
+    const boundary = Math.floor(note.onset) + 1 - note.onset
+    const spillover = note.duration - boundary
+    if (spillover > Number.EPSILON) {
+      note.duration = boundary
+      for (let s = spillover; s > 0; s -= 1) {
+        extra.push({
+          midi: undefined,
+          duration: Math.min(1, s),
+          onset: Math.floor(note.onset) + 1 + Math.ceil(spillover - s),
+          track: note.track
+        })
+      }
+    }
+    notes.push(note, ...extra)
+    return notes
+  }, [])
+
+  // Step 5: Generate MusicXML.
+  .map((note, index, notes) => {
+    const drum = note.midi ? SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${note.midi}"]`, instruments) : undefined
+    const pitch = drum ? `
+      <unpitched>
+        <display-step>${drum.getElementsByTagName('display-step')[0].textContent}</display-step>
+        <display-octave>${drum.getElementsByTagName('display-octave')[0].textContent}</display-octave>
+      </unpitched>
+    `.trim() : '<rest/>'
+    const instrument = drum ? `<instrument id="P${note.partId}-I${note.midi}"/>` : ''
+    const chord = (index > 0 && notes[index - 1].onset === note.onset) ? '<chord/>' : ''
+    const stem = drum ? `<stem>${drum.getElementsByTagName('stem')[0].textContent}</stem>` : ''
+    const notehead = drum ? `<notehead>${drum.getElementsByTagName('notehead')[0].textContent}</notehead>` : ''
+    const duration = Math.round(note.duration * DIVISIONS)
+    return `
+      <note>
+        ${chord}
+        ${pitch}
+        <duration>${duration}</duration>
+        ${instrument}
+        ${createNoteTiming(note, index, notes, beatType)}
+        ${stem}
+        ${notehead}
+        ${createNoteNotations(note, index, notes, beatType)}
+      </note>
+    `.trim()
+  }).join('')
+}
+
+/**
+ * Derive a note type given its raw duration.
+ *
+ * This is a heuristic algorithm that can grow arbitrarily complex in the general case.
+ * We use the fact that we're dealing with drum beats and knowledge about MMA grooves to avoid going down the full rabbit hole.
+ */
+function createNoteTiming(note, _index, _notes, beatType) {
   const types = {
     [DURATION_WHOLE]: 'whole',
     [DURATION_HALF]: 'half',
@@ -429,27 +498,47 @@ function getNoteTiming(note, _index, _notes, beatType) {
     [DURATION_1024th]: '1024th',
   }
   const elements = []
-  const duration = Math.round(note.duration * DIVISIONS * 8 / beatType)
-  if (duration in types) {
-    elements.push(`<type>${types[duration]}</type>`)
+  const scoreDuration = Math.round(note.duration * DIVISIONS * 8 / beatType)
+
+  // Detect simple types from the map above.
+  if (scoreDuration in types) {
+    elements.push(`<type>${types[scoreDuration]}</type>`)
   }
   else for (const [entry, type] of Object.entries(types)) {
-    if (entry > duration) {
-      const dots = Math.log(2 - duration / entry) / Math.log(0.5)
+    // Detect simple types with epsilon tolerance.
+    if (Math.abs(scoreDuration - entry) <= Number.EPSILON) {
+      elements.push(`<type>${type}</type>`)
+      break
+    }
+
+    // Detect dotted notes.
+    if (entry > scoreDuration) {
+      const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
         elements.push(`<type>${type}</type>`)
         elements.push(...Array.from(Array(dots), _ => '<dot/>'))
         break
       }
     }
+
+    // Detect 3- and 5-tuplets.
     for (const tuplet of [3, 5]) {
-      if (Math.abs(duration * tuplet - entry * 2) < Number.EPSILON) {
+      if (Math.abs(scoreDuration * tuplet - entry * 2) < Number.EPSILON) {
         elements.push(`<type>${type}</type>`)
         elements.push(`<time-modification><actual-notes>${tuplet}</actual-notes><normal-notes>2</normal-notes></time-modification>`)
         break
       }
     }
-    // TODO: Detect swing mode.
+
+    // Detect swung notes.
+
+    // Detect staccato on simple types as within 20% of the original duration.
+    // The <staccato> element occurs later in the note's MusicXML, so we just remember it here.
+    if (entry >= DURATION_32nd && entry - scoreDuration <= entry * STACCATO) {
+      elements.push(`<type>${type}</type>`)
+      note.staccato = true
+      break
+    }
   }
 
   if (elements.length < 1) {
@@ -458,8 +547,30 @@ function getNoteTiming(note, _index, _notes, beatType) {
   return elements.join('')
 }
 
+/**
+ * Create extra note notations including articulations.
+ */
+function createNoteNotations(note, _index, _notes) {
+  const articulations = []
+  if ('staccato' in note ) {
+    articulations.push('<staccato/>')
+  }
+  return articulations.length ? `
+    <notations>
+      <articulations>
+        ${articulations.join('')}
+      </articulations>
+    </notations>
+  `.trim() : ''
+}
+
+/**
+ * Create a synthetic (undocumented) <instrument> from a single track.
+ * The structure is compatible with drums.xml entries.
+ */
 function createInstrument(document, _groove, track) {
-  const createElement = function (target, obj) {
+  // Function to create an XML node element.
+  const createElement = (target, obj) => {
     const el = document.createElement(obj.tagName)
     if (obj.hasOwnProperty('text')) {
       el.appendChild(document.createTextNode(obj.text))
@@ -477,7 +588,8 @@ function createInstrument(document, _groove, track) {
     }
     return el
   }
-  return createElement(instruments.documentElement, {
+
+  return createElement(document.documentElement, {
     tagName: 'instrument',
     attributes: [{
       name: 'id', value: `unknown-${track.voice[0].toLowerCase()}`
@@ -530,7 +642,7 @@ function createInstrument(document, _groove, track) {
 
 // https://stackoverflow.com/a/27979933/209184
 function escape(unsafe) {
-  return unsafe.replace(/[<>&'"]/g, function (c) {
+  return unsafe.replace(/[<>&'"]/g, c => {
     switch (c) {
       case '<': return '&lt;'
       case '>': return '&gt;'
