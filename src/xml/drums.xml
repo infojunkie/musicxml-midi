@@ -108,6 +108,7 @@
       <stem>down</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.bass-drum</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="36">
       <instrument-name lang="en">Kick Drum 1</instrument-name>
@@ -116,6 +117,7 @@
       <stem>down</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.bass-drum</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="44">
       <instrument-name lang="en">Pedal Hi-Hat</instrument-name>
@@ -124,6 +126,7 @@
       <stem>down</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.hi-hat</instrument-sound>
+      <voice>2</voice>
     </drum>
   </instrument>
   <instrument id="tom-tom">
@@ -137,6 +140,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="43">
       <instrument-name lang="en">Low Tom 1</instrument-name>
@@ -145,6 +149,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="45">
       <instrument-name lang="en">Mid Tom 2</instrument-name>
@@ -153,6 +158,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>2</voice>
     </drum>
     <drum midi="47">
       <instrument-name lang="en">Mid Tom 1</instrument-name>
@@ -161,6 +167,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>2</voice>
     </drum>
     <drum midi="48">
       <instrument-name lang="en">High Tom 2</instrument-name>
@@ -169,6 +176,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>3</voice>
     </drum>
     <drum midi="50">
       <instrument-name lang="en">High Tom 1</instrument-name>
@@ -177,6 +185,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.tom-tom</instrument-sound>
+      <voice>3</voice>
     </drum>
   </instrument>
   <instrument id="snare-drum">
@@ -190,6 +199,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.snare-drum</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="40">
       <instrument-name lang="en">Snare Drum 2</instrument-name>
@@ -198,6 +208,7 @@
       <stem>up</stem>
       <notehead>square</notehead>
       <instrument-sound>drum.snare-drum</instrument-sound>
+      <voice>2</voice>
     </drum>
     <drum midi="37">
       <instrument-name lang="en">Side Stick</instrument-name>
@@ -206,6 +217,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>drum.snare-drum</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="91">
       <instrument-name lang="en">Rim Shot</instrument-name>
@@ -214,6 +226,7 @@
       <stem>up</stem>
       <notehead filled="no">diamond</notehead>
       <instrument-sound>drum.snare-drum</instrument-sound>
+      <voice>1</voice>
     </drum>
   </instrument>
   <instrument id="cymbals">
@@ -227,6 +240,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="56">
       <instrument-name lang="en">Cowbell</instrument-name>
@@ -235,6 +249,7 @@
       <stem>up</stem>
       <notehead>triangle</notehead>
       <instrument-sound>metal.bells.cowbell</instrument-sound>
+      <voice>2</voice>
     </drum>
     <drum midi="51">
       <instrument-name lang="en">Ride Cymbal 1</instrument-name>
@@ -243,6 +258,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="53">
       <instrument-name lang="en">Ride Bell</instrument-name>
@@ -251,6 +267,7 @@
       <stem>up</stem>
       <notehead filled="yes">diamond</notehead>
       <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="46">
       <instrument-name lang="en">Open Hi-Hat</instrument-name>
@@ -259,6 +276,7 @@
       <stem>up</stem>
       <notehead>circle-x</notehead>
       <instrument-sound>metal.hi-hat</instrument-sound>
+      <voice>3</voice>
     </drum>
     <drum midi="42">
       <instrument-name lang="en">Closed Hi-Hat</instrument-name>
@@ -267,6 +285,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.hi-hat</instrument-sound>
+      <voice>3</voice>
     </drum>
     <drum midi="49">
       <instrument-name lang="en">Crash Cymbal 1</instrument-name>
@@ -275,6 +294,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.cymbal.crash</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="57">
       <instrument-name lang="en">Crash Cymbal 2</instrument-name>
@@ -283,6 +303,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.cymbal.crash</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="55">
       <instrument-name lang="en">Splash Cymbal</instrument-name>
@@ -291,6 +312,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>metal.cymbal.splash</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="52">
       <instrument-name lang="en">Chinese Cymbal</instrument-name>
@@ -299,6 +321,7 @@
       <stem>up</stem>
       <notehead>circle-x</notehead>
       <instrument-sound>metal.cymbal.chinese</instrument-sound>
+      <voice>1</voice>
     </drum>
   </instrument>
   <instrument id="tambourine">
@@ -359,6 +382,7 @@
       <stem>up</stem>
       <notehead>x</notehead>
       <instrument-sound>drum.conga</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="63">
       <instrument-name lang="en">Open High Conga</instrument-name>
@@ -367,6 +391,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.conga</instrument-sound>
+      <voice>1</voice>
     </drum>
     <drum midi="64">
       <instrument-name lang="en">Low Conga</instrument-name>
@@ -375,6 +400,7 @@
       <stem>up</stem>
       <notehead>normal</notehead>
       <instrument-sound>drum.conga</instrument-sound>
+      <voice>2</voice>
     </drum>
   </instrument>
   <instrument id="timbales">
@@ -594,7 +620,7 @@
     <part-abbreviation lang="en">Be. Tr.</part-abbreviation>
     <staff-lines>1</staff-lines>
     <drum midi="84">
-      <instrument-name lang="en">Sleigh Bells</instrument-name>
+      <instrument-name lang="en">Bell Tree</instrument-name>
       <display-step>E</display-step>
       <display-octave>4</display-octave>
       <stem>up</stem>

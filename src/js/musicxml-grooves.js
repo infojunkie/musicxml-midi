@@ -18,7 +18,6 @@ const DURATION_256th = DIVISIONS*8/256
 const DURATION_512th = DIVISIONS*8/512
 const DURATION_1024th = DIVISIONS*8/1024
 const INSTRUMENTS = 'src/xml/drums.xml'
-const STACCATO = 0.2 // 20% less than regular duration
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -269,7 +268,7 @@ function createPartListEntry(groove, instrumentId, partId) {
     const scoreInstrumentId = `P${partId}-I${drum.getAttribute('midi')}`
     groove.tracks.filter(t => t.midi[0].toString() === drum.getAttribute('midi').toString()).forEach((track, index) => {
       if (index > 0) {
-        console.warn(`[${track.track}] Found a track with duplicate drum voice ${track.voice[0]}. This may indicate a name mismatch in the source groove.`)
+        console.warn(`[${track.track}] Found a track with duplicate drum voice ${track.voice[0]}. This may indicate a name mismatch in the MMA groove.`)
       }
       track.partId = partId
       track.scoreInstrumentId = scoreInstrumentId
@@ -374,7 +373,10 @@ function createMeasureNotes(groove, part, i) {
   const beatType = parseInt(groove.timeSignature.split('/')[1])
 
   // Step 1: Gather all notes and parse them.
+  // Ignore full rests and notes with velocity 0.
+  // TODO Handle case of empty measure.
   return part.reduce((notes, track) => {
+    const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? '1'
     return notes.concat(track.sequence[i].split(';').map(note => {
       const parts = note.split(/\s+/).filter(part => !!part)
       return parts[0] !== 'z' ? {
@@ -383,32 +385,42 @@ function createMeasureNotes(groove, part, i) {
         duration: undefined,
         velocity: parseInt(parts[2]),
         partId: track.partId,
-        track: track.track
+        track: track.track,
+        voice: parseInt(voice)
       } : undefined
-    }).filter(note => !!note))
+    }).filter(note => !!note && note.velocity > 0))
   }, [])
 
-  // Step 2: Sort the notes.
+  // Step 2: Sort the notes, first by voice, then by onset.
   .sort((n1, n2) => {
-    return n1.onset - n2.onset
+    return n1.voice !== n2.voice ?
+      n1.voice - n2.voice :
+      n1.onset - n2.onset
   })
 
   // Step 3: Calculate note durations.
-  .reduce((notes, note, index, source) => {
-    const previous = notes.length > 0 ? notes[notes.length-1].onset : 1
+  // A note's duration is the difference between the next note's onset and its own onset.
+  // Therefore, at each note, we can calculate the previous note's duration.
+  // At the first note of each voice, if the onset is > 1, we insert a rest to start the measure.
+  // At the last note of each voice, the duration is the remaining time until the measure end.
+  .reduce((notes, note, index, input) => {
+    const isFirstNote = notes.length === 0 || notes[notes.length - 1].voice !== note.voice
+    const isLastNote = index === input.length - 1 || input[index + 1].voice !== note.voice
+    const previous = isFirstNote ? 1 : notes[notes.length-1].onset
     const duration = note.onset - previous
     if (duration > 0) {
       // If the first note starts later than 1, insert a rest before the note.
-      if (notes.length === 0) {
+      if (isFirstNote) {
         notes.push({
           midi: undefined, // rest
           onset: previous,
           duration,
-          track: note.track
+          track: note.track,
+          voice: note.voice
         })
       }
       else {
-        notes.filter(note => note.onset === previous).forEach(note => { note.duration = duration })
+        notes.filter(n => n.onset === previous && n.voice === note.voice).forEach(note => { note.duration = duration })
       }
     }
 
@@ -418,18 +430,20 @@ function createMeasureNotes(groove, part, i) {
     }
 
     // If we're at the end of the measure, calculate the duration of all remaining notes.
-    if (index === source.length - 1) {
+    if (isLastNote) {
       const duration = beats + 1 - note.onset
       if (duration <= 0) {
         console.warn(`[${note.track}] Found note with duration <= 0. Ignoring.`)
       }
-      notes.filter(note => note.duration === undefined).forEach(note => { note.duration = duration })
+      notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(note => { note.duration = duration })
     }
     return notes
   }, []).filter(note => note.duration > 0)
 
   // Step 4. Insert extra rests where needed.
-  .reduce((notes, note, index, source) => {
+  // Each note is at most 1 beat, and does not cross beat boundaries.
+  // Any note with duration that crosses beat boundaries get truncated and the rest of the time is filled with rests.
+  .reduce((notes, note) => {
     const extra = []
     const boundary = Math.floor(note.onset) + 1 - note.onset
     const spillover = note.duration - boundary
@@ -440,7 +454,8 @@ function createMeasureNotes(groove, part, i) {
           midi: undefined,
           duration: Math.min(1, s),
           onset: Math.floor(note.onset) + 1 + Math.ceil(spillover - s),
-          track: note.track
+          track: note.track,
+          voice: note.voice
         })
       }
     }
@@ -449,6 +464,7 @@ function createMeasureNotes(groove, part, i) {
   }, [])
 
   // Step 5: Generate MusicXML.
+  // When voices change, we backup to the beginning of the measure.
   .map((note, index, notes) => {
     const drum = note.midi ? SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${note.midi}"]`, instruments) : undefined
     const pitch = drum ? `
@@ -462,12 +478,19 @@ function createMeasureNotes(groove, part, i) {
     const stem = drum ? `<stem>${drum.getElementsByTagName('stem')[0].textContent}</stem>` : ''
     const notehead = drum ? `<notehead>${drum.getElementsByTagName('notehead')[0].textContent}</notehead>` : ''
     const duration = Math.round(note.duration * DIVISIONS)
+    const backup = (index > 0 && notes[index - 1].voice !== note.voice) ? `
+      <backup>
+        <duration>${beats * DIVISIONS}</duration>
+      </backup>
+    `.trim() : ''
     return `
+      ${backup}
       <note>
         ${chord}
         ${pitch}
         <duration>${duration}</duration>
         ${instrument}
+        <voice>${note.voice}</voice>
         ${createNoteTiming(note, index, notes, beatType)}
         ${stem}
         ${notehead}
@@ -530,15 +553,7 @@ function createNoteTiming(note, _index, _notes, beatType) {
       }
     }
 
-    // Detect swung notes.
-
-    // Detect staccato on simple types as within 20% of the original duration.
-    // The <staccato> element occurs later in the note's MusicXML, so we just remember it here.
-    if (entry >= DURATION_32nd && entry - scoreDuration <= entry * STACCATO) {
-      elements.push(`<type>${type}</type>`)
-      note.staccato = true
-      break
-    }
+    // TODO Detect swung notes.
   }
 
   if (elements.length < 1) {
