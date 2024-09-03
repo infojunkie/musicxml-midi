@@ -9,6 +9,7 @@ describe('MusicXML examples scraper', () => {
     const execResult = await exec('node src/js/musicxml-examples.js --examples=accordion-high-element,accordion-low-element')
     const output = execResult.stdout;
     expect(output).toMatch(/accordion-high/)
+    expect(output).toMatch(/accordion-low/)
     expect(output).not.toMatch(/accidental-element/)
   })
 })
