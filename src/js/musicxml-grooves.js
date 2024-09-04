@@ -5,19 +5,20 @@
  */
 
 const MUSICXML_VERSION = '4.0'
-const DIVISIONS = 384
-const DURATION_WHOLE = DIVISIONS*8/1
-const DURATION_HALF = DIVISIONS*8/2
-const DURATION_QUARTER = DIVISIONS*8/4
-const DURATION_EIGHTH = DIVISIONS*8/8
-const DURATION_16th = DIVISIONS*8/16
-const DURATION_32nd = DIVISIONS*8/32
-const DURATION_64th = DIVISIONS*8/64
-const DURATION_128th = DIVISIONS*8/128
-const DURATION_256th = DIVISIONS*8/256
-const DURATION_512th = DIVISIONS*8/512
-const DURATION_1024th = DIVISIONS*8/1024
 const INSTRUMENTS = 'src/xml/drums.xml'
+const DIVISIONS = 384
+const DIVISIONS_WHOLE = DIVISIONS*8/1
+const DIVISIONS_HALF = DIVISIONS*8/2
+const DIVISIONS_QUARTER = DIVISIONS*8/4
+const DIVISIONS_EIGHTH = DIVISIONS*8/8
+const DIVISIONS_16th = DIVISIONS*8/16
+const DIVISIONS_32nd = DIVISIONS*8/32
+const DIVISIONS_64th = DIVISIONS*8/64
+const DIVISIONS_128th = DIVISIONS*8/128
+const DIVISIONS_256th = DIVISIONS*8/256
+const DIVISIONS_512th = DIVISIONS*8/512
+const DIVISIONS_1024th = DIVISIONS*8/1024
+const TOLERANCE = 0
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -362,10 +363,10 @@ function createPartMeasures(groove, partId, part) {
  *
  * The notes go through a pipeline of transformations:
  * - Convert the textual note representation to a flat array of objects
- * - Sort the notes by onset
+ * - Sort the notes by voice and by onset
  * - Calculate the duration of notes
- * - Insert extra rests where a duration > 1 (since we're dealing with drum beats)
- * - Generate the MusicXML note representation, including the trick note type/duration/timing.
+ * - Insert extra rests when a duration crosses beat boundaries (since we're dealing with drum beats)
+ * - Generate the MusicXML note representation, including detecting note type/duration/timing.
  */
 function createMeasureNotes(groove, part, i) {
   const instrumentId = part[0].candidateInstrumentIds[0]
@@ -431,14 +432,15 @@ function createMeasureNotes(groove, part, i) {
 
     // If we're at the end of the measure, calculate the duration of all remaining notes.
     if (isLastNote) {
-      const duration = beats + 1 - note.onset
-      if (duration <= 0) {
-        console.warn(`[${note.track}] Found note with duration <= 0. Ignoring.`)
-      }
-      notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(note => { note.duration = duration })
+      notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(note => {
+        note.duration = beats + 1 - note.onset
+      })
     }
     return notes
-  }, []).filter(note => note.duration > 0)
+  }, [])
+
+  // Step 3.5: Discard notes whose duration is under the tolerance level.
+  .filter(note => note.duration > TOLERANCE)
 
   // Step 4. Insert extra rests where needed.
   // Each note is at most 1 beat, and does not cross beat boundaries.
@@ -506,26 +508,42 @@ function createMeasureNotes(groove, part, i) {
  * This is a heuristic algorithm that can grow arbitrarily complex in the general case.
  * We use the fact that we're dealing with drum beats and knowledge about MMA grooves to avoid going down the full rabbit hole.
  */
-function createNoteTiming(note, _index, _notes, beatType) {
+function createNoteTiming(note, index, notes, beatType) {
+  // Don't attempt to detect notes < 16th.
   const types = {
-    [DURATION_WHOLE]: 'whole',
-    [DURATION_HALF]: 'half',
-    [DURATION_QUARTER]: 'quarter',
-    [DURATION_EIGHTH]: 'eighth',
-    [DURATION_16th]: '16th',
-    [DURATION_32nd]: '32nd',
-    [DURATION_64th]: '64th',
-    [DURATION_128th]: '128th',
-    [DURATION_256th]: '256th',
-    [DURATION_512th]: '512th',
-    [DURATION_1024th]: '1024th',
+    [DIVISIONS_WHOLE]: 'whole',
+    [DIVISIONS_HALF]: 'half',
+    [DIVISIONS_QUARTER]: 'quarter',
+    [DIVISIONS_EIGHTH]: 'eighth',
+    [DIVISIONS_16th]: '16th',
   }
   const elements = []
   const scoreDuration = Math.round(note.duration * DIVISIONS * 8 / beatType)
+  const isLastNote = index === notes.length - 1 || notes[index + 1].voice !== note.voice
 
+  // Detect 2nd note in pair of swing notes.
+  // The first note in the pair will set the swing value for this one.
+  if ('swing' in note) {
+    elements.push(`<type>${note.swing}</type>`)
+    elements.push(`<time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification>`)
+  }
   // Detect simple types from the map above.
-  if (scoreDuration in types) {
+  else if (scoreDuration in types) {
     elements.push(`<type>${types[scoreDuration]}</type>`)
+  }
+  // Detect first note in pair of swing 8th notes.
+  // The sum of first + second swing notes = 1.
+  // Set the swing value for the 2nd note to catch it early next time.
+  else if (!isLastNote && Math.abs(note.duration + notes[index + 1].duration - 1) <= Number.EPSILON) {
+    if (note.duration > notes[index + 1].duration) {
+      elements.push(`<type>quarter</type>`)
+      notes[index + 1].swing = 'eighth'
+    }
+    else {
+      elements.push(`<type>eighth</type>`)
+      notes[index + 1].swing = 'quarter'
+    }
+    elements.push(`<time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification>`)
   }
   else for (const [entry, type] of Object.entries(types)) {
     // Detect simple types with epsilon tolerance.
@@ -535,7 +553,7 @@ function createNoteTiming(note, _index, _notes, beatType) {
     }
 
     // Detect dotted notes.
-    if (entry > scoreDuration) {
+    if (entry < scoreDuration) {
       const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
         elements.push(`<type>${type}</type>`)
@@ -552,8 +570,6 @@ function createNoteTiming(note, _index, _notes, beatType) {
         break
       }
     }
-
-    // TODO Detect swung notes.
   }
 
   if (elements.length < 1) {
