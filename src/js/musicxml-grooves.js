@@ -18,7 +18,8 @@ const DIVISIONS_128th = DIVISIONS*8/128
 const DIVISIONS_256th = DIVISIONS*8/256
 const DIVISIONS_512th = DIVISIONS*8/512
 const DIVISIONS_1024th = DIVISIONS*8/1024
-const TOLERANCE = 0
+const TOLERANCE = 0.025
+const SWING = 0.66
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -374,13 +375,12 @@ function createMeasureNotes(groove, part, i) {
   const beatType = parseInt(groove.timeSignature.split('/')[1])
 
   // Step 1: Gather all notes and parse them.
-  // Ignore full rests and notes with velocity 0.
   // TODO Handle case of empty measure.
   return part.reduce((notes, track) => {
     const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? '1'
     return notes.concat(track.sequence[i].split(';').map(note => {
       const parts = note.split(/\s+/).filter(part => !!part)
-      return parts[0] !== 'z' ? {
+      return parts[0] === 'z' ? undefined : {
         midi: track.midi[0],
         onset: parseFloat(parts[0]),
         duration: undefined,
@@ -388,8 +388,23 @@ function createMeasureNotes(groove, part, i) {
         partId: track.partId,
         track: track.track,
         voice: parseInt(voice)
-      } : undefined
-    }).filter(note => !!note && note.velocity > 0))
+      }
+    }).filter(note => !!note))
+  }, [])
+
+  // Step 1.5: Detect velocity 0 notes and set the duration of previous notes accordingly.
+  .reduce((notes, note) => {
+    if (note.velocity > 0) {
+      notes.push(note)
+    }
+    // else {
+    //   const previous = notes.reverse().find(n => n.midi === note.midi && n.voice === note.voice)
+    //   // TODO Handle note that was open in previous measure.
+    //   if (previous) {
+    //     previous.duration = note.onset - previous.onset
+    //   }
+    // }
+    return notes
   }, [])
 
   // Step 2: Sort the notes, first by voice, then by onset.
@@ -399,7 +414,7 @@ function createMeasureNotes(groove, part, i) {
       n1.onset - n2.onset
   })
 
-  // Step 3: Calculate note durations.
+  // Step 3: Calculate notes duration.
   // A note's duration is the difference between the next note's onset and its own onset.
   // Therefore, at each note, we can calculate the previous note's duration.
   // At the first note of each voice, if the onset is > 1, we insert a rest to start the measure.
@@ -407,7 +422,7 @@ function createMeasureNotes(groove, part, i) {
   .reduce((notes, note, index, input) => {
     const isFirstNote = notes.length === 0 || notes[notes.length - 1].voice !== note.voice
     const isLastNote = index === input.length - 1 || input[index + 1].voice !== note.voice
-    const previous = isFirstNote ? 1 : notes[notes.length-1].onset
+    const previous = isFirstNote ? 1 : notes[notes.length - 1].onset
     const duration = note.onset - previous
     if (duration > 0) {
       // If the first note starts later than 1, insert a rest before the note.
@@ -421,28 +436,22 @@ function createMeasureNotes(groove, part, i) {
         })
       }
       else {
-        notes.filter(n => n.onset === previous && n.voice === note.voice).forEach(note => { note.duration = duration })
+        notes.filter(n => n.onset === previous && n.voice === note.voice && n.duration === undefined).forEach(n => { n.duration = duration })
       }
     }
-
-    // Only add the note if it's being sounded.
-    if (note.velocity > 0) {
-      notes.push(note)
-    }
+    notes.push(note)
 
     // If we're at the end of the measure, calculate the duration of all remaining notes.
     if (isLastNote) {
-      notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(note => {
-        note.duration = beats + 1 - note.onset
+      notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(n => {
+        n.duration = beats + 1 - n.onset
       })
     }
+
     return notes
   }, [])
 
-  // Step 3.5: Discard notes whose duration is under the tolerance level.
-  .filter(note => note.duration > TOLERANCE)
-
-  // Step 4. Insert extra rests where needed.
+  // Step 4: Insert extra rests where needed.
   // Each note is at most 1 beat, and does not cross beat boundaries.
   // Any note with duration that crosses beat boundaries get truncated and the rest of the time is filled with rests.
   .reduce((notes, note) => {
@@ -465,138 +474,255 @@ function createMeasureNotes(groove, part, i) {
     return notes
   }, [])
 
-  // Step 5: Generate MusicXML.
+  // Step 5: Generate note types, durations and extra notes as needed.
+  // Ignore notes that have already been processed by an earlier iteration in createNoteTiming().
+  .reduce((notes, note, index, input) => {
+    const extra = 'musicXml' in note ? [] : createNoteTiming(note, index, input, beatType)
+    notes.push(note, ...extra)
+    return notes
+  }, [])
+
+  // Step 5.5: Generate MusicXML.
   // When voices change, we backup to the beginning of the measure.
+  // TODO Add dynamics, articulations.
   .map((note, index, notes) => {
+    const backup = (index > 0 && notes[index-1].voice !== note.voice) ? `
+      <backup>
+        <duration>${beats * DIVISIONS}</duration>
+      </backup>
+    `.trim() : ''
     const drum = note.midi ? SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${note.midi}"]`, instruments) : undefined
+    const chord = (index > 0 && notes[index-1].onset === note.onset) ? '<chord/>' : ''
     const pitch = drum ? `
       <unpitched>
         <display-step>${drum.getElementsByTagName('display-step')[0].textContent}</display-step>
         <display-octave>${drum.getElementsByTagName('display-octave')[0].textContent}</display-octave>
       </unpitched>
     `.trim() : '<rest/>'
+    const tieStart = 'tie' in note.musicXml && note.musicXml.tie.start ? `<tie type="start"/>` : ''
+    const tieStop = 'tie' in note.musicXml && note.musicXml.tie.stop ? `<tie type="stop"/>` : ''
     const instrument = drum ? `<instrument id="P${note.partId}-I${note.midi}"/>` : ''
-    const chord = (index > 0 && notes[index - 1].onset === note.onset) ? '<chord/>' : ''
+    const type = 'type' in note.musicXml ? `<type>${note.musicXml.type}</type>` : ''
+    const dots = 'dots' in note.musicXml ? Array.from(Array(note.musicXml.dots), _ => '<dot/>') : []
+    const timeModification = 'tuplet' in note.musicXml ? `
+      <time-modification>
+        <actual-notes>${note.musicXml.tuplet.actualNotes}</actual-notes>
+        <normal-notes>${note.musicXml.tuplet.normalNotes}</normal-notes>
+        <normal-type>${note.musicXml.tuplet.normalType}</normal-type>
+      </time-modification>
+    `.trim() : ''
     const stem = drum ? `<stem>${drum.getElementsByTagName('stem')[0].textContent}</stem>` : ''
     const notehead = drum ? `<notehead>${drum.getElementsByTagName('notehead')[0].textContent}</notehead>` : ''
-    const duration = Math.round(note.duration * DIVISIONS)
-    const backup = (index > 0 && notes[index - 1].voice !== note.voice) ? `
-      <backup>
-        <duration>${beats * DIVISIONS}</duration>
-      </backup>
-    `.trim() : ''
+    const tiedStart = 'tie' in note.musicXml && note.musicXml.tie.start ? `<tied type="start"/>` : ''
+    const tiedStop = 'tie' in note.musicXml && note.musicXml.tie.stop ? `<tied type="stop"/>` : ''
+    const tuplet = 'tuplet' in note.musicXml ? (
+      'startStop' in note.musicXml.tuplet && note.musicXml.tuplet.startStop !== undefined ? (
+        note.musicXml.tuplet.startStop === 'start' ? `
+          <tuplet bracket="yes" number="${note.musicXml.tuplet.number}" placement="above" type="start">
+            <tuplet-actual>
+              <tuplet-number>${note.musicXml.tuplet.actualNotes}</tuplet-number>
+              <tuplet-type>${note.musicXml.type}</tuplet-type>
+            </tuplet-actual>
+            <tuplet-normal>
+              <tuplet-number>${note.musicXml.tuplet.normalNotes}</tuplet-number>
+              <tuplet-type>${note.musicXml.tuplet.normalType}</tuplet-type>
+            </tuplet-normal>
+          </tuplet>
+        `.trim() : `<tuplet number="${note.musicXml.tuplet.number}" type="stop" />`
+      ) : ''
+    ) : ''
     return `
       ${backup}
       <note>
         ${chord}
         ${pitch}
-        <duration>${duration}</duration>
+        <duration>${note.musicXml.duration}</duration>
+        ${tieStart}
+        ${tieStop}
         ${instrument}
         <voice>${note.voice}</voice>
-        ${createNoteTiming(note, index, notes, beatType)}
+        ${type}
+        ${dots.join('')}
+        ${timeModification}
         ${stem}
         ${notehead}
-        ${createNoteNotations(note, index, notes, beatType)}
+        <notations>
+          ${tiedStart}
+          ${tiedStop}
+          ${tuplet}
+        </notations>
       </note>
     `.trim()
   }).join('')
 }
 
 /**
- * Derive a note type given its raw duration.
+ * Derive a note type and timing given its raw duration.
  *
- * This is a heuristic algorithm that can grow arbitrarily complex in the general case.
- * We use the fact that we're dealing with drum beats and knowledge about MMA grooves to avoid going down the full rabbit hole.
+ * This function _mutates_ the current note to set the MusicXML information about the note's timing:
+ *
+ * note.musicXml = {
+ *   duration, // <duration> expressed in multiples of score divisions
+ *   type, // <type>
+ *   dots, // count of <dot/>
+ *   tuplet: { // Information for both <time-modification> and <notations><tuplet>
+ *     actualNotes,
+ *     normalNotes,
+ *     normalType,
+ *     startStop, // undefined | 'start' | 'stop',
+ *     number, // <tuplet number>
+ *   },
+ *   tie: { // Information for both <tie> and <notations><tied>
+ *     start, // true | false
+ *     stop, // true | false
+ *   }
+ * }
+ *
+ * The function also _returns_ an array of extra notes that should be inserted following the current one, to complement the note timing,
+ * such as extra rests or tied notes.
+ *
+ * The function potentially also _mutates_ the next note(s) in the incoming array with their own musicXml structure, to account for
+ * cases like swing note pairs or other tuplets.
  */
-function createNoteTiming(note, index, notes, beatType) {
-  // Don't attempt to detect notes < 16th.
-  const types = {
-    [DIVISIONS_WHOLE]: 'whole',
-    [DIVISIONS_HALF]: 'half',
-    [DIVISIONS_QUARTER]: 'quarter',
-    [DIVISIONS_EIGHTH]: 'eighth',
-    [DIVISIONS_16th]: '16th',
-  }
-  const elements = []
-  const scoreDuration = Math.round(note.duration * DIVISIONS * 8 / beatType)
-  const isLastNote = index === notes.length - 1 || notes[index + 1].voice !== note.voice
+function createNoteTiming(note, index, notes, beatType, tolerance = 0) {
 
-  // Detect 2nd note in pair of swing notes.
-  // The first note in the pair will set the swing value for this one.
-  if ('swing' in note) {
-    elements.push(`<type>${note.swing}</type>`)
-    elements.push(`<time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification>`)
+  // Some functions we'll need.
+  const normalizedDuration = d => Math.round(d * DIVISIONS * 8 / beatType)
+  const tuplets = (note, index, tuplets) => notes.filter((n, i) => n.voice === note.voice && i >= index && i < index + tuplets)
+  const tupletsDuration = tuplets => tuplets.reduce((s, n) => s + normalizedDuration(n.duration), 0)
+
+  // The map from score duration to MusicXML note type, and its opposite function.
+  const types = [
+    [DIVISIONS_WHOLE, 'whole'],
+    [DIVISIONS_HALF, 'half'],
+    [DIVISIONS_QUARTER, 'quarter'],
+    [DIVISIONS_EIGHTH, 'eighth'],
+    [DIVISIONS_16th, '16th'],
+    [DIVISIONS_32nd, '32nd'],
+    [DIVISIONS_64th, '64th'],
+    [DIVISIONS_128th, '128th'],
+    [DIVISIONS_256th, '256th'],
+    [DIVISIONS_512th, '512th'],
+    [DIVISIONS_1024th, '1024th'],
+  ]
+  const scoreDuration = normalizedDuration(note.duration)
+  const scoreTolerance = normalizedDuration(tolerance)
+
+  // Timing structure we will fill here.
+  note.musicXml = {
+    duration: Math.round(note.duration * DIVISIONS)
   }
-  // Detect simple types from the map above.
-  else if (scoreDuration in types) {
-    elements.push(`<type>${types[scoreDuration]}</type>`)
-  }
-  // Detect first note in pair of swing 8th notes.
-  // The sum of first + second swing notes = 1.
-  // Set the swing value for the 2nd note to catch it early next time.
-  else if (!isLastNote && Math.abs(note.duration + notes[index + 1].duration - 1) <= Number.EPSILON) {
-    if (note.duration > notes[index + 1].duration) {
-      elements.push(`<type>quarter</type>`)
-      notes[index + 1].swing = 'eighth'
-    }
-    else {
-      elements.push(`<type>eighth</type>`)
-      notes[index + 1].swing = 'quarter'
-    }
-    elements.push(`<time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification>`)
-  }
-  else for (const [entry, type] of Object.entries(types)) {
-    // Detect simple types with epsilon tolerance.
-    if (Math.abs(scoreDuration - entry) <= Number.EPSILON) {
-      elements.push(`<type>${type}</type>`)
+
+  for (const [entry, type] of types) {
+    // Detect simple types with tolerance.
+    if (Math.abs(scoreDuration - entry) <= scoreTolerance + Number.EPSILON) {
+      note.musicXml = { ...note.musicXml, type }
       break
     }
 
-    // Detect dotted notes.
-    if (entry < scoreDuration) {
+    // Detect dotted notes, only for non-rests.
+    if (note.midi && entry < scoreDuration) {
       const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
-        elements.push(`<type>${type}</type>`)
-        elements.push(...Array.from(Array(dots), _ => '<dot/>'))
+        note.musicXml = { ...note.musicXml, type, dots }
         break
       }
     }
 
-    // Detect 3- and 5-tuplets.
+    // TODO Detect 3- and 5-tuplets.
     for (const tuplet of [3, 5]) {
-      if (Math.abs(scoreDuration * tuplet - entry * 2) < Number.EPSILON) {
-        elements.push(`<type>${type}</type>`)
-        elements.push(`<time-modification><actual-notes>${tuplet}</actual-notes><normal-notes>2</normal-notes></time-modification>`)
-        break
+    }
+
+    // Detect swing 8th pair.
+    // To qualify, 2 consecutive notes must:
+    // - Sum up to a quarter
+    // - Each be within a SWING factor of a quarter
+    if (entry === DIVISIONS_QUARTER) {
+      const pair = tuplets(note, index, 2)
+      const [swingHi, swingLo] = [SWING * entry, (1 - SWING) * entry]
+      if (
+        pair.length == 2 &&
+        Math.abs(tupletsDuration(pair) - entry) <= scoreTolerance * pair.length &&
+        pair.every(n => {
+          const d = normalizedDuration(n.duration)
+          return Math.abs(swingHi - d) <= scoreTolerance || Math.abs(swingLo - d) <= scoreTolerance
+        })
+      ) {
+        note.musicXml = {
+          ...note.musicXml,
+          type: pair[0].duration > pair[1].duration ? 'quarter' : 'eighth',
+          tuplet: {
+            actualNotes: 3,
+            normalNotes: 2,
+            normalType: 'eighth',
+            startStop: 'start',
+            number: 1
+          }
+        }
+        pair[1].musicXml = {
+          duration: Math.round(pair[1].duration * DIVISIONS),
+          type: pair[0].duration < pair[1].duration ? 'quarter' : 'eighth',
+          tuplet: {
+            actualNotes: 3,
+            normalNotes: 2,
+            normalType: 'eighth',
+            startStop: 'stop',
+            number: 1
+          }
+        }
+        break;
       }
     }
   }
 
-  if (elements.length < 1) {
-    console.error(`[${note.track}] Could not transform note duration ${note.duration} to MusicXML.`)
+  // None of the closed formulas worked. Create extra notes to add up to the duration.
+  // - First "extra" note is actually current note.
+  // - All notes will be tied. First note starts a tie, last note ends a tie, middle notes have both.
+  // if (note.musicXml.typeElements.length < 1) {
+  //   const extra = []
+  //   let remainingDuration = scoreDuration
+  //   for (const [entry, type] of types) {
+  //     if (remainingDuration > entry) {
+  //       extra.push({
+  //         duration: entry * beatType / 8,
+  //         type,
+  //         tie: { start: true, stop: extra.length > 0 },
+  //       })
+  //       remainingDuration -= entry
+  //       if (remainingDuration <= 0) break
+  //     }
+  //   }
+
+  //   // Close up last tie.
+  //   extra[extra.length - 1].tie.start = false
+
+  //   // Transfer first extra note to current note.
+  //   note.musicXml = extra.shift()
+
+  //   // Return extra notes.
+  //   return extra.map(e => { return {
+  //     midi: note.midi,
+  //     velocity: note.velocity,
+  //     partId: note.partId,
+  //     track: note.track,
+  //     voice: note.voice,
+  //     musicXml: e
+  //   }})
+  // }
+
+  // Nothing found. Try again, but with a greater tolerance.
+  if (note.musicXml.type === undefined) {
+    console.error(`[${note.track}] Could not transform note duration ${note.duration} with tolerance ${tolerance} to MusicXML.`)
+    if (tolerance === 0) {
+      return createNoteTiming(note, index, notes, beatType, TOLERANCE)
+    }
   }
-  return elements.join('')
+
+  return []
 }
 
 /**
- * Create extra note notations including articulations.
- */
-function createNoteNotations(note, _index, _notes) {
-  const articulations = []
-  if ('staccato' in note ) {
-    articulations.push('<staccato/>')
-  }
-  return articulations.length ? `
-    <notations>
-      <articulations>
-        ${articulations.join('')}
-      </articulations>
-    </notations>
-  `.trim() : ''
-}
-
-/**
- * Create a synthetic (undocumented) <instrument> from a single track.
+ * Create a synthetic <instrument> from a single track.
  * The structure is compatible with drums.xml entries.
  */
 function createInstrument(document, _groove, track) {
