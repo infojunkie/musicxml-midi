@@ -367,14 +367,15 @@ function createPartMeasures(groove, partId, part) {
  * - Sort the notes by voice and by onset
  * - Calculate the duration of notes
  * - Insert extra rests when a duration crosses beat boundaries (since we're dealing with drum beats)
- * - Generate the MusicXML note representation, including detecting note type/duration/timing.
+ * - Generate note timings, including quantization, extra ties and rests
+ * - Generate the MusicXML note representation
  */
 function createMeasureNotes(groove, part, i) {
   const instrumentId = part[0].candidateInstrumentIds[0]
   const beats = parseInt(groove.timeSignature.split('/')[0])
   const beatType = parseInt(groove.timeSignature.split('/')[1])
 
-  // Step 1: Gather all notes and parse them.
+  // Gather all notes and parse them.
   // TODO Handle case of empty measure.
   return part.reduce((notes, track) => {
     const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? '1'
@@ -392,14 +393,14 @@ function createMeasureNotes(groove, part, i) {
     }).filter(note => !!note))
   }, [])
 
-  // Step 1.5: Detect velocity 0 notes and set the duration of previous notes accordingly.
-  .reduce((notes, note) => {
+  // Detect velocity 0 notes which indicate the closing of a previous note.
+  // TODO Handle notes that were open in previous measure.
+    .reduce((notes, note) => {
     if (note.velocity > 0) {
       notes.push(note)
     }
     // else {
     //   const previous = notes.reverse().find(n => n.midi === note.midi && n.voice === note.voice)
-    //   // TODO Handle note that was open in previous measure.
     //   if (previous) {
     //     previous.duration = note.onset - previous.onset
     //   }
@@ -407,14 +408,14 @@ function createMeasureNotes(groove, part, i) {
     return notes
   }, [])
 
-  // Step 2: Sort the notes, first by voice, then by onset.
+  // Sort the notes, first by voice, then by onset.
   .sort((n1, n2) => {
     return n1.voice !== n2.voice ?
       n1.voice - n2.voice :
       n1.onset - n2.onset
   })
 
-  // Step 3: Calculate notes duration.
+  // Calculate notes duration.
   // A note's duration is the difference between the next note's onset and its own onset.
   // Therefore, at each note, we can calculate the previous note's duration.
   // At the first note of each voice, if the onset is > 1, we insert a rest to start the measure.
@@ -451,7 +452,7 @@ function createMeasureNotes(groove, part, i) {
     return notes
   }, [])
 
-  // Step 4: Insert extra rests where needed.
+  // Insert extra rests where needed.
   // Each note is at most 1 beat, and does not cross beat boundaries.
   // Any note with duration that crosses beat boundaries get truncated and the rest of the time is filled with rests.
   .reduce((notes, note) => {
@@ -474,7 +475,7 @@ function createMeasureNotes(groove, part, i) {
     return notes
   }, [])
 
-  // Step 5: Generate note types, durations and extra notes as needed.
+  // Generate note types, durations and extra notes as needed.
   // Ignore notes that have already been processed by an earlier iteration in createNoteTiming().
   .reduce((notes, note, index, input) => {
     const extra = 'musicXml' in note ? [] : createNoteTiming(note, index, input, beatType)
@@ -482,7 +483,7 @@ function createMeasureNotes(groove, part, i) {
     return notes
   }, [])
 
-  // Step 5.5: Generate MusicXML.
+  // Generate MusicXML.
   // When voices change, we backup to the beginning of the measure.
   // TODO Add dynamics, articulations.
   .map((note, index, notes) => {
@@ -531,6 +532,7 @@ function createMeasureNotes(groove, part, i) {
         `.trim() : `<tuplet number="${note.musicXml.tuplet.number}" type="stop" />`
       ) : ''
     ) : ''
+
     return `
       ${backup}
       <note>
