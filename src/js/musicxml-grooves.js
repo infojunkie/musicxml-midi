@@ -450,10 +450,15 @@ function createMeasureNotes(groove, part, i) {
   }, [])
 
   // Quantize the notes on a grid and fill the gaps with rests.
-  // Each note is at most 1 beat, and does not cross beat boundaries.
+  // Any note that comes back crossing the measure boundary gets moved to the next measure.
   .reduce((notes, note, index, input) => {
     quantizeNoteOnset(note, index, input, beats, grid)
-    notes.push(note)
+    if (note.quantized.onset < beats * DIVISIONS) {
+      notes.push(note)
+    }
+    else {
+      // TODO Move note to next measure.
+    }
     return notes
   }, [])
   .reduce((notes, note, index, input) => {
@@ -567,11 +572,19 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
     }
   }, undefined)
 
+  // Validate the quantization.
   if (onset === undefined) {
-    console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note onset at ${note.onset} to avoid collision with previous note.`)
+    console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note onset at ${note.onset} to avoid collision with previous note. Moving it manually.`)
+    onset = {
+      multiple: notes[index - 1].quantized.onset + DIVISIONS_1024th,
+      error_sgn: scoreOnset - (notes[index - 1].quantized.onset + DIVISIONS_1024th)
+    }
+  }
+  if (onset.multiple >= beats * DIVISIONS) {
+    console.warn(`[${note.track}:${note.measure+1}] Quantized note onset at ${note.onset} crosses beat boundary. Moving to next measure.`)
   }
 
-  // Adjust note.
+  // Store the note.
   note.quantized = {
     onset: onset.multiple,
     duration: scoreDuration - onset.error_sgn
@@ -589,7 +602,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
     note.quantized.onset + note.quantized.duration,
     isLastNote ? beats * DIVISIONS : (notes[index + 1].quantized.onset + notes[index + 1].quantized.duration)
   )
-  const offset = grid.map(unit => {
+  let offset = grid.map(unit => {
     return nearestMultiple(scoreOffset, DIVISIONS/unit)
   }).flat().sort((m1, m2) => {
     return m1.error_abs - m2.error_abs
@@ -597,8 +610,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
     if (offset !== undefined) {
       return offset
     }
-    const duration = candidate.multiple - note.quantized.onset
-    if (duration > Number.EPSILON) {
+    if (candidate.multiple - note.quantized.onset > Number.EPSILON) {
       return candidate
     }
   }, undefined)
@@ -607,7 +619,13 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
     console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note duration at ${note.onset} to avoid zero duration.`)
   }
 
-  // Adjust note.
+  // Adjust the note duration if it crosses the measure boundary.
+  if (offset.multiple >= beats * DIVISIONS) {
+    console.warn(`[${note.track}:${note.measure+1}] Quantized note duration at ${note.onset} crosses beat boundary. Reducing the duration.`)
+    offset.multiple = beats * DIVISIONS
+  }
+
+  // Store the note.
   note.quantized.duration = offset.multiple - note.quantized.onset
   note.onset = note.quantized.onset / DIVISIONS + 1
   note.duration = note.quantized.duration / DIVISIONS
@@ -630,30 +648,32 @@ function fillWithRests(note, gapStart, gapEnd) {
   if (gap > Number.EPSILON) {
     const head = gapStart % DIVISIONS_QUARTER
     if (head > Number.EPSILON) {
+      const duration = Math.min(gap, DIVISIONS_QUARTER - head)
       rests.push({
         track: note.track,
         voice: note.voice,
         measure: note.measure,
         quantized: {
           onset: gapStart,
-          duration: DIVISIONS_QUARTER - head
+          duration
         },
         onset: gapStart / DIVISIONS + 1,
-        duration: (DIVISIONS_QUARTER - head) / DIVISIONS,
+        duration: duration / DIVISIONS,
       })
       gap -= rests[rests.length - 1].quantized.duration
     }
     while (gap > Number.EPSILON) {
+      const duration = Math.min(gap, DIVISIONS_QUARTER)
       rests.push({
         track: note.track,
         voice: note.voice,
         measure: note.measure,
         quantized: {
           onset: gapEnd - gap,
-          duration: Math.min(gap, DIVISIONS_QUARTER)
+          duration
         },
         onset: (gapEnd - gap) / DIVISIONS + 1,
-        duration: Math.min(gap, DIVISIONS_QUARTER) / DIVISIONS
+        duration: duration / DIVISIONS
       })
       gap -= rests[rests.length - 1].quantized.duration
     }
@@ -720,14 +740,14 @@ function createNoteTiming(note, index, notes) {
       break
     }
 
-    // // Detect dotted notes, only for non-rests.
-    // if ('midi' in note && entry < scoreDuration) {
-    //   const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
-    //   if (Number.isInteger(dots)) {
-    //     note.musicXml = { ...note.musicXml, type, dots }
-    //     break
-    //   }
-    // }
+    // Detect dotted notes, only for non-rests.
+    if ('midi' in note && entry < scoreDuration) {
+      const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
+      if (Number.isInteger(dots)) {
+        note.musicXml = { ...note.musicXml, type, dots }
+        break
+      }
+    }
 
     // TODO Detect 3- and 5-tuplets.
     for (const tuplet of [3, 5]) {
