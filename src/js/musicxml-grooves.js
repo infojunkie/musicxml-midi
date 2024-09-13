@@ -19,7 +19,6 @@ const DIVISIONS_256th = DIVISIONS/64
 const DIVISIONS_512th = DIVISIONS/128
 const DIVISIONS_1024th = DIVISIONS/256
 const QUANTIZATION_DEFAULT_GRID = [4, 3]
-const QUANTIZATION_FINEST_GRID = [32]
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -210,8 +209,8 @@ function createPartList(groove) {
       if (partCandidates[b].usage === partCandidates[a].usage) {
         if (a in parts) return -1
         if (b in parts) return 1
-        return SaxonJS.XPath.evaluate(`count(//instrument[@id="${a}"]/drum)`, instruments) -
-               SaxonJS.XPath.evaluate(`count(//instrument[@id="${b}"]/drum)`, instruments)
+        return SaxonJS.XPath.evaluate(`count(//instrument[@id="${a}"]/drum)`, instruments)
+             - SaxonJS.XPath.evaluate(`count(//instrument[@id="${b}"]/drum)`, instruments)
       }
       else {
         return partCandidates[b].usage - partCandidates[a].usage
@@ -325,8 +324,8 @@ function createPartMeasures(groove, partId, part) {
     8: 'eighth',
     16: '16th'
   }
-  return part[0].sequence.map((_, i) => {
-    const direction = (i > 0 || partId > 1) ? '' : `
+  return part[0].sequence.map((_, measure) => {
+    const direction = (measure > 0 || partId > 1) ? '' : `
       <direction placement="above">
         <direction-type>
           <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
@@ -337,7 +336,7 @@ function createPartMeasures(groove, partId, part) {
         <sound tempo="${args['tempo']}"/>
       </direction>
     `.trim()
-    const attributes = i > 0 ? '' : `
+    const attributes = measure > 0 ? '' : `
       <attributes>
         <divisions>${DIVISIONS}</divisions>
         <time>
@@ -353,10 +352,10 @@ function createPartMeasures(groove, partId, part) {
       </attributes>
     `.trim()
     return `
-      <measure number="${i + 1}">
+      <measure number="${measure + 1}">
         ${attributes}
         ${direction}
-        ${createMeasureNotes(groove, part, i)}
+        ${createMeasureNotes(groove, part, measure)}
       </measure>
     `.trim()
   }).join('')
@@ -375,15 +374,14 @@ function createPartMeasures(groove, partId, part) {
  * - Generate note timings, including quantization, extra ties and rests
  * - Generate the MusicXML note representation
  */
-function createMeasureNotes(groove, part, i) {
+function createMeasureNotes(groove, part, measure) {
   const instrumentId = part[0].candidateInstrumentIds[0]
   const beats = parseInt(groove.timeSignature.split('/')[0])
-  const beatType = parseInt(groove.timeSignature.split('/')[1])
 
   // Gather all notes and parse them.
   return part.reduce((notes, track) => {
     const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? '1'
-    return notes.concat(track.sequence[i].split(';').map(note => {
+    return notes.concat(track.sequence[measure].split(';').map(note => {
       const parts = note.split(/\s+/).filter(part => !!part)
       return parts[0] === 'z' ? undefined : {
         midi: track.midi[0],
@@ -393,7 +391,7 @@ function createMeasureNotes(groove, part, i) {
         partId: track.partId,
         track: track.track,
         voice: voice.textContent,
-        measure: i
+        measure
       }
     }).filter(note => !!note))
   }, [])
@@ -428,9 +426,9 @@ function createMeasureNotes(groove, part, i) {
   // At the first note of each voice, if the onset is > 1, we insert a rest to start the measure.
   // At the last note of each voice, the duration is the remaining time until the measure end.
   .reduce((notes, note, index, input) => {
-    const isFirstNote = notes.length === 0 || notes[notes.length - 1].voice !== note.voice
-    const isLastNote = index === input.length - 1 || input[index + 1].voice !== note.voice
-    const previousOnset = isFirstNote ? 1 : notes[notes.length - 1].onset
+    const isFirstNote = notes.length === 0 || notes[notes.length-1].voice !== note.voice
+    const isLastNote = index === input.length - 1 || input[index+1].voice !== note.voice
+    const previousOnset = isFirstNote ? 1 : notes[notes.length-1].onset
     const boundary = Math.floor(previousOnset) + 1 - previousOnset
     const duration = Math.min(note.onset - previousOnset, boundary)
     if (duration > 0) {
@@ -457,7 +455,21 @@ function createMeasureNotes(groove, part, i) {
       notes.push(note)
     }
     else {
-      // TODO Move note to next measure.
+      // Move note to next measure.
+      // TODO Handle the case where there's already a note at onset 1.
+      if (measure < part[0].sequence.length - 1) {
+        const track = part.find(t => t.track === note.track)
+        const next = track.sequence[measure+1]
+        if (next.trim() === 'z') {
+          track.sequence[measure+1] = `1 1t ${note.velocity}`
+        }
+        else {
+          track.sequence[measure+1] = `1 1t ${note.velocity} ; ${next}`
+        }
+      }
+      else {
+        console.warn(`[${note.track}:${note.measure+1}] Quantized note at ${note.onset} cannot be moved beyond last measure. Dropping.`)
+      }
     }
     return notes
   }, [])
@@ -554,8 +566,7 @@ function createMeasureNotes(groove, part, i) {
  * Quantize a single note onset.
  */
 function quantizeNoteOnset(note, index, notes, beats, grid) {
-  const isFirstNote = index === 0 || notes[index - 1].voice !== note.voice
-  const isLastNote = index === notes.length - 1 || notes[index + 1].voice !== note.voice
+  const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
   const scoreDuration = Math.round(note.duration * DIVISIONS)
   const scoreOnset = Math.round((note.onset - 1) * DIVISIONS)
   const onset = grid.map(unit => {
@@ -567,7 +578,7 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
       return onset
     }
 
-    if (isFirstNote || notes[index - 1].quantized.onset < candidate.multiple) {
+    if (isFirstNote || notes[index-1].quantized.onset < candidate.multiple) {
       return candidate
     }
   }, undefined)
@@ -576,8 +587,8 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
   if (onset === undefined) {
     console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note onset at ${note.onset} to avoid collision with previous note. Moving it manually.`)
     onset = {
-      multiple: notes[index - 1].quantized.onset + DIVISIONS_1024th,
-      error_sgn: scoreOnset - (notes[index - 1].quantized.onset + DIVISIONS_1024th)
+      multiple: notes[index-1].quantized.onset + DIVISIONS_1024th,
+      error_sgn: scoreOnset - (notes[index-1].quantized.onset + DIVISIONS_1024th)
     }
   }
   if (onset.multiple >= beats * DIVISIONS) {
@@ -596,11 +607,11 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
  * Don't let duration remain at 0.
  */
 function quantizeNoteDuration(note, index, notes, beats, grid) {
-  const isFirstNote = index === 0 || notes[index - 1].voice !== note.voice
-  const isLastNote = index === notes.length - 1 || notes[index + 1].voice !== note.voice
+  const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
+  const isLastNote = index === notes.length - 1 || notes[index+1].voice !== note.voice
   const scoreOffset = Math.min(
     note.quantized.onset + note.quantized.duration,
-    isLastNote ? beats * DIVISIONS : (notes[index + 1].quantized.onset + notes[index + 1].quantized.duration)
+    isLastNote ? beats * DIVISIONS : (notes[index+1].quantized.onset + notes[index+1].quantized.duration)
   )
   let offset = grid.map(unit => {
     return nearestMultiple(scoreOffset, DIVISIONS/unit)
@@ -631,7 +642,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
   note.duration = note.quantized.duration / DIVISIONS
 
   // Add rests before and after note if needed.
-  const previousOffset = isFirstNote ? 0 : notes[index - 1].quantized.onset + notes[index - 1].quantized.duration
+  const previousOffset = isFirstNote ? 0 : notes[index-1].quantized.onset + notes[index-1].quantized.duration
   return [
     fillWithRests(note, previousOffset, note.quantized.onset),
     isLastNote ? fillWithRests(note, note.quantized.onset + note.quantized.duration, beats * DIVISIONS) : []
@@ -660,7 +671,7 @@ function fillWithRests(note, gapStart, gapEnd) {
         onset: gapStart / DIVISIONS + 1,
         duration: duration / DIVISIONS,
       })
-      gap -= rests[rests.length - 1].quantized.duration
+      gap -= rests[rests.length-1].quantized.duration
     }
     while (gap > Number.EPSILON) {
       const duration = Math.min(gap, DIVISIONS_QUARTER)
@@ -675,7 +686,7 @@ function fillWithRests(note, gapStart, gapEnd) {
         onset: (gapEnd - gap) / DIVISIONS + 1,
         duration: duration / DIVISIONS
       })
-      gap -= rests[rests.length - 1].quantized.duration
+      gap -= rests[rests.length-1].quantized.duration
     }
   }
   return rests
@@ -802,9 +813,9 @@ function createNoteTiming(note, index, notes) {
     let onset = note.quantized.onset
     for (const [entry, type] of types) {
       if (remainingDuration >= entry) {
-        if (extra.length > 0 && extra[extra.length - 1].duration === entry * 2) {
-          extra[extra.length - 1].dots += 1
-          extra[extra.length - 1].duration += entry
+        if (extra.length > 0 && extra[extra.length-1].duration === entry * 2) {
+          extra[extra.length-1].dots += 1
+          extra[extra.length-1].duration += entry
         }
         else {
           extra.push({
@@ -821,7 +832,7 @@ function createNoteTiming(note, index, notes) {
     }
 
     // Close up the last tie.
-    extra[extra.length - 1].tie.start = false
+    extra[extra.length-1].tie.start = false
 
     // Transfer first extra note to current note.
     note.musicXml = extra.shift()
