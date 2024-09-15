@@ -19,6 +19,7 @@ const DIVISIONS_256th = DIVISIONS/64
 const DIVISIONS_512th = DIVISIONS/128
 const DIVISIONS_1024th = DIVISIONS/256
 const QUANTIZATION_DEFAULT_GRID = [4, 3]
+const TUPLET_TOLERANCE = 0.025
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -59,6 +60,9 @@ const options = {
   'grid': {
     type: 'string',
     default: QUANTIZATION_DEFAULT_GRID.join(',')
+  },
+  'dashes': {
+    type: 'boolean'
   }
 }
 const { values: args } = (() => {
@@ -536,9 +540,15 @@ function createMeasureNotes(groove, part, measure) {
         `.trim() : `<tuplet number="${note.musicXml.tuplet.number}" type="stop" />`
       ) : ''
     ) : ''
+    const dashes = ('dashes' in args && note.quantized.onset > 0 && note.quantized.onset % DIVISIONS < Number.EPSILON) ? `
+      <barline location="middle">
+          <bar-style>dashed</bar-style>
+      </barline>
+    `.trim() : ''
 
     return `
       ${backup}
+      ${dashes}
       <note>
         ${chord}
         ${pitch}
@@ -569,7 +579,7 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
   const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
   const scoreDuration = Math.round(note.duration * DIVISIONS)
   const scoreOnset = Math.round((note.onset - 1) * DIVISIONS)
-  const onset = grid.map(unit => {
+  let onset = grid.map(unit => {
     return nearestMultiple(scoreOnset, DIVISIONS/unit)
   }).flat().sort((m1, m2) => {
     return m1.error_abs - m2.error_abs
@@ -738,67 +748,91 @@ function createNoteTiming(note, index, notes) {
     [DIVISIONS_512th, '512th'],
     [DIVISIONS_1024th, '1024th'],
   ]
-  const scoreDuration = note.quantized.duration
+  const lookupType = duration => types.find(t => t[0] === duration)[1]
 
   // Fill in this MusicXML timing structure.
   note.musicXml = {
-    duration: scoreDuration
+    duration: note.quantized.duration
   }
   for (const [entry, type] of types) {
     // Detect simple types.
-    if (Math.abs(scoreDuration - entry) <= Number.EPSILON) {
+    if (Math.abs(note.quantized.duration - entry) <= Number.EPSILON) {
       note.musicXml = { ...note.musicXml, type }
       break
     }
 
     // Detect dotted notes, only for non-rests.
-    if ('midi' in note && entry < scoreDuration) {
-      const dots = Math.log(2 - scoreDuration / entry) / Math.log(0.5)
+    if ('midi' in note && entry < note.quantized.duration) {
+      const dots = Math.log(2 - note.quantized.duration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
         note.musicXml = { ...note.musicXml, type, dots }
         break
       }
     }
 
-    // TODO Detect 3- and 5-tuplets.
-    for (const tuplet of [3, 5]) {
+    // Detect 3- and 5-tuplets.
+    if (entry === DIVISIONS_QUARTER && entry > note.quantized.duration) {
+      for (const tupletCount of [3, 5]) {
+        const tuplet = tuplets(note, index, notes, tupletCount)
+        const ratio = Math.round(entry / tupletCount)
+        const beat = Math.floor(tuplet[0].quantized.onset / entry)
+        if (
+          tuplet.length === tupletCount &&
+          Math.abs(tupletsDuration(tuplet) - entry) <= TUPLET_TOLERANCE * tupletCount &&
+          tuplet.every(n =>
+            //Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE &&
+            Math.floor(n.quantized.onset / entry) === beat
+          )
+        ) {
+          tuplet.forEach((n, i) => {
+            n.quantized = {
+              duration: entry / tupletCount,
+              onset: note.quantized.onset + (i * entry / tupletCount)
+            }
+            n.musicXml = {
+              duration: entry / tupletCount,
+              type: lookupType(entry / 2),
+              tuplet: {
+                actualNotes: tupletCount,
+                normalNotes: 2,
+                normalType: lookupType(entry / 2),
+                startStop: i === 0 ? 'start' : i === tuplet.length - 1 ? 'stop' : undefined,
+                number: 1
+              }
+            }
+          })
+          break
+        }
+      }
     }
 
     // Detect swing 8th pair.
     // To qualify, 2 consecutive notes must:
     // - Sum up to a quarter
-    // - Each be within a triplet factor of a quarter
-    if (entry === DIVISIONS_QUARTER && entry > scoreDuration) {
+    // - Each be within a triplet multiple of a quarter
+    if (entry === DIVISIONS_QUARTER && entry > note.quantized.duration) {
       const pair = tuplets(note, index, notes, 2)
-      const [swingHi, swingLo] = [2 * entry / 3, entry / 3]
+      const ratio = Math.round(entry / 3)
       if (
-        pair.length == 2 &&
-        Math.abs(tupletsDuration(pair) - entry) <= Number.EPSILON &&
-        pair.every(n => Math.abs(swingHi - n.quantized.duration) <= Number.EPSILON || Math.abs(swingLo - n.quantized.duration) <= Number.EPSILON)
+        pair.length === 2 &&
+        Math.abs(tupletsDuration(pair) - entry) <= TUPLET_TOLERANCE * 2 &&
+        pair.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE) &&
+        Math.floor(pair[0].quantized.onset / entry) === Math.floor(pair[1].quantized.onset / entry)
       ) {
-        note.musicXml = {
-          ...note.musicXml,
-          type: pair[0].quantized.duration > pair[1].quantized.duration ? 'quarter' : 'eighth',
-          tuplet: {
-            actualNotes: 3,
-            normalNotes: 2,
-            normalType: 'eighth',
-            startStop: 'start',
-            number: 1
+        pair.forEach((n, i, t) => {
+          n.musicXml = {
+            duration: n.quantized.duration,
+            type: n.quantized.duration > ratio ? lookupType(entry) : lookupType(entry / 2),
+            tuplet: {
+              actualNotes: 3,
+              normalNotes: 2,
+              normalType: lookupType(entry / 2),
+              startStop: i === 0 ? 'start' : i === t.length - 1 ? 'stop' : undefined,
+              number: 1
+            }
           }
-        }
-        pair[1].musicXml = {
-          duration: pair[1].quantized.duration,
-          type: pair[0].quantized.duration < pair[1].quantized.duration ? 'quarter' : 'eighth',
-          tuplet: {
-            actualNotes: 3,
-            normalNotes: 2,
-            normalType: 'eighth',
-            startStop: 'stop',
-            number: 1
-          }
-        }
-        break;
+        })
+        break
       }
     }
   }
@@ -807,13 +841,13 @@ function createNoteTiming(note, index, notes) {
   // - First "extra" note is actually current note.
   // - All notes will be tied. First note starts a tie, last note ends a tie, middle notes have both.
   // - Add a dot to notes if they are in consecutive fractional order.
-  if (!('type' in note.musicXml) && 'midi' in note) {
+  if (!('type' in note.musicXml)) {
     const extra = []
-    let remainingDuration = scoreDuration
+    let gap = note.quantized.duration
     let onset = note.quantized.onset
     for (const [entry, type] of types) {
-      if (remainingDuration >= entry) {
-        if (extra.length > 0 && extra[extra.length-1].duration === entry * 2) {
+      if (gap >= entry) {
+        if ('midi' in note && extra.length > 0 && extra[extra.length-1].duration === entry * 2) {
           extra[extra.length-1].dots += 1
           extra[extra.length-1].duration += entry
         }
@@ -826,9 +860,14 @@ function createNoteTiming(note, index, notes) {
             tie: { start: true, stop: extra.length > 0 },
           })
         }
-        remainingDuration -= entry
+        gap -= entry
         onset += entry
       }
+    }
+
+    // Check that the gap is all filled.
+    if (gap > Number.EPSILON) {
+      console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left before note at ${note.onset}.`)
     }
 
     // Close up the last tie.
@@ -838,11 +877,9 @@ function createNoteTiming(note, index, notes) {
     note.musicXml = extra.shift()
 
     // Return extra notes.
-    return extra.map((e, i, input) => {
-      return {
-        midi: note.midi,
+    return extra.map(e => {
+      return { ...{
         velocity: note.velocity,
-        partId: note.partId,
         track: note.track,
         voice: note.voice,
         measure: note.measure,
@@ -851,7 +888,10 @@ function createNoteTiming(note, index, notes) {
           onset: e.onset,
           duration: e.duration
         }
-      }
+      }, ...('midi' in note ? {
+        midi: note.midi,
+        partId: note.partId,
+      } : {})}
     })
   }
 
