@@ -128,7 +128,6 @@ for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
   }
   catch (error) {
     console.error(`Failed to convert ${groove.groove} to MusicXML: ${error}`)
-    throw error
   }
 }
 
@@ -601,7 +600,7 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
   // Store the note.
   note.quantized = {
     onset: onset.multiple,
-    duration: scoreDuration - onset.error_sgn
+    duration: Math.min(scoreDuration - onset.error_sgn, DIVISIONS_QUARTER - onset.multiple % DIVISIONS_QUARTER)
   }
 }
 
@@ -630,12 +629,13 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
   }, undefined)
 
   if (offset === undefined) {
+    // TODO Handle this case.
     console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note duration at ${note.onset} to avoid zero duration.`)
   }
 
   // Adjust the note duration if it crosses the measure boundary.
-  if (offset.multiple >= beats * DIVISIONS) {
-    console.warn(`[${note.track}:${note.measure+1}] Quantized note duration at ${note.onset} crosses beat boundary. Reducing the duration.`)
+  if (offset.multiple > beats * DIVISIONS) {
+    console.warn(`[${note.track}:${note.measure+1}] Quantized note duration at ${note.onset} crosses measure boundary. Reducing the duration.`)
     offset.multiple = beats * DIVISIONS
   }
 
