@@ -19,7 +19,6 @@ const DIVISIONS_256th = DIVISIONS/64
 const DIVISIONS_512th = DIVISIONS/128
 const DIVISIONS_1024th = DIVISIONS/256
 const QUANTIZATION_DEFAULT_GRID = [4, 3]
-const TUPLET_TOLERANCE = 0.05
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -777,8 +776,8 @@ function createNoteTiming(note, index, notes) {
         const ratio = Math.round(target / tupletCount)
         if (
           tuplet.length === tupletCount &&
-          Math.abs(tupletsDuration(tuplet) - target) <= TUPLET_TOLERANCE * tupletCount &&
-          tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE) &&
+          Math.abs(tupletsDuration(tuplet) - target) <= Number.EPSILON &&
+          tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= Number.EPSILON) &&
           tuplet.every(n => Math.floor(n.quantized.onset / target) === Math.floor(tuplet[0].quantized.onset / target))
         ) {
           tuplet.forEach((n, i) => {
@@ -814,8 +813,8 @@ function createNoteTiming(note, index, notes) {
       const ratio = Math.round(target / 3)
       if (
         pair.length === 2 &&
-        Math.abs(tupletsDuration(pair) - target) <= TUPLET_TOLERANCE * 2 &&
-        pair.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE) &&
+        Math.abs(tupletsDuration(pair) - target) <= Number.EPSILON &&
+        pair.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= Number.EPSILON) &&
         Math.floor(pair[0].quantized.onset / target) === Math.floor(pair[1].quantized.onset / target)
       ) {
         pair.forEach((n, i, t) => {
