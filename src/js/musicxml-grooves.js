@@ -19,7 +19,7 @@ const DIVISIONS_256th = DIVISIONS/64
 const DIVISIONS_512th = DIVISIONS/128
 const DIVISIONS_1024th = DIVISIONS/256
 const QUANTIZATION_DEFAULT_GRID = [4, 3]
-const TUPLET_TOLERANCE = 0.025
+const TUPLET_TOLERANCE = 0.05
 
 import fs from 'fs'
 import xmlFormat from 'xml-formatter'
@@ -425,7 +425,6 @@ function createMeasureNotes(groove, part, measure) {
 
   // Calculate notes duration.
   // A note's duration is the difference between the next note's onset and its own onset.
-  // A note's duration does not exceed beat boundaries (drum tracks only).
   // At each note, we calculate the previous note's duration.
   // At the first note of each voice, if the onset is > 1, we insert a rest to start the measure.
   // At the last note of each voice, the duration is the remaining time until the measure end.
@@ -433,8 +432,7 @@ function createMeasureNotes(groove, part, measure) {
     const isFirstNote = notes.length === 0 || notes[notes.length-1].voice !== note.voice
     const isLastNote = index === input.length - 1 || input[index+1].voice !== note.voice
     const previousOnset = isFirstNote ? 1 : notes[notes.length-1].onset
-    const boundary = Math.floor(previousOnset) + 1 - previousOnset
-    const duration = Math.min(note.onset - previousOnset, boundary)
+    const duration = note.onset - previousOnset
     if (duration > 0) {
       notes.filter(n => n.onset === previousOnset && n.voice === note.voice && n.duration === undefined).forEach(n => { n.duration = duration })
     }
@@ -443,8 +441,7 @@ function createMeasureNotes(groove, part, measure) {
     // If we're at the end of the measure, calculate the duration of all remaining notes.
     if (isLastNote) {
       notes.filter(n => n.duration === undefined && n.voice === note.voice).forEach(n => {
-        const boundary = Math.floor(n.onset) + 1 - n.onset
-        n.duration = Math.min(beats + 1 - n.onset, boundary)
+        n.duration = beats + 1 - n.onset
       })
     }
 
@@ -601,9 +598,6 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
       error_sgn: scoreOnset - (notes[index-1].quantized.onset + DIVISIONS_1024th)
     }
   }
-  if (onset.multiple >= beats * DIVISIONS) {
-    console.warn(`[${note.track}:${note.measure+1}] Quantized note onset at ${note.onset} crosses beat boundary. Moving to next measure.`)
-  }
 
   // Store the note.
   note.quantized = {
@@ -621,7 +615,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
   const isLastNote = index === notes.length - 1 || notes[index+1].voice !== note.voice
   const scoreOffset = Math.min(
     note.quantized.onset + note.quantized.duration,
-    isLastNote ? beats * DIVISIONS : (notes[index+1].quantized.onset + notes[index+1].quantized.duration)
+    isLastNote ? beats * DIVISIONS : notes[index+1].quantized.onset
   )
   let offset = grid.map(unit => {
     return nearestMultiple(scoreOffset, DIVISIONS/unit)
@@ -771,31 +765,34 @@ function createNoteTiming(note, index, notes) {
     }
 
     // Detect 3- and 5-tuplets.
-    if (entry === DIVISIONS_QUARTER && entry > note.quantized.duration) {
+    // To qualify, tuplet notes must:
+    // - Sum up to the duration of the enclosing note type
+    // - Each have a duration of a tuplet fraction of the enclosing note type
+    // - Fall within the same enclosing note, instead of crossing note boundaries
+    // TODO Relax the constraint of quarter-note tuplets.
+    if (entry < note.quantized.duration && note.quantized.duration < entry * 2) {
+      const target = entry * 2
       for (const tupletCount of [3, 5]) {
         const tuplet = tuplets(note, index, notes, tupletCount)
-        const ratio = Math.round(entry / tupletCount)
-        const beat = Math.floor(tuplet[0].quantized.onset / entry)
+        const ratio = Math.round(target / tupletCount)
         if (
           tuplet.length === tupletCount &&
-          Math.abs(tupletsDuration(tuplet) - entry) <= TUPLET_TOLERANCE * tupletCount &&
-          tuplet.every(n =>
-            //Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE &&
-            Math.floor(n.quantized.onset / entry) === beat
-          )
+          Math.abs(tupletsDuration(tuplet) - target) <= TUPLET_TOLERANCE * tupletCount &&
+          tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE) &&
+          tuplet.every(n => Math.floor(n.quantized.onset / target) === Math.floor(tuplet[0].quantized.onset / target))
         ) {
           tuplet.forEach((n, i) => {
             n.quantized = {
-              duration: entry / tupletCount,
-              onset: note.quantized.onset + (i * entry / tupletCount)
+              duration: target / tupletCount,
+              onset: note.quantized.onset + (i * target / tupletCount)
             }
             n.musicXml = {
-              duration: entry / tupletCount,
-              type: lookupType(entry / 2),
+              duration: target / tupletCount,
+              type: lookupType(entry),
               tuplet: {
                 actualNotes: tupletCount,
                 normalNotes: 2,
-                normalType: lookupType(entry / 2),
+                normalType: lookupType(entry),
                 startStop: i === 0 ? 'start' : i === tuplet.length - 1 ? 'stop' : undefined,
                 number: 1
               }
@@ -810,23 +807,25 @@ function createNoteTiming(note, index, notes) {
     // To qualify, 2 consecutive notes must:
     // - Sum up to a quarter
     // - Each be within a triplet multiple of a quarter
-    if (entry === DIVISIONS_QUARTER && entry > note.quantized.duration) {
+    // - Fall within the same quarter note, instead of crossing quarter not boundaries
+    if (entry === DIVISIONS_EIGHTH && entry < note.quantized.duration && note.quantized.duration < entry * 2) {
+      const target = entry * 2
       const pair = tuplets(note, index, notes, 2)
-      const ratio = Math.round(entry / 3)
+      const ratio = Math.round(target / 3)
       if (
         pair.length === 2 &&
-        Math.abs(tupletsDuration(pair) - entry) <= TUPLET_TOLERANCE * 2 &&
+        Math.abs(tupletsDuration(pair) - target) <= TUPLET_TOLERANCE * 2 &&
         pair.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= TUPLET_TOLERANCE) &&
-        Math.floor(pair[0].quantized.onset / entry) === Math.floor(pair[1].quantized.onset / entry)
+        Math.floor(pair[0].quantized.onset / target) === Math.floor(pair[1].quantized.onset / target)
       ) {
         pair.forEach((n, i, t) => {
           n.musicXml = {
             duration: n.quantized.duration,
-            type: n.quantized.duration > ratio ? lookupType(entry) : lookupType(entry / 2),
+            type: n.quantized.duration > ratio ? lookupType(target) : lookupType(entry),
             tuplet: {
               actualNotes: 3,
               normalNotes: 2,
-              normalType: lookupType(entry / 2),
+              normalType: lookupType(target),
               startStop: i === 0 ? 'start' : i === t.length - 1 ? 'stop' : undefined,
               number: 1
             }
