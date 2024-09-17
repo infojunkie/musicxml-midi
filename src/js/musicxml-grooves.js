@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Parse MMA grooves and output a MusicXML file for each.
+ * Convert MMA grooves to MusicXML.
  */
 
 const MUSICXML_VERSION = '4.0'
@@ -382,7 +382,7 @@ function createMeasureNotes(groove, part, measure) {
 
   // Gather all notes and parse them.
   return part.reduce((notes, track) => {
-    const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? '1'
+    const voice = SaxonJS.XPath.evaluate(`//instrument[@id="${instrumentId}"]/drum[@midi="${track.midi[0]}"]/voice/text()`, instruments) ?? { textContent: '1' }
     return notes.concat(track.sequence[measure].split(';').map(note => {
       const parts = note.split(/\s+/).filter(part => !!part)
       return parts[0] === 'z' ? undefined : {
@@ -743,14 +743,11 @@ function createNoteTiming(note, index, notes) {
   ]
   const lookupType = duration => types.find(t => t[0] === duration)[1]
 
-  // Fill in this MusicXML timing structure.
-  note.musicXml = {
-    duration: note.quantized.duration
-  }
+  // Detect note types.
   for (const [entry, type] of types) {
     // Detect simple types.
     if (Math.abs(note.quantized.duration - entry) <= Number.EPSILON) {
-      note.musicXml = { ...note.musicXml, type }
+      note.musicXml = { duration: note.quantized.duration, type }
       break
     }
 
@@ -758,7 +755,7 @@ function createNoteTiming(note, index, notes) {
     if ('midi' in note && entry < note.quantized.duration) {
       const dots = Math.log(2 - note.quantized.duration / entry) / Math.log(0.5)
       if (Number.isInteger(dots)) {
-        note.musicXml = { ...note.musicXml, type, dots }
+        note.musicXml = { duration: note.quantized.duration, type, dots }
         break
       }
     }
@@ -839,7 +836,7 @@ function createNoteTiming(note, index, notes) {
   // - First "extra" note is actually current note.
   // - All notes will be tied. First note starts a tie, last note ends a tie, middle notes have both.
   // - Add a dot to notes if they are in consecutive fractional order.
-  if (!('type' in note.musicXml)) {
+  if (!('musicXml' in note)) {
     const extra = []
     let gap = note.quantized.duration
     let onset = note.quantized.onset

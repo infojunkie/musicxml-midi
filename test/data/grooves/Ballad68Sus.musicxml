@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE score-partwise PUBLIC
+      "-//Recordare//DTD MusicXML 4.0 Partwise//EN"
+      "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+    <work>
+        <work-title>Ballad68Sus</work-title>
+    </work>
+    <identification>
+        <encoding>
+            <software>musicxml-grooves 2.7.3</software>
+            <encoding-date>2024-09-17</encoding-date>
+            <supports element="accidental" type="yes"/>
+            <supports element="beam" type="yes"/>
+            <supports element="print" attribute="new-page" type="yes" value="yes"/>
+            <supports element="print" attribute="new-system" type="yes" value="yes"/>
+            <supports element="stem" type="yes"/>
+        </encoding>
+    </identification>
+    <part-list>
+        <score-part id="P1">
+            <part-name>Snare Drum</part-name>
+            <part-abbreviation>Sn. Dr.</part-abbreviation>
+            <score-instrument id="P1-I38">
+                <instrument-name>Snare Drum 1</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P1-I40">
+                <instrument-name>Snare Drum 2</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P1-I37">
+                <instrument-name>Side Stick</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P1-I91">
+                <instrument-name>Rim Shot</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P1-I38">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>39</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P1-I40">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>41</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P1-I37">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>38</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P1-I91">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>92</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+    </part-list>
+    <part id="P1">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>6</beats>
+                    <beat-type>8</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>1</staff-lines>
+                </staff-details>
+            </attributes>
+            <direction placement="above">
+                <direction-type>
+                    <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
+                        <beat-unit>eighth</beat-unit>
+                        <per-minute>120</per-minute>
+                    </metronome>
+                </direction-type>
+                <sound tempo="120"/>
+            </direction>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <backup>
+                <duration>4608</duration>
+            </backup>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <backup>
+                <duration>4608</duration>
+            </backup>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="3">
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <backup>
+                <duration>4608</duration>
+            </backup>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="4">
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I37"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <backup>
+                <duration>4608</duration>
+            </backup>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>2</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>2</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I40"/>
+                <voice>2</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>square</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>2</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+    </part>
+</score-partwise>

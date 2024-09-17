@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE score-partwise PUBLIC
+      "-//Recordare//DTD MusicXML 4.0 Partwise//EN"
+      "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+    <work>
+        <work-title>Metronome6</work-title>
+    </work>
+    <identification>
+        <encoding>
+            <software>musicxml-grooves 2.7.3</software>
+            <encoding-date>2024-09-17</encoding-date>
+            <supports element="accidental" type="yes"/>
+            <supports element="beam" type="yes"/>
+            <supports element="print" attribute="new-page" type="yes" value="yes"/>
+            <supports element="print" attribute="new-system" type="yes" value="yes"/>
+            <supports element="stem" type="yes"/>
+        </encoding>
+    </identification>
+    <part-list>
+        <score-part id="P1">
+            <part-name>Wood Blocks</part-name>
+            <part-abbreviation>Wd. Bl.</part-abbreviation>
+            <score-instrument id="P1-I76">
+                <instrument-name>High Wood Block</instrument-name>
+                <instrument-sound>wood.wood-block</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P1-I77">
+                <instrument-name>Low Wood Block</instrument-name>
+                <instrument-sound>wood.wood-block</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P1-I76">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>77</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P1-I77">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>78</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+    </part-list>
+    <part id="P1">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>6</beats>
+                    <beat-type>8</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>1</staff-lines>
+                </staff-details>
+            </attributes>
+            <direction placement="above">
+                <direction-type>
+                    <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
+                        <beat-unit>eighth</beat-unit>
+                        <per-minute>120</per-minute>
+                    </metronome>
+                </direction-type>
+                <sound tempo="120"/>
+            </direction>
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I77"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P1-I77"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I77"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>D</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I77"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>256</duration>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>384</duration>
+                <tie type="start"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>eighth</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>96</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>32nd</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>24</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>128th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>6</duration>
+                <tie type="stop"/>
+                <instrument id="P1-I76"/>
+                <voice>1</voice>
+                <type>512th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+    </part>
+</score-partwise>

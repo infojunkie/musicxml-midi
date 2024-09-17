@@ -9,3 +9,4 @@ cache/*
 !.gitkeep
 __pycache__
 .mmaDB
+*.log

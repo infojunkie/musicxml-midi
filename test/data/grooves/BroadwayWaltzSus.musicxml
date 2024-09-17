@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE score-partwise PUBLIC
+      "-//Recordare//DTD MusicXML 4.0 Partwise//EN"
+      "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+    <work>
+        <work-title>BroadwayWaltzSus</work-title>
+    </work>
+    <identification>
+        <encoding>
+            <software>musicxml-grooves 2.7.3</software>
+            <encoding-date>2024-09-17</encoding-date>
+            <supports element="accidental" type="yes"/>
+            <supports element="beam" type="yes"/>
+            <supports element="print" attribute="new-page" type="yes" value="yes"/>
+            <supports element="print" attribute="new-system" type="yes" value="yes"/>
+            <supports element="stem" type="yes"/>
+        </encoding>
+    </identification>
+    <part-list>
+        <score-part id="P1">
+            <part-name>Triangle</part-name>
+            <part-abbreviation>Trgl.</part-abbreviation>
+            <score-instrument id="P1-I80">
+                <instrument-name>Mute Triangle</instrument-name>
+                <instrument-sound>metal.triangle</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P1-I81">
+                <instrument-name>Open Triangle</instrument-name>
+                <instrument-sound>metal.triangle</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P1-I80">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>81</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P1-I81">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>82</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+        <score-part id="P2">
+            <part-name>Snare Drum</part-name>
+            <part-abbreviation>Sn. Dr.</part-abbreviation>
+            <score-instrument id="P2-I38">
+                <instrument-name>Snare Drum 1</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P2-I40">
+                <instrument-name>Snare Drum 2</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P2-I37">
+                <instrument-name>Side Stick</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P2-I91">
+                <instrument-name>Rim Shot</instrument-name>
+                <instrument-sound>drum.snare-drum</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P2-I38">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>39</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P2-I40">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>41</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P2-I37">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>38</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P2-I91">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>92</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+        <score-part id="P3">
+            <part-name>Bass Drum</part-name>
+            <part-abbreviation>B. Dr.</part-abbreviation>
+            <score-instrument id="P3-I35">
+                <instrument-name>Kick Drum 2</instrument-name>
+                <instrument-sound>drum.bass-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P3-I36">
+                <instrument-name>Kick Drum 1</instrument-name>
+                <instrument-sound>drum.bass-drum</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P3-I44">
+                <instrument-name>Pedal Hi-Hat</instrument-name>
+                <instrument-sound>metal.hi-hat</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P3-I35">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>36</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P3-I36">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>37</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P3-I44">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>45</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+        <score-part id="P4">
+            <part-name>Cymbals</part-name>
+            <part-abbreviation>Cym.</part-abbreviation>
+            <score-instrument id="P4-I59">
+                <instrument-name>Ride Cymbal 2</instrument-name>
+                <instrument-sound>metal.cymbal.ride</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I56">
+                <instrument-name>Cowbell</instrument-name>
+                <instrument-sound>metal.bells.cowbell</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I51">
+                <instrument-name>Ride Cymbal 1</instrument-name>
+                <instrument-sound>metal.cymbal.ride</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I53">
+                <instrument-name>Ride Bell</instrument-name>
+                <instrument-sound>metal.cymbal.ride</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I46">
+                <instrument-name>Open Hi-Hat</instrument-name>
+                <instrument-sound>metal.hi-hat</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I42">
+                <instrument-name>Closed Hi-Hat</instrument-name>
+                <instrument-sound>metal.hi-hat</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I49">
+                <instrument-name>Crash Cymbal 1</instrument-name>
+                <instrument-sound>metal.cymbal.crash</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I57">
+                <instrument-name>Crash Cymbal 2</instrument-name>
+                <instrument-sound>metal.cymbal.crash</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I55">
+                <instrument-name>Splash Cymbal</instrument-name>
+                <instrument-sound>metal.cymbal.splash</instrument-sound>
+            </score-instrument>
+            <score-instrument id="P4-I52">
+                <instrument-name>Chinese Cymbal</instrument-name>
+                <instrument-sound>metal.cymbal.chinese</instrument-sound>
+            </score-instrument>
+            <midi-instrument id="P4-I59">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>60</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I56">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>57</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I51">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>52</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I53">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>54</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I46">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>47</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I42">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>43</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I49">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>50</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I57">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>58</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I55">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>56</midi-unpitched>
+            </midi-instrument>
+            <midi-instrument id="P4-I52">
+                <midi-channel>10</midi-channel>
+                <midi-unpitched>53</midi-unpitched>
+            </midi-instrument>
+        </score-part>
+    </part-list>
+    <part id="P1">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>4</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>1</staff-lines>
+                </staff-details>
+            </attributes>
+            <direction placement="above">
+                <direction-type>
+                    <metronome parentheses="no" default-x="-37.06" relative-x="-33.03" relative-y="21.27">
+                        <beat-unit>quarter</beat-unit>
+                        <per-minute>120</per-minute>
+                    </metronome>
+                </direction-type>
+                <sound tempo="120"/>
+            </direction>
+            <note>
+                <rest/>
+                <duration>192</duration>
+                <voice>1</voice>
+                <type>16th</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>576</duration>
+                <instrument id="P1-I81"/>
+                <voice>1</voice>
+                <type>eighth</type>
+                <dot/>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+        </measure>
+        <measure number="3">
+        </measure>
+        <measure number="4">
+        </measure>
+    </part>
+    <part id="P2">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>4</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>1</staff-lines>
+                </staff-details>
+            </attributes>
+            <note>
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P2-I38"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+        </measure>
+        <measure number="3">
+        </measure>
+        <measure number="4">
+        </measure>
+    </part>
+    <part id="P3">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>4</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>5</staff-lines>
+                </staff-details>
+            </attributes>
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P3-I36"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>down</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P3-I36"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>down</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="3">
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P3-I36"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>down</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="4">
+            <note>
+                <unpitched>
+                    <display-step>F</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P3-I36"/>
+                <voice>1</voice>
+                <type>quarter</type>
+                <stem>down</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>768</duration>
+                <voice>1</voice>
+                <type>quarter</type>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+    </part>
+    <part id="P4">
+        <measure number="1">
+            <attributes>
+                <divisions>768</divisions>
+                <time>
+                    <beats>3</beats>
+                    <beat-type>4</beat-type>
+                </time>
+                <clef>
+                    <sign>percussion</sign>
+                </clef>
+                <staff-details>
+                    <staff-lines>5</staff-lines>
+                </staff-details>
+            </attributes>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="2">
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="3">
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+        <measure number="4">
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note>
+                <unpitched>
+                    <display-step>G</display-step>
+                    <display-octave>5</display-octave>
+                </unpitched>
+                <duration>768</duration>
+                <instrument id="P4-I42"/>
+                <voice>3</voice>
+                <type>quarter</type>
+                <stem>up</stem>
+                <notehead>x</notehead>
+                <notations>
+                </notations>
+            </note>
+        </measure>
+    </part>
+</score-partwise>
