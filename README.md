@@ -10,20 +10,24 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 - `git submodule update --init --recursive`
 - `npm install && npm run build`
 
-# Converting a MusicXML score
+# Convert a MusicXML score to MIDI
 - `npm run --silent convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats at `stdout`
 - `npm run --silent convert:mma song.musicxml` to both unroll a score and convert it to an MMA script at `stdout`
 - `npm run --silent convert:groove groove-name [chords="A,B,C"] [tempo=X] [count=Y] [keysig=Z]` to generate a groove MMA script at `stdout`
 - `npm run convert:midi /path/to/song.mma` to convert an MMA script to MIDI `/path/to/song.mid`
 - `npm run --silent convert:timemap song.musicxml` to convert a score to a timemap JSON file at `stdout`
-- `./scripts/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
+- `./src/js/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
 
-# Serving a conversion API endpoint
+# Serve a conversion API endpoint
 - `PORT=3000 npm run develop` for development (including hot-reload)
 - `PORT=3000 npm run start` for production
 - `curl -sSf -F"musicXml=@test/data/salma-ya-salama.musicxml" -F"globalGroove=Maqsum" http://localhost:3000/convert -o "salma-ya-salama.mid"`
 - `curl -sSf -F"groove=Maqsum" -F"chords=I, vi, ii, V7" -F"count=8" http://localhost:3000/groove -o "maqsum.mid"`
-- `curl -sSf -F"jq=.[] |= {groove,description,time}" http://localhost:3000/grooves.json`
+- `curl -sSf -F"jq=.[] |= {groove,description,timeSignature}" http://localhost:3000/grooves.json`
+
+# Other operations
+- Scrape MusicXML examples from the official site: `./src/js/musicxml-examples --output=./test/data/examples`
+- Convert MMA grooves to MusicXML: `./src/js/musicxml-grooves --output=./test/data/grooves`
 
 # Theory of operation
 This converter aims to create a valid MMA accompaniment script out of a MusicXML score. The MMA script is then converted to MIDI using the bundled `mma` tool. To accomplish this, the converter expects to find the following information in the sheet:
