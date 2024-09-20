@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.7.3</software>
-            <encoding-date>2024-09-17</encoding-date>
+            <software>musicxml-grooves 2.8.0</software>
+            <encoding-date>2024-09-20</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -143,7 +143,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="85.56">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -172,7 +172,7 @@
                     </tuplet>
                 </notations>
             </note>
-            <note>
+            <note dynamics="101.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -192,7 +192,7 @@
                     <tuplet number="1" type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="92.22">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>

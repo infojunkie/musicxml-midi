@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.7.3</software>
-            <encoding-date>2024-09-17</encoding-date>
+            <software>musicxml-grooves 2.8.0</software>
+            <encoding-date>2024-09-20</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -239,7 +239,7 @@
                 </direction-type>
                 <sound tempo="120"/>
             </direction>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -261,7 +261,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -285,7 +285,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="62.22">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -299,7 +299,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="24.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -313,7 +313,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="56.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -327,7 +327,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="14.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -341,7 +341,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="53.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -355,7 +355,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="23.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -369,7 +369,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="63.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -383,7 +383,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="24.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -399,7 +399,7 @@
             </note>
         </measure>
         <measure number="3">
-            <note>
+            <note dynamics="62.22">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -413,7 +413,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="24.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -427,7 +427,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="56.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -441,7 +441,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="14.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -455,7 +455,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="53.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -469,7 +469,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="23.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -483,7 +483,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="63.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -497,7 +497,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="24.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -513,7 +513,7 @@
             </note>
         </measure>
         <measure number="4">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -527,7 +527,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -541,7 +541,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -555,7 +555,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -586,7 +586,7 @@
                     <staff-lines>1</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -626,7 +626,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -674,7 +674,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="130">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -696,7 +696,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="134.44">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -712,7 +712,7 @@
             </note>
         </measure>
         <measure number="4">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -734,7 +734,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -817,7 +817,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="36.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -877,7 +877,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="36.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -937,7 +937,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="36.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -970,7 +970,7 @@
                     <staff-lines>5</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -984,7 +984,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -998,7 +998,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1012,7 +1012,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1028,7 +1028,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="121.11">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1043,7 +1043,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="45.56">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1065,7 +1065,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="61.11">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1079,7 +1079,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="140">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1103,7 +1103,7 @@
             </note>
         </measure>
         <measure number="3">
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1125,7 +1125,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="45.56">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1139,7 +1139,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="140">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1163,7 +1163,7 @@
             </note>
         </measure>
         <measure number="4">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1185,7 +1185,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -1224,7 +1224,7 @@
                     <staff-lines>1</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1238,7 +1238,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1252,7 +1252,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1266,7 +1266,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1290,7 +1290,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="108.89">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1312,7 +1312,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1336,7 +1336,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="108.89">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1358,7 +1358,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1382,7 +1382,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="108.89">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1404,7 +1404,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1435,7 +1435,7 @@
                     <staff-lines>5</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1476,7 +1476,7 @@
             <backup>
                 <duration>3072</duration>
             </backup>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1490,7 +1490,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="60">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1504,7 +1504,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1518,7 +1518,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="38.89">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1532,7 +1532,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1546,7 +1546,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="34.44">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1560,7 +1560,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1574,7 +1574,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="47.78">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1598,7 +1598,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1631,7 +1631,7 @@
             <backup>
                 <duration>3072</duration>
             </backup>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1645,7 +1645,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="60">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1659,7 +1659,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1673,7 +1673,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="38.89">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1687,7 +1687,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1701,7 +1701,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="34.44">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1715,7 +1715,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1729,7 +1729,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="47.78">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1761,7 +1761,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1786,7 +1786,7 @@
             <backup>
                 <duration>3072</duration>
             </backup>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1800,7 +1800,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="60">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1814,7 +1814,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1828,7 +1828,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="38.89">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1842,7 +1842,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1856,7 +1856,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="34.44">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1870,7 +1870,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1884,7 +1884,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="47.78">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1900,7 +1900,7 @@
             </note>
         </measure>
         <measure number="4">
-            <note>
+            <note dynamics="117.78">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1914,7 +1914,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="137.78">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1928,7 +1928,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="93.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1942,7 +1942,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="141.11">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>5</display-octave>
@@ -1959,7 +1959,7 @@
             <backup>
                 <duration>3072</duration>
             </backup>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1973,7 +1973,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1989,7 +1989,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2007,7 +2007,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2023,7 +2023,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2039,7 +2039,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2057,7 +2057,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2073,7 +2073,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2089,7 +2089,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2107,7 +2107,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2123,7 +2123,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2139,7 +2139,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2157,7 +2157,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2173,7 +2173,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2187,7 +2187,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2201,7 +2201,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2220,7 +2220,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2236,7 +2236,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2254,7 +2254,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2270,7 +2270,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2286,7 +2286,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2304,7 +2304,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2320,7 +2320,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2336,7 +2336,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2354,7 +2354,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2370,7 +2370,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2386,7 +2386,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2404,7 +2404,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2420,7 +2420,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2434,7 +2434,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2453,7 +2453,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2467,7 +2467,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2486,7 +2486,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2502,7 +2502,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2520,7 +2520,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2536,7 +2536,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2552,7 +2552,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2570,7 +2570,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2586,7 +2586,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2602,7 +2602,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2620,7 +2620,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2636,7 +2636,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2652,7 +2652,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2670,7 +2670,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2686,7 +2686,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2700,7 +2700,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2719,7 +2719,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2733,7 +2733,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2752,7 +2752,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2768,7 +2768,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2786,7 +2786,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2802,7 +2802,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2818,7 +2818,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2836,7 +2836,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2852,7 +2852,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2868,7 +2868,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2886,7 +2886,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2902,7 +2902,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2918,7 +2918,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2936,7 +2936,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2952,7 +2952,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2966,7 +2966,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -3004,7 +3004,7 @@
             </attributes>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="20">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3044,7 +3044,7 @@
             </note>
         </measure>
         <measure number="3">
-            <note>
+            <note dynamics="20">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>

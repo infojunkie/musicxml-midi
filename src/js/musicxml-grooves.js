@@ -488,7 +488,6 @@ function createMeasureNotes(groove, part, measure) {
 
   // Generate MusicXML.
   // When voices change, we backup to the beginning of the measure.
-  // TODO Add dynamics, articulations.
   .map((note, index, notes) => {
     const backup = (index > 0 && notes[index-1].voice !== note.voice) ? `
       <backup>
@@ -540,11 +539,12 @@ function createMeasureNotes(groove, part, measure) {
           <bar-style>dashed</bar-style>
       </barline>
     `.trim() : ''
+    const dynamics = 'velocity' in note ? `dynamics="${+(note.velocity * 100 / 90).toFixed(2)}"` : ''
 
     return `
       ${backup}
       ${dashes}
-      <note>
+      <note ${dynamics}>
         ${chord}
         ${pitch}
         <duration>${note.musicXml.duration}</duration>
@@ -765,10 +765,10 @@ function createNoteTiming(note, index, notes) {
     // - Sum up to the duration of the enclosing note type
     // - Each have a duration of a tuplet fraction of the enclosing note type
     // - Fall within the same enclosing note, instead of crossing note boundaries
-    // TODO Relax the constraint of quarter-note tuplets.
+    // TODO Handle tuplets where individual notes can be multiples of the tuplet division.
     if (entry < note.quantized.duration && note.quantized.duration < entry * 2) {
-      const target = entry * 2
       for (const tupletCount of [3, 5]) {
+        const target = entry * Math.pow(2, Math.ceil(Math.log2(tupletCount)))
         const tuplet = tuplets(note, index, notes, tupletCount)
         const ratio = Math.round(target / tupletCount)
         if (
@@ -784,11 +784,11 @@ function createNoteTiming(note, index, notes) {
             }
             n.musicXml = {
               duration: target / tupletCount,
-              type: lookupType(entry),
+              type: lookupType(target / 2),
               tuplet: {
                 actualNotes: tupletCount,
                 normalNotes: 2,
-                normalType: lookupType(entry),
+                normalType: lookupType(target / 2),
                 startStop: i === 0 ? 'start' : i === tuplet.length - 1 ? 'stop' : undefined,
                 number: 1
               }
@@ -862,7 +862,7 @@ function createNoteTiming(note, index, notes) {
 
     // Check that the gap is all filled.
     if (gap > Number.EPSILON) {
-      console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left before note at ${note.onset}.`)
+      console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after note at ${note.onset}.`)
     }
 
     // Close up the last tie.
@@ -874,7 +874,6 @@ function createNoteTiming(note, index, notes) {
     // Return extra notes.
     return extra.map(e => {
       return { ...{
-        velocity: note.velocity,
         track: note.track,
         voice: note.voice,
         measure: note.measure,
@@ -885,6 +884,7 @@ function createNoteTiming(note, index, notes) {
         }
       }, ...('midi' in note ? {
         midi: note.midi,
+        velocity: note.velocity,
         partId: note.partId,
       } : {})}
     })

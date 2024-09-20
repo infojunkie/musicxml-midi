@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.7.3</software>
-            <encoding-date>2024-09-17</encoding-date>
+            <software>musicxml-grooves 2.8.0</software>
+            <encoding-date>2024-09-20</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -259,7 +259,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -275,7 +275,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -293,7 +293,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -311,7 +311,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -371,7 +371,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -387,7 +387,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -405,7 +405,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -423,7 +423,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -483,7 +483,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -499,7 +499,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -517,7 +517,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -535,7 +535,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -595,7 +595,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -612,7 +612,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -630,7 +630,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -700,7 +700,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -716,7 +716,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -734,7 +734,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -752,7 +752,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -812,7 +812,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -828,7 +828,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -846,7 +846,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -864,7 +864,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -924,7 +924,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -940,7 +940,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -958,7 +958,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -976,7 +976,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1036,7 +1036,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1053,7 +1053,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1071,7 +1071,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1120,7 +1120,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1142,7 +1142,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1166,7 +1166,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1188,7 +1188,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -1219,7 +1219,7 @@
                     <staff-lines>5</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1235,7 +1235,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1253,7 +1253,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1271,7 +1271,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1287,7 +1287,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1303,7 +1303,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1321,7 +1321,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1337,7 +1337,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1351,7 +1351,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1365,7 +1365,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1381,7 +1381,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1399,7 +1399,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1417,7 +1417,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1433,7 +1433,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1449,7 +1449,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1467,7 +1467,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1483,7 +1483,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1497,7 +1497,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1511,7 +1511,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1527,7 +1527,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1545,7 +1545,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1563,7 +1563,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1579,7 +1579,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1595,7 +1595,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1613,7 +1613,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1629,7 +1629,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1643,7 +1643,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1657,7 +1657,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1673,7 +1673,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1691,7 +1691,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1709,7 +1709,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1725,7 +1725,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1741,7 +1741,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1759,7 +1759,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1775,7 +1775,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1789,7 +1789,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1805,7 +1805,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1821,7 +1821,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1839,7 +1839,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1857,7 +1857,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1873,7 +1873,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1889,7 +1889,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1907,7 +1907,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1923,7 +1923,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1937,7 +1937,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1951,7 +1951,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1967,7 +1967,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -1985,7 +1985,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2003,7 +2003,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2019,7 +2019,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2035,7 +2035,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2053,7 +2053,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2069,7 +2069,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2083,7 +2083,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2097,7 +2097,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2113,7 +2113,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2131,7 +2131,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2149,7 +2149,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2165,7 +2165,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2181,7 +2181,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2199,7 +2199,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2215,7 +2215,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2229,7 +2229,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2243,7 +2243,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2259,7 +2259,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2277,7 +2277,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2295,7 +2295,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2311,7 +2311,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2327,7 +2327,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2345,7 +2345,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2361,7 +2361,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2375,7 +2375,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
@@ -2406,7 +2406,7 @@
                     <staff-lines>1</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2420,7 +2420,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2436,7 +2436,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2454,7 +2454,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2470,185 +2470,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2664,7 +2486,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2682,7 +2504,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2700,7 +2522,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2748,7 +2570,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2762,7 +2584,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2776,7 +2598,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2792,7 +2614,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2810,7 +2632,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -2826,185 +2648,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3020,7 +2664,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3038,7 +2682,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3056,7 +2700,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3104,7 +2748,363 @@
                     <tied type="stop"/>
                 </notations>
             </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
             <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3120,7 +3120,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3134,7 +3134,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3150,7 +3150,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3168,7 +3168,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3184,185 +3184,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3378,7 +3200,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3396,7 +3218,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3414,7 +3236,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3462,7 +3284,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3476,7 +3298,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="66.67">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3490,7 +3312,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3506,7 +3328,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3524,7 +3346,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3540,185 +3362,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I70"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3734,7 +3378,7 @@
                     <tied type="start"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3752,7 +3396,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3770,7 +3414,7 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3818,7 +3462,363 @@
                     <tied type="stop"/>
                 </notations>
             </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
             <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <tie type="start"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>48</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <instrument id="P4-I70"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>48</duration>
+                <tie type="start"/>
+                <voice>1</voice>
+                <type>64th</type>
+                <notations>
+                    <tied type="start"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>12</duration>
+                <tie type="start"/>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>256th</type>
+                <notations>
+                    <tied type="start"/>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note>
+                <rest/>
+                <duration>3</duration>
+                <tie type="stop"/>
+                <voice>1</voice>
+                <type>1024th</type>
+                <notations>
+                    <tied type="stop"/>
+                </notations>
+            </note>
+            <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
@@ -3849,7 +3849,7 @@
                     <staff-lines>5</staff-lines>
                 </staff-details>
             </attributes>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -3871,7 +3871,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -3893,7 +3893,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -3917,7 +3917,7 @@
             </note>
         </measure>
         <measure number="2">
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -3939,7 +3939,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
@@ -3961,7 +3961,7 @@
                 <notations>
                 </notations>
             </note>
-            <note>
+            <note dynamics="100">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
