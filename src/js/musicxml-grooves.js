@@ -62,6 +62,9 @@ const options = {
   },
   'dashes': {
     type: 'boolean'
+  },
+  'tracks': {
+    type: 'string'
   }
 }
 const { values: args } = (() => {
@@ -105,6 +108,7 @@ const instruments = await SaxonJS.getResource({
 
 const grid = args['grid'].split(',').map(g => parseInt(g.trim()))
 const grooves = 'grooves' in args ? args['grooves'].split(',').map(g => g.trim()) : []
+const tracks = 'tracks' in args ? args['tracks'].split(',').map(t => t.trim()) : []
 for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
   if (grooves.length > 0 && grooves.indexOf(groove.groove) < 0) continue
 
@@ -135,7 +139,10 @@ for (const groove of JSON.parse(fs.readFileSync('build/grooves.json'))) {
  * Main entrypoint for MusicXML generation.
  */
 function createMusicXML(groove) {
-  groove.tracks = groove.tracks.filter(t => t.track.startsWith('DRUM')).reverse()
+  groove.tracks = groove.tracks.filter(
+    t => t.track.startsWith('DRUM') &&
+    (tracks.length === 0 || tracks.find(tt => tt.localeCompare(t.track.replace('DRUM-', ''), undefined, {sensitivity: 'base'}) == 0))
+  ).reverse()
   if (!groove.tracks.length) {
     throw Error(`[${groove.groove}] No drum tracks found.`)
   }
@@ -480,11 +487,13 @@ function createMeasureNotes(groove, part, measure) {
 
   // Generate note types, durations and extra notes as needed.
   // Ignore notes that have already been processed by an earlier iteration in createNoteTiming().
+  // Also ignore notes that are dropped by the timing algorithm.
   .reduce((notes, note, index, input) => {
     const extra = 'musicXml' in note ? [] : createNoteTiming(note, index, input)
     notes.push(note, ...extra)
     return notes
   }, [])
+  .filter(n => 'musicXml' in n)
 
   // Generate MusicXML.
   // When voices change, we backup to the beginning of the measure.
@@ -582,7 +591,6 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
     if (onset !== undefined) {
       return onset
     }
-
     if (isFirstNote || notes[index-1].quantized.onset < candidate.multiple) {
       return candidate
     }
@@ -606,7 +614,6 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
 
 /**
  * Quantize a single note duration.
- * Don't let duration remain at 0.
  */
 function quantizeNoteDuration(note, index, notes, beats, grid) {
   const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
@@ -777,10 +784,10 @@ function createNoteTiming(note, index, notes) {
           tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= Number.EPSILON) &&
           tuplet.every(n => Math.floor(n.quantized.onset / target) === Math.floor(tuplet[0].quantized.onset / target))
         ) {
-          tuplet.forEach((n, i) => {
+          tuplet.forEach((n, i, t) => {
             n.quantized = {
               duration: target / tupletCount,
-              onset: note.quantized.onset + (i * target / tupletCount)
+              onset: i === 0 ? note.quantized.onset : (t[i-1].quantized.onset + t[i-1].quantized.duration)
             }
             n.musicXml = {
               duration: target / tupletCount,
@@ -804,7 +811,7 @@ function createNoteTiming(note, index, notes) {
     // - Sum up to a quarter
     // - Each be within a triplet multiple of a quarter
     // - Fall within the same quarter note, instead of crossing quarter not boundaries
-    if (entry === DIVISIONS_EIGHTH && entry < note.quantized.duration && note.quantized.duration < entry * 2) {
+    if (entry === DIVISIONS_EIGHTH && entry / 2 < note.quantized.duration && note.quantized.duration < entry * 2) {
       const target = entry * 2
       const pair = tuplets(note, index, notes, 2)
       const ratio = Math.round(target / 3)
@@ -815,6 +822,10 @@ function createNoteTiming(note, index, notes) {
         Math.floor(pair[0].quantized.onset / target) === Math.floor(pair[1].quantized.onset / target)
       ) {
         pair.forEach((n, i, t) => {
+          n.quantized = {
+            duration: n.quantized.duration > ratio ? target * 2 / 3 : target / 3,
+            onset: i === 0 ? note.quantized.onset : (t[i-1].quantized.onset + t[i-1].quantized.duration)
+          }
           n.musicXml = {
             duration: n.quantized.duration,
             type: n.quantized.duration > ratio ? lookupType(target) : lookupType(entry),
@@ -862,7 +873,7 @@ function createNoteTiming(note, index, notes) {
 
     // Check that the gap is all filled.
     if (gap > Number.EPSILON) {
-      console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after note at ${note.onset}.`)
+      console.error(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after note at ${note.onset}. This indicates a missed tuplet.`)
     }
 
     // Close up the last tie.
