@@ -591,7 +591,7 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
     if (onset !== undefined) {
       return onset
     }
-    if (isFirstNote || notes[index-1].quantized.onset < candidate.multiple) {
+    if (isFirstNote || notes[index-1].quantized.onset <= candidate.multiple) {
       return candidate
     }
   }, undefined)
@@ -620,7 +620,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
   const isLastNote = index === notes.length - 1 || notes[index+1].voice !== note.voice
   const scoreOffset = Math.min(
     note.quantized.onset + note.quantized.duration,
-    isLastNote ? beats * DIVISIONS : notes[index+1].quantized.onset
+    isLastNote ? beats * DIVISIONS : notes[index+1].quantized.onset + (notes[index+1].quantized.onset === note.quantized.onset ? notes[index+1].quantized.onset : 0)
   )
   let offset = grid.map(unit => {
     return nearestMultiple(scoreOffset, DIVISIONS/unit)
