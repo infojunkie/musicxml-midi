@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-25</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -441,10 +441,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -454,20 +473,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note>
@@ -498,10 +503,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -511,20 +535,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -859,10 +869,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -872,20 +901,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -924,10 +939,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -937,20 +971,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note>
@@ -981,10 +1001,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -994,20 +1033,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -1046,10 +1071,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1059,20 +1103,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note>
@@ -1103,10 +1133,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1116,20 +1165,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -1168,10 +1203,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1181,20 +1235,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note dynamics="88.89">
@@ -1331,10 +1371,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1344,20 +1403,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note>
@@ -1388,10 +1433,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1401,20 +1465,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -1453,10 +1503,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1466,20 +1535,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
             <note dynamics="88.89">
@@ -1516,10 +1571,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1529,20 +1603,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -1673,10 +1733,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -1686,20 +1765,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>
@@ -2028,10 +2093,29 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>256</duration>
+                <duration>512</duration>
                 <instrument id="P1-I54"/>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="111.11">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>512</duration>
+                <instrument id="P1-I54"/>
+                <voice>1</voice>
+                <type>quarter</type>
                 <time-modification>
                     <actual-notes>3</actual-notes>
                     <normal-notes>2</normal-notes>
@@ -2041,20 +2125,6 @@
                 <notehead>normal</notehead>
                 <notations>
                     <tuplet number="1" type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="111.11">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>768</duration>
-                <instrument id="P1-I54"/>
-                <voice>1</voice>
-                <type>quarter</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
                 </notations>
             </note>
         </measure>

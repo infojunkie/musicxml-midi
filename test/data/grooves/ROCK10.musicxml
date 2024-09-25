@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-25</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -339,38 +339,6 @@
                     <tied type="stop"/>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>96</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -585,38 +553,6 @@
                 <type>512th</type>
                 <stem>up</stem>
                 <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>96</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>512th</type>
                 <notations>
                     <tied type="stop"/>
                 </notations>

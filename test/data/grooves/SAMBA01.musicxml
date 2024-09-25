@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-25</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -236,113 +236,67 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
                 <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="66.67">
@@ -476,49 +430,28 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>32nd</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -526,15 +459,18 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>64th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -542,33 +478,19 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>256th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -587,6 +509,20 @@
             </note>
         </measure>
         <measure number="2">
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
             <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -606,213 +542,67 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
                 <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="66.67">
@@ -946,49 +736,28 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>32nd</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -996,15 +765,18 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>64th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1012,33 +784,19 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>256th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1057,6 +815,20 @@
             </note>
         </measure>
         <measure number="3">
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
             <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1076,213 +848,67 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
                 <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="66.67">
@@ -1416,49 +1042,28 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>32nd</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1466,15 +1071,18 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>64th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1482,33 +1090,19 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>256th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1527,6 +1121,20 @@
             </note>
         </measure>
         <measure number="4">
+            <note dynamics="66.67">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>192</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
             <note dynamics="33.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1546,213 +1154,67 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>192</duration>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
                 <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                </notations>
+            </note>
+            <note dynamics="33.33">
+                <unpitched>
+                    <display-step>E</display-step>
+                    <display-octave>4</display-octave>
+                </unpitched>
+                <duration>128</duration>
+                <instrument id="P1-I38"/>
+                <voice>1</voice>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
+                <stem>up</stem>
+                <notehead>normal</notehead>
+                <notations>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="66.67">
@@ -1886,49 +1348,28 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>32nd</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="66.67">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>16th</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1936,15 +1377,18 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>64th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -1952,33 +1396,19 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
+                <duration>128</duration>
                 <instrument id="P1-I38"/>
                 <voice>1</voice>
-                <type>256th</type>
+                <type>16th</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>16th</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="33.33">
-                <unpitched>
-                    <display-step>E</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P1-I38"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="33.33">

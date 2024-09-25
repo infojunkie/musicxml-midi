@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-25</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -313,50 +313,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -435,50 +391,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -555,50 +467,6 @@
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
                 </notations>
             </note>
             <note dynamics="43.33">
@@ -803,50 +671,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -925,50 +749,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1045,50 +825,6 @@
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
                 </notations>
             </note>
             <note dynamics="43.33">
@@ -1293,50 +1029,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1415,50 +1107,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1535,50 +1183,6 @@
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
                 </notations>
             </note>
             <note dynamics="43.33">
@@ -1783,50 +1387,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -1905,50 +1465,6 @@
                 <notations>
                 </notations>
             </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
             <note dynamics="43.33">
                 <unpitched>
                     <display-step>E</display-step>
@@ -2025,50 +1541,6 @@
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
                 </notations>
             </note>
             <note dynamics="43.33">
@@ -2271,50 +1743,6 @@
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="start"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <notations>
-                    <tied type="stop"/>
                 </notations>
             </note>
             <note dynamics="43.33">

@@ -31,6 +31,13 @@ import path from 'path'
 const require = createRequire(import.meta.url)
 const { version } = require('../../package.json')
 
+// https://gomakethings.com/the-new-array.prototype.tospliced-method-in-vanilla-js/
+if (!Array.prototype.toSpliced) {
+	Array.prototype.toSpliced = function (...args) {
+		return Array.from(this).splice(...args);
+	};
+}
+
 const options = {
   'output': {
     type: 'string',
@@ -773,7 +780,7 @@ function createNoteTiming(note, index, notes) {
     // - Each have a duration of a tuplet fraction of the enclosing note type
     // - Fall within the same enclosing note, instead of crossing note boundaries
     // TODO Handle tuplets where individual notes can be multiples of the tuplet division.
-    if (entry < note.quantized.duration && note.quantized.duration < entry * 2) {
+    if (entry / 2 < note.quantized.duration && note.quantized.duration < entry * 2) {
       for (const tupletCount of [3, 5]) {
         const target = entry * Math.pow(2, Math.ceil(Math.log2(tupletCount)))
         const tuplet = tuplets(note, index, notes, tupletCount)
@@ -781,7 +788,7 @@ function createNoteTiming(note, index, notes) {
         if (
           tuplet.length === tupletCount &&
           Math.abs(tupletsDuration(tuplet) - target) <= Number.EPSILON &&
-          tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= Number.EPSILON) &&
+          //tuplet.every(n => Math.min(n.quantized.duration % ratio, ratio - (n.quantized.duration % ratio)) <= Number.EPSILON) &&
           tuplet.every(n => Math.floor(n.quantized.onset / target) === Math.floor(tuplet[0].quantized.onset / target))
         ) {
           tuplet.forEach((n, i, t) => {
@@ -873,6 +880,13 @@ function createNoteTiming(note, index, notes) {
 
     // Check that the gap is all filled.
     if (gap > Number.EPSILON) {
+      const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
+      if (!isFirstNote && !('midi' in note)) {
+        console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after rest at ${note.onset}. This indicates a missed tuplet. Attempting to fix.`)
+        notes[index-1].quantized.duration += note.quantized.duration
+        notes[index-1].duration += note.duration
+        return createNoteTiming(notes[index-1], index-1, notes.toSpliced(index, 1))
+      }
       console.error(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after note at ${note.onset}. This indicates a missed tuplet.`)
     }
 
