@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-27</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -1004,14 +1004,15 @@
                 </notations>
             </note>
             <note dynamics="94.44">
+                <chord/>
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I42"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>x</notehead>
                 <notations>
@@ -1036,24 +1037,25 @@
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I46"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>circle-x</notehead>
                 <notations>
                 </notations>
             </note>
             <note dynamics="94.44">
+                <chord/>
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I42"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>x</notehead>
                 <notations>
@@ -1078,24 +1080,25 @@
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I46"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>circle-x</notehead>
                 <notations>
                 </notations>
             </note>
             <note dynamics="94.44">
+                <chord/>
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I42"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>x</notehead>
                 <notations>
@@ -1120,24 +1123,25 @@
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I46"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>circle-x</notehead>
                 <notations>
                 </notations>
             </note>
             <note dynamics="94.44">
+                <chord/>
                 <unpitched>
                     <display-step>G</display-step>
                     <display-octave>5</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>384</duration>
                 <instrument id="P3-I42"/>
                 <voice>3</voice>
-                <type>16th</type>
+                <type>eighth</type>
                 <stem>up</stem>
                 <notehead>x</notehead>
                 <notations>

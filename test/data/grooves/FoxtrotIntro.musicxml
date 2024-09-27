@@ -8,8 +8,8 @@
     </work>
     <identification>
         <encoding>
-            <software>musicxml-grooves 2.8.0</software>
-            <encoding-date>2024-09-20</encoding-date>
+            <software>musicxml-grooves 2.8.1</software>
+            <encoding-date>2024-09-27</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -1254,22 +1254,25 @@
             </note>
             <note>
                 <rest/>
-                <duration>384</duration>
-                <tie type="start"/>
+                <duration>512</duration>
                 <voice>1</voice>
-                <type>eighth</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note>
-                <rest/>
-                <duration>192</duration>
-                <tie type="stop"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="50">
@@ -1277,10 +1280,15 @@
                     <display-step>E</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>512</duration>
                 <instrument id="P4-I39"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
@@ -1288,10 +1296,16 @@
             </note>
             <note>
                 <rest/>
-                <duration>768</duration>
+                <duration>512</duration>
                 <voice>1</voice>
                 <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <notations>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
         </measure>
