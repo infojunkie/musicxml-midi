@@ -9,7 +9,7 @@
     <identification>
         <encoding>
             <software>musicxml-grooves 2.8.1</software>
-            <encoding-date>2024-09-25</encoding-date>
+            <encoding-date>2024-09-27</encoding-date>
             <supports element="accidental" type="yes"/>
             <supports element="beam" type="yes"/>
             <supports element="print" attribute="new-page" type="yes" value="yes"/>
@@ -514,15 +514,13 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
+                <duration>192</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>64th</type>
+                <type>16th</type>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
                 </notations>
             </note>
             <note dynamics="33.33">
@@ -553,56 +551,6 @@
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
                 <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="102.22">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>96</duration>
-                <tie type="start"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>32nd</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="102.22">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="102.22">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>512th</type>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
@@ -682,64 +630,28 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>512</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note dynamics="93.33">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>288</duration>
-                <tie type="start"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <dot/>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="93.33">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="93.33">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="108.89">
@@ -747,67 +659,19 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
+                <duration>256</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="108.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="108.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="108.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="111.11">
@@ -815,64 +679,28 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>512</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note dynamics="118.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>288</duration>
-                <tie type="start"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <dot/>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="118.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="118.89">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="106.67">
@@ -880,67 +708,19 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
+                <duration>256</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="106.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="106.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="106.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
             <note dynamics="105.56">
@@ -948,64 +728,28 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
+                <duration>512</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>quarter</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                </notations>
-            </note>
-            <note dynamics="114.44">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>288</duration>
-                <tie type="start"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <dot/>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="114.44">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="114.44">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet bracket="yes" number="1" placement="above" type="start">
+                        <tuplet-actual>
+                            <tuplet-number>3</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-actual>
+                        <tuplet-normal>
+                            <tuplet-number>2</tuplet-number>
+                            <tuplet-type>quarter</tuplet-type>
+                        </tuplet-normal>
+                    </tuplet>
                 </notations>
             </note>
             <note dynamics="136.67">
@@ -1013,67 +757,19 @@
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>
                 </unpitched>
-                <duration>192</duration>
-                <tie type="start"/>
+                <duration>256</duration>
                 <instrument id="P3-I65"/>
                 <voice>1</voice>
-                <type>16th</type>
+                <type>eighth</type>
+                <time-modification>
+                    <actual-notes>3</actual-notes>
+                    <normal-notes>2</normal-notes>
+                    <normal-type>quarter</normal-type>
+                </time-modification>
                 <stem>up</stem>
                 <notehead>normal</notehead>
                 <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="136.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>48</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>64th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="136.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>12</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>256th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="136.67">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>3</duration>
-                <tie type="stop"/>
-                <instrument id="P3-I65"/>
-                <voice>1</voice>
-                <type>1024th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
+                    <tuplet number="1" type="stop"/>
                 </notations>
             </note>
         </measure>
@@ -1268,57 +964,6 @@
                 </notations>
             </note>
             <note dynamics="93.33">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>6</duration>
-                <tie type="stop"/>
-                <instrument id="P4-I60"/>
-                <voice>1</voice>
-                <type>512th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="122.22">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>288</duration>
-                <tie type="start"/>
-                <instrument id="P4-I60"/>
-                <voice>1</voice>
-                <type>16th</type>
-                <dot/>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                </notations>
-            </note>
-            <note dynamics="122.22">
-                <unpitched>
-                    <display-step>F</display-step>
-                    <display-octave>4</display-octave>
-                </unpitched>
-                <duration>24</duration>
-                <tie type="start"/>
-                <tie type="stop"/>
-                <instrument id="P4-I60"/>
-                <voice>1</voice>
-                <type>128th</type>
-                <stem>up</stem>
-                <notehead>normal</notehead>
-                <notations>
-                    <tied type="start"/>
-                    <tied type="stop"/>
-                </notations>
-            </note>
-            <note dynamics="122.22">
                 <unpitched>
                     <display-step>F</display-step>
                     <display-octave>4</display-octave>

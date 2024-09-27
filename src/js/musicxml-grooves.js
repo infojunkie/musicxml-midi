@@ -605,11 +605,8 @@ function quantizeNoteOnset(note, index, notes, beats, grid) {
 
   // Validate the quantization.
   if (onset === undefined) {
-    console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note onset at ${note.onset} to avoid collision with previous note. Moving it manually.`)
-    onset = {
-      multiple: notes[index-1].quantized.onset + DIVISIONS_1024th,
-      error_sgn: scoreOnset - (notes[index-1].quantized.onset + DIVISIONS_1024th)
-    }
+    console.error(`[${note.track}:${note.measure+1}] Failed to quantize note onset at ${note.onset} to avoid collision with previous note. Dropping it.`)
+    return
   }
 
   // Store the note.
@@ -644,13 +641,8 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
 
   if (offset === undefined) {
     // TODO Handle this case.
-    console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note duration at ${note.onset} to avoid zero duration.`)
-  }
-
-  // Adjust the note duration if it crosses the measure boundary.
-  if (offset.multiple > beats * DIVISIONS) {
-    console.warn(`[${note.track}:${note.measure+1}] Quantized note duration at ${note.onset} crosses measure boundary. Reducing the duration.`)
-    offset.multiple = beats * DIVISIONS
+    console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note duration at ${note.onset} to avoid zero duration. Dropping it.`)
+    return []
   }
 
   // Store the note.
@@ -881,8 +873,8 @@ function createNoteTiming(note, index, notes) {
     // Check that the gap is all filled.
     if (gap > Number.EPSILON) {
       const isFirstNote = index === 0 || notes[index-1].voice !== note.voice
-      if (!isFirstNote && !('midi' in note)) {
-        console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after rest at ${note.onset}. This indicates a missed tuplet. Attempting to fix.`)
+      if (!isFirstNote && !('midi' in note && notes[index-1].midi != note.midi)) {
+        console.warn(`[${note.track}:${note.measure+1}] Remaining gap of ${gap} left after note at ${note.onset}. This indicates a missed tuplet. Attempting to fix.`)
         notes[index-1].quantized.duration += note.quantized.duration
         notes[index-1].duration += note.duration
         return createNoteTiming(notes[index-1], index-1, notes.toSpliced(index, 1))
