@@ -1,5 +1,236 @@
 <?xml version='1.0' encoding='utf-8'?>
 <instruments>
+  <instrument id="drumset">
+    <part-name lang="en">Drumset</part-name>
+    <part-abbreviation lang="end">D. Set</part-abbreviation>
+    <instrument-sound>drum.group.set</instrument-sound>
+    <staff-lines>5</staff-lines>
+    <drum midi="35">
+      <notehead>normal</notehead>
+      <display-step>F</display-step>
+      <display-octave>4</display-octave>
+      <voice>2</voice>
+      <instrument-name lang="en">Acoustic Bass Drum</instrument-name>
+      <instrument-sound>drum.bass-drum</instrument-sound>
+      <stem>down</stem>
+    </drum>
+    <drum midi="36">
+      <notehead>normal</notehead>
+      <display-step>F</display-step>
+      <display-octave>4</display-octave>
+      <voice>2</voice>
+      <instrument-name lang="en">Bass Drum 1</instrument-name>
+      <instrument-sound>drum.bass-drum</instrument-sound>
+      <stem>down</stem>
+    </drum>
+    <drum midi="37">
+      <notehead>x</notehead>
+      <display-step>C</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Side Stick</instrument-name>
+      <instrument-sound>drum.snare-drum</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="38">
+      <notehead>normal</notehead>
+      <display-step>C</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Acoustic Snare</instrument-name>
+      <instrument-sound>drum.snare-drum</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="40">
+      <notehead>normal</notehead>
+      <display-step>C</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Electric Snare</instrument-name>
+      <instrument-sound>drum.snare-drum</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="41">
+      <notehead>normal</notehead>
+      <display-step>A</display-step>
+      <display-octave>4</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Low Floor Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="42">
+      <notehead>x</notehead>
+      <display-step>G</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Closed Hi-Hat</instrument-name>
+      <instrument-sound>metal.hi-hat</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="43">
+      <notehead>normal</notehead>
+      <display-step>A</display-step>
+      <display-octave>4</display-octave>
+      <voice>2</voice>
+      <instrument-name lang="en">High Floor Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>down</stem>
+    </drum>
+    <drum midi="44">
+      <notehead>x</notehead>
+      <display-step>D</display-step>
+      <display-octave>4</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Pedal Hi-Hat</instrument-name>
+      <instrument-sound>metal.hi-hat</instrument-sound>
+      <stem>down</stem>
+    </drum>
+    <drum midi="45">
+      <notehead>normal</notehead>
+      <display-step>D</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Low Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="46">
+      <notehead>x</notehead>
+      <display-step>E</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Open Hi-Hat</instrument-name>
+      <instrument-sound>metal.hi-hat</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="47">
+      <notehead>normal</notehead>
+      <display-step>E</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Low-Mid Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="48">
+      <notehead>normal</notehead>
+      <display-step>F</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">Hi-Mid Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="49">
+      <notehead>x</notehead>
+      <display-step>A</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Crash Cymbal 1</instrument-name>
+      <instrument-sound>metal.cymbal.crash</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="50">
+      <notehead>normal</notehead>
+      <display-step>F</display-step>
+      <display-octave>5</display-octave>
+      <voice>1</voice>
+      <instrument-name lang="en">High Tom</instrument-name>
+      <instrument-sound>drum.tom-tom</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="51">
+      <notehead>x</notehead>
+      <display-step>F</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Ride Cymbal 1</instrument-name>
+      <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="52">
+      <notehead>x</notehead>
+      <display-step>B</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Chinese Cymbal</instrument-name>
+      <instrument-sound>metal.cymbal.chinese</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="53">
+      <notehead filled="yes">diamond</notehead>
+      <display-step>F</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Ride Bell</instrument-name>
+      <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="54">
+      <notehead>diamond</notehead>
+      <display-step>D</display-step>
+      <display-octave>5</display-octave>
+      <voice>4</voice>
+      <instrument-name lang="en">Tambourine</instrument-name>
+      <instrument-sound>drum.tambourine</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="55">
+      <notehead>x</notehead>
+      <display-step>B</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Splash Cymbal</instrument-name>
+      <instrument-sound>metal.cymbal.splash</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="56">
+      <notehead>inverted-triangle</notehead>
+      <display-step>E</display-step>
+      <display-octave>5</display-octave>
+      <voice>4</voice>
+      <instrument-name lang="en">Cowbell</instrument-name>
+      <instrument-sound>metal.bells.cowbell</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="57">
+      <notehead>x</notehead>
+      <display-step>B</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Crash Cymbal 2</instrument-name>
+      <instrument-sound>metal.cymbal.crash</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="59">
+      <notehead>x</notehead>
+      <display-step>D</display-step>
+      <display-octave>5</display-octave>
+      <voice>3</voice>
+      <instrument-name lang="en">Ride Cymbal 2</instrument-name>
+      <instrument-sound>metal.cymbal.ride</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="63">
+      <notehead>x</notehead>
+      <display-step>B</display-step>
+      <display-octave>4</display-octave>
+      <voice>4</voice>
+      <instrument-name lang="en">Open Hi Conga</instrument-name>
+      <instrument-sound>drum.conga</instrument-sound>
+      <stem>up</stem>
+    </drum>
+    <drum midi="64">
+      <notehead>x</notehead>
+      <display-step>G</display-step>
+      <display-octave>4</display-octave>
+      <voice>4</voice>
+      <instrument-name lang="en">Low Conga</instrument-name>
+      <instrument-sound>drum.conga</instrument-sound>
+      <stem>up</stem>
+    </drum>
+  </instrument>
   <instrument id="high-q">
     <part-name lang="en">High Q</part-name>
     <part-abbreviation lang="en">Hi. Q</part-abbreviation>

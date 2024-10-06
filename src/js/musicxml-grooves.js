@@ -72,6 +72,9 @@ const options = {
   },
   'tracks': {
     type: 'string'
+  },
+  'drumset': {
+    type: 'boolean'
   }
 }
 const { values: args } = (() => {
@@ -86,7 +89,7 @@ const { values: args } = (() => {
 
 if ('help' in args) {
   console.log(`
-Usage: musicxml-grooves v${version} [--output|-o /path/to/output] [--grooves|-g comma-separated-grooves] [--tempo|-t beats-per-minute] [--validate] [--version|-v] [--help|-h]
+Usage: musicxml-grooves v${version} [--output|-o /path/to/output] [--grooves|-g comma-separated-grooves] [--tempo|-t beats-per-minute] [--grid comma-separated-grid-divisors] [--dashes] [--tracks comma-separated-tracks-to-keep] [--drumset] [--validate] [--version|-v] [--help|-h]
 
 Converts MMA grooves to MusicXML.
 `.trim())
@@ -222,6 +225,10 @@ function createPartList(groove) {
   // Otherwise, we pick the instrument with the least pitches.
   const parts = groove.tracks.reduce((parts, track) => {
     track.candidateInstrumentIds = track.candidateInstrumentIds.sort((a, b) => {
+      if (!('drumset' in args)) {
+        if (a === 'drumset') return 1
+        if (b === 'drumset') return -1
+      }
       if (partCandidates[b].usage === partCandidates[a].usage) {
         if (a in parts) return -1
         if (b in parts) return 1
@@ -299,7 +306,6 @@ function createPartListEntry(groove, instrumentId, partId) {
       scoreInstrument: `
         <score-instrument id="${scoreInstrumentId}">
           <instrument-name>${drum.getElementsByTagName('instrument-name')[0].textContent}</instrument-name>
-          <instrument-sound>${drum.getElementsByTagName('instrument-sound')[0].textContent}</instrument-sound>
         </score-instrument>
       `.trim(),
       midiInstrument: `
