@@ -254,6 +254,7 @@ Plugin Slash</xsl:text>
     <xsl:variable name="groove">
       <xsl:choose>
         <xsl:when test="@number = '0'"/>
+        <xsl:when test="lower-case($globalGroove) = 'none'"><xsl:value-of select="$globalGroove"/></xsl:when>
         <xsl:when test="@number = '1' and $globalGroove != '' and lower-case($globalGroove) != 'default'">
           <xsl:value-of select="$globalGroove"/>
         </xsl:when>
