@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.8.5",
+  "version": "2.9.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -9,6 +9,7 @@
   "bin": {
     "musicxml-midi": "src/js/server.js",
     "midi-timemap": "src/js/midi-timemap.js",
+    "midi-file": "src/js/midi-file.js",
     "musicxml-examples": "src/js/musicxml-examples.js",
     "musicxml-grooves": "src/js/musicxml-grooves.js"
   },
@@ -30,7 +31,7 @@
     "develop": "nodemon -e js,json src/js/server.js",
     "start": "node src/js/server.js",
     "test:xsl": "test/libs/bats/bin/bats test/*.bats",
-    "test:js": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest",
+    "test:js": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest -t ${TEST:-''}",
     "test": "npm run test:xsl && npm run test:js",
     "server": "PORT=8085 npm run start",
     "postinstall": "./postinstall.sh"
@@ -51,6 +52,7 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "express-fileupload": "^1.5.1",
+    "get-stdin": "^9.0.0",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
     "node-jq": "^6.0.1",
