@@ -23,7 +23,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 process.chdir(path.join(__dirname, '..', '..'))
 
-// Import package.json the "easy" way.
+// Import package.json
 // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
 import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
@@ -43,8 +43,9 @@ class AbortChainError extends Error {
 }
 
 const LIMIT_FILE_SIZE = process.env.LIMIT_FILE_SIZE || 1 * 1024 * 1024
-const ERROR_BAD_PARAM = 'Expecting a POST multipart/form-data request with `musicXml` field containing a valid MusicXML file.'
-const ERROR_MMA_CRASH = 'Conversion failed unexpectedly. Please contact the server operator.'
+const ERROR_BAD_MUSICXML = 'Expecting a POST multipart/form-data request with `musicXml` parameter containing a valid MusicXML file.'
+const ERROR_UNEXPECTED_ERROR = 'Conversion failed unexpectedly. Please contact the server operator.'
+const ERROR_BAD_GROOVE = 'Expecting a `groove` parameter containing a valid MMA groove.'
 
 export const app = express()
 app.use(cors())
@@ -57,7 +58,7 @@ app.use(fileUpload({
 }))
 app.use(morgan('combined'))
 
-app.get('/', (req, res) => res.json({ name, version, description, author }))
+app.get('/', (_, res) => res.json({ name, version, description, author }))
 
 app.get('/grooves', async (req, res) => {
   jq.run('.[] | .groove, .description', path.resolve('build/grooves.json'), { raw: true })
@@ -103,11 +104,13 @@ async function tryCompressedMusicXml(buffer) {
 
 app.post('/convert', async (req, res) => {
   if (!req.files || !('musicXml' in req.files) ) {
-    return res.status(400).json(ERROR_BAD_PARAM)
+    return res.status(400).json(ERROR_BAD_MUSICXML)
   }
 
   // Assemble parameters.
-  const params = {}
+  const params = {
+    filename: req.files.musicXml.name
+  }
   if (req.body) {
     ['globalGroove'].forEach(param => {
       if (param in req.body) params[param] = req.body[param]
@@ -133,7 +136,7 @@ app.post('/convert', async (req, res) => {
     await validateXMLWithXSD(xml, 'src/xsd/musicxml.xsd')
     .catch(AbortChainError.chain(error => {
       console.error(`[xmllint] ${error.message}`)
-      res.status(400).send(ERROR_BAD_PARAM)
+      res.status(400).send(ERROR_BAD_MUSICXML)
     }))
     const doc = await SaxonJS.getResource({
       type: 'xml',
@@ -142,10 +145,9 @@ app.post('/convert', async (req, res) => {
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-      res.status(400).send(ERROR_BAD_PARAM)
+      res.status(400).send(ERROR_BAD_MUSICXML)
     }))
-    const title = SaxonJS.XPath.evaluate('//work/work-title/text()', doc)?.nodeValue || '(untitled)'
-    console.info(`[SaxonJS] Transforming document '${title}'...`)
+    console.info(`[SaxonJS] Transforming document ${req.files.musicXml.name}...`)
     const mma = await SaxonJS.transform({
       stylesheetFileName: 'build/mma.sef.json',
       sourceNode: doc,
@@ -154,14 +156,14 @@ app.post('/convert', async (req, res) => {
     }, 'async')
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-      res.status(400).send(ERROR_BAD_PARAM)
+      res.status(400).send(ERROR_UNEXPECTED_ERROR)
     }))
     const execResult = await exec('echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -f "$out" -', {
       env: { ...process.env, 'mma': mma.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
-      res.status(500).send(ERROR_MMA_CRASH)
+      res.status(500).send(ERROR_UNEXPECTED_ERROR)
     }))
     console.info('[MMA] ' + execResult.stdout.replace(/^\s+|\s+$/g, ''))
     return res.status(200).sendFile(cacheFile)
@@ -171,24 +173,23 @@ app.post('/convert', async (req, res) => {
   }
 })
 
-app.post('/groove', async (req, res, next) => {
+app.post('/groove', async (req, res) => {
   if (!req.body || !('groove' in req.body) ) {
-    return res.status(400).json(ERROR_BAD_PARAM)
+    return res.status(400).json(ERROR_BAD_GROOVE)
   }
 
   // Assemble parameters.
   const params = {
-    'groove': null,
+    'groove': req.body.groove,
     'chords': 'z',
     'tempo': '120',
     'count': '4',
     'keysig': 'C'
-  }
-  if (req.body) {
-    ['groove', 'chords', 'tempo', 'count', 'keysig'].forEach(param => {
-      if (param in req.body) params[param] = req.body[param]
-    })
-  }
+  };
+
+  ['chords', 'tempo', 'count', 'keysig'].forEach(param => {
+    if (param in req.body) params[param] = req.body[param]
+  })
 
   // Check first in cache.
   const hash = crypto.createHash('sha256')
@@ -214,14 +215,14 @@ app.post('/groove', async (req, res, next) => {
     }, 'async')
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)
-      res.status(400).send(ERROR_BAD_PARAM)
+      res.status(400).send(ERROR_UNEXPECTED_ERROR)
     }))
     const execResult = await exec('echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -f "$out" -', {
       env: { ...process.env, 'mma': mma.principalResult, 'out': cacheFile }
     })
     .catch(AbortChainError.chain(error => {
       console.error(`[MMA] ${error.stdout.replace(/^\s+|\s+$/g, '')}`)
-      res.status(500).send(ERROR_MMA_CRASH)
+      res.status(500).send(ERROR_UNEXPECTED_ERROR)
     }))
     console.info('[MMA] ' + execResult.stdout.replace(/^\s+|\s+$/g, ''))
     return res.status(200).sendFile(cacheFile)

@@ -37,7 +37,7 @@ describe('MusicXML to MIDI conversion server', () => {
 
   test('should convert valid MusicXML files', async () => {
     const file = 'test/data/take-five.musicxml'
-    const cacheFile = getCacheFile(file, {})
+    const cacheFile = getCacheFile(file, { filename: 'take-five.musicxml' })
     try { fs.unlinkSync(cacheFile) } catch {}
     const res = await request(app).post('/convert').attach('musicXml', file).responseType('blob')
     expect(res.statusCode).toEqual(200)
@@ -49,7 +49,7 @@ describe('MusicXML to MIDI conversion server', () => {
 
   test('should convert valid compressed MusicXML files', async () => {
     const file = 'test/data/take-five.mxl'
-    const cacheFile = getCacheFile(file, {})
+    const cacheFile = getCacheFile(file, { filename: 'take-five.mxl' })
     try { fs.unlinkSync(cacheFile) } catch {}
     const res = await request(app).post('/convert').attach('musicXml', file).responseType('blob')
     expect(res.statusCode).toEqual(200)
@@ -59,7 +59,7 @@ describe('MusicXML to MIDI conversion server', () => {
 
   test('should cache valid MusicXML files and use the cache', async () => {
     const file = 'test/data/take-five.musicxml'
-    const cacheFile = getCacheFile(file, {})
+    const cacheFile = getCacheFile(file, { filename: 'take-five.musicxml' })
     try { fs.unlinkSync(cacheFile) } catch {}
     await request(app).post('/convert').attach('musicXml', file)
     expect(fs.existsSync(cacheFile)).toBeTruthy()

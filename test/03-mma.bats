@@ -9,13 +9,14 @@ set -euo pipefail
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Groove Jazz54 MidiMark Groove:Jazz54'
+  assert_output --partial 'MidiTName Metadata track for take-five.musicxml'
 }
 
 @test "mma produces a valid file for take-five with null groove" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five.musicxml globalGroove=None)
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
-  assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; } MidiMark Measure:1:2500 Solo Riff 576tr;384tr; Ebm@1 Bbm7@4'
+  assert_output --partial 'Chord-Sequence Sequence { 1 576t 50; 4 384t 50; } MidiMark Measure:1:2500 Solo Riff 576tr;384tr; Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for take-five with default groove" {
@@ -29,14 +30,14 @@ set -euo pipefail
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/take-five-unknown.musicxml)
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
-  assert_output --partial 'Chord-Custom Sequence { 1 576t 50; 4 384t 50; } MidiMark Measure:1:2500 Solo Riff 576tr;384tr; Ebm@1 Bbm7@4'
+  assert_output --partial 'Chord-Sequence Sequence { 1 576t 50; 4 384t 50; } MidiMark Measure:1:2500 Solo Riff 576tr;384tr; Ebm@1 Bbm7@4'
 }
 
 @test "mma produces a valid file for salma-ya-salama" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/salma-ya-salama.musicxml)
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
-  assert_output --partial 'Chord-Custom Sequence { 1 384t 50; 3 384t 50; }'
+  assert_output --partial 'Chord-Sequence Sequence { 1 384t 50; 3 384t 50; }'
   assert_output --partial 'Solo Riff 96tfn+;96ten+;96ten+;96tdn+;96ten+;96tg#+;96tcn++;96tbn+;'
   assert_output --partial 'E+@1 E7@3'
 }
