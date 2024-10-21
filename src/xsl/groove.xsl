@@ -35,7 +35,7 @@ Groove </xsl:text><xsl:value-of select="$groove"/><xsl:text>
 MidiMark Groove:</xsl:text><xsl:value-of select="$groove"/><xsl:text>
 Set Duration $( round( $_Time * 60000 / $_Tempo ) )
     </xsl:text>
-    <xsl:variable name="chordSeq" select="fn:tokenize($chords, '\s*,\s*')"/>
+    <xsl:variable name="chordSeq" select="tokenize($chords, '\s*,\s*')"/>
     <xsl:call-template name="measure">
       <xsl:with-param name="i" select="0"/>
       <xsl:with-param name="count" select="$count"/>
