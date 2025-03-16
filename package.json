@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.10.1",
+  "version": "2.10.2",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -9,7 +9,7 @@
   "bin": {
     "musicxml-midi": "src/js/server.js",
     "midi-timemap": "src/js/midi-timemap.js",
-    "midi-file": "src/js/midi-file.js",
+    "midi-json": "src/js/midi-json.js",
     "musicxml-examples": "src/js/musicxml-examples.js",
     "musicxml-grooves": "src/js/musicxml-grooves.js"
   },

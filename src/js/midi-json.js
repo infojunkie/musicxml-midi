@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Parse a MIDI file into JSON and back.
+ * Parse a MIDI file into JSON and back. Typically used to manipulate the tracks via jq or equivalent tool.
  *
- * Usage: midi-file.js < source.mid | jq [..] | midi-file.js > target.mid
+ * Usage: midi-json.js < source.mid | jq [..] | midi-json.js > target.mid
  */
 
 import { parseMidi, writeMidi } from 'midi-file'

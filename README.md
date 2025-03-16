@@ -1,7 +1,7 @@
 MusicXML to MIDI converter
 ======================
 
-A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
+A suite of tools to convert MusicXML scores to MIDI using [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
 
 ![GitHub Build Status](https://github.com/infojunkie/musicxml-mma/workflows/Test/badge.svg)
 
@@ -11,12 +11,11 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 - `npm install && npm run build`
 
 # Convert a MusicXML score to MIDI
-- `npm run --silent convert:unroll song.musicxml` to unroll a MusicXML score by expanding all jumps and repeats at `stdout`
-- `npm run --silent convert:mma song.musicxml` to both unroll a score and convert it to an MMA script at `stdout`
-- `npm run --silent convert:groove groove-name [chords="A,B,C"] [tempo=X] [count=Y] [keysig=Z]` to generate a groove MMA script at `stdout`
-- `npm run convert:midi /path/to/song.mma` to convert an MMA script to MIDI `/path/to/song.mid`
-- `npm run --silent convert:timemap song.musicxml` to convert a score to a timemap JSON file at `stdout`
-- `./src/js/midi-timemap.js song.mid` to convert a MIDI file to a timemap JSON file at `stdout`
+- `npm run --silent convert:unroll song.musicxml > song-unrolled.musicxml` to unroll a MusicXML score by expanding all jumps and repeats
+- `npm run --silent convert:mma song.musicxml > song.mma` to both unroll a score and convert it to an MMA script
+- `npm run --silent convert:groove groove-name [chords="A,B,C"] [tempo=X] [count=Y] [keysig=Z] > groove.mma` to generate a groove MMA script
+- `npm run convert:midi /path/to/song.mma` to convert an MMA script to MIDI file at `/path/to/song.mid`
+- `npm run --silent convert:timemap song.musicxml > song.timemap.json` to convert a score to a timemap JSON file
 
 # Serve a conversion API endpoint
 - `PORT=3000 npm run develop` for development (including hot-reload)
@@ -26,8 +25,10 @@ A suite of tools to convert MusicXML scores to MIDI via [Musical MIDI Accompanim
 - `curl -sSf -F"jq=.[] |= {groove,description,timeSignature}" http://localhost:3000/grooves.json`
 
 # Other operations
-- Scrape MusicXML examples from the official site: `./src/js/musicxml-examples --output=./test/data/examples`
-- Convert MMA grooves to MusicXML: `./src/js/musicxml-grooves --output=./test/data/grooves`
+- Convert a MIDI file to a timemap JSON file: `./src/js/midi-timemap.js song.mid > song.timemap.json`
+- Scrape MusicXML examples from the official site: `./src/js/musicxml-examples.js --output=./test/data/examples`
+- Convert MMA grooves to MusicXML: `./src/js/musicxml-grooves.js --output=./test/data/grooves`
+- Convert MIDI to JSON and back: `./src/js/midi-json.js < source.mid | jq [..] | ./src/js/midi-json.js > target.mid`
 
 # Theory of operation
 This converter aims to create a valid MMA accompaniment script out of a MusicXML score. The MMA script is then converted to MIDI using the bundled `mma` tool. To accomplish this, the converter expects to find the following information in the sheet:
