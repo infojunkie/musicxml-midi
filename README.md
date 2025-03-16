@@ -56,5 +56,6 @@ The tools contained here can also convert the score (or the generated MIDI file)
     // duration in milliseconds (real)
     duration: number
   },
+  // ...
 ]
 ```
