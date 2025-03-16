@@ -44,7 +44,7 @@ The produced MMA script / MIDI file contains metadata that can be useful to down
 - `Groove:X` informs the consumer that the MIDI playback is henceforth using the specified playback style.
 
 The tools contained here can also convert the score (or the generated MIDI file) to a so-called **Timemap** JSON file, which lists timing information for each measure:
-```json
+```typescript
 [
   {
     // 0-based measure index (integer)
