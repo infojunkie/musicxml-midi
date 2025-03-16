@@ -5,14 +5,17 @@
  *
  * [
  *    {
+ *       // 0-based measure index (integer)
  *       measure: number,
- *       timestamp: number
+ *
+ *       // 0-based offset in milliseconds (real)
+ *       timestamp: number,
+ *
+ *       // duration in milliseconds (real)
+ *       duration: number
  *    },
  *    ...
  * ]
- *
- * measure is an integer starting at 0
- * timestamp is a real-valued time offset specified in millisecs starting at 0
  */
 
 import { parseMidi } from 'midi-file'
