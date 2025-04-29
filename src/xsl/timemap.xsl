@@ -13,7 +13,7 @@
   exclude-result-prefixes="#all"
 >
 
-  <xsl:include href="musicxml.xsl"/>
+  <xsl:include href="lib-musicxml.xsl"/>
 
   <xsl:output method="json" indent="yes" encoding="UTF-8"/>
 

@@ -15,7 +15,7 @@
   exclude-result-prefixes="#all"
 >
 
-  <xsl:include href="musicxml.xsl"/>
+  <xsl:include href="lib-musicxml.xsl"/>
 
   <xsl:output method="text" media-type="text/plain" omit-xml-declaration="yes"/>
 
@@ -564,18 +564,18 @@ Chord-Sequence Sequence { </xsl:if>
     Template: Note for pitch bend sequence.
   -->
   <xsl:template match="note" mode="pitch">
+    <xsl:variable name="alter" select="musicxml:noteAlterValue(.)"/>
     <xsl:choose>
-      <xsl:when test="not(pitch/alter)"/>
-      <xsl:when test="xs:double(pitch/alter) = round(pitch/alter)"/>
-      <xsl:when test="abs(pitch/alter) le 2">
+      <xsl:when test="$alter = round($alter)"/>
+      <xsl:when test="abs($alter) le 2">
 Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-before('noteOnset'), accumulator-after('divisions'))"/>
         <xsl:text> </xsl:text>
-        <xsl:value-of select="round(4096 * xs:double(pitch/alter))"/>
+        <xsl:value-of select="round(4096 * $alter)"/>
 Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-after('noteOnset'), accumulator-after('divisions'))"/>
         <xsl:text> 0</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>[PitchBend] Unhandled pitch/alter value of <xsl:value-of select="pitch/alter"/></xsl:message>
+        <xsl:message>[PitchBend] Unhandled alter value of <xsl:value-of select="$alter"/></xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

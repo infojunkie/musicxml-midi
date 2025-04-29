@@ -11,7 +11,7 @@
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
 >
 
-  <xsl:include href="musicxml.xsl"/>
+  <xsl:include href="lib-musicxml.xsl"/>
 
   <xsl:output method="xml" indent="yes" encoding="UTF-8"
     omit-xml-declaration="no" standalone="no"

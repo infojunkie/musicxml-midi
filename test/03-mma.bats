@@ -104,8 +104,15 @@ set -euo pipefail
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
 }
 
-@test "mma produces a valid file for batwanness-beek" {
+@test "mma produces pitch bends for batwanness-beek" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/batwanness-beek.musicxml)
+  echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
+  run echo $mma
+  assert_output --partial 'Solo MidiNote PB 672 2048 Solo MidiNote PB 768 0'
+}
+
+@test "mma produces pitch bends for batwanness-beek-no-alter" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/batwanness-beek-no-alter.musicxml)
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
   run echo $mma
   assert_output --partial 'Solo MidiNote PB 672 2048 Solo MidiNote PB 768 0'
