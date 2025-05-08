@@ -134,3 +134,11 @@ set -euo pipefail
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/capim.musicxml)
   echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
 }
+
+@test "mma produces a valid file for maqam-rast" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/maqam-rast.musicxml)
+  echo "$mma" |${MMA_HOME:-mma}/mma.py -II -n -
+  run echo $mma
+  assert_output --partial 'MidiMark Measure:43:3000 Solo Riff 192tcn+;192tdn+;192tcn+;192ten+; Solo MidiNote PB 576 -1802 Solo MidiNote PB 768 0 z'
+  assert_output --partial 'MidiMark Measure:105:3000 Solo Riff 192tb&+;192tan+;192tb&+;192tgn+; z'
+}
