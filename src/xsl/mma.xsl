@@ -312,7 +312,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
       Notes.
     -->
     <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="riff"/>
-    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="pitch"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)][not(rest)]" mode="pitch"/>
 
     <!--
       Chords.
@@ -561,10 +561,12 @@ Chord-Sequence Sequence { </xsl:if>
   </xsl:template>
 
   <!--
-    Template: Note for pitch bend sequence.
+    Template: Note pitch setting.
   -->
   <xsl:template match="note" mode="pitch">
-    <xsl:variable name="alter" select="musicxml:noteAlterValue(.)"/>
+    <xsl:variable name="alter" select="
+      if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter(accumulator-after('noteAccidentals')(pitch/step))"
+    />
     <xsl:choose>
       <xsl:when test="$alter = round($alter)"/>
       <xsl:when test="abs($alter) le 2">
@@ -575,7 +577,7 @@ Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-afte
         <xsl:text> 0</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>[PitchBend] Unhandled alter value of <xsl:value-of select="$alter"/></xsl:message>
+        <xsl:message>[note/pitch] Unhandled alter value of <xsl:value-of select="$alter"/></xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
