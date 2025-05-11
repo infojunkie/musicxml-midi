@@ -42,14 +42,14 @@
     'current': false(),
     'previous': false()
   }">
-    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord)]" select="map {
+    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord | grace)]" select="map {
       'previous': map:get($value, 'current'),
       'current': exists(tie[@type='start']) or exists(notations/tied[@type='start'])
     }"/>
   </xsl:accumulator>
 
   <xsl:accumulator name="tieStop" as="xs:boolean" initial-value="false()">
-    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord)]" select="
+    <xsl:accumulator-rule match="note[voice=$melodyVoice or not(voice)][not(chord | grace)]" select="
       (exists(tie[@type='stop']) or exists(notations/tied[@type='stop'])) and accumulator-after('tieStart')('previous')
     "/>
   </xsl:accumulator>
@@ -102,7 +102,7 @@
     <xsl:param name="groove"/>
     <xsl:param name="time"/>
     <!--
-      TODO Perform complete mapping between iReal Pro grooves and MMA grooves.
+      TODO! Perform complete mapping between iReal Pro grooves and MMA grooves.
       Use `npm run print:grooves` to list all available MMA grooves.
     -->
     <xsl:choose>
@@ -128,6 +128,8 @@
 
   <!--
     Function: Calculate note duration.
+
+    FIXME! Move this function to lib-musicxml with fuller generality.
   -->
   <xsl:function name="mma:noteDuration" as="xs:double">
     <xsl:param name="note"/>
@@ -137,10 +139,10 @@
       <xsl:when test="$tie[@type='stop'] and not($tie[@type='start'])"><xsl:sequence select="$duration + $note/duration"/></xsl:when>
       <xsl:otherwise>
         <xsl:sequence select="mma:noteDuration(
-          if ($note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord)]) then
-            $note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord)][1]
+          if ($note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord | grace)]) then
+            $note/following-sibling::note[voice=$melodyVoice or not(voice)][not(chord | grace)][1]
           else
-            $note/../following-sibling::measure[1]/note[voice=$melodyVoice or not(voice)][not(chord)][1],
+            $note/../following-sibling::measure[1]/note[voice=$melodyVoice or not(voice)][not(chord | grace)][1],
           $duration + $note/duration
         )"/>
       </xsl:otherwise>
@@ -182,7 +184,7 @@
   <!--
     Template: Score.
 
-    TODO: Convert score-partwise to score-timewise and output that instead.
+    TODO! Convert score-partwise to score-timewise and output that instead.
   -->
   <xsl:template match="score-partwise">
     <xsl:text>
@@ -312,7 +314,7 @@ MidiMark Groove:<xsl:value-of select="$groove"/>
       Notes.
     -->
     <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="riff"/>
-    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)]" mode="pitch"/>
+    <xsl:apply-templates select="note[voice=$melodyVoice or not(voice)][not(rest)]" mode="pitch"/>
 
     <!--
       Chords.
@@ -400,10 +402,10 @@ Chord-Sequence Sequence { </xsl:if>
           <xsl:when test="kind = 'dominant-11th'">11</xsl:when>
           <xsl:when test="kind = 'dominant-13th'">13</xsl:when>
           <xsl:when test="kind = 'dominant-ninth'">9</xsl:when>
-          <xsl:when test="kind = 'French'"><!-- TODO --></xsl:when>
-          <xsl:when test="kind = 'German'"><!-- TODO --></xsl:when>
+          <xsl:when test="kind = 'French'"><!-- TODO! --></xsl:when>
+          <xsl:when test="kind = 'German'"><!-- TODO! --></xsl:when>
           <xsl:when test="kind = 'half-diminished'">m7b5</xsl:when>
-          <xsl:when test="kind = 'Italian'"><!-- TODO --></xsl:when>
+          <xsl:when test="kind = 'Italian'"><!-- TODO! --></xsl:when>
           <xsl:when test="kind = 'major'"></xsl:when>
           <xsl:when test="kind = 'major-11th'">M11</xsl:when>
           <xsl:when test="kind = 'major-13th'">M13</xsl:when>
@@ -417,13 +419,13 @@ Chord-Sequence Sequence { </xsl:if>
           <xsl:when test="kind = 'minor-ninth'">m9</xsl:when>
           <xsl:when test="kind = 'minor-seventh'">m7</xsl:when>
           <xsl:when test="kind = 'minor-sixth'">m6</xsl:when>
-          <xsl:when test="kind = 'Neapolitan'"><!-- TODO --></xsl:when>
-          <xsl:when test="kind = 'other'"><!-- TODO --></xsl:when>
-          <xsl:when test="kind = 'pedal'"><!-- TODO --></xsl:when>
+          <xsl:when test="kind = 'Neapolitan'"><!-- TODO! --></xsl:when>
+          <xsl:when test="kind = 'other'"><!-- TODO! --></xsl:when>
+          <xsl:when test="kind = 'pedal'"><!-- TODO! --></xsl:when>
           <xsl:when test="kind = 'power'">5</xsl:when>
           <xsl:when test="kind = 'suspended-fourth'">sus</xsl:when>
           <xsl:when test="kind = 'suspended-second'">sus2</xsl:when>
-          <xsl:when test="kind = 'Tristan'"><!-- TODO --></xsl:when>
+          <xsl:when test="kind = 'Tristan'"><!-- TODO! --></xsl:when>
         </xsl:choose>
         <!--
           Handle modified degrees.
@@ -498,7 +500,7 @@ Chord-Sequence Sequence { </xsl:if>
       - A comma "," for next chord note
       - A semicolon for next non-chord note
 
-      TODO Handle the following:
+      TODO! Handle the following:
       - Articulations
       - Sound directives
       - Chords with unequal ties
@@ -512,13 +514,12 @@ Chord-Sequence Sequence { </xsl:if>
       <xsl:if test="$tieStop">~</xsl:if>
     </xsl:if>
 
-    <xsl:if test="grace">
-      <xsl:text disable-output-escaping="yes">&lt;grace&gt;</xsl:text>
-    </xsl:if>
-
     <xsl:if test="not(chord or $tieStop)">
       <xsl:variable name="duration">
         <xsl:choose>
+          <xsl:when test="grace">
+            <xsl:value-of select="following-sibling::note[voice=$melodyVoice or not(voice)][not(grace)][1]/duration div 2"/>
+          </xsl:when>
           <xsl:when test="$tieStart">
             <xsl:value-of select="mma:noteDuration(., 0)"/>
           </xsl:when>
@@ -528,6 +529,10 @@ Chord-Sequence Sequence { </xsl:if>
         </xsl:choose>
       </xsl:variable>
       <xsl:if test="accumulator-after('hasMeasurePrintedAnyNote')('previous')">;</xsl:if>
+      <xsl:if test="grace">
+        <!-- TODO! Handle consecutive grace notes. -->
+        <xsl:text disable-output-escaping="yes">&lt;grace&gt;</xsl:text>
+      </xsl:if>
       <xsl:value-of select="floor(192 * $duration div accumulator-after('divisions'))"/>
       <xsl:text>t</xsl:text>
     </xsl:if>
@@ -561,10 +566,12 @@ Chord-Sequence Sequence { </xsl:if>
   </xsl:template>
 
   <!--
-    Template: Note for pitch bend sequence.
+    Template: Note pitch setting.
   -->
   <xsl:template match="note" mode="pitch">
-    <xsl:variable name="alter" select="musicxml:noteAlterValue(.)"/>
+    <xsl:variable name="alter" select="
+      if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter(accumulator-after('noteAccidentals')(pitch/step))"
+    />
     <xsl:choose>
       <xsl:when test="$alter = round($alter)"/>
       <xsl:when test="abs($alter) le 2">
@@ -575,7 +582,7 @@ Solo MidiNote PB <xsl:value-of select="musicxml:timeToMIDITicks(accumulator-afte
         <xsl:text> 0</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>[PitchBend] Unhandled alter value of <xsl:value-of select="$alter"/></xsl:message>
+        <xsl:message>[note/pitch] Unhandled alter value of <xsl:value-of select="$alter"/></xsl:message>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
