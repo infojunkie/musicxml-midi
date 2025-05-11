@@ -137,7 +137,7 @@
     <xsl:accumulator-rule match="backup" select="$value - duration"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -160,7 +160,7 @@
   <xsl:accumulator name="noteDuration" as="xs:double" initial-value="0">
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -179,7 +179,7 @@
     <xsl:accumulator-rule match="backup" select="$value - duration"/>
     <xsl:accumulator-rule match="note" phase="end">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | cue | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -199,7 +199,7 @@
     <xsl:accumulator-rule match="harmony" select="0"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:otherwise><xsl:sequence select="$value + duration"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
@@ -223,7 +223,7 @@
   }">
     <xsl:accumulator-rule match="measure" select="musicxml:keyAccidentals(accumulator-after('key'))"/>
     <xsl:accumulator-rule match="key" select="musicxml:keyAccidentals(.)"/>
-    <xsl:accumulator-rule match="note" select="if (accidental and pitch) then map:merge((
+    <xsl:accumulator-rule match="note" select="if (pitch and accidental) then map:merge((
       $value,
       map { xs:string(pitch/step) : xs:string(accidental) }
     ), map{ 'duplicates': 'use-last' }) else $value"/>
@@ -265,7 +265,7 @@
   <xsl:function name="musicxml:harmonyDuration" as="xs:double">
     <xsl:param name="harmony"/>
     <xsl:sequence select="
-      sum($harmony/following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = generate-id($harmony)]/duration)
+      sum($harmony/following-sibling::note[not(chord | grace) and generate-id(preceding-sibling::harmony[1]) = generate-id($harmony)]/duration)
     "/>
   </xsl:function>
 
