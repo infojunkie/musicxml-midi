@@ -54,16 +54,13 @@
   </xsl:template>
 
   <xsl:template match="part" as="array(*)">
-    <xsl:variable name="output" as="map(*)*">
+    <xsl:variable name="measures" as="map(*)*">
       <xsl:apply-templates select="measure"/>
     </xsl:variable>
-    <xsl:sequence select="array{$output}"/>
+    <xsl:sequence select="array{$measures}"/>
   </xsl:template>
 
   <xsl:template match="measure" as="map(*)*">
-    <!--
-      Output JSON.
-    -->
     <xsl:sequence select="map {
       'measure': accumulator-after('measureIndex')(@number),
       'timestamp': musicxml:timeToMillisecs(

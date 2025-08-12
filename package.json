@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.11.0",
+  "version": "2.12.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "directories": {
@@ -24,13 +24,12 @@
     "convert:groove": "run() { xslt3 -it:groove -xsl:src/xsl/groove.xsl groove=\"$1\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
     "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
-    "debug:musicxml": "run() { xslt3 -xsl:src/xsl/musicxml.xsl -s:\"$1\" ${@:2}; }; run",
     "debug:groove": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
     "develop": "nodemon -e js,json src/js/server.js",
     "start": "node src/js/server.js",
-    "test:xsl": "test/libs/bats/bin/bats test/*.bats",
+    "test:xsl": "test/libs/bats/bin/bats test/??-${TEST:-*}.bats",
     "test:js": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest -t ${TEST:-''}",
     "test": "npm run test:xsl && npm run test:js",
     "server": "PORT=8085 npm run start",

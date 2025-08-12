@@ -179,7 +179,7 @@
     <xsl:accumulator-rule match="backup" select="$value - duration"/>
     <xsl:accumulator-rule match="note" phase="end">
       <xsl:choose>
-        <xsl:when test="chord | cue | grace"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
