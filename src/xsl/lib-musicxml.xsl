@@ -137,7 +137,7 @@
     <xsl:accumulator-rule match="backup" select="$value - duration"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -160,7 +160,7 @@
   <xsl:accumulator name="noteDuration" as="xs:double" initial-value="0">
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -179,7 +179,7 @@
     <xsl:accumulator-rule match="backup" select="$value - duration"/>
     <xsl:accumulator-rule match="note" phase="end">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:when test="rest[@measure='yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
@@ -199,7 +199,7 @@
     <xsl:accumulator-rule match="harmony" select="0"/>
     <xsl:accumulator-rule match="note">
       <xsl:choose>
-        <xsl:when test="chord | cue"><xsl:sequence select="$value"/></xsl:when>
+        <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
         <xsl:otherwise><xsl:sequence select="$value + duration"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
@@ -213,6 +213,20 @@
   </xsl:accumulator>
   <xsl:accumulator name="scalingTenths" as="xs:double" initial-value="$defaultScalingTenths">
     <xsl:accumulator-rule match="//defaults/scaling" select="number(tenths)"/>
+  </xsl:accumulator>
+
+  <!--
+    State: Current note accidental.
+  -->
+  <xsl:accumulator name="noteAccidentals" as="map(xs:string, xs:string)" initial-value="map {
+    'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+  }">
+    <xsl:accumulator-rule match="measure" select="musicxml:keyAccidentals(accumulator-after('key'))"/>
+    <xsl:accumulator-rule match="key" select="musicxml:keyAccidentals(.)"/>
+    <xsl:accumulator-rule match="note" select="if (pitch and accidental) then map:merge((
+      $value,
+      map { xs:string(pitch/step) : xs:string(accidental) }
+    ), map{ 'duplicates': 'use-last' }) else $value"/>
   </xsl:accumulator>
 
   <!--
@@ -251,7 +265,7 @@
   <xsl:function name="musicxml:harmonyDuration" as="xs:double">
     <xsl:param name="harmony"/>
     <xsl:sequence select="
-      sum($harmony/following-sibling::note[not(chord) and generate-id(preceding-sibling::harmony[1]) = generate-id($harmony)]/duration)
+      sum($harmony/following-sibling::note[not(chord | grace) and generate-id(preceding-sibling::harmony[1]) = generate-id($harmony)]/duration)
     "/>
   </xsl:function>
 
@@ -269,61 +283,124 @@
   </xsl:function>
 
   <!--
-    Function: Derive alter value from note.
+    Function: Accidentals for given key signature.
+
+    FIXME! For key-step/key-alter/key-accidental, this function assumes thay key-accidental is always there (instead of being optional as per the spec.)
+    TODO! Include alteration value which can be explicitly set in key-alter.
   -->
-  <xsl:function name="musicxml:noteAlterValue" as="xs:double">
-    <xsl:param name="note"/>
+  <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string)">
+    <xsl:param name="key"/>
     <xsl:choose>
-      <xsl:when test="$note/pitch/alter"><xsl:sequence select="number($note/pitch/alter)"/></xsl:when>
-      <xsl:when test="$note/accidental">
-        <xsl:choose>
-          <xsl:when test="$note/accidental = 'sharp'"><xsl:sequence select="1"/></xsl:when>
-          <xsl:when test="$note/accidental = 'natural'"><xsl:sequence select="0"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat'"><xsl:sequence select="-1"/></xsl:when>
-          <xsl:when test="$note/accidental = 'double-sharp'"><xsl:sequence select="2"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-sharp'"><xsl:sequence select="2"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-flat'"><xsl:sequence select="-2"/></xsl:when>
-          <xsl:when test="$note/accidental = 'natural-sharp'"><xsl:sequence select="1"/></xsl:when>
-          <xsl:when test="$note/accidental = 'natural-flat'"><xsl:sequence select="-1"/></xsl:when>
-          <xsl:when test="$note/accidental = 'quarter-flat'"><xsl:sequence select="-0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'quarter-sharp'"><xsl:sequence select="0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'three-quarters-flat'"><xsl:sequence select="-1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'three-quarters-sharp'"><xsl:sequence select="1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-down'"><xsl:sequence select="0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-up'"><xsl:sequence select="1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'natural-down'"><xsl:sequence select="-0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'natural-up'"><xsl:sequence select="0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-down'"><xsl:sequence select="-1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-up'"><xsl:sequence select="-0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'double-sharp-down'"><xsl:sequence select="1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'double-sharp-up'"><xsl:sequence select="2.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-flat-down'"><xsl:sequence select="-2.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-flat-up'"><xsl:sequence select="-1.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'arrow-down'"><xsl:sequence select="-0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'arrow-up'"><xsl:sequence select="0.5"/></xsl:when>
-          <xsl:when test="$note/accidental = 'triple-sharp'"><xsl:sequence select="3"/></xsl:when>
-          <xsl:when test="$note/accidental = 'triple-flat'"><xsl:sequence select="-3"/></xsl:when>
-          <xsl:when test="$note/accidental = 'slash-quarter-sharp'"><xsl:sequence select="0.56"/></xsl:when>
-          <xsl:when test="$note/accidental = 'slash-sharp'"><xsl:sequence select="0.89"/></xsl:when>
-          <xsl:when test="$note/accidental = 'slash-flat'"><xsl:sequence select="-0.44"/></xsl:when>
-          <xsl:when test="$note/accidental = 'double-slash-flat'"><xsl:sequence select="-0.89"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-1'"><xsl:sequence select="0.222"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-2'"><xsl:sequence select="0.444"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-3'"><xsl:sequence select="0.667"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sharp-5'"><xsl:sequence select="1.111"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-1'"><xsl:sequence select="-0.222"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-2'"><xsl:sequence select="-0.444"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-3'"><xsl:sequence select="-0.667"/></xsl:when>
-          <xsl:when test="$note/accidental = 'flat-4'"><xsl:sequence select="-0.889"/></xsl:when>
-          <xsl:when test="$note/accidental = 'sori'"><xsl:sequence select="0.33"/></xsl:when>
-          <xsl:when test="$note/accidental = 'koron'"><xsl:sequence select="-0.67"/></xsl:when>
-          <xsl:otherwise>
-            <xsl:message>[note] Unhandled accidental '<xsl:value-of select="$note/accidental"/>'</xsl:message>
-            <xsl:sequence select="0"/>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:when test="$key/fifths = 0"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 1"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'sharp', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 2"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'natural', 'E': 'natural', 'F': 'sharp', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 3"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'natural', 'E': 'natural', 'F': 'sharp', 'G': 'sharp', 'A': 'natural', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 4"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'sharp', 'E': 'natural', 'F': 'sharp', 'G': 'sharp', 'A': 'natural', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 5"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'sharp', 'E': 'natural', 'F': 'sharp', 'G': 'sharp', 'A': 'sharp', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 6"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'sharp', 'E': 'sharp', 'F': 'sharp', 'G': 'sharp', 'A': 'sharp', 'B': 'natural'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 7"><xsl:sequence select="map {
+        'C': 'sharp', 'D': 'sharp', 'E': 'sharp', 'F': 'sharp', 'G': 'sharp', 'A': 'sharp', 'B': 'sharp'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -1"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -2"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'flat', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -3"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'flat', 'F': 'natural', 'G': 'natural', 'A': 'flat', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -4"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'flat', 'E': 'flat', 'F': 'natural', 'G': 'natural', 'A': 'flat', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -5"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'flat', 'E': 'flat', 'F': 'natural', 'G': 'flat', 'A': 'flat', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -6"><xsl:sequence select="map {
+        'C': 'flat', 'D': 'flat', 'E': 'flat', 'F': 'natural', 'G': 'flat', 'A': 'flat', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = -7"><xsl:sequence select="map {
+        'C': 'flat', 'D': 'flat', 'E': 'flat', 'F': 'flat', 'G': 'flat', 'A': 'flat', 'B': 'flat'
+      }"/></xsl:when>
+      <xsl:when test="$key/fifths = 0"><xsl:sequence select="map {
+        'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+      }"/><xsl:message>[musicxml:keyAccidentals] Unhandled fifths '<xsl:value-of select="$key/fifths"/>'</xsl:message>
       </xsl:when>
-      <xsl:otherwise><xsl:sequence select="0"/></xsl:otherwise>
+      <xsl:when test="$key/key-step">
+        <xsl:sequence select="map:merge((
+          map {
+            'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
+          },
+          map:merge(for $k in $key/key-step return map { xs:string($k) : xs:string($k/following-sibling::key-accidental[1]) })
+        ), map{ 'duplicates': 'use-last' })"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:function>
+
+  <!--
+    Function: Derive alter value from accidental.
+  -->
+  <xsl:function name="musicxml:noteAlter" as="xs:double">
+    <xsl:param name="accidental"/>
+    <xsl:choose>
+      <xsl:when test="$accidental = 'sharp'"><xsl:sequence select="1"/></xsl:when>
+      <xsl:when test="$accidental = 'natural'"><xsl:sequence select="0"/></xsl:when>
+      <xsl:when test="$accidental = 'flat'"><xsl:sequence select="-1"/></xsl:when>
+      <xsl:when test="$accidental = 'double-sharp'"><xsl:sequence select="2"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-sharp'"><xsl:sequence select="2"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-flat'"><xsl:sequence select="-2"/></xsl:when>
+      <xsl:when test="$accidental = 'natural-sharp'"><xsl:sequence select="1"/></xsl:when>
+      <xsl:when test="$accidental = 'natural-flat'"><xsl:sequence select="-1"/></xsl:when>
+      <xsl:when test="$accidental = 'quarter-flat'"><xsl:sequence select="-0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'quarter-sharp'"><xsl:sequence select="0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'three-quarters-flat'"><xsl:sequence select="-1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'three-quarters-sharp'"><xsl:sequence select="1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-down'"><xsl:sequence select="0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-up'"><xsl:sequence select="1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'natural-down'"><xsl:sequence select="-0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'natural-up'"><xsl:sequence select="0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-down'"><xsl:sequence select="-1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-up'"><xsl:sequence select="-0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'double-sharp-down'"><xsl:sequence select="1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'double-sharp-up'"><xsl:sequence select="2.5"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-flat-down'"><xsl:sequence select="-2.5"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-flat-up'"><xsl:sequence select="-1.5"/></xsl:when>
+      <xsl:when test="$accidental = 'arrow-down'"><xsl:sequence select="-0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'arrow-up'"><xsl:sequence select="0.5"/></xsl:when>
+      <xsl:when test="$accidental = 'triple-sharp'"><xsl:sequence select="3"/></xsl:when>
+      <xsl:when test="$accidental = 'triple-flat'"><xsl:sequence select="-3"/></xsl:when>
+      <xsl:when test="$accidental = 'slash-quarter-sharp'"><xsl:sequence select="0.56"/></xsl:when>
+      <xsl:when test="$accidental = 'slash-sharp'"><xsl:sequence select="0.89"/></xsl:when>
+      <xsl:when test="$accidental = 'slash-flat'"><xsl:sequence select="-0.44"/></xsl:when>
+      <xsl:when test="$accidental = 'double-slash-flat'"><xsl:sequence select="-0.89"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-1'"><xsl:sequence select="0.222"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-2'"><xsl:sequence select="0.444"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-3'"><xsl:sequence select="0.667"/></xsl:when>
+      <xsl:when test="$accidental = 'sharp-5'"><xsl:sequence select="1.111"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-1'"><xsl:sequence select="-0.222"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-2'"><xsl:sequence select="-0.444"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-3'"><xsl:sequence select="-0.667"/></xsl:when>
+      <xsl:when test="$accidental = 'flat-4'"><xsl:sequence select="-0.889"/></xsl:when>
+      <xsl:when test="$accidental = 'sori'"><xsl:sequence select="0.33"/></xsl:when>
+      <xsl:when test="$accidental = 'koron'"><xsl:sequence select="-0.67"/></xsl:when>
+      <xsl:otherwise>
+        <xsl:message>[musicxml:noteAlter] Unhandled accidental '<xsl:value-of select="$accidental"/>'</xsl:message>
+        <xsl:sequence select="0"/>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
 
