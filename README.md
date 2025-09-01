@@ -25,6 +25,7 @@ A suite of tools to convert MusicXML scores to MIDI using [Musical MIDI Accompan
 - `curl -sSf -F"jq=.[] |= {groove,description,timeSignature}" http://localhost:3000/grooves.json`
 
 # Other operations
+- Extract an Ableton ASCL tuning from a MusicXML score: `npm run --silent convert:tuning song.musicxml > song.ascl`
 - Convert a MIDI file to a timemap JSON file: `./src/js/midi-timemap.js song.mid > song.timemap.json`
 - Scrape MusicXML examples from the official site: `./src/js/musicxml-examples.js --output=./test/data/examples`
 - Convert MMA grooves to MusicXML: `./src/js/musicxml-grooves.js --output=./test/data/grooves`

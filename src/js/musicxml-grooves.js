@@ -419,8 +419,8 @@ function createMeasureNotes(groove, part, measure) {
   }, [])
 
   // Detect velocity 0 notes which indicate the closing of a previous note.
-  // TODO Actually close the notes.
-  // TODO Handle notes that were open in previous measure.
+  // TODO! Actually close the notes.
+  // TODO! Handle notes that were open in previous measure.
   .reduce((notes, note) => {
     if (note.velocity > 0) {
       notes.push(note)
@@ -475,7 +475,7 @@ function createMeasureNotes(groove, part, measure) {
     }
     else {
       // Move note to next measure.
-      // TODO Handle the case where there's already a note at onset 1.
+      // TODO! Handle the case where there's already a note at onset 1.
       if (measure < part[0].sequence.length - 1) {
         const track = part.find(t => t.track === note.track)
         const next = track.sequence[measure+1]
@@ -646,7 +646,7 @@ function quantizeNoteDuration(note, index, notes, beats, grid) {
   }, undefined)
 
   if (offset === undefined) {
-    // TODO Handle this case.
+    // TODO! Handle this case.
     console.warn(`[${note.track}:${note.measure+1}] Failed to quantize note duration at ${note.onset} to avoid zero duration. Dropping it.`)
     return []
   }
@@ -777,7 +777,7 @@ function createNoteTiming(note, index, notes) {
     // - Sum up to the duration of the enclosing note type
     // - Each have a duration of a tuplet fraction of the enclosing note type
     // - Fall within the same enclosing note, instead of crossing note boundaries
-    // TODO Handle tuplets where individual notes can be multiples of the tuplet division.
+    // TODO! Handle tuplets where individual notes can be multiples of the tuplet division.
     if (entry / 2 < note.quantized.duration && note.quantized.duration < entry * 2) {
       for (const tupletCount of [3, 5]) {
         const target = entry * Math.pow(2, Math.ceil(Math.log2(tupletCount)))

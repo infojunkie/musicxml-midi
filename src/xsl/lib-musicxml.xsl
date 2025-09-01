@@ -20,37 +20,6 @@
   <xsl:param name="defaultScalingTenths" select="40"/>
 
   <!--
-    Template: Get accumulator value at node.
-    Function: Get accumulator value at node.
-  -->
-  <xsl:template match="node()" mode="accumulatorBefore">
-    <xsl:param name="accumulator"/>
-    <xsl:value-of select="accumulator-before($accumulator)"/>
-  </xsl:template>
-  <xsl:template match="node()" mode="accumulatorAfter">
-    <xsl:param name="accumulator"/>
-    <xsl:value-of select="accumulator-after($accumulator)"/>
-  </xsl:template>
-  <xsl:function name="musicxml:accumulatorBefore">
-    <xsl:param name="accumulator"/>
-    <xsl:param name="node"/>
-    <xsl:sequence>
-      <xsl:apply-templates select="$node" mode="accumulatorBefore">
-        <xsl:with-param name="accumulator" select="$accumulator"/>
-      </xsl:apply-templates>
-    </xsl:sequence>
-  </xsl:function>
-  <xsl:function name="musicxml:accumulatorAfter">
-    <xsl:param name="accumulator"/>
-    <xsl:param name="node"/>
-    <xsl:sequence>
-      <xsl:apply-templates select="$node" mode="accumulatorAfter">
-        <xsl:with-param name="accumulator" select="$accumulator"/>
-      </xsl:apply-templates>
-    </xsl:sequence>
-  </xsl:function>
-
-  <!--
     State: Current divisions value.
   -->
   <xsl:accumulator name="divisions" as="xs:double" initial-value="1">
@@ -217,16 +186,17 @@
 
   <!--
     State: Current note accidental.
+    TODO! Handle @accidental="other" + @smufl
   -->
   <xsl:accumulator name="noteAccidentals" as="map(xs:string, xs:string)" initial-value="map {
     'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
   }">
     <xsl:accumulator-rule match="measure" select="musicxml:keyAccidentals(accumulator-after('key'))"/>
     <xsl:accumulator-rule match="key" select="musicxml:keyAccidentals(.)"/>
-    <xsl:accumulator-rule match="note" select="if (pitch and accidental) then map:merge((
+    <xsl:accumulator-rule match="note[pitch and accidental]" select="map:merge((
       $value,
       map { xs:string(pitch/step) : xs:string(accidental) }
-    ), map{ 'duplicates': 'use-last' }) else $value"/>
+    ), map{ 'duplicates': 'use-last' })"/>
   </xsl:accumulator>
 
   <!--
@@ -287,6 +257,7 @@
 
     FIXME! For key-step/key-alter/key-accidental, this function assumes thay key-accidental is always there (instead of being optional as per the spec.)
     TODO! Include alteration value which can be explicitly set in key-alter.
+    TODO! Handle @accidental="other" + @smufl
   -->
   <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string)">
     <xsl:param name="key"/>
@@ -348,6 +319,26 @@
           map:merge(for $k in $key/key-step return map { xs:string($k) : xs:string($k/following-sibling::key-accidental[1]) })
         ), map{ 'duplicates': 'use-last' })"/>
       </xsl:when>
+    </xsl:choose>
+  </xsl:function>
+
+  <!--
+    Function: Note default tuning value in cents.
+  -->
+  <xsl:function name="musicxml:noteTuning" as="xs:double">
+    <xsl:param name="step"/>
+    <xsl:choose>
+      <xsl:when test="$step = 'C'"><xsl:sequence select="0"/></xsl:when>
+      <xsl:when test="$step = 'D'"><xsl:sequence select="200"/></xsl:when>
+      <xsl:when test="$step = 'E'"><xsl:sequence select="400"/></xsl:when>
+      <xsl:when test="$step = 'F'"><xsl:sequence select="500"/></xsl:when>
+      <xsl:when test="$step = 'G'"><xsl:sequence select="700"/></xsl:when>
+      <xsl:when test="$step = 'A'"><xsl:sequence select="900"/></xsl:when>
+      <xsl:when test="$step = 'B'"><xsl:sequence select="1100"/></xsl:when>
+      <xsl:otherwise>
+        <xsl:message>[musicxml:notetuning] Unhandled step '<xsl:value-of select="$step"/>'</xsl:message>
+        <xsl:sequence select="0"/>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:function>
 

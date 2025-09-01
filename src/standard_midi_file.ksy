@@ -67,6 +67,7 @@ types:
         type: track_event
         repeat: eos
   track_event:
+    -webide-representation: '{event_type}'
     seq:
       - id: v_time
         type: vlq_base128_be
@@ -82,19 +83,30 @@ types:
         type:
           switch-on: event_type
           cases:
-            0x80: note_off_event
-            0x90: note_on_event
-            0xa0: polyphonic_pressure_event
-            0xb0: controller_event
-            0xc0: program_change_event
-            0xd0: channel_pressure_event
-            0xe0: pitch_bend_event
+            'event_type_enum::note_off': note_off_event
+            'event_type_enum::note_on': note_on_event
+            'event_type_enum::polyphonic_pressure': polyphonic_pressure_event
+            'event_type_enum::controller': controller_event
+            'event_type_enum::program_change': program_change_event
+            'event_type_enum::channel_pressure': channel_pressure_event
+            'event_type_enum::pitch_bend': pitch_bend_event
     instances:
       event_type:
         value: event_header & 0xf0
+        enum: event_type_enum
       channel:
         value: event_header & 0xf
-        if: event_type != 0xf0
+        if: event_type != event_type_enum::meta_or_sysex_event
+    enums:
+      event_type_enum:
+        0x80: note_off
+        0x90: note_on
+        0xa0: polyphonic_pressure
+        0xb0: controller
+        0xc0: program_change
+        0xd0: channel_pressure
+        0xe0: pitch_bend
+        0xf0: meta_or_sysex_event
   meta_event_body:
     seq:
       - id: meta_type

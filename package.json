@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {
@@ -26,6 +26,7 @@
     "convert:mma": "run() { xslt3 -xsl:src/xsl/mma.xsl -s:\"$1\" ${@:2}; }; run",
     "convert:groove": "run() { xslt3 -it:groove -xsl:src/xsl/groove.xsl groove=\"$1\" ${@:2}; }; run",
     "convert:midi": "run() { ${MMA_HOME:-mma}/mma.py -II \"$1\" -f \"${1/.mma/.mid}\"; }; run",
+    "convert:tuning": "run() { xslt3 -xsl:src/xsl/tuning.xsl -s:\"$1\" ${@:2}; }; run",
     "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
     "debug:groove": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",

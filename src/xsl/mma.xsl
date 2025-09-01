@@ -8,13 +8,15 @@
   version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:mma="http://www.mellowood.ca/mma"
+  xmlns:mma="https://github.com/infojunkie/musicxml-midi/mma"
+  xmlns:utils="https://github.com/infojunkie/musicxml-midi/utils"
   xmlns:musicxml="http://www.w3.org/2021/06/musicxml40"
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
   exclude-result-prefixes="#all"
 >
 
+  <xsl:include href="lib-utils.xsl"/>
   <xsl:include href="lib-musicxml.xsl"/>
 
   <xsl:output method="text" media-type="text/plain" omit-xml-declaration="yes"/>
@@ -114,16 +116,6 @@
       </xsl:when>
       <xsl:otherwise/>
     </xsl:choose>
-  </xsl:function>
-
-  <!--
-    Function: Python-like mod function for compatibility with Slash MMA plugin.
-    https://stackoverflow.com/a/60182730/209184
-  -->
-  <xsl:function name="mma:mod" as="xs:double">
-    <xsl:param name="dividend" as="xs:double"/>
-    <xsl:param name="divisor" as="xs:double"/>
-    <xsl:sequence select="$dividend - floor($dividend div $divisor) * $divisor"/>
   </xsl:function>
 
   <!--
@@ -477,7 +469,7 @@ Chord-Sequence Sequence { </xsl:if>
             </xsl:when>
             <xsl:otherwise>
               <xsl:text disable-output-escaping="yes">&lt;</xsl:text>
-              <xsl:value-of select="mma:mod(mma:note(bass/bass-step, bass/bass-alter) - mma:note(root/root-step, root/root-alter), -12)"/>
+              <xsl:value-of select="utils:negative-mod(mma:note(bass/bass-step, bass/bass-alter) - mma:note(root/root-step, root/root-alter), -12)"/>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>

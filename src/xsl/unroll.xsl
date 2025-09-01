@@ -161,13 +161,13 @@
     <xsl:choose>
       <!--
         Fine: Stop everything
-        TODO Handle sound/@time-only for alternate endings.
+        TODO! Handle sound/@time-only for alternate endings.
       -->
       <xsl:when test="*/sound/@fine = 'yes' and $jump != ''">
       </xsl:when>
       <!--
         To Coda: Jump forward to labeled coda
-        TODO Handle sound/@time-only for alternate endings.
+        TODO! Handle sound/@time-only for alternate endings.
       -->
       <xsl:when test="*/sound[@tocoda] and $jump != ''">
         <xsl:variable name="coda" select="*/sound/@tocoda"/>
@@ -187,7 +187,7 @@
       </xsl:when>
       <!--
         Opening repeat: Save this measure as the loop start. Reset loop counter to 1 unless we're already looping.
-        TODO Handle sound/@forward-repeat attribute for the same effect.
+        TODO! Handle sound/@forward-repeat attribute for the same effect.
       -->
       <xsl:when test="barline/repeat/@direction = 'forward' or generate-id(.) = generate-id($repeatMeasure)">
         <xsl:apply-templates select="following-sibling::measure[1]">
