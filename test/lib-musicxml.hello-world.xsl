@@ -8,7 +8,6 @@
   version="3.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:mma="http://www.mellowood.ca/mma"
   xmlns:musicxml="http://www.w3.org/2021/06/musicxml40"
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
@@ -19,8 +18,46 @@
 
   <xsl:output method="json" indent="no" encoding="UTF-8"/>
 
-  <xsl:template match="/">
-    <xsl:apply-templates select="score-partwise/part"/>
+  <xsl:variable name="test">
+<![CDATA[
+<score-partwise version="4.0">
+   <part-list>
+      <score-part id="P1">
+         <part-name>Music</part-name>
+      </score-part>
+   </part-list>
+   <part id="P1">
+      <measure number="1">
+         <attributes>
+            <divisions>1</divisions>
+            <key>
+               <fifths>0</fifths>
+            </key>
+            <time>
+               <beats>4</beats>
+               <beat-type>4</beat-type>
+            </time>
+            <clef>
+               <sign>G</sign>
+               <line>2</line>
+            </clef>
+         </attributes>
+         <note>
+            <pitch>
+               <step>C</step>
+               <octave>4</octave>
+            </pitch>
+            <duration>4</duration>
+            <type>whole</type>
+         </note>
+      </measure>
+   </part>
+</score-partwise>
+]]>
+  </xsl:variable>
+
+  <xsl:template name="test">
+    <xsl:apply-templates select="parse-xml($test)/score-partwise/part"/>
   </xsl:template>
 
   <xsl:template match="part" as="array(*)">

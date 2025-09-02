@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-  Reusable functions for MusicXML documents.
+  Reusable general functions.
 -->
 
 <xsl:stylesheet

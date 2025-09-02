@@ -195,7 +195,12 @@
     <xsl:accumulator-rule match="key" select="musicxml:keyAccidentals(.)"/>
     <xsl:accumulator-rule match="note[pitch and accidental]" select="map:merge((
       $value,
-      map { xs:string(pitch/step) : xs:string(accidental) }
+      map { xs:string(pitch/step) : (
+        if (accidental = 'none') then
+          xs:string(accidental/@smufl)
+        else
+          xs:string(accidental)
+      )}
     ), map{ 'duplicates': 'use-last' })"/>
   </xsl:accumulator>
 
@@ -316,7 +321,14 @@
           map {
             'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
           },
-          map:merge(for $k in $key/key-step return map { xs:string($k) : xs:string($k/following-sibling::key-accidental[1]) })
+          map:merge(for $k in $key/key-step return map {
+            xs:string($k) : (
+              if ($k/following-sibling::key-accidental[1] = 'other') then
+                xs:string($k/following-sibling::key-accidental[1]/@smufl)
+              else
+                xs:string($k/following-sibling::key-accidental[1])
+            )
+          })
         ), map{ 'duplicates': 'use-last' })"/>
       </xsl:when>
     </xsl:choose>
