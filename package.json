@@ -1,6 +1,6 @@
 {
   "name": "musicxml-midi",
-  "version": "2.13.1",
+  "version": "2.13.2",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {
@@ -31,12 +31,11 @@
     "debug:groove": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
     "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
-    "develop": "nodemon -e js,json src/js/server.js",
-    "start": "node src/js/server.js",
+    "start:develop": "nodemon -e js,json src/js/server.js",
+    "start:server": "PORT=${PORT:-8085} node src/js/server.js",
     "test:xsl": "test/libs/bats/bin/bats test/??-${TEST:-*}.bats",
     "test:js": "cross-env PORT=1331 NODE_OPTIONS=--experimental-vm-modules NODE_ENV=test jest -t ${TEST:-''}",
     "test": "npm run test:xsl && npm run test:js",
-    "server": "PORT=8085 npm run start",
     "postinstall": "./postinstall.sh"
   },
   "repository": {

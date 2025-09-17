@@ -2,6 +2,8 @@
 
 <!--
   Generate an Ableton ASCL tuning given an input MusicXML.
+  The generated tuning is created based on associating note accidentals with pitch alterations.
+  An error is thrown if the same note/accidental combination is associated with different pitch/alters.
 -->
 
 <xsl:stylesheet
@@ -11,7 +13,9 @@
   xmlns:musicxml="http://www.w3.org/2021/06/musicxml40"
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
   xmlns:utils="https://github.com/infojunkie/musicxml-midi/utils"
+  xmlns:errors="https://github.com/infojunkie/musicxml-midi/errors"
   xmlns:array="http://www.w3.org/2005/xpath-functions/array"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
   exclude-result-prefixes="#all"
 >
 
@@ -22,15 +26,17 @@
 
   <!--
     State: Accumulate notes with their tunings in cents.
-    TODO! Handle multiple tunings for same note.
   -->
   <xsl:accumulator name="noteTunings" as="map(xs:string, map(xs:string, xs:anyAtomicType))" initial-value="map{}">
     <xsl:accumulator-rule match="note[pitch]">
       <xsl:sequence select="
-        let $accidental := accumulator-after('noteAccidentals')(pitch/step),
-            $noteName := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
-            $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
-            $tuning := utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200)
+        let
+        $accidental := accumulator-after('noteAccidentals')(pitch/step),
+        $noteName := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
+        $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
+        $tuning := utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200),
+        $existing := if (map:contains($value, $noteName) and map:get($value, $noteName)?tuning != $tuning)
+          then fn:error(errors:unhandled, 'Found multiple tunings for note ' || $noteName) else true()
         return map:merge((
           $value,
           map{ $noteName: map{ 'noteName': $noteName, 'tuning': $tuning }}
