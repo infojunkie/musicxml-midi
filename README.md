@@ -25,8 +25,8 @@ MusicXML to MIDI converter, including accompaniment generator using [Musical MID
 - `curl -sSf -F"jq=.[] |= {groove,description,timeSignature}" http://localhost:3000/grooves.json`
 
 # Other operations
-- Extract an Ableton ASCL tuning from a MusicXML score: `npm run --silent convert:tuning song.musicxml > song.ascl`
-- Convert a MIDI file to a timemap JSON file: `./src/js/midi-timemap.js song.mid > song.timemap.json`
+- Extract an Ableton ASCL tuning from a MusicXML score: `npm run --silent convert:tuning song.musicxml > song.tuning.ascl`
+- Extract a pitchset JSON listing from a MusicXML score: `npm run --silent convert:pitchset song.musicxml > song.pitchset.json`
 - Scrape MusicXML examples from the official site: `./src/js/musicxml-examples.js --output=./test/data/examples`
 - Convert MMA grooves to MusicXML: `./src/js/musicxml-grooves.js --output=./test/data/grooves`
 - Convert MIDI to JSON and back: `./src/js/midi-json.js < source.mid | jq [..] | ./src/js/midi-json.js > target.mid`
@@ -40,7 +40,7 @@ This converter creates a valid MMA accompaniment script out of a MusicXML score.
 
 - Optional playback style information, expressed as [`sound/play/other-play` elements](https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/other-play/) with attribute `@type = 'groove'`. The content of this element represents the "groove" that is passed to MMA to generate an accompaniment. In case no such playback style information is found, or the specified style is not mapped to an existing MMA groove, the chords are played back as per the lead sheet without further accompaniment. Note that several styles can be specified in a single sheet, since the `sound` element is associated with `measure` or `measure/direction` elements. The groove can be overridden with the argument `globalGroove`.
 
-The tools contained here can also convert the score to a so-called **Timemap** JSON file, which lists timing information for each measure. This is needed for consumers that wish to synchronize the MusicXML with the MIDI, such as [`musicxml-player`](https://github.com/infojunkie/musicxml-player):
+The tools contained here can also convert the score to a so-called "timemap" JSON file, which lists timing information for each measure. This is needed for consumers that wish to synchronize the MusicXML with the MIDI, such as [`musicxml-player`](https://github.com/infojunkie/musicxml-player):
 ```typescript
 [
   {

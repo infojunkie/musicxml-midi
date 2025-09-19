@@ -125,6 +125,15 @@
             <duration>1</duration>
             <type>quarter</type>
          </note>
+         <note>
+            <pitch>
+               <step>C</step>
+               <octave>4</octave>
+            </pitch>
+            <duration>1</duration>
+            <type>quarter</type>
+            <accidental smufl="accSagittalFlat">other</accidental>
+         </note>
       </measure>
    </part>
 </score-partwise>

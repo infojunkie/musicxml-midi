@@ -27,19 +27,20 @@
   <!--
     State: Accumulate notes with their tunings in cents.
   -->
-  <xsl:accumulator name="noteTunings" as="map(xs:string, map(xs:string, xs:anyAtomicType))" initial-value="map{}">
+  <xsl:accumulator name="tunings" as="map(xs:string, map(xs:string, xs:anyAtomicType))" initial-value="map{}">
     <xsl:accumulator-rule match="note[pitch]">
       <xsl:sequence select="
         let
         $accidental := accumulator-after('noteAccidentals')(pitch/step),
-        $noteName := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
+        $notename := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
         $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
         $tuning := utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200),
-        $existing := if (map:contains($value, $noteName) and map:get($value, $noteName)?tuning != $tuning)
-          then fn:error(errors:unhandled, 'Found multiple tunings for note ' || $noteName) else true()
+        $valid := if (map:contains($value, $notename) and map:get($value, $notename)?tuning != $tuning)
+          then fn:error(errors:unhandled, 'Found multiple tunings for note ' || $notename) else true()
+
         return map:merge((
           $value,
-          map{ $noteName: map{ 'noteName': $noteName, 'tuning': $tuning }}
+          map{ $notename: map{ 'notename': $notename, 'tuning': $tuning }}
         ), map{ 'duplicates': 'use-last' })
       "/>
     </xsl:accumulator-rule>
@@ -47,13 +48,13 @@
 
   <xsl:template match="/">
     <xsl:variable name="tuning" select="
-      let $t1 := array:sort(array{ map:for-each(accumulator-after('noteTunings'), function($k, $v) { $v }) }, (), function($v) { $v?tuning })
+      let $t1 := array:sort(array{ map:for-each(accumulator-after('tunings'), function($k, $v) { $v }) }, (), function($v) { $v?tuning })
       return array:fold-left($t1, array{}, function($t, $v) {
         let $dupes := array:filter($t1, function($d) {
           $d?tuning = $v?tuning and 0 = array:size(array:filter($t, function($dt) { $dt?tuning = $v?tuning }))
         })
         return if (array:size($dupes) > 0) then array:append($t, map{
-          'noteName': string-join(array:for-each($dupes, function($d) { $d?noteName }), '/'),
+          'notename': string-join(array:for-each($dupes, function($d) { $d?notename }), '/'),
           'tuning': $v?tuning
         }) else $t
       })
@@ -67,13 +68,13 @@ Automatically generated tuning from the score <xsl:value-of select="base-uri()"/
 <xsl:value-of select="array:size($tuning)"/>
 ! <xsl:iterate select="2 to array:size($tuning)">
   <xsl:text>&#xa;</xsl:text>
-  <xsl:value-of select="map:get(array:get($tuning, .), 'tuning')"/>. ! <xsl:value-of select="map:get(array:get($tuning, .), 'noteName')"/>
+  <xsl:value-of select="map:get(array:get($tuning, .), 'tuning')"/>. ! <xsl:value-of select="map:get(array:get($tuning, .), 'notename')"/>
 </xsl:iterate>
-1200. ! <xsl:value-of select="map:get(array:get($tuning, 1), 'noteName')"/>
+1200. ! <xsl:value-of select="map:get(array:get($tuning, 1), 'notename')"/>
 !
 ! Note names are formatted as per MusicXML accidentals.
 !
-! @ABL NOTE_NAMES <xsl:iterate select="1 to array:size($tuning)">"<xsl:value-of select="map:get(array:get($tuning, .), 'noteName')"/>" </xsl:iterate>
+! @ABL NOTE_NAMES <xsl:iterate select="1 to array:size($tuning)">"<xsl:value-of select="map:get(array:get($tuning, .), 'notename')"/>" </xsl:iterate>
 ! @ABL REFERENCE_PITCH 4 0 261.625565
   </xsl:template>
 </xsl:stylesheet>

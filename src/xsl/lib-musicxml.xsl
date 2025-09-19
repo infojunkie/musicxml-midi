@@ -186,7 +186,6 @@
 
   <!--
     State: Current note accidental.
-    TODO! Handle @accidental="other" + @smufl
   -->
   <xsl:accumulator name="noteAccidentals" as="map(xs:string, xs:string)" initial-value="map {
     'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
@@ -196,7 +195,7 @@
     <xsl:accumulator-rule match="note[pitch and accidental]" select="map:merge((
       $value,
       map { xs:string(pitch/step) : (
-        if (accidental = 'none') then
+        if (accidental = 'other') then
           xs:string(accidental/@smufl)
         else
           xs:string(accidental)
@@ -262,7 +261,6 @@
 
     FIXME! For key-step/key-alter/key-accidental, this function assumes thay key-accidental is always there (instead of being optional as per the spec.)
     TODO! Include alteration value which can be explicitly set in key-alter.
-    TODO! Handle @accidental="other" + @smufl
   -->
   <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string)">
     <xsl:param name="key"/>
