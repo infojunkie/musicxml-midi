@@ -10,6 +10,7 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:musicxml="http://www.w3.org/2021/06/musicxml40"
   xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+  xmlns:fn="http://www.w3.org/2005/xpath-functions"
   exclude-result-prefixes="#all"
 >
 
@@ -18,6 +19,7 @@
   -->
   <xsl:param name="defaultScalingMillimeters" select="7.0"/>
   <xsl:param name="defaultScalingTenths" select="40"/>
+  <xsl:variable name="sagittals" select="fn:json-doc('../sagittals.json')"/>
 
   <!--
     State: Current divisions value.
@@ -355,7 +357,7 @@
   <!--
     Function: Derive alter value from accidental.
   -->
-  <xsl:function name="musicxml:noteAlter" as="xs:double">
+  <xsl:function name="musicxml:noteAlter" as="xs:double?">
     <xsl:param name="accidental"/>
     <xsl:choose>
       <xsl:when test="$accidental = 'sharp'"><xsl:sequence select="1"/></xsl:when>
@@ -398,9 +400,12 @@
       <xsl:when test="$accidental = 'flat-4'"><xsl:sequence select="-0.889"/></xsl:when>
       <xsl:when test="$accidental = 'sori'"><xsl:sequence select="0.33"/></xsl:when>
       <xsl:when test="$accidental = 'koron'"><xsl:sequence select="-0.67"/></xsl:when>
+      <xsl:when test="map:contains($sagittals, $accidental)">
+        <xsl:sequence select="round($sagittals($accidental)('pitch')?cents div 100 * 1000000) div 1000000"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:message>[musicxml:noteAlter] Unhandled accidental '<xsl:value-of select="$accidental"/>'</xsl:message>
-        <xsl:sequence select="0"/>
+        <xsl:sequence select="()"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:function>

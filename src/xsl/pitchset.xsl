@@ -31,7 +31,7 @@
         let
         $accidental := accumulator-after('noteAccidentals')(pitch/step),
         $notename := concat(xs:string(pitch/step), if ($accidental != 'natural') then $accidental else ''),
-        $alter := if (pitch/alter) then xs:double(pitch/alter) else (),
+        $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
         $valid := if (map:contains($value, $notename) and map:get($value, $notename)?alter != $alter)
           then fn:error(errors:unhandled, 'Found multiple alterations for note ' || $notename) else true()
 

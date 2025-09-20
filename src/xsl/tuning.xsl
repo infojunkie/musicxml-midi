@@ -34,7 +34,7 @@
         $accidental := accumulator-after('noteAccidentals')(pitch/step),
         $notename := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
         $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
-        $tuning := utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200),
+        $tuning := round(utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200) * 10000) div 10000,
         $valid := if (map:contains($value, $notename) and map:get($value, $notename)?tuning != $tuning)
           then fn:error(errors:unhandled, 'Found multiple tunings for note ' || $notename) else true()
 
@@ -72,7 +72,7 @@ Automatically generated tuning from the score <xsl:value-of select="base-uri()"/
 </xsl:iterate>
 1200. ! <xsl:value-of select="map:get(array:get($tuning, 1), 'notename')"/>
 !
-! Note names are formatted as per MusicXML accidentals.
+! Note names are formatted as per MusicXML/SMuFL accidentals.
 !
 ! @ABL NOTE_NAMES <xsl:iterate select="1 to array:size($tuning)">"<xsl:value-of select="map:get(array:get($tuning, .), 'notename')"/>" </xsl:iterate>
 ! @ABL REFERENCE_PITCH 4 0 261.625565
