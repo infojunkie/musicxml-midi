@@ -562,7 +562,10 @@ Chord-Sequence Sequence { </xsl:if>
   -->
   <xsl:template match="note" mode="pitch">
     <xsl:variable name="alter" select="
-      if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter(accumulator-after('noteAccidentals')(pitch/step))"
+      if (pitch/alter) then
+        xs:double(pitch/alter)
+      else
+        (musicxml:noteAlter(accumulator-after('noteAccidentals')(pitch/step)), 0)[1]"
     />
     <xsl:choose>
       <xsl:when test="$alter = round($alter)"/>
