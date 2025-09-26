@@ -19,7 +19,7 @@
   -->
   <xsl:param name="defaultScalingMillimeters" select="7.0"/>
   <xsl:param name="defaultScalingTenths" select="40"/>
-  <xsl:variable name="sagittals" select="fn:json-doc('../sagittals.json')"/>
+  <xsl:variable name="smufl" select="fn:json-doc('../smufl.json')"/>
 
   <!--
     State: Current divisions value.
@@ -189,7 +189,7 @@
   <!--
     State: Current note accidental.
   -->
-  <xsl:accumulator name="noteAccidentals" as="map(xs:string, xs:string)" initial-value="map {
+  <xsl:accumulator name="noteAccidentals" as="map(xs:string, xs:string*)" initial-value="map {
     'C': 'natural', 'D': 'natural', 'E': 'natural', 'F': 'natural', 'G': 'natural', 'A': 'natural', 'B': 'natural'
   }">
     <xsl:accumulator-rule match="measure" select="musicxml:keyAccidentals(accumulator-after('key'))"/>
@@ -198,7 +198,7 @@
       $value,
       map { xs:string(pitch/step) : (
         if (accidental = 'other') then
-          xs:string(accidental/@smufl)
+          fn:tokenize(xs:string(accidental/@smufl), '\W+')
         else
           xs:string(accidental)
       )}
@@ -264,7 +264,7 @@
     FIXME! For key-step/key-alter/key-accidental, this function assumes thay key-accidental is always there (instead of being optional as per the spec.)
     TODO! Include alteration value which can be explicitly set in key-alter.
   -->
-  <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string)">
+  <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string*)">
     <xsl:param name="key"/>
     <xsl:choose>
       <xsl:when test="$key/fifths = 0"><xsl:sequence select="map {
@@ -324,7 +324,7 @@
           map:merge(for $k in $key/key-step return map {
             xs:string($k) : (
               if ($k/following-sibling::key-accidental[1] = 'other') then
-                xs:string($k/following-sibling::key-accidental[1]/@smufl)
+                fn:tokenize(xs:string($k/following-sibling::key-accidental[1]/@smufl), '\W+')
               else
                 xs:string($k/following-sibling::key-accidental[1])
             )
@@ -355,9 +355,18 @@
   </xsl:function>
 
   <!--
-    Function: Derive alter value from accidental.
+    Function: Derive alter value from accidental in MusicXML units of cents/100.
   -->
   <xsl:function name="musicxml:noteAlter" as="xs:double?">
+    <xsl:param name="accidentals"/>
+    <xsl:sequence select="
+      if (count($accidentals) = 1) then
+        musicxml:noteAlterSingle($accidentals)
+      else
+        fn:fold-left($accidentals, 0, function($sum, $acc) { $sum + (musicxml:noteAlterSingle($acc),0)[1] })
+    "/>
+  </xsl:function>
+  <xsl:function name="musicxml:noteAlterSingle" as="xs:double?">
     <xsl:param name="accidental"/>
     <xsl:choose>
       <xsl:when test="$accidental = 'sharp'"><xsl:sequence select="1"/></xsl:when>
@@ -400,8 +409,8 @@
       <xsl:when test="$accidental = 'flat-4'"><xsl:sequence select="-0.889"/></xsl:when>
       <xsl:when test="$accidental = 'sori'"><xsl:sequence select="0.33"/></xsl:when>
       <xsl:when test="$accidental = 'koron'"><xsl:sequence select="-0.67"/></xsl:when>
-      <xsl:when test="map:contains($sagittals, $accidental)">
-        <xsl:sequence select="round($sagittals($accidental)('pitch')?cents div 100 * 1000000) div 1000000"/>
+      <xsl:when test="map:contains($smufl, $accidental) and number($smufl($accidental)) = $smufl($accidental)">
+        <xsl:sequence select="round($smufl($accidental) div 100 * 1000000) div 1000000"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:message>[musicxml:noteAlter] Unhandled accidental '<xsl:value-of select="$accidental"/>'</xsl:message>

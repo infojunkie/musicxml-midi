@@ -13,7 +13,7 @@ set -euo pipefail
 @test "pitchset produecs a valud and correct JSON file for sagittal" {
   pitchset=$(xslt3 -xsl:src/xsl/pitchset.xsl -s:test/data/sagittal.musicxml)
   run echo $pitchset
-  assert_output --partial '"BaccSagittal35LargeDiesisDown":{"accidental":"accSagittal35LargeDiesisDown","pitch":"B","alter":-0.64915},"BaccSagittal5CommaDown":{"accidental":"accSagittal5CommaDown","pitch":"B","alter":-0.21506},"AaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"A","alter":-0.92179},"AaccSagittal5CommaDown":{"accidental":"accSagittal5CommaDown","pitch":"A","alter":-0.21506},"EaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"E","alter":-0.92179},"BaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"B","alter":-0.92179}'
+  assert_output --partial '"BaccSagittal35LargeDiesisDown":{"accidental":"accSagittal35LargeDiesisDown","pitch":"B","alter":-0.64915},"EaccSagittal5CommaDown;accSagittalUnused3":{"accidental":["accSagittal5CommaDown","accSagittalUnused3"],"pitch":"E","alter":-0.21506},"BaccSagittal5CommaDown":{"accidental":"accSagittal5CommaDown","pitch":"B","alter":-0.21506},"AaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"A","alter":-0.92179},"AaccSagittal5CommaDown":{"accidental":"accSagittal5CommaDown","pitch":"A","alter":-0.21506},"EaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"E","alter":-0.92179},"BaccSagittalFlat5CUp":{"accidental":"accSagittalFlat5CUp","pitch":"B","alter":-0.92179}'
 }
 
 @test "pitchset produecs a valud and correct JSON file for Baiao-Miranda" {

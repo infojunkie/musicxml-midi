@@ -32,8 +32,8 @@
       <xsl:sequence select="
         let
         $accidental := accumulator-after('noteAccidentals')(pitch/step),
-        $notename := concat(xs:string(pitch/step), if ($accidental = 'natural') then '' else $accidental),
-        $alter := if (pitch/alter) then xs:double(pitch/alter) else musicxml:noteAlter($accidental),
+        $notename := concat(xs:string(pitch/step), if ($accidental != 'natural') then fn:string-join($accidental,';') else ''),
+        $alter := if (pitch/alter) then xs:double(pitch/alter) else (musicxml:noteAlter($accidental), 0)[1],
         $tuning := round(utils:positive-mod($alter * 100 + musicxml:noteTuning(xs:string(pitch/step)), 1200) * 10000) div 10000,
         $valid := if (map:contains($value, $notename) and map:get($value, $notename)?tuning != $tuning)
           then fn:error(errors:unhandled, 'Found multiple tunings for note ' || $notename) else true()
