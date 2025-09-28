@@ -133,7 +133,8 @@
             </pitch>
             <duration>1</duration>
             <type>quarter</type>
-            <accidental smufl="accSagittalFlat;accSagittalSharp">other</accidental>
+            <accidental smufl="accSagittalFlat">other</accidental>
+            <accidental smufl="accSagittalSharp">other</accidental>
          </note>
       </measure>
    </part>

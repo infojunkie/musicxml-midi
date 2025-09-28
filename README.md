@@ -3,7 +3,7 @@ MusicXML to MIDI converter
 
 MusicXML to MIDI converter, including accompaniment generator using [Musical MIDI Accompaniment (MMA)](http://www.mellowood.ca/mma/).
 
-![GitHub Build Status](https://github.com/infojunkie/musicxml-mma/workflows/Test/badge.svg)
+![GitHub Build Status](https://github.com/infojunkie/musicxml-midi/workflows/Test/badge.svg)
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)

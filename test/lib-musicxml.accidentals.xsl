@@ -91,6 +91,7 @@
                <key-step>F</key-step>
                <key-alter>2</key-alter>
                <key-accidental smufl="accSagittalSharp">other</key-accidental>
+               <key-accidental smufl="accSagittalFlat">other</key-accidental>
             </key>
          </attributes>
          <note>
@@ -165,9 +166,10 @@
   </xsl:template>
 
   <xsl:template match="note" as="map(*)*">
+    <xsl:variable name="accidentals" select="accumulator-after('noteAccidentals')(pitch/step)"/>
     <xsl:map>
       <xsl:map-entry key="'note'" select="xs:string(pitch/step)"/>
-      <xsl:map-entry key="'accidental'" select="accumulator-after('noteAccidentals')(pitch/step)"/>
+      <xsl:map-entry key="'accidental'" select="if (count($accidentals) = 1) then $accidentals else array{$accidentals}"/>
     </xsl:map>
   </xsl:template>
 

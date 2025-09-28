@@ -975,7 +975,8 @@
         <duration>4</duration>
         <voice>2</voice>
         <type>whole</type>
-        <accidental smufl="accSagittal5CommaDown;accSagittalUnused3">other</accidental>
+        <accidental smufl="accSagittal5CommaDown">other</accidental>
+        <accidental smufl="accSagittalUnused3">other</accidental>
         </note>
       <note default-x="15.24" default-y="-30">
         <chord/>

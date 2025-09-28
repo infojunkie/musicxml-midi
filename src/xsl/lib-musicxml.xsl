@@ -196,12 +196,9 @@
     <xsl:accumulator-rule match="key" select="musicxml:keyAccidentals(.)"/>
     <xsl:accumulator-rule match="note[pitch and accidental]" select="map:merge((
       $value,
-      map { xs:string(pitch/step) : (
-        if (accidental = 'other') then
-          fn:tokenize(xs:string(accidental/@smufl), '\W+')
-        else
-          xs:string(accidental)
-      )}
+      map { xs:string(pitch/step) : fn:for-each(accidental, function($accid) {
+        if ($accid != 'other') then xs:string($accid) else xs:string($accid/@smufl)
+      })}
     ), map{ 'duplicates': 'use-last' })"/>
   </xsl:accumulator>
 
@@ -261,7 +258,6 @@
   <!--
     Function: Accidentals for given key signature.
 
-    FIXME! For key-step/key-alter/key-accidental, this function assumes thay key-accidental is always there (instead of being optional as per the spec.)
     TODO! Include alteration value which can be explicitly set in key-alter.
   -->
   <xsl:function name="musicxml:keyAccidentals" as="map(xs:string, xs:string*)">
@@ -323,10 +319,11 @@
           },
           map:merge(for $k in $key/key-step return map {
             xs:string($k) : (
-              if ($k/following-sibling::key-accidental[1] = 'other') then
-                fn:tokenize(xs:string($k/following-sibling::key-accidental[1]/@smufl), '\W+')
-              else
-                xs:string($k/following-sibling::key-accidental[1])
+              let $ns1 := $k/following-sibling::key-accidental,
+                  $ns2 := $k/following-sibling::key-step[1]/preceding-sibling::key-accidental
+              return fn:for-each($ns1 intersect (if (count($ns2) > 0) then $ns2 else $ns1), function($accid) {
+                if ($accid != 'other') then xs:string($accid) else xs:string($accid/@smufl)
+              })
             )
           })
         ), map{ 'duplicates': 'use-last' })"/>

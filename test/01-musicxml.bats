@@ -13,7 +13,7 @@ set -euo pipefail
 @test "lib-musicxml parses note accidentals" {
   test=$(xslt3 -xsl:test/lib-musicxml.accidentals.xsl -it:test)
   run echo "$test"
-  assert_output '[{"measure":{"notes":[{"accidental":"natural","note":"C"}]}},{"measure":{"notes":[{"accidental":"sharp","note":"C"}]}},{"measure":{"notes":[{"accidental":"flat","note":"C"}]}},{"measure":{"notes":[{"accidental":"slash-flat","note":"A"},{"accidental":"quarter-flat","note":"B"},{"accidental":"natural","note":"C"},{"accidental":"accSagittalSharp","note":"F"},{"accidental":"accSagittalFlat","note":"C"}]}}]'
+  assert_output '[{"measure":{"notes":[{"accidental":"natural","note":"C"}]}},{"measure":{"notes":[{"accidental":"sharp","note":"C"}]}},{"measure":{"notes":[{"accidental":"flat","note":"C"}]}},{"measure":{"notes":[{"accidental":"slash-flat","note":"A"},{"accidental":"quarter-flat","note":"B"},{"accidental":"natural","note":"C"},{"accidental":["accSagittalSharp","accSagittalFlat"],"note":"F"},{"accidental":"accSagittalFlat","note":"C"}]}}]'
 }
 
 @test "lib-musicxml parses note alters" {
