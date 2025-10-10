@@ -26,7 +26,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - run: npm install && npm run build
+    - name: Set up go
+      uses: actions/setup-go@v6
+    - run: go install github.com/josephburnett/jd/v2/jd@latest && npm install && npm run build
       env:
         MMA_HOME: mma/
     - run: npm test

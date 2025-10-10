@@ -1,6 +1,6 @@
 {
   "name": "@music-i18n/musicxml-midi",
-  "version": "2.16.3",
+  "version": "2.16.4",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {
@@ -19,7 +19,7 @@
   "scripts": {
     "build:mmarc": "cp mmarc.example mmarc",
     "build:grooves": "${MMA_HOME:-mma}/mma.py -G && find ${MMA_HOME:-mma}/lib grooves -name '*.mma' | while read f; do MMA_ENCODING=utf-8 ${MMA_HOME:-mma}/mma.py -Djs \"$f\" | tail -n +2; done > /tmp/grooves.json; jq -rs \". | flatten\" < /tmp/grooves.json > build/grooves.json",
-    "build:sef": "for xsl in src/xsl/*.xsl; do sef=$(basename \"$xsl\"); xslt3 -relocate:on -xsl:$xsl -export:build/${sef/.xsl/.sef.json} -nogo:1 -t -ns:##html5; done && rm -f cache/*.mid",
+    "build:sef": "./build-sef.sh && rm -f cache/*.mid",
     "build": "[ ! -f mmarc ] && npm run build:mmarc; npm run build:grooves; npm run build:sef",
     "convert:unroll": "run() { xslt3 -xsl:src/xsl/unroll.xsl -s:\"$1\" ${@:2}; }; run",
     "convert:timemap": "run() { xslt3 -xsl:src/xsl/timemap.xsl -s:\"$1\" ${@:2}; }; run",
