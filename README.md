@@ -7,6 +7,7 @@ MusicXML to MIDI converter, including accompaniment generator using [Musical MID
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
+- Install `jd` at https://github.com/josephburnett/jd
 - `git submodule update --init --recursive`
 - `npm install && npm run build`
 
