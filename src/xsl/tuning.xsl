@@ -48,9 +48,12 @@
 
   <xsl:template match="/">
     <xsl:variable name="tuning" select="
-      let $t1 := array:sort(array{ map:for-each(accumulator-after('tunings'), function($k, $v) { $v }) }, (), function($v) { $v?tuning })
-      return array:fold-left($t1, array{}, function($t, $v) {
-        let $dupes := array:filter($t1, function($d) {
+      let
+      $t1 := map:merge((accumulator-after('tunings'), map{ 'C': map{ 'notename': 'C', 'tuning': 0 } }), map{ 'duplicates': 'use-first' }),
+      $t2 := array:sort(array{ map:for-each($t1, function($k, $v) { $v }) }, (), function($v) { $v?tuning })
+
+      return array:fold-left($t2, array{}, function($t, $v) {
+        let $dupes := array:filter($t2, function($d) {
           $d?tuning = $v?tuning and 0 = array:size(array:filter($t, function($dt) { $dt?tuning = $v?tuning }))
         })
         return if (array:size($dupes) > 0) then array:append($t, map{
