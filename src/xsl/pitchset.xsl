@@ -38,6 +38,7 @@
         return map:merge((
           $value,
           map{ $notename: map{
+            'type': 'pitched',
             'pitch': xs:string(pitch/step),
             'accidental': if (count($accidental) = 1) then $accidental else array{$accidental},
             'alter': $alter
@@ -48,12 +49,13 @@
     <xsl:accumulator-rule match="note[unpitched]">
       <xsl:sequence select="
         let
-        $notehead := if (notehead) then translate(notehead, ' ', '-') else (),
-        $notename := concat(xs:string(unpitched/display-step), xs:string(unpitched/display-octave), if ($notehead != 'normal') then $notehead else '')
+        $notehead := if (notehead) then (if (notehead = 'other') then xs:string(notehead/@smufl) else xs:string(notehead)) else 'normal',
+        $notename := concat(xs:string(unpitched/display-step), xs:string(unpitched/display-octave), if ($notehead = 'normal') then '' else translate($notehead, ' ', '-'))
 
         return map:merge((
           $value,
           map{ $notename: map{
+            'type': 'unpitched',
             'pitch': xs:string(unpitched/display-step),
             'octave': xs:string(unpitched/display-octave),
             'notehead': $notehead

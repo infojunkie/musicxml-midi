@@ -1,6 +1,6 @@
 {
   "name": "@music-i18n/musicxml-midi",
-  "version": "2.16.5",
+  "version": "2.16.6",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {

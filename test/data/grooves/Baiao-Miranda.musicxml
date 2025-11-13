@@ -350,7 +350,7 @@
                 <voice>1</voice>
                 <type>16th</type>
                 <stem>up</stem>
-                <notehead>x</notehead>
+                <notehead smufl="mensuralNoteheadSemibrevisVoid">other</notehead>
                 <notations>
                 </notations>
             </note>
