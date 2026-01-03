@@ -7,6 +7,7 @@ MusicXML to MIDI converter, including accompaniment generator using [Musical MID
 
 # Installation
 - Install `xmllint` (included in [libxml2](http://www.xmlsoft.org/) on most platforms)
+- Install `xmlstarlet` at https://xmlstar.sourceforge.net/ (included in most Linux distributions)
 - Install `jd` at https://github.com/josephburnett/jd
 - `git submodule update --init --recursive`
 - `npm install && npm run build`
@@ -26,6 +27,9 @@ MusicXML to MIDI converter, including accompaniment generator using [Musical MID
 - `curl -sSf -F"jq=.[] |= {groove,description,timeSignature}" http://localhost:3000/grooves.json`
 
 # Other operations
+- Validate a MusicXML score: `npm run --silent validate:musicxml song.musicxml`
+- Find MusicXML scores with an XPath query: `npm run --silent query:filter /path/to/musicxml/folder/or/file //xpath/query`
+- Query MusicXML scores with an XPath query: `npm run --silent query:select /path/to/musicxml/folder/or/file //xpath/query`
 - Extract an Ableton ASCL tuning from a MusicXML score: `npm run --silent convert:tuning song.musicxml > song.tuning.ascl`
 - Extract a pitchset JSON listing from a MusicXML score: `npm run --silent convert:pitchset song.musicxml > song.pitchset.json`
 - Scrape MusicXML examples from the official site: `./src/js/musicxml-examples.js --output=./test/data/examples`

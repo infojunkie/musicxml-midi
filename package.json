@@ -1,6 +1,6 @@
 {
   "name": "@music-i18n/musicxml-midi",
-  "version": "2.16.6",
+  "version": "2.17.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {
@@ -29,8 +29,11 @@
     "convert:tuning": "run() { xslt3 -xsl:src/xsl/tuning.xsl -s:\"$1\" ${@:2}; }; run",
     "debug:chord": "run() { echo \"PrintChord $1\" | ${MMA_HOME:-mma}/mma.py -n -; }; run",
     "debug:groove": "run() { ${MMA_HOME:-mma}/mma.py -V \"$@\"; }; run",
-    "validate:musicxml": "run() { xmllint --noout --schema src/xsd/musicxml.xsd \"$1\"; }; run",
+    "validate:musicxml": "run() { xmlstarlet fo -D \"$1\" | xmlstarlet val -q -e -s src/xsd/musicxml.xsd -; }; run",
     "validate:mma": "run() { ${MMA_HOME:-mma}/mma.py -II -n \"$1\"; }; run",
+    "query:filter": "run() { find \"$1\" -name '*.musicxml' | while read f; do o=$(xmlstarlet fo -D \"$f\" | xmlstarlet sel -t -m \"$2\" -c . -n); if [ -n \"$o\" ]; then echo \"$f\"; fi; done }; run",
+    "query:select": "run() { find \"$1\" -name '*.musicxml' | while read f; do o=$(xmlstarlet fo -D \"$f\" | xmlstarlet sel -t -m \"$2\" -c \"${3:-.}\" -n); if [ -n \"$o\" ]; then echo \"$f\n$o\"; fi; done }; run",
+    "query:value": "run() { find \"$1\" -name '*.musicxml' | while read f; do o=$(xmlstarlet fo -D \"$f\" | xmlstarlet sel -t -v \"$2\"); if [ -n \"$o\" ]; then echo \"$f\n$o\"; fi; done }; run",
     "start:develop": "nodemon -e js,json src/js/server.js",
     "start:server": "PORT=${PORT:-8085} node src/js/server.js",
     "test:xsl": "test/libs/bats/bin/bats test/??-${TEST:-*}.bats",
