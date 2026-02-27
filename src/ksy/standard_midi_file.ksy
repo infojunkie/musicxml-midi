@@ -13,7 +13,7 @@ meta:
     mime: audio/midi
     pronom: x-fmt/230
     wikidata: Q10610388
-  license: Cc0-1.0
+  license: CC0-1.0
   imports:
     - /common/vlq_base128_be
   endian: be
@@ -115,7 +115,24 @@ types:
       - id: len
         type: vlq_base128_be
       - id: body
-        size: len.value
+        type:
+          switch-on: meta_type
+          cases:
+            'meta_type_enum::sequence_number': meta_sequence_number
+            'meta_type_enum::text_event': meta_generic_event
+            'meta_type_enum::copyright': meta_generic_event
+            'meta_type_enum::sequence_track_name': meta_generic_event
+            'meta_type_enum::instrument_name': meta_generic_event
+            'meta_type_enum::lyric_text': meta_generic_event
+            'meta_type_enum::marker_text': meta_generic_event
+            'meta_type_enum::cue_point': meta_generic_event
+            'meta_type_enum::midi_channel_prefix_assignment': meta_generic_event
+            'meta_type_enum::end_of_track': meta_end_of_track
+            'meta_type_enum::tempo': meta_tempo
+            'meta_type_enum::smpte_offset': meta_generic_event
+            'meta_type_enum::time_signature': meta_time_signature
+            'meta_type_enum::key_signature': meta_key_signature
+            'meta_type_enum::sequencer_specific_event': meta_generic_event
     enums:
       meta_type_enum:
         0x00: sequence_number
@@ -133,32 +150,98 @@ types:
         0x58: time_signature
         0x59: key_signature
         0x7f: sequencer_specific_event
+  meta_generic_event:
+    -webide-representation: '{text}'
+    seq:
+      - id: text
+        type: str
+        encoding: ASCII
+        size: _parent.len.value
+  meta_sequence_number:
+    seq:
+      - id: sequence_number
+        type: u2
+        if: _parent.len.value > 0
+  meta_end_of_track:
+    seq: []
+  meta_key_signature:
+    -webide-representation: '{key_signature}'
+    seq:
+      - id: sharps
+        type: s1
+      - id: minor
+        type: u1
+    instances:
+      key_signature:
+        value: '["Cb", "Gb", "Db", "Ab", "Eb", "Bb", "F", "C", "G", "D", "A", "E", "B", "F#", "C#"][sharps + 7] + ["maj", "min"][minor]'
+  meta_time_signature:
+    -webide-representation: '{numerator_s}/{denominator_s}'
+    seq:
+      - id: numerator
+        type: u1
+        doc: Numerator of the time signature and has values between 0x00 and 0xFF (0 and 255).
+      - id: denominator
+        type: u1
+        doc: |
+          The power to which the number 2 must be raised to obtain the time signature denominator.
+          Thus, if the fifth byte is 0, the denominator is 20 = 1, denoting whole notes.
+          If the fifth byte is 1, the denominator is 21=2 denoting half notes, and so on.
+      - id: pulse
+        type: u1
+        doc: |
+          The metronome pulse in terms of the number of MIDI clock ticks per click.
+          Assuming 24 MIDI clocks per quarter note, if the value of the sixth byte is 48,
+          the metronome will click every two quarter notes, or in other words, every half-note.
+      - id: beat
+        type: u1
+        doc: The number of 32nd notes per beat. This byte is usually 8 as there is usually one quarter note per beat and one quarter note contains eight 32nd notes.
+    instances:
+      numerator_s:
+        value: numerator.to_s
+      denominator_s:
+        value: '["1", "2", "4", "8", "16", "32", "64", "128", "256", "512", "1024"][denominator]'
+  meta_tempo:
+    -webide-representation: '{bpm:dec} bpm'
+    seq:
+      - id: b3
+        type: u1
+      - id: b2
+        type: u1
+      - id: b1
+        type: u1
+    instances:
+      bpm:
+        value: '60000000 / (b1 | (b2 << 8) | (b3 << 16))'
   note_off_event:
     -webide-representation: '{note_name}'
     seq:
-      - id: note
+      - id: key
         type: u1
       - id: velocity
         type: u1
     instances:
       note_name:
-        value: '["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][note % 12] + (note / 12 - 1).to_s'
+        value: '["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][key % 12] + (key / 12 - 1).to_s'
   note_on_event:
     -webide-representation: '{note_name}'
     seq:
-      - id: note
+      - id: key
         type: u1
       - id: velocity
         type: u1
     instances:
       note_name:
-        value: '["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][note % 12] + (note / 12 - 1).to_s'
+        value: '["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][key % 12] + (key / 12 - 1).to_s'
   polyphonic_pressure_event:
+    -webide-representation: '{note_name}'
     seq:
-      - id: note
+      - id: key
         type: u1
       - id: pressure
         type: u1
+    instances:
+      note_name:
+        value: '["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"][key % 12] + (key / 12 - 1).to_s'
   controller_event:
     seq:
       - id: controller
@@ -201,10 +284,6 @@ types:
             0x7f: sysex_real_time_body
       - id: eox
         contents: [0xf7]
-  sysex_non_real_time_body:
-    seq:
-      - id: sub_id
-        type: u2
   sysex_non_real_time_body:
     seq:
       - id: sub_id
@@ -261,6 +340,7 @@ types:
         repeat: expr
         repeat-expr: count
   three_byte_tuning:
+    -webide-representation: '{key:dec} = {cents_int:dec} cents'
     seq:
       - id: key
         type: u1
@@ -275,6 +355,8 @@ types:
         value: |
           semitone == 0x7f and msb == 0x7f and lsb == 0x7f ? (key - 60.0) * 100.0 :
           (semitone - 60.0) * 100.0 + msb * 100.0 / 128.0 + lsb * 100.0 / 16384.0
+      cents_int:
+        value: cents.as<s4>
       frequency:
         value: |
           semitone == 0x7f and msb == 0x7f and lsb == 0x7f ? _root.midi_note_to_frequency[key] :
