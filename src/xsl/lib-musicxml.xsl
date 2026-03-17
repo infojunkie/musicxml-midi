@@ -38,30 +38,68 @@
   <!--
     State: Current metronome nodeset.
   -->
-  <xsl:accumulator name="metronome" as="element()*" initial-value="()">
+  <xsl:accumulator name="metronome" as="element()*" initial-value="musicxml:metronome-default()">
     <xsl:accumulator-rule match="measure/direction[direction-type/metronome]" select="."/>
   </xsl:accumulator>
+  <xsl:function name="musicxml:metronome-default" as="element()*">
+    <xsl:sequence>
+      <xsl:element name="direction">
+        <xsl:element name="direction-type">
+          <xsl:element name="metronome">
+            <xsl:element name="beat-unit">quarter</xsl:element>
+            <xsl:element name="per-minute">120</xsl:element>
+          </xsl:element>
+        </xsl:element>
+        <xsl:element name="sound">
+          <xsl:attribute name="tempo">120</xsl:attribute>
+        </xsl:element>
+      </xsl:element>
+    </xsl:sequence>
+  </xsl:function>
 
   <!--
     State: Current time signature nodeset.
   -->
-  <xsl:accumulator name="time" as="element()*" initial-value="()">
+  <xsl:accumulator name="time" as="element()*" initial-value="musicxml:time-default()">
     <xsl:accumulator-rule match="measure/attributes/time" select="."/>
   </xsl:accumulator>
+  <xsl:function name="musicxml:time-default" as="element()*">
+    <xsl:sequence>
+      <xsl:element name="time">
+        <xsl:element name="beats">4</xsl:element>
+        <xsl:element name="beat-type">4</xsl:element>
+      </xsl:element>
+    </xsl:sequence>
+  </xsl:function>
 
   <!--
     State: Current clef nodeset.
   -->
-  <xsl:accumulator name="clef" as="element()*" initial-value="()">
+  <xsl:accumulator name="clef" as="element()*" initial-value="musicxml:clef-default()">
     <xsl:accumulator-rule match="measure/attributes/clef" select="."/>
   </xsl:accumulator>
+  <xsl:function name="musicxml:clef-default" as="element()*">
+    <xsl:sequence>
+      <xsl:element name="clef">
+        <xsl:element name="sign">G</xsl:element>
+        <xsl:element name="line">2</xsl:element>
+      </xsl:element>
+    </xsl:sequence>
+  </xsl:function>
 
   <!--
     State: Current key signature nodeset.
   -->
-  <xsl:accumulator name="key" as="element()*" initial-value="()">
+  <xsl:accumulator name="key" as="element()*" initial-value="musicxml:key-default()">
     <xsl:accumulator-rule match="measure/attributes/key" select="."/>
   </xsl:accumulator>
+  <xsl:function name="musicxml:key-default" as="element()*">
+    <xsl:sequence>
+      <xsl:element name="key">
+        <xsl:element name="fifths">0</xsl:element>
+      </xsl:element>
+    </xsl:sequence>
+  </xsl:function>
 
   <!--
     State: Current harmony nodeset.
@@ -109,7 +147,7 @@
     <xsl:accumulator-rule match="note">
       <xsl:choose>
         <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="rest[@measure='yes']">
+        <xsl:when test="rest[@measure = 'yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
         <xsl:otherwise><xsl:sequence select="$value + duration"/></xsl:otherwise>
@@ -132,10 +170,10 @@
     <xsl:accumulator-rule match="note">
       <xsl:choose>
         <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="rest[@measure='yes']">
+        <xsl:when test="rest[@measure = 'yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
-        <xsl:when test="tie[@type='stop']"><xsl:sequence select="$value + duration"/></xsl:when>
+        <xsl:when test="tie[@type = 'stop']"><xsl:sequence select="$value + duration"/></xsl:when>
         <xsl:otherwise><xsl:sequence select="duration"/></xsl:otherwise>
       </xsl:choose>
     </xsl:accumulator-rule>
@@ -151,7 +189,7 @@
     <xsl:accumulator-rule match="note" phase="end">
       <xsl:choose>
         <xsl:when test="chord | grace"><xsl:sequence select="$value"/></xsl:when>
-        <xsl:when test="rest[@measure='yes']">
+        <xsl:when test="rest[@measure = 'yes']">
           <xsl:sequence select="musicxml:measureDuration(ancestor::measure)"/>
         </xsl:when>
         <xsl:otherwise><xsl:sequence select="$value + duration"/></xsl:otherwise>
@@ -345,7 +383,7 @@
       <xsl:when test="$step = 'A'"><xsl:sequence select="900"/></xsl:when>
       <xsl:when test="$step = 'B'"><xsl:sequence select="1100"/></xsl:when>
       <xsl:otherwise>
-        <xsl:message>[musicxml:notetuning] Unhandled step '<xsl:value-of select="$step"/>'</xsl:message>
+        <xsl:message>[musicxml:noteTuning] Unhandled step '<xsl:value-of select="$step"/>'</xsl:message>
         <xsl:sequence select="0"/>
       </xsl:otherwise>
     </xsl:choose>
