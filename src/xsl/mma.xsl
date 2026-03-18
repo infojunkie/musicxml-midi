@@ -32,7 +32,8 @@
   <xsl:param name="muteTracks" select="''"/>
   <xsl:param name="soloTracks" select="''"/>
   <xsl:param name="renumberMeasures" as="xs:boolean" select="false()"/>
-  <xsl:variable name="grooves" select="fn:json-doc('../../build/grooves.json')"/>
+  <xsl:param name="groovesPath" select="'../../build/grooves.json'"/>
+  <xsl:variable name="grooves" select="fn:json-doc($groovesPath)"/>
 
   <!--
     Function: Convert MusicXML note to MMA pitch.

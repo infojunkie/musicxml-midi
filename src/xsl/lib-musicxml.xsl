@@ -19,7 +19,8 @@
   -->
   <xsl:param name="defaultScalingMillimeters" select="7.0"/>
   <xsl:param name="defaultScalingTenths" select="40"/>
-  <xsl:variable name="smufl" select="fn:json-doc('../smufl.json')"/>
+  <xsl:param name="smuflPath" select="'../smufl.json'"/>
+  <xsl:variable name="smufl" select="fn:json-doc($smuflPath)"/>
 
   <!--
     State: Current divisions value.
