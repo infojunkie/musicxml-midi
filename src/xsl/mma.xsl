@@ -296,27 +296,56 @@ BeatAdjust <xsl:value-of select="$durationDifference"/>
   <!--
     Template: Mute/solo tracks using MMA SeqClear.
     TODO! Process "solo" tracks.
-    TODO! Ensure that TRACKNAME-XXX actually exists in the given groove (examining MMA groove database).
   -->
   <xsl:template name="mma:muteTracks">
     <xsl:param name="muteTracks"/>
     <xsl:param name="soloTracks"/>
     <xsl:param name="groove"/>
-    <xsl:variable name="tracks" select="array { 'CHORD', 'DRUM', 'ARIA', 'BASS', 'WALK', 'ARPEGGIO', 'SCALE', 'SOLO', 'MELODY', 'PLECTRUM' }"/>
-    <xsl:for-each select="fn:tokenize($muteTracks, ',')">
+    <xsl:variable name="tracks" select="
+      array:join((
+        array { 'CHORD', 'DRUM', 'ARIA', 'BASS', 'WALK', 'ARPEGGIO', 'SCALE', 'SOLO', 'MELODY', 'PLECTRUM' },
+        array:fold-left(array:filter(
+          map:get(mma:grooveObject($groove), 'tracks'),
+          function($t) { contains(map:get($t, 'track'), '-') }
+        ), array {}, function($st, $t) { array:append($st, upper-case(map:get($t, 'track'))) })
+      ))
+    "/>
+    <xsl:for-each select="fn:for-each(fn:tokenize($muteTracks, ','), function($t) { upper-case($t) })">
       <xsl:choose>
-        <xsl:when test="array:size(array:filter($tracks, function($t) {
-          upper-case(current()) = $t or starts-with(upper-case(current()), concat($t, '-')) })) > 0
-        ">
+        <xsl:when test="array:size(array:filter($tracks, function($t) { current() = $t })) > 0">
           <xsl:text>&#xa;</xsl:text>
           <xsl:value-of select="."/> SeqClear<xsl:text/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message>[mma:muteTracks] Unknown track name '<xsl:value-of select="."/>'</xsl:message>
+          <xsl:message>[mma:muteTracks] Unknown track name '<xsl:value-of select="current()"/>'</xsl:message>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:for-each>
-    <xsl:if test="$soloTracks"><xsl:message>[mma:muteTracks] soloTracks feature not implemented</xsl:message></xsl:if>
+    <xsl:variable name="validSoloTracks">
+      <xsl:for-each select="fn:for-each(fn:tokenize($soloTracks, ','), function($t) { upper-case($t) })">
+        <xsl:choose>
+          <xsl:when test="array:size(array:filter($tracks, function($t) { current() = $t })) > 0">
+            <xsl:sequence select="current()"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:message>[mma:muteTracks] Unknown track name '<xsl:value-of select="current()"/>'</xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="notSoloTracks" select="
+      array:filter($tracks, function($t) {
+        fn:count($validSoloTracks) <= fn:count(fn:filter($validSoloTracks, function($s) {
+          not(fn:starts-with($s, $t)) and not(fn:starts-with($t, $s))
+        }))
+      })
+    "/>
+    <xsl:if test="array:size($notSoloTracks) &lt; array:size($tracks)">
+      <xsl:for-each select="array:flatten($notSoloTracks)">
+        <xsl:text>&#xa;</xsl:text>
+        <xsl:value-of select="."/> SeqClear<xsl:text/>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
   <!--

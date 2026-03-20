@@ -102,6 +102,19 @@ set -euo pipefail
   assert_output --partial 'BeatAdjust -1'
 }
 
+@test "mma mutes the correct tracks for asa-branca" {
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/asa-branca.musicxml muteTracks=Chord,Drum-Zabumba-Maceta-Mute)
+  echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo $mma
+  assert_output --partial 'CHORD SeqClear DRUM-ZABUMBA-MACETA-MUTE SeqClear'
+
+  mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/asa-branca.musicxml soloTracks=DRUM)
+  echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -n -
+  run echo $mma
+  assert_output --partial 'BASS SeqClear'
+  assert_output --partial 'CHORD SeqClear'
+}
+
 @test "mma produces a valid file for that-s-what-friends-are-for" {
   mma=$(xslt3 -xsl:src/xsl/mma.xsl -s:test/data/that-s-what-friends-are-for.musicxml)
   echo "$mma" | ${MMA_HOME:-mma}/mma.py -II -n -
