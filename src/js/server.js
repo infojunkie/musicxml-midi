@@ -152,7 +152,7 @@ app.post('/convert', async (req, res) => {
       stylesheetFileName: 'build/mma.sef.json',
       sourceNode: doc,
       destination: 'serialized',
-      stylesheetParams: { useSef: true, ...params },
+      stylesheetParams: { useSef: true, groovesPath: path.resolve('build/grooves.json'), ...params },
     }, 'async')
     .catch(AbortChainError.chain(error => {
       console.error(`[SaxonJS] ${error.code}: ${error.message}`)

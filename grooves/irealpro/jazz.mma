@@ -1,0 +1,41 @@
+Begin Doc
+
+  iReal Pro jazz grooves, recreated in MMA.
+  Source: https://github.com/infojunkie/ireal-musicxml/blob/main/doc/irealpro.md#grooves-for-playback
+
+End
+
+//////////////////////////////////////////
+// Jazz
+//   Afro 12/8
+//   Ballad Double Time Feel
+//   Ballad Even
+//   Ballad Melodic
+//   Ballad Swing
+//   Blue Note
+//   Bossa Nova
+//   Doo Doo Cats
+//   Double Time Swing
+//   Even 8ths
+//   Even 8ths Open
+//   Even 16ths
+//   Guitar Trio
+//   Gypsy Jazz
+//   Latin
+//   Latin/Swing
+//   Long Notes
+//   Medium Swing
+//   Medium Up Swing
+//   Medium Up Swing 2
+//   New Orleans Swing
+//   Second Line
+//   Slow Swing
+//   Swing Two/Four
+//   Trad Jazz
+//   Up Tempo Swing
+//   Up Tempo Swing 2
+//////////////////////////////////////////
+
+Use jazz-54
+Groove Jazz54
+DefGroove iRealPro-MediumUpSwing54        iReal Pro 5/4 jazz rhythm.

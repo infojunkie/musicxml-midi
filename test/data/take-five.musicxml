@@ -34,7 +34,7 @@
         </direction-type>
         <sound>
           <play>
-            <other-play type="groove">Medium Up Swing</other-play>
+            <other-play type="groove:irealpro">Medium Up Swing</other-play>
           </play>
         </sound>
       </direction>
