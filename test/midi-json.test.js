@@ -11,7 +11,7 @@ describe('midi-json', () => {
     expect(json.header.numTracks).toEqual(3)
   })
   test('should convert incoming JSON to MIDI files', async () => {
-    const execResult = await exec('cat test/data/midi-timemap.test.mid | node src/js/midi-json.js | node src/js/midi-json.js', { encoding: 'buffer' })
+    const execResult = await exec('cat test/data/midi-timemap.test.mid | node src/js/midi-json.js | node src/js/midi-json.js -r', { encoding: 'buffer' })
     const original = fs.readFileSync('test/data/midi-timemap.test.mid')
     expect(execResult.stdout).toEqual(original)
   })

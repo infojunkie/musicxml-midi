@@ -71,14 +71,14 @@ types:
     seq:
       - id: v_time
         type: vlq_base128_be
-      - id: event_header
+      - id: status_byte
         type: u1
       - id: meta_event_body
         type: meta_event_body
-        if: event_header == 0xff
+        if: event_code == 0xff
       - id: sysex_body
         type: sysex_event_body
-        if: event_header == 0xf0
+        if: event_code == 0xf0
       - id: event_body
         type:
           switch-on: event_type
@@ -91,11 +91,14 @@ types:
             'event_type_enum::channel_pressure': channel_pressure_event
             'event_type_enum::pitch_bend': pitch_bend_event
     instances:
+      event_code:
+        value: status_byte
+        if: status_byte >= 0x80
       event_type:
-        value: event_header & 0xf0
+        value: event_code & 0xf0
         enum: event_type_enum
       channel:
-        value: event_header & 0xf
+        value: event_code & 0xf
         if: event_type != event_type_enum::meta_or_sysex_event
     enums:
       event_type_enum:
@@ -126,7 +129,9 @@ types:
             'meta_type_enum::lyric_text': meta_generic_event
             'meta_type_enum::marker_text': meta_generic_event
             'meta_type_enum::cue_point': meta_generic_event
-            'meta_type_enum::midi_channel_prefix_assignment': meta_generic_event
+            'meta_type_enum::device_name': meta_generic_event
+            'meta_type_enum::channel_prefix': meta_generic_event
+            'meta_type_enum::midi_port': meta_generic_event
             'meta_type_enum::end_of_track': meta_end_of_track_event
             'meta_type_enum::tempo': meta_tempo_event
             'meta_type_enum::smpte_offset': meta_generic_event
@@ -143,7 +148,9 @@ types:
         0x05: lyric_text
         0x06: marker_text
         0x07: cue_point
-        0x20: midi_channel_prefix_assignment
+        0x09: device_name
+        0x20: channel_prefix
+        0x21: midi_port
         0x2f: end_of_track
         0x51: tempo
         0x54: smpte_offset
@@ -396,6 +403,7 @@ types:
       - id: pressure
         type: u1
   pitch_bend_event:
+    -webide-representation: '{cents:dec} cents'
     seq:
       - id: b1
         type: u1
@@ -403,9 +411,9 @@ types:
         type: u1
     instances:
       bend:
-        value: (b2 << 7) + b1 - 0x4000
-      adj_bend:
-        value: bend - 0x4000
+        value: '(b2 << 7) + b1 - 0x4000'
+      cents:
+        value: bend / 8192.0 * 2 * 100
   sysex_event_body:
     -webide-representation: '{body.sub_id}'
     seq:
@@ -479,7 +487,7 @@ types:
         repeat: expr
         repeat-expr: count
   three_byte_tuning:
-    -webide-representation: '{key:dec} = {cents_int:dec} cents'
+    -webide-representation: '{key:dec} = {cents:dec} cents'
     seq:
       - id: key
         type: u1
@@ -494,8 +502,6 @@ types:
         value: |
           semitone == 0x7f and msb == 0x7f and lsb == 0x7f ? (key - 60.0) * 100.0 :
           (semitone - 60.0) * 100.0 + msb * 100.0 / 128.0 + lsb * 100.0 / 16384.0
-      cents_int:
-        value: cents.as<s4>
       frequency:
         value: |
           semitone == 0x7f and msb == 0x7f and lsb == 0x7f ? _root.midi_note_to_frequency[key] :
