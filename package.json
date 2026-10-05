@@ -1,6 +1,6 @@
 {
   "name": "@music-i18n/musicxml-midi",
-  "version": "2.18.1",
+  "version": "2.20.0",
   "description": "MusicXML to MIDI converter",
   "type": "module",
   "engines": {
@@ -70,15 +70,19 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "glob": "^11.0.0",
-    "jest": "^29.7.0",
+    "jest": "^30.5.2",
     "midi-file": "^1.2.4",
-    "nodemon": "^3.1.7  ",
+    "nodemon": "^1.14.10",
     "sanitize-filename": "^1.6.3",
-    "sinon": "^19.0.2",
+    "sinon": "^22.1.0",
     "supertest": "^7.0.0"
   },
   "jest": {
     "testEnvironment": "jest-environment-node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/mma/"
+    ],
     "transform": {},
     "coveragePathIgnorePatterns": [
       "/node_modules/"
@@ -86,5 +90,12 @@
     "moduleNameMapper": {
       "^axios$": "<rootDir>/node_modules/axios/dist/node/axios.cjs"
     }
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "node-jq@6.3.1": true,
+    "nodemon@1.19.4": true,
+    "unrs-resolver@1.12.2": true,
+    "validate-with-xmllint@1.2.1": true
   }
 }
